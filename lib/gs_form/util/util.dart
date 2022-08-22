@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path/path.dart' as path;
 
 import '../core/form_style.dart';
 import '../enums/field_status.dart';
@@ -52,7 +51,7 @@ class GSFormUtils {
 
   static showImagePickerBottomSheet(
     BuildContext context,
-    void Function(File image, String type) callback, {
+    void Function(File image) callback, {
     String? galleryName = 'Gallery',
     String? cameraName = 'Camera',
     String? cameraAssets,
@@ -85,8 +84,7 @@ class GSFormUtils {
                             Navigator.pop(context);
                             pickImage(ImageSource.camera).then((imageFile) {
                               if (imageFile != null) {
-                                String type = path.extension(imageFile.path);
-                                callback(imageFile, type.substring(1, type.length));
+                                callback(imageFile);
                               }
                             });
                           },
@@ -119,8 +117,7 @@ class GSFormUtils {
                             Navigator.pop(context);
                             pickImage(ImageSource.gallery).then((imageFile) {
                               if (imageFile != null) {
-                                String type = path.extension(imageFile.path);
-                                callback(imageFile, type.substring(1, type.length));
+                                callback(imageFile);
                               }
                             });
                           },

@@ -64,7 +64,7 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
                 galleryAssets: widget.model.galleryPopupIcon,
 
                 context,
-                (image, type) async {
+                (image) async {
                   _fillImagePath(image);
                 },
               );
