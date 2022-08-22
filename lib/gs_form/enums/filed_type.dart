@@ -1,0 +1,20 @@
+enum GSFieldTypeEnum {
+  mobile,
+  email,
+  password,
+  text,
+  textPlain,
+  spinner,
+  date,
+  dateRage,
+  time,
+  price,
+  number,
+  checkBox,
+  radioGroup,
+  pinCode,
+  masked,
+  bankCard,
+  imagePicker,
+  qrScanner
+}
