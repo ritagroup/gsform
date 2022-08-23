@@ -90,7 +90,7 @@ GSFormStyle(
 
 ```
 	
-<td><img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/gsform_style.png?raw=true" alt="alternatetext" width="220" height="450">
+<td><img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/style.png?raw=true" alt="alternatetext" width="250" height="450">
 	  </td>
   </tr>
  </table>
