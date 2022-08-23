@@ -2,13 +2,12 @@
 
 
 # GSForm | FormMaker
- 
+
 <!-- ## About / Synopsis
  -->
-This package helps in creation of data collection forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.
+This package helps in creation of creating forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.
 
 Also included are common ready-made form input fields for FormBuilder. This gives you a convenient way of adding common ready-made input fields instead of creating your own FormBuilderField from scratch.
-
 * Project status: working
 <!-- 
 See real examples:
@@ -22,12 +21,12 @@ See real examples:
 <!-- Use for instance <https://github.com/ekalinin/github-markdown-toc>: -->
 
 > * [GSForm](#title--repository-name)
->   * [Installation](#installation)
+    >   * [Installation](#installation)
 >   * [Style](#style)
 >   * [Features](#features)
 >   * [Fields](#fields)
 >   * [Attributes](#attributes)
->   	* [Text](#text)
+      >   	* [Text](#text)
 >   	* [TextPlain](#textplain)
 >   	* [Number](#number)
 >   	* [Spinner](#spinner)
@@ -39,9 +38,9 @@ See real examples:
 >   	* [Password](#password)
 >   	* [Price](#price)
 <!-- >   	* [BankCard](#bankcard) -->
->   	
->   	
->   	
+>
+>
+>
 <!-- >     * [Content](#content) -->
 <!-- >     * [Requirements](#requirements) -->
 <!-- >     * [Limitations](#limitations) -->
@@ -56,7 +55,7 @@ See real examples:
 
 Run this command:
 
-With Flutter: 
+With Flutter:
 </br>
 ```
 flutter pub add gsform
@@ -89,7 +88,7 @@ Alternatively, your editor might support flutter pub get. Check the docs for you
 	
 ```
 
-<img src="https://github.com/MohammadBarati/formMaker/blob/main/gsform_style.png?raw=true" alt="alternatetext" width="220" height="450">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/gsform_style.png?raw=true" alt="alternatetext" width="220" height="450">
 
 ## Features
 this is feature section
@@ -127,7 +126,7 @@ GSField.text(
 ```
 </td>
 <td>
-<img src="https://github.com/MohammadBarati/formMaker/blob/main/text.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text.png?raw=true" alt="alternatetext" width="220" height="400">
 </td>
 </tr>
 
@@ -156,7 +155,7 @@ GSField.text(
 ```
 </td>
 <td>
-<img src="https://github.com/MohammadBarati/formMaker/blob/main/text_plain.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text_plain.png?raw=true" alt="alternatetext" width="220" height="400">
 </td>
 </tr>
 
@@ -180,7 +179,7 @@ GSField.text(
 ```
 </td>
 <td>
-<img src="https://github.com/MohammadBarati/formMaker/blob/main/number.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/number.png?raw=true" alt="alternatetext" width="220" height="400">
 </td>
 </tr>
 
@@ -210,7 +209,7 @@ GSField.text(
 ```
 </td>
 <td>
-<img src="https://github.com/MohammadBarati/formMaker/blob/main/spinner.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/spinner.png?raw=true" alt="alternatetext" width="220" height="400">
 </td>
 </tr>
 
@@ -239,7 +238,7 @@ GSField.text(
 ```
 </td>
 <td>
-<img src="https://github.com/MohammadBarati/formMaker/blob/main/date.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/date.png?raw=true" alt="alternatetext" width="220" height="400">
 </td>
 </tr>
 
@@ -272,7 +271,7 @@ GSField.dateRangePicker(
 ```
 </td>
 <td>
-<img src="https://github.com/MohammadBarati/formMaker/blob/main/range_date.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/range_date.png?raw=true" alt="alternatetext" width="220" height="400">
 </td>
 </tr>
 
@@ -297,7 +296,7 @@ GSField.time(
 ```
 </td>
 <td>
-<img src="https://github.com/MohammadBarati/formMaker/blob/main/time.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/time.png?raw=true" alt="alternatetext" width="220" height="400">
 </td>
 </tr>
 
@@ -325,7 +324,7 @@ GSField.time(
 ```
 </td>
 <td>
-<img src="https://github.com/MohammadBarati/formMaker/blob/main/mobile.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/mobile.png?raw=true" alt="alternatetext" width="220" height="400">
 </td>
 </tr>
 
@@ -353,7 +352,7 @@ GSField.time(
 ```
 </td>
 <td>
-<img src="https://github.com/MohammadBarati/formMaker/blob/main/email.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/email.png?raw=true" alt="alternatetext" width="220" height="400">
 </td>
 </tr>
 
@@ -379,7 +378,7 @@ GSField.password(
 ```
 </td>
 <td>
-<img src="https://github.com/MohammadBarati/formMaker/blob/main/password.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/password.png?raw=true" alt="alternatetext" width="220" height="400">
 </td>
 </tr>
 
@@ -406,7 +405,7 @@ GSField.price(
 ```
 </td>
 <td>
-<img src="https://github.com/MohammadBarati/formMaker/blob/main/price.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/price.png?raw=true" alt="alternatetext" width="220" height="400">
 </td>
 </tr>
 
@@ -432,7 +431,7 @@ GSField.bankCard(
 ```
 </td>
 <td>
-<img src="https://github.com/MohammadBarati/formMaker/blob/main/card.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/card.png?raw=true" alt="alternatetext" width="220" height="400">
 </td>
 </tr>
 
@@ -791,7 +790,7 @@ The specific features of each field will be explained in detail below.
     <td><code> false </code></td>
     <td>this String change FROM after select date</td>
   </tr>
-	
+
   <tr>
     <td>to</td>
     <td><code> String </code></td>
