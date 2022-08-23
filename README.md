@@ -75,19 +75,19 @@ Alternatively, your editor might support flutter pub get. Check the docs for you
 	  
 ```dart
 GSFormStyle(
-backgroundFieldColor: COLOR,
-backgroundSectionColor: COLOR,
-sectionCardElevation: 0
-titleStyle: TextStyle,
-fieldHintStyle: TextStyle,
-fieldTextStyle: TextStyle,
-sectionRadius: 10.0,
-errorTextStyle: TextStyle,
-fieldRadius: double,
-helpTextStyle:TextStyle ,
-requireType: GSFieldRequireTypeEnum, //text, star
-sectionCardPadding: 8.0,
-requiredText: '(required)'
+	backgroundFieldColor: COLOR,
+	backgroundSectionColor: COLOR,
+	sectionCardElevation: 0
+	titleStyle: TextStyle,
+	fieldHintStyle: TextStyle,
+	fieldTextStyle: TextStyle,
+	sectionRadius: 10.0,
+	errorTextStyle: TextStyle,
+	fieldRadius: double,
+	helpTextStyle:TextStyle ,
+	requireType: GSFieldRequireTypeEnum, //text, star
+	sectionCardPadding: 8.0,
+	requiredText: '(required)'
 )
 
 ```
@@ -114,19 +114,19 @@ requiredText: '(required)'
 
 ```dart
 GSField.text(
-tag: 'postalCode',
-title: 'title',
-minLine: 1,
-maxLine: 1,
-weight: 12,
-required: true,
-maxLength: 100,
-errorMessage: 'error message',
-hint: 'hint message',
-helpMessage: 'help message',
-validateRegEx: regX,
-postfixWidget: widget,
-prefixWidget: widget,
+	tag: 'postalCode',
+	title: 'title',
+	minLine: 1,
+	maxLine: 1,
+	weight: 12,
+	required: true,
+	maxLength: 100,
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	validateRegEx: regX,
+	postfixWidget: widget,
+	prefixWidget: widget,
 )
 ```
 </td>
@@ -144,18 +144,18 @@ prefixWidget: widget,
 
 ```dart
  GSField.textPlain(
-tag: 'textualAddress',
-title: 'title',
-weight: 12,
-required: true,
-errorMessage: 'error message',
-hint: 'hint message',
-helpMessage: 'help message',
-maxLength: 100,
-maxLine: 2,
-minLine: 1,
-postfixWidget: widget,
-prefixWidget: widget,
+	tag: 'textualAddress',
+	title: 'title',
+	weight: 12,
+	required: true,
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	maxLength: 100,
+	maxLine: 2,
+	minLine: 1,
+	postfixWidget: widget,
+	prefixWidget: widget,
 )
 ```
 </td>
@@ -173,13 +173,13 @@ prefixWidget: widget,
 
 ```dart
    GSField.number(
-tag: '',
-title: 'title',
-weight: 12,
-maxLength: 11,
-required: true,
-errorMessage: 'Error Message',
-helpMessage: 'less than 100',
+	tag: '',
+	title: 'title',
+	weight: 12,
+	maxLength: 11,
+	required: true,
+	errorMessage: 'Error Message',
+	helpMessage: 'less than 100',
 ),
 ```
 </td>
@@ -197,19 +197,18 @@ helpMessage: 'less than 100',
 
 ```dart
   GSField.spinner(
-errorMessage: 'error message',
-hint: 'hint message',
-helpMessage: 'help message',
-tag: 'tag',
-required: true,
-weight: 12,
-title: 'title',
-items: [
-SpinnerDataModel(
-name: '',
-id: 1,
-)
-],
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	tag: 'tag',
+	required: true,
+	weight: 12,
+	title: 'title',
+	items: [
+	SpinnerDataModel(
+	name: '',
+	id: 1,),
+	],
 )
 ```
 </td>
@@ -227,18 +226,18 @@ id: 1,
 
 ```dart
  GSField.datePicker(
-tag: 'tag',
-title: 'title',
-weight: 12,
-isPastAvailable: false,
-required: true,
-postfixWidget: widget,
-displayDateType: DisplayDateType.numeric,
-initialDate: Jalali.now(),
-errorMessage: 'error message',
-hint: 'hint message',
-helpMessage: 'help message',
-prefixWidget: widget,
+	tag: 'tag',
+	title: 'title',
+	weight: 12,
+	isPastAvailable: false,
+	required: true,
+	postfixWidget: widget,
+	displayDateType: DisplayDateType.numeric,
+	initialDate: Jalali.now(),
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	prefixWidget: widget,
 )
 ```
 </td>
@@ -256,22 +255,22 @@ prefixWidget: widget,
 
 ```dart
 GSField.dateRangePicker(
-tag: 'tag',
-title: 'title',
-weight: 12,
-required: true,
-postfixWidget: widget,
-displayDateType: DisplayDateType.numeric,
-isPastAvailable: false,
-availableFrom: Jalali,
-availableTo: Jalali,
-initialDate: Jalali.now(),
-from: 'From : ',
-to: 'To : ',
-errorMessage: 'error message',
-hint: 'hint message',
-helpMessage: 'help message',
-prefixWidget: widget,
+	tag: 'tag',
+	title: 'title',
+	weight: 12,
+	required: true,
+	postfixWidget: widget,
+	displayDateType: DisplayDateType.numeric,
+	isPastAvailable: false,
+	availableFrom: Jalali,
+	availableTo: Jalali,
+	initialDate: Jalali.now(),
+	from: 'From : ',
+	to: 'To : ',
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	prefixWidget: widget,
 )
 ```
 </td>
@@ -289,15 +288,15 @@ prefixWidget: widget,
 
 ```dart
 GSField.time(
-tag: 'tag',
-prefixWidget: widget,
-postfixWidget: widget,
-errorMessage: 'error message',
-hint: 'hint message',
-helpMessage: 'help message',
-required: true,
-initialTime: TimeOfDay,
-weight: 12)
+	tag: 'tag',
+	prefixWidget: widget,
+	postfixWidget: widget,
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	required: true,
+	initialTime: TimeOfDay,
+	weight: 12)
 ```
 </td>
 <td>
@@ -313,18 +312,18 @@ weight: 12)
 <td>
 
 ```dart
-  GSField.mobile(
-tag: 'tag',
-errorMessage: 'error message',
-hint: 'hint message',
-helpMessage: 'help message',
-title: 'title',
-maxLength: 11,
-postfixWidget: widget,
-prefixWidget: widget,
-validateRegEx: regex,
-weight: 12,
-required: true,
+GSField.mobile(
+	tag: 'tag',
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	title: 'title',
+	maxLength: 11,
+	postfixWidget: widget,
+	prefixWidget: widget,
+	validateRegEx: regex,
+	weight: 12,
+	required: true,
 )
 ```
 </td>
@@ -341,18 +340,18 @@ required: true,
 <td>
 
 ```dart
-  GSField.email(
-tag: 'tag',
-errorMessage: 'error message',
-hint: 'hint message',
-helpMessage: 'help message',
-title: 'title',
-maxLength: 11,
-postfixWidget: widget,
-prefixWidget: widget,
-validateRegEx: regex,
-weight: 12,
-required: true,
+GSField.email(
+	tag: 'tag',
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	title: 'title',
+	maxLength: 11,
+	postfixWidget: widget,
+	prefixWidget: widget,
+	validateRegEx: regex,
+	weight: 12,
+	required: true,
 )
 ```
 </td>
@@ -370,15 +369,15 @@ required: true,
 
 ```dart
 GSField.password(
-tag: 'tag',
-errorMessage: 'error message',
-hint: 'hint message',
-helpMessage: 'help message',
-title: 'title',
-maxLength: 11,
-prefixWidget: widget,
-weight: 12,
-required: true,
+	tag: 'tag',
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	title: 'title',
+	maxLength: 11,
+	prefixWidget: widget,
+	weight: 12,
+	required: true,
 )
 ```
 </td>
@@ -396,16 +395,16 @@ required: true,
 
 ```dart
 GSField.price(
-tag: 'tag',
-errorMessage: 'error message',
-hint: 'hint message',
-helpMessage: 'help message',
-title: 'title',
-maxLength: 11,
-prefixWidget: widget,
-currencyName: "\$" ,
-weight: 12,
-required: true,
+	tag: 'tag',
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	title: 'title',
+	maxLength: 11,
+	prefixWidget: widget,
+	currencyName: "\$" ,
+	weight: 12,
+	required: true,
 )
 ```
 </td>
@@ -423,15 +422,15 @@ required: true,
 
 ```dart
 GSField.bankCard(
-tag: 'tag',
-postfixWidget: widget,
-prefixWidget: widget,
-title: 'title',
-weight: 12,
-required: true,
-errorMessage: 'error message',
-hint: 'hint message',
-helpMessage: 'help message',
+	tag: 'tag',
+	postfixWidget: widget,
+	prefixWidget: widget,
+	title: 'title',
+	weight: 12,
+	required: true,
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
 )
 ```
 </td>
