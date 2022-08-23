@@ -423,7 +423,7 @@ GSField.price(
 <tr>
 <td> 12 </td>
 <td>
-<a href="#bankcard">Bank Card</a>
+Bank Card
 </td>
 <td>
 
@@ -593,7 +593,7 @@ The specific features of each field will be explained in detail below.
   </tr>
   <tr>
     <td>showCounter</td>
-    <td><code> boold </code></td>
+    <td><code> bool </code></td>
     <td> - </td>
     <td><code> false </code></td>
     <td>this boolean make counter of textField visible or invisible </td>
