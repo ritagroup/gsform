@@ -56,7 +56,7 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
             borderRadius: BorderRadius.circular(10.0),
           ),
           onTap: () {
-            if (widget.model.allowPickedFromGallery ?? false) {
+            if (widget.model.imageSource ==  GSImageSource.both) {
               GSFormUtils.showImagePickerBottomSheet(
                 cameraName: widget.model.cameraPopupTitle,
                 galleryName: widget.model.galleryPopupTitle,
@@ -68,9 +68,17 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
                   _fillImagePath(image);
                 },
               );
-            } else {
+            } else if(widget.model.imageSource == GSImageSource.camera) {
               GSFormUtils.pickImage(ImageSource.camera).then(
                 (imageFile) {
+                  if (imageFile != null) {
+                    _fillImagePath(imageFile);
+                  }
+                },
+              );
+            }else{
+              GSFormUtils.pickImage(ImageSource.gallery).then(
+                    (imageFile) {
                   if (imageFile != null) {
                     _fillImagePath(imageFile);
                   }

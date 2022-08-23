@@ -58,27 +58,24 @@ class _GSTimePickerFieldState extends State<GSTimePickerField> {
   @override
   Widget build(BuildContext context) {
     widget.context = context  ;
-    return SizedBox(
-      height: 35.0,
-      child: Padding(
-        padding: const EdgeInsets.only(right: 8.0, left: 8.0),
-        child: InkWell(
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  widget.selectedTimeText!,
-                  style: widget.isTimeSelected
-                      ? widget.formStyle.fieldTextStyle
-                      : widget.formStyle.fieldHintStyle,
-                ),
+    return Padding(
+      padding: const EdgeInsets.only(right: 10.0, left: 10.0 , top: 16 , bottom: 16),
+      child: InkWell(
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                widget.selectedTimeText!,
+                style: widget.isTimeSelected
+                    ? widget.formStyle.fieldTextStyle
+                    : widget.formStyle.fieldHintStyle,
               ),
-            ],
-          ),
-          onTap: () {
-            _openTimePicker();
-          },
+            ),
+          ],
         ),
+        onTap: () {
+          _openTimePicker();
+        },
       ),
     );
   }

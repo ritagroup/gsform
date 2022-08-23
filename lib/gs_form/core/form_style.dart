@@ -40,7 +40,7 @@ class GSFormStyle {
         sectionRadius = sectionRadius ?? 4.0,
         sectionCardElevation = sectionCardElevation ?? 2.0,
         sectionCardPadding = sectionCardPadding ?? 2.0,
-        requiredText = requiredText ??'(required)',
+        requiredText = requiredText ?? '(required)',
         fieldHintStyle = fieldHintStyle ?? GSFormTheme.textThemeStyle.headline2!,
         fieldTextStyle = fieldTextStyle ?? GSFormTheme.textThemeStyle.headline2!,
         errorTextStyle = errorTextStyle ?? GSFormTheme.textThemeStyle.headline5!,
@@ -55,18 +55,22 @@ class GSFormStyle {
       fieldTextStyle: GSFormTheme.textThemeStyle.headline2,
       fieldHintStyle: GSFormTheme.textThemeStyle.headline3,
       errorTextStyle: GSFormTheme.textThemeStyle.headline5,
-      helpTextStyle: GSFormTheme.textThemeStyle.headline4);
+      helpTextStyle: GSFormTheme.textThemeStyle.headline4,
+      sectionRadius: 8,
+      fieldRadius: 8);
 
   static GSFormStyle singleSectionFormDefaultDarkStyle = GSFormStyle(
       backgroundFieldColor: GSFormColors.black,
       sectionCardElevation: 0.0,
-      backgroundSectionColor: GSFormColors.colorBackgroundDark,
+      backgroundSectionColor: Colors.transparent,
       sectionCardPadding: 0.0,
       titleStyle: GSFormTheme.textThemeDarkStyle.headline2,
       fieldTextStyle: GSFormTheme.textThemeDarkStyle.headline2,
       fieldHintStyle: GSFormTheme.textThemeDarkStyle.headline3,
       errorTextStyle: GSFormTheme.textThemeDarkStyle.headline5,
-      helpTextStyle: GSFormTheme.textThemeDarkStyle.headline4);
+      helpTextStyle: GSFormTheme.textThemeDarkStyle.headline4,
+      sectionRadius: 8,
+      fieldRadius: 8);
 
   static GSFormStyle multiSectionFormDefaultStyle = GSFormStyle(
     backgroundFieldColor: GSFormColors.colorBackground,
@@ -78,17 +82,20 @@ class GSFormStyle {
     fieldHintStyle: GSFormTheme.textThemeStyle.headline3,
     errorTextStyle: GSFormTheme.textThemeStyle.headline5,
     helpTextStyle: GSFormTheme.textThemeStyle.headline4,
+    sectionRadius: 8,
+    fieldRadius: 8,
   );
 
   static GSFormStyle multiSectionFormDefaultDarkStyle = GSFormStyle(
-    backgroundFieldColor: GSFormColors.colorBackgroundDark,
-    sectionCardElevation: 2.0,
-    backgroundSectionColor: GSFormColors.black,
-    sectionCardPadding: 7.0,
-    titleStyle: GSFormTheme.textThemeDarkStyle.headline2,
-    fieldTextStyle: GSFormTheme.textThemeDarkStyle.headline2,
-    fieldHintStyle: GSFormTheme.textThemeDarkStyle.headline3,
-    errorTextStyle: GSFormTheme.textThemeDarkStyle.headline5,
-    helpTextStyle: GSFormTheme.textThemeDarkStyle.headline4,
-  );
+      backgroundFieldColor: GSFormColors.colorBackgroundDark,
+      backgroundSectionColor: GSFormColors.black,
+      titleStyle: GSFormTheme.textThemeDarkStyle.headline2,
+      fieldTextStyle: GSFormTheme.textThemeDarkStyle.headline2,
+      fieldHintStyle: GSFormTheme.textThemeDarkStyle.headline3,
+      errorTextStyle: GSFormTheme.textThemeDarkStyle.headline5,
+      helpTextStyle: GSFormTheme.textThemeDarkStyle.headline4,
+      sectionRadius: 8,
+      sectionCardElevation: 2.0,
+      sectionCardPadding: 7.0,
+      fieldRadius: 8);
 }

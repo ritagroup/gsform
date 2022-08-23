@@ -82,29 +82,26 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
   @override
   Widget build(BuildContext context) {
     widget.context = context ;
-    return SizedBox(
-      height: 35.0,
-      child: Padding(
-        padding: const EdgeInsets.only(right: 8.0, left: 8.0),
-        child: InkWell(
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  widget.selectedDateText.isEmpty ? widget.model.hint ?? '' : widget.selectedDateText,
-                  style: isDateSelected ? widget.formStyle.fieldTextStyle : widget.formStyle.fieldHintStyle,
-                ),
+    return Padding(
+      padding: const EdgeInsets.only(right: 10.0, left: 10.0 , top: 22 , bottom: 22),
+      child: InkWell(
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                widget.selectedDateText.isEmpty ? widget.model.hint ?? '' : widget.selectedDateText,
+                style: isDateSelected ? widget.formStyle.fieldTextStyle : widget.formStyle.fieldHintStyle,
               ),
-            ],
-          ),
-          onTap: () {
-            if (widget.model.calendarType == GSCalendarType.jalali) {
-              _openDatePicker();
-            } else {
-              _openGregorianPicker();
-            }
-          },
+            ),
+          ],
         ),
+        onTap: () {
+          if (widget.model.calendarType == GSCalendarType.jalali) {
+            _openDatePicker();
+          } else {
+            _openGregorianPicker();
+          }
+        },
       ),
     );
   }

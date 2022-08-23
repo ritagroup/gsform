@@ -60,7 +60,7 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
             underline: const SizedBox(),
             iconSize: 0,
             icon: const Padding(
-              padding: EdgeInsets.only(left: 6.0, right: 6.0),
+              padding: EdgeInsets.only(left: 10.0, right: 10.0),
               child: Icon(
                 Icons.keyboard_arrow_down,
                 size: 20,

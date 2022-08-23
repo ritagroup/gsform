@@ -18,7 +18,7 @@ class GSMobileField extends HookWidget implements GSFieldCallBack {
   Widget build(BuildContext context) {
     controller = useTextEditingController() ;
     return Padding(
-      padding: const EdgeInsets.only(right: 8.0, left: 8.0),
+      padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
         controller: controller,
         maxLength: model.maxLength,

@@ -31,7 +31,7 @@ class GSFormUtils {
         break;
       case GSFieldStatusEnum.normal:
         backgroundColor = style.backgroundFieldColor;
-        borderColor = GSFormColors.white;
+        borderColor = GSFormColors.hintTextDarkColor;
         break;
       default:
         backgroundColor = GSFormColors.white;

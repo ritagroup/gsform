@@ -95,9 +95,9 @@ class _GSDateRangePickerFieldState extends State<GSDateRangePickerField> {
   Widget build(BuildContext context) {
     widget.context = context ;
     return SizedBox(
-      height: 35.0,
+      height: 48.0,
       child: Padding(
-        padding: const EdgeInsets.only(right: 8.0, left: 8.0),
+        padding: const EdgeInsets.only(right: 10.0, left: 10.0 , top:16 , bottom: 16),
         child: InkWell(
           child: Row(
             children: [

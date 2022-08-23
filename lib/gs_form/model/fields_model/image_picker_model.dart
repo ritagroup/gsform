@@ -11,7 +11,7 @@ class GSImagePickerModel extends GSFieldModel {
   String? galleryPopupTitle;
   String? cameraPopupIcon;
   String? galleryPopupIcon;
-  bool? allowPickedFromGallery;
+  GSImageSource? imageSource;
   bool? showCropper;
 
   GSImagePickerModel(
@@ -30,7 +30,7 @@ class GSImagePickerModel extends GSFieldModel {
       this.showCropper,
       this.cameraPopupTitle,
       this.galleryPopupTitle,
-      this.allowPickedFromGallery,
+      this.imageSource,
       this.hint,
       this.iconColor})
       : super(
@@ -44,4 +44,10 @@ class GSImagePickerModel extends GSFieldModel {
           weight: weight,
           showTitle: showTitle,
         );
+
+
+}
+
+enum GSImageSource{
+  camera , gallery , both
 }
