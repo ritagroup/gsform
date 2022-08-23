@@ -7,6 +7,7 @@ class GSTextPlainModel extends GSFieldModel {
   int? maxLine;
   int? minLine;
   String? hint;
+  bool? showCounter;
 
   GSTextPlainModel(
       {type,
@@ -25,7 +26,8 @@ class GSTextPlainModel extends GSFieldModel {
       showTitle,
       this.minLine,
       this.maxLine,
-      this.hint})
+      this.hint,
+      this.showCounter})
       : super(
           type: type,
           tag: tag,

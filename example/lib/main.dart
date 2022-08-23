@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/enums/filed_required_type.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -122,6 +121,8 @@ class MultiSectionForm extends StatelessWidget {
                           tag: 'explain',
                           title: 'Explain',
                           weight: 12,
+                          maxLength: 150,
+                          showCounter: true,
                           required: true,
                         ),
                         GSField.password(
