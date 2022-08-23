@@ -4,6 +4,7 @@ import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/values/theme.dart';
 import 'package:gsform/gs_form/widget/field.dart';
 
+// ignore: must_be_immutable
 class GSSection extends StatelessWidget {
   late List<Widget> fields;
   GSFormStyle? style;

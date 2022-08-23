@@ -39,6 +39,7 @@ import 'package:gsform/gs_form/widget/fields/text_field.dart';
 import 'package:gsform/gs_form/widget/fields/text_plain_field.dart';
 import 'package:gsform/gs_form/widget/fields/time_picker_field.dart';
 
+// ignore: must_be_immutable
 class GSField extends StatefulWidget {
   late GSFieldModel model;
   Widget? child;

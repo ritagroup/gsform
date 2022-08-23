@@ -4,6 +4,7 @@ import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/fields_model/text_plain_model.dart';
 
+// ignore: must_be_immutable
 class GSTextPlainField extends HookWidget implements GSFieldCallBack {
   late GSTextPlainModel model;
   GSFormStyle formStyle;

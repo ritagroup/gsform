@@ -39,5 +39,5 @@ abstract class GSFieldModel {
       this.nextFocusNode,
       GSFieldStatusEnum? status,
       })
-      : this.status = status ?? GSFieldStatusEnum.normal;
+      : status = status ?? GSFieldStatusEnum.normal;
 }

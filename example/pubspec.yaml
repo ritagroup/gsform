@@ -33,7 +33,7 @@ dependencies:
   get: ^4.1.4
 
   gsform:
-    path: ./gsform
+    path: ../
 
 
 

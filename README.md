@@ -5,16 +5,14 @@
 
 <!-- ## About / Synopsis
  -->
-This package helps in creation of creating forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.
+This package helps to creating forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.
 
-Also included are common ready-made form input fields for FormBuilder. This gives you a convenient way of adding common ready-made input fields instead of creating your own FormBuilderField from scratch.
+Also included are common ready-made form input fields for GSForm. This gives you a convenient way of adding common ready-made input fields instead of creating your own FormBuilderField from scratch.
 * Project status: working
-<!-- 
+
 See real examples:
 
-* <https://github.com/nuxeo/nuxeo/blob/master/README.md>
-* <https://github.com/nuxeo/nuxeo-drive/blob/master/README.md>
-* <https://github.com/nuxeo/nuxeo-sdk-ios/blob/master/README.md> -->
+* <https://github.com/golrangsystem/gsform/tree/main/example>
 
 ## Table of contents
 

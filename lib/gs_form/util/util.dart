@@ -156,8 +156,8 @@ class GSFormUtils {
   }
 
   static Future<File?> pickImage(ImageSource imageSource) async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? image = await _picker.pickImage(
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(
       source: imageSource,
       maxWidth: 400,
       maxHeight: 400,
