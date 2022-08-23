@@ -23,7 +23,7 @@ See real examples:
 > * [GSForm](#title--repository-name)
 >   * [Installation](#installation)
 >   * [Style](#style)
->   * [Features](#features)
+<!-- >   * [Features](#features) -->
 >   * [Fields](#fields)
 >   * [Attributes](#attributes)
 >       * [Text](#text)
@@ -49,7 +49,7 @@ See real examples:
 <!-- >   * [Resources (Documentation and other links)](#resources-documentation-and-other-links) -->
 <!-- >   * [Contributing / Reporting issues](#contributing--reporting-issues) -->
 >   * [License](#license)
->   * [About GSForm](#about-nuxeo)
+>   * [About Golrang](#about-golrang)
 
 ## Installation
 
@@ -69,8 +69,12 @@ dependencies:
 Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn more.
 
 ## Style
+<table>
+  <tr>
+    <td>
+	  
 ```dart
-	GSFormStyle(
+GSFormStyle(
 backgroundFieldColor: COLOR,
 backgroundSectionColor: COLOR,
 sectionCardElevation: 0
@@ -87,11 +91,12 @@ requiredText: '(required)'
 )
 
 ```
+	
+<td><img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/gsform_style.png?raw=true" alt="alternatetext" width="220" height="450">
+	  </td>
+  </tr>
+ </table>
 
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/gsform_style.png?raw=true" alt="alternatetext" width="220" height="450">
-
-## Features
-this is feature section
 
 ## Fields
 
@@ -840,6 +845,11 @@ Link to JIRA component (or project if there is no component for that project). S
 
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-## About Golrang System
 
-test about golrang
+## AboutGolrang
+
+Golrang System Company is an active company in the field of information and communication technology, which aims to provide information technology solutions to help productivity and improve the capability and profitability of Golrang Industrial Group as the arm of the senior management since the beginning of the group's establishment. The passage of time has reached growth.
+
+Considering the expansion of the use of information technology in the field of industry and the trend of companies towards globalization, this company has put the provision of advanced information and communication technology solutions on its agenda, and it tries to be an integrated task by focusing on the field of information and communication technology. Be responsible for creating systems, project management and technical and consulting services. 
+ 
+
