@@ -100,7 +100,7 @@ this is feature section
 <td> Row </td> <td> Field </td> <td> Sample Code </td> <td> Preview </td>
 </tr>
 
-<tr>
+<tr style="width:100%;">
 <td> 1 </td>
 <td>
 <a href="#text">Text</a>
@@ -126,7 +126,7 @@ GSField.text(
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text.png?raw=true" alt="alternatetext" width="255" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text.png?raw=true" alt="alternatetext" height="400">
 </td>
 </tr>
 
