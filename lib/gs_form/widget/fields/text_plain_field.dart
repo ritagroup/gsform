@@ -9,15 +9,15 @@ class GSTextPlainField extends HookWidget implements GSFieldCallBack {
   late GSTextPlainModel model;
   GSFormStyle formStyle;
 
-  late var controller ;
+  late var controller;
 
   GSTextPlainField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    controller  = useTextEditingController();
+    controller = useTextEditingController();
     return Padding(
-      padding: const EdgeInsets.only(right: 10.0, left: 10.0),
+      padding: const EdgeInsets.only(right: 8.0, left: 8.0,bottom: 8.0),
       child: TextField(
         controller: controller,
         maxLines: model.maxLine,
@@ -33,9 +33,11 @@ class GSTextPlainField extends HookWidget implements GSFieldCallBack {
           FocusScope.of(context).requestFocus(model.nextFocusNode);
         },
         decoration: InputDecoration(
+          counter: model.showCounter! ? null : const Offstage(),
           hintText: model.hint,
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
+          counterStyle: formStyle.fieldHintStyle,
           errorBorder: InputBorder.none,
           disabledBorder: InputBorder.none,
           hintStyle: formStyle.fieldHintStyle,

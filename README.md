@@ -1,14 +1,22 @@
 <!-- >  **Warning**: under cunstruction  -->
+</br>
+</br>
+</br>
 
+<p align="center">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/gsform_logo.png?raw=true" width="300" height="100">
+	
+</br>
 
-# GSForm | FormMaker
-
+</p>
 <!-- ## About / Synopsis
  -->
-This package helps to creating forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.
+This package helps to create forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.
 
 Also included are common ready-made form input fields for GSForm. This gives you a convenient way of adding common ready-made input fields instead of creating your own FormBuilderField from scratch.
-* Project status: working
+<!--* Project status: working -->
+
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/header.jpg?raw=true">
 
 See real examples:
 
@@ -47,7 +55,7 @@ See real examples:
 <!-- >   * [Resources (Documentation and other links)](#resources-documentation-and-other-links) -->
 <!-- >   * [Contributing / Reporting issues](#contributing--reporting-issues) -->
 >   * [License](#license)
->   * [About Golrang](#about-golrang)
+>   * [About Golrang System](#about-golrang-system)
 
 ## Installation
 
@@ -62,7 +70,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```
 dependencies:
-  gsform: ^0.0.1
+  gsform: ^0.0.3
 ```
 Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn more.
 
@@ -90,7 +98,7 @@ GSFormStyle(
 
 ```
 	
-<td><img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/gsform_style.png?raw=true" alt="alternatetext" width="220" height="450">
+<td><img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/style.png?raw=true" alt="alternatetext" width="250" height="450">
 	  </td>
   </tr>
  </table>
@@ -415,7 +423,7 @@ GSField.price(
 <tr>
 <td> 12 </td>
 <td>
-<a href="#bankcard">Bank Card</a>
+Bank Card
 </td>
 <td>
 
@@ -441,7 +449,7 @@ GSField.bankCard(
 </table>
 
 
-### Attributes
+## Attributes
 
 Some features are common to all fields, which are introduced in the table below.
 The specific features of each field will be explained in detail below.
@@ -582,6 +590,13 @@ The specific features of each field will be explained in detail below.
     <td> - </td>
     <td><code> false </code></td>
     <td>maximum line of text</td>
+  </tr>
+  <tr>
+    <td>showCounter</td>
+    <td><code> bool </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>this boolean make counter of textField visible or invisible </td>
   </tr>
 </table>
 
@@ -840,7 +855,7 @@ Link to JIRA component (or project if there is no component for that project). S
 * [Link to project](https://jira.nuxeo.com/secure/CreateIssue!default.jspa?project=NXP)
  -->
 
-## AboutGolrang
+## About Golrang System
 
 Golrang System Company is an active company in the field of information and communication technology, which aims to provide information technology solutions to help productivity and improve the capability and profitability of Golrang Industrial Group as the arm of the senior management since the beginning of the group's establishment. The passage of time has reached growth.
 

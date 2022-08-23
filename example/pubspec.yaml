@@ -30,7 +30,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  get: ^4.1.4
   flutter_svg: ^1.1.0
 
 
