@@ -154,7 +154,7 @@ GSField.text(
         )
 ```
 </td>
-<td>
+<td style="width: 220px">
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text_plain.png?raw=true" alt="alternatetext" width="220" height="400">
 </td>
 </tr>
