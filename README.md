@@ -22,12 +22,12 @@ See real examples:
 
 > * [GSForm](#title--repository-name)
     >   * [Installation](#installation)
->   * [Style](#style)
+    >   * [Style](#style)
 >   * [Features](#features)
 >   * [Fields](#fields)
 >   * [Attributes](#attributes)
       >   	* [Text](#text)
->   	* [TextPlain](#textplain)
+      >   	* [TextPlain](#textplain)
 >   	* [Number](#number)
 >   	* [Spinner](#spinner)
 >   	* [DatePicker](#datepicker)
@@ -126,7 +126,7 @@ GSField.text(
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text.png?raw=true" alt="alternatetext" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text.png?raw=true" alt="alternatetext" height="300">
 </td>
 </tr>
 
@@ -154,8 +154,8 @@ GSField.text(
         )
 ```
 </td>
-<td style="width: 220px">
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text_plain.png?raw=true" alt="alternatetext" width="220" height="400">
+<td>
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text_plain.png?raw=true" alt="alternatetext" width="150" height="300">
 </td>
 </tr>
 
@@ -179,7 +179,7 @@ GSField.text(
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/number.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/number.png?raw=true" alt="alternatetext" width="150" height="300">
 </td>
 </tr>
 
@@ -209,7 +209,7 @@ GSField.text(
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/spinner.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/spinner.png?raw=true" alt="alternatetext" width="150" height="300">
 </td>
 </tr>
 
@@ -238,7 +238,7 @@ GSField.text(
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/date.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/date.png?raw=true" alt="alternatetext" width="150" height="300">
 </td>
 </tr>
 
@@ -271,7 +271,7 @@ GSField.dateRangePicker(
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/range_date.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/range_date.png?raw=true" alt="alternatetext" width="150" height="300">
 </td>
 </tr>
 
@@ -296,7 +296,7 @@ GSField.time(
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/time.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/time.png?raw=true" alt="alternatetext" width="150" height="300">
 </td>
 </tr>
 
@@ -324,7 +324,7 @@ GSField.time(
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/mobile.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/mobile.png?raw=true" alt="alternatetext" width="150" height="300">
 </td>
 </tr>
 
@@ -352,7 +352,7 @@ GSField.time(
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/email.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/email.png?raw=true" alt="alternatetext" width="150" height="300">
 </td>
 </tr>
 
@@ -378,7 +378,7 @@ GSField.password(
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/password.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/password.png?raw=true" alt="alternatetext" width="150" height="300">
 </td>
 </tr>
 
@@ -405,7 +405,7 @@ GSField.price(
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/price.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/price.png?raw=true" alt="alternatetext" width="150" height="300">
 </td>
 </tr>
 
@@ -431,7 +431,7 @@ GSField.bankCard(
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/card.png?raw=true" alt="alternatetext" width="220" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/card.png?raw=true" alt="alternatetext" width="150" height="300">
 </td>
 </tr>
 
