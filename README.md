@@ -47,7 +47,7 @@ See real examples:
 <!-- >   * [Resources (Documentation and other links)](#resources-documentation-and-other-links) -->
 <!-- >   * [Contributing / Reporting issues](#contributing--reporting-issues) -->
 >   * [License](#license)
->   * [About Golrang](#about-golrang)
+>   * [About Golrang System](#about-golrang-system)
 
 ## Installation
 
@@ -840,7 +840,7 @@ Link to JIRA component (or project if there is no component for that project). S
 * [Link to project](https://jira.nuxeo.com/secure/CreateIssue!default.jspa?project=NXP)
  -->
 
-## AboutGolrang
+## About Golrang System
 
 Golrang System Company is an active company in the field of information and communication technology, which aims to provide information technology solutions to help productivity and improve the capability and profitability of Golrang Industrial Group as the arm of the senior management since the beginning of the group's establishment. The passage of time has reached growth.
 
