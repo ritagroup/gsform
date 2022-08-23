@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:gsform/gs_form/core/form_style.dart';
-import 'package:gsform/gs_form/enums/filed_required_type.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/spinner_data_model.dart';
 import 'package:gsform/gs_form/widget/field.dart';
@@ -20,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       theme: ThemeData(
         brightness: Brightness.light,
         backgroundColor: const Color(0xfff5f5f5),
@@ -87,7 +84,6 @@ class MultiSectionForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text('Multi section screen'),
       ),
@@ -159,9 +155,12 @@ class MultiSectionForm extends StatelessWidget {
                             errorMessage: 'please enter a name',
                           ),
                           GSField.textPlain(
+                            hint: 'sds',
                             tag: 'lastName',
                             title: 'Market address',
                             maxLine: 4,
+                            maxLength: 233,
+                            showCounter: false,
                             weight: 12,
                             prefixWidget: Icon(Icons.location_city, color: Colors.blue),
                             required: true,
@@ -212,7 +211,6 @@ class SingleSectionForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
 
       appBar: AppBar(
         title: const Text('Single section Page'),
@@ -299,7 +297,7 @@ class SingleSectionForm extends StatelessWidget {
                       title: 'Email',
                       errorMessage: 'error',
                       helpMessage: 'someemail@gmail.com',
-                      postfixWidget: const Icon(Icons.email, color: const Color(0xff676767)),
+                      postfixWidget: const Icon(Icons.email, color: Color(0xff676767)),
                       weight: 12,
                       required: false,
                     ),
@@ -307,6 +305,7 @@ class SingleSectionForm extends StatelessWidget {
                       tag: 'explain',
                       title: 'Description',
                       weight: 12,
+                      maxLength: 150,
                       required: true,
                       minLine: 4,
                     ),
