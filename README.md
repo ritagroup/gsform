@@ -296,7 +296,8 @@ GSField.time(
 	helpMessage: 'help message',
 	required: true,
 	initialTime: TimeOfDay,
-	weight: 12)
+	weight: 12
+	)
 ```
 </td>
 <td>
