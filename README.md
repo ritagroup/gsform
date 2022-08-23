@@ -591,6 +591,13 @@ The specific features of each field will be explained in detail below.
     <td><code> false </code></td>
     <td>maximum line of text</td>
   </tr>
+  <tr>
+    <td>showCounter</td>
+    <td><code> boold </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>this boolean make counter of textField visible or invisible </td>
+  </tr>
 </table>
 
 
