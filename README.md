@@ -126,7 +126,7 @@ prefixWidget: widget,
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text.png?raw=true" alt="alternatetext" width="150" height="200">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text.png?raw=true" alt="alternatetext" width="150" height="250">
 </td>
 </tr>
 
@@ -155,7 +155,7 @@ prefixWidget: widget,
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text_plain.png?raw=true" alt="alternatetext" width="150" height="200">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text_plain.png?raw=true" alt="alternatetext" width="150" height="250">
 </td>
 </tr>
 
@@ -179,7 +179,7 @@ helpMessage: 'less than 100',
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/number.png?raw=true" alt="alternatetext" width="150" height="200">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/number.png?raw=true" alt="alternatetext" width="150" height="250">
 </td>
 </tr>
 
@@ -209,7 +209,7 @@ id: 1,
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/spinner.png?raw=true" alt="alternatetext" width="150" height="200">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/spinner.png?raw=true" alt="alternatetext" width="150" height="250">
 </td>
 </tr>
 
@@ -238,7 +238,7 @@ prefixWidget: widget,
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/date.png?raw=true" alt="alternatetext" width="150" height="200">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/date.png?raw=true" alt="alternatetext" width="150" height="250">
 </td>
 </tr>
 
@@ -271,7 +271,7 @@ prefixWidget: widget,
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/range_date.png?raw=true" alt="alternatetext" width="150" height="200">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/range_date.png?raw=true" alt="alternatetext" width="150" height="250">
 </td>
 </tr>
 
@@ -296,7 +296,7 @@ weight: 12)
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/time.png?raw=true" alt="alternatetext" width="150" height="200">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/time.png?raw=true" alt="alternatetext" width="150" height="250">
 </td>
 </tr>
 
@@ -324,7 +324,7 @@ required: true,
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/mobile.png?raw=true" alt="alternatetext" width="150" height="200">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/mobile.png?raw=true" alt="alternatetext" width="150" height="250">
 </td>
 </tr>
 
@@ -352,7 +352,7 @@ required: true,
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/email.png?raw=true" alt="alternatetext" width="150" height="200">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/email.png?raw=true" alt="alternatetext" width="150" height="250">
 </td>
 </tr>
 
@@ -378,7 +378,7 @@ required: true,
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/password.png?raw=true" alt="alternatetext" width="150" height="200">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/password.png?raw=true" alt="alternatetext" width="150" height="250">
 </td>
 </tr>
 
@@ -405,7 +405,7 @@ required: true,
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/price.png?raw=true" alt="alternatetext" width="150" height="200">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/price.png?raw=true" alt="alternatetext" width="150" height="250">
 </td>
 </tr>
 
@@ -431,7 +431,7 @@ helpMessage: 'help message',
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/card.png?raw=true" alt="alternatetext" width="150" height="200">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/card.png?raw=true" alt="alternatetext" width="150" height="250">
 </td>
 </tr>
 
