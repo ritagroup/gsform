@@ -21,12 +21,12 @@ See real examples:
 <!-- Use for instance <https://github.com/ekalinin/github-markdown-toc>: -->
 
 > * [GSForm](#title--repository-name)
-    >   * [Installation](#installation)
+>   * [Installation](#installation)
 >   * [Style](#style)
 >   * [Features](#features)
 >   * [Fields](#fields)
 >   * [Attributes](#attributes)
-      >       * [Text](#text)
+>       * [Text](#text)
 >   	* [TextPlain](#textplain)
 >   	* [Number](#number)
 >   	* [Spinner](#spinner)
