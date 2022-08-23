@@ -23,12 +23,12 @@ See real examples:
 > * [GSForm](#title--repository-name)
     >   * [Installation](#installation)
     >   * [Style](#style)
->   * [Features](#features)
+    >   * [Features](#features)
 >   * [Fields](#fields)
 >   * [Attributes](#attributes)
       >   	* [Text](#text)
       >   	* [TextPlain](#textplain)
->   	* [Number](#number)
+      >   	* [Number](#number)
 >   	* [Spinner](#spinner)
 >   	* [DatePicker](#datepicker)
 >   	* [DateRangedPicker](#daterangedpicker)
@@ -71,21 +71,21 @@ Alternatively, your editor might support flutter pub get. Check the docs for you
 ## Style
 ```dart
 	GSFormStyle(
-                backgroundFieldColor: COLOR,
-                backgroundSectionColor: COLOR,
-                sectionCardElevation: 0
-                titleStyle: TextStyle,
-                fieldHintStyle: TextStyle,
-                fieldTextStyle: TextStyle,
-                sectionRadius: 10.0,
-		errorTextStyle: TextStyle,
-                fieldRadius: double,
-                helpTextStyle:TextStyle ,
-                requireType: GSFieldRequireTypeEnum, //text, star
-                sectionCardPadding: 8.0,
-		requiredText: '(required)' 
-              )
-	
+backgroundFieldColor: COLOR,
+backgroundSectionColor: COLOR,
+sectionCardElevation: 0
+titleStyle: TextStyle,
+fieldHintStyle: TextStyle,
+fieldTextStyle: TextStyle,
+sectionRadius: 10.0,
+errorTextStyle: TextStyle,
+fieldRadius: double,
+helpTextStyle:TextStyle ,
+requireType: GSFieldRequireTypeEnum, //text, star
+sectionCardPadding: 8.0,
+requiredText: '(required)'
+)
+
 ```
 
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/gsform_style.png?raw=true" alt="alternatetext" width="220" height="450">
@@ -109,24 +109,24 @@ this is feature section
 
 ```dart
 GSField.text(
-          tag: 'postalCode',
-          title: 'title',
-          minLine: 1,
-          maxLine: 1,
-          weight: 12,
-          required: true,
-          maxLength: 100,
-          errorMessage: 'error message',
-          hint: 'hint message',
-          helpMessage: 'help message',
-          validateRegEx: regX,
-          postfixWidget: widget,
-          prefixWidget: widget,
-        )
+tag: 'postalCode',
+title: 'title',
+minLine: 1,
+maxLine: 1,
+weight: 12,
+required: true,
+maxLength: 100,
+errorMessage: 'error message',
+hint: 'hint message',
+helpMessage: 'help message',
+validateRegEx: regX,
+postfixWidget: widget,
+prefixWidget: widget,
+)
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text.png?raw=true" alt="alternatetext" height="300">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text.png?raw=true" alt="alternatetext" width="150" height="200">
 </td>
 </tr>
 
@@ -139,23 +139,23 @@ GSField.text(
 
 ```dart
  GSField.textPlain(
-          tag: 'textualAddress',
-          title: 'title',
-          weight: 12,
-          required: true,
-          errorMessage: 'error message',
-          hint: 'hint message',
-          helpMessage: 'help message',
-          maxLength: 100,
-          maxLine: 2,
-          minLine: 1,
-          postfixWidget: widget,
-          prefixWidget: widget,
-        )
+tag: 'textualAddress',
+title: 'title',
+weight: 12,
+required: true,
+errorMessage: 'error message',
+hint: 'hint message',
+helpMessage: 'help message',
+maxLength: 100,
+maxLine: 2,
+minLine: 1,
+postfixWidget: widget,
+prefixWidget: widget,
+)
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text_plain.png?raw=true" alt="alternatetext" width="150" height="300">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text_plain.png?raw=true" alt="alternatetext" width="150" height="200">
 </td>
 </tr>
 
@@ -168,18 +168,18 @@ GSField.text(
 
 ```dart
    GSField.number(
-                  tag: '',
-                  title: 'title',
-                  weight: 12,
-                  maxLength: 11,
-                  required: true,
-                  errorMessage: 'Error Message',
-                  helpMessage: 'less than 100',
-                ),
+tag: '',
+title: 'title',
+weight: 12,
+maxLength: 11,
+required: true,
+errorMessage: 'Error Message',
+helpMessage: 'less than 100',
+),
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/number.png?raw=true" alt="alternatetext" width="150" height="300">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/number.png?raw=true" alt="alternatetext" width="150" height="200">
 </td>
 </tr>
 
@@ -192,24 +192,24 @@ GSField.text(
 
 ```dart
   GSField.spinner(
-          errorMessage: 'error message',
-          hint: 'hint message',
-          helpMessage: 'help message',
-          tag: 'tag',
-          required: true,
-          weight: 12,
-          title: 'title',
-          items: [
-            SpinnerDataModel(
-              name: '',
-              id: 1,
-            )
-          ],
-        )
+errorMessage: 'error message',
+hint: 'hint message',
+helpMessage: 'help message',
+tag: 'tag',
+required: true,
+weight: 12,
+title: 'title',
+items: [
+SpinnerDataModel(
+name: '',
+id: 1,
+)
+],
+)
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/spinner.png?raw=true" alt="alternatetext" width="150" height="300">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/spinner.png?raw=true" alt="alternatetext" width="150" height="200">
 </td>
 </tr>
 
@@ -222,23 +222,23 @@ GSField.text(
 
 ```dart
  GSField.datePicker(
-          tag: 'tag',
-          title: 'title',
-          weight: 12,
-		  isPastAvailable: false,
-          required: true,
-          postfixWidget: widget,
-          displayDateType: DisplayDateType.numeric,
-          initialDate: Jalali.now(),
-          errorMessage: 'error message',
-          hint: 'hint message',
-          helpMessage: 'help message',
-          prefixWidget: widget,
-        )
+tag: 'tag',
+title: 'title',
+weight: 12,
+isPastAvailable: false,
+required: true,
+postfixWidget: widget,
+displayDateType: DisplayDateType.numeric,
+initialDate: Jalali.now(),
+errorMessage: 'error message',
+hint: 'hint message',
+helpMessage: 'help message',
+prefixWidget: widget,
+)
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/date.png?raw=true" alt="alternatetext" width="150" height="300">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/date.png?raw=true" alt="alternatetext" width="150" height="200">
 </td>
 </tr>
 
@@ -251,27 +251,27 @@ GSField.text(
 
 ```dart
 GSField.dateRangePicker(
-          tag: 'tag',
-          title: 'title',
-          weight: 12,
-          required: true,
-          postfixWidget: widget,
-          displayDateType: DisplayDateType.numeric,
-          isPastAvailable: false,
-          availableFrom: Jalali,
-          availableTo: Jalali,
-          initialDate: Jalali.now(),
-	  from: 'From : ',
-          to: 'To : ',
-          errorMessage: 'error message',
-          hint: 'hint message',
-          helpMessage: 'help message',
-          prefixWidget: widget,
-        )
+tag: 'tag',
+title: 'title',
+weight: 12,
+required: true,
+postfixWidget: widget,
+displayDateType: DisplayDateType.numeric,
+isPastAvailable: false,
+availableFrom: Jalali,
+availableTo: Jalali,
+initialDate: Jalali.now(),
+from: 'From : ',
+to: 'To : ',
+errorMessage: 'error message',
+hint: 'hint message',
+helpMessage: 'help message',
+prefixWidget: widget,
+)
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/range_date.png?raw=true" alt="alternatetext" width="150" height="300">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/range_date.png?raw=true" alt="alternatetext" width="150" height="200">
 </td>
 </tr>
 
@@ -284,19 +284,19 @@ GSField.dateRangePicker(
 
 ```dart
 GSField.time(
-          tag: 'tag',
-          prefixWidget: widget,
-          postfixWidget: widget,
-          errorMessage: 'error message',
-          hint: 'hint message',
-          helpMessage: 'help message',
-          required: true,
-          initialTime: TimeOfDay,
-          weight: 12)
+tag: 'tag',
+prefixWidget: widget,
+postfixWidget: widget,
+errorMessage: 'error message',
+hint: 'hint message',
+helpMessage: 'help message',
+required: true,
+initialTime: TimeOfDay,
+weight: 12)
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/time.png?raw=true" alt="alternatetext" width="150" height="300">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/time.png?raw=true" alt="alternatetext" width="150" height="200">
 </td>
 </tr>
 
@@ -309,22 +309,22 @@ GSField.time(
 
 ```dart
   GSField.mobile(
-          tag: 'tag',
-          errorMessage: 'error message',
-          hint: 'hint message',
-          helpMessage: 'help message',
-          title: 'title',
-          maxLength: 11,
-          postfixWidget: widget,
-          prefixWidget: widget,
-          validateRegEx: regex,
-          weight: 12,
-          required: true,
-        )
+tag: 'tag',
+errorMessage: 'error message',
+hint: 'hint message',
+helpMessage: 'help message',
+title: 'title',
+maxLength: 11,
+postfixWidget: widget,
+prefixWidget: widget,
+validateRegEx: regex,
+weight: 12,
+required: true,
+)
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/mobile.png?raw=true" alt="alternatetext" width="150" height="300">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/mobile.png?raw=true" alt="alternatetext" width="150" height="200">
 </td>
 </tr>
 
@@ -337,22 +337,22 @@ GSField.time(
 
 ```dart
   GSField.email(
-          tag: 'tag',
-          errorMessage: 'error message',
-          hint: 'hint message',
-          helpMessage: 'help message',
-          title: 'title',
-          maxLength: 11,
-          postfixWidget: widget,
-          prefixWidget: widget,
-          validateRegEx: regex,
-          weight: 12,
-          required: true,
-        )
+tag: 'tag',
+errorMessage: 'error message',
+hint: 'hint message',
+helpMessage: 'help message',
+title: 'title',
+maxLength: 11,
+postfixWidget: widget,
+prefixWidget: widget,
+validateRegEx: regex,
+weight: 12,
+required: true,
+)
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/email.png?raw=true" alt="alternatetext" width="150" height="300">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/email.png?raw=true" alt="alternatetext" width="150" height="200">
 </td>
 </tr>
 
@@ -365,20 +365,20 @@ GSField.time(
 
 ```dart
 GSField.password(
-          tag: 'tag',
-          errorMessage: 'error message',
-          hint: 'hint message',
-          helpMessage: 'help message',
-          title: 'title',
-          maxLength: 11,
-          prefixWidget: widget,
-          weight: 12,
-          required: true,
-        )
+tag: 'tag',
+errorMessage: 'error message',
+hint: 'hint message',
+helpMessage: 'help message',
+title: 'title',
+maxLength: 11,
+prefixWidget: widget,
+weight: 12,
+required: true,
+)
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/password.png?raw=true" alt="alternatetext" width="150" height="300">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/password.png?raw=true" alt="alternatetext" width="150" height="200">
 </td>
 </tr>
 
@@ -391,21 +391,21 @@ GSField.password(
 
 ```dart
 GSField.price(
-          tag: 'tag',
-          errorMessage: 'error message',
-          hint: 'hint message',
-          helpMessage: 'help message',
-          title: 'title',
-          maxLength: 11,
-          prefixWidget: widget,
-          currencyName: "\$" ,
-          weight: 12,
-          required: true,
-        )
+tag: 'tag',
+errorMessage: 'error message',
+hint: 'hint message',
+helpMessage: 'help message',
+title: 'title',
+maxLength: 11,
+prefixWidget: widget,
+currencyName: "\$" ,
+weight: 12,
+required: true,
+)
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/price.png?raw=true" alt="alternatetext" width="150" height="300">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/price.png?raw=true" alt="alternatetext" width="150" height="200">
 </td>
 </tr>
 
@@ -418,20 +418,20 @@ GSField.price(
 
 ```dart
 GSField.bankCard(
-          tag: 'tag',
-          postfixWidget: widget,
-          prefixWidget: widget,
-          title: 'title',
-          weight: 12,
-          required: true,
-          errorMessage: 'error message',
-          hint: 'hint message',
-          helpMessage: 'help message',
-        )
+tag: 'tag',
+postfixWidget: widget,
+prefixWidget: widget,
+title: 'title',
+weight: 12,
+required: true,
+errorMessage: 'error message',
+hint: 'hint message',
+helpMessage: 'help message',
+)
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/card.png?raw=true" alt="alternatetext" width="150" height="300">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/card.png?raw=true" alt="alternatetext" width="150" height="200">
 </td>
 </tr>
 
