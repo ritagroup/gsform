@@ -179,7 +179,7 @@ GSField.text(
 ```
 </td>
 <td>
-<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/number.png?raw=true" alt="alternatetext" width="250" height="400">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/number.png?raw=true" alt="alternatetext" width="230" height="400">
 </td>
 </tr>
 
