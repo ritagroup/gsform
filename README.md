@@ -5,10 +5,10 @@
 
 <!-- ## About / Synopsis
  -->
-This package helps to creating forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.
+This package helps to create forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.
 
 Also included are common ready-made form input fields for GSForm. This gives you a convenient way of adding common ready-made input fields instead of creating your own FormBuilderField from scratch.
-* Project status: working
+<!--* Project status: working -->
 
 See real examples:
 
