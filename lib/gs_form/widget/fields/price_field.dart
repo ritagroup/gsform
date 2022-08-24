@@ -1,34 +1,31 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:intl/intl.dart';
 
 import '../../core/form_style.dart';
 import '../../model/fields_model/price_model.dart';
 
-// ignore: must_be_immutable
-class GSPriceField extends HookWidget implements GSFieldCallBack {
+class GSPriceField extends StatelessWidget implements GSFieldCallBack {
   late GSPriceModel model;
   GSFormStyle formStyle;
 
-  late var controller ;
+  final TextEditingController? controller = TextEditingController();
 
   GSPriceField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    controller = useTextEditingController() ;
     return Padding(
-      padding: const EdgeInsets.only(right: 8.0, left: 8.0),
+      padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
         controller: controller,
         maxLength: model.maxLength,
         keyboardType: TextInputType.number,
         focusNode: model.focusNode,
         style: formStyle.fieldTextStyle,
-        textInputAction: model.nextFocusNode != null
-            ? TextInputAction.next
-            : TextInputAction.done,
+        textInputAction: model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
         onSubmitted: (_) {
           FocusScope.of(context).requestFocus(model.nextFocusNode);
         },
@@ -70,6 +67,5 @@ class GSPriceField extends HookWidget implements GSFieldCallBack {
     }
   }
 
-  String _formatNumber(String s) =>
-      NumberFormat.decimalPattern().format(int.parse(s));
+  String _formatNumber(String s) => NumberFormat.decimalPattern().format(int.parse(s));
 }

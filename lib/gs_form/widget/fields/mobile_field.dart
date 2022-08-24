@@ -1,33 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/fields_model/mobile_model.dart';
 
+class GSMobileField extends StatelessWidget implements GSFieldCallBack {
+  final GSMobileModel model;
+  final GSFormStyle formStyle;
 
-// ignore: must_be_immutable
-class GSMobileField extends HookWidget implements GSFieldCallBack {
-  late GSMobileModel model;
-  GSFormStyle formStyle;
-
-  late var controller ;
+  final TextEditingController? controller = TextEditingController();
 
   GSMobileField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    controller = useTextEditingController() ;
     return Padding(
-      padding: const EdgeInsets.only(right: 8.0, left: 8.0),
+      padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
         controller: controller,
         maxLength: model.maxLength,
         style: formStyle.fieldTextStyle,
         keyboardType: TextInputType.phone,
         focusNode: model.focusNode,
-        textInputAction: model.nextFocusNode != null
-            ? TextInputAction.next
-            : TextInputAction.done,
+        textInputAction: model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
         onSubmitted: (_) {
           FocusScope.of(context).requestFocus(model.nextFocusNode);
         },

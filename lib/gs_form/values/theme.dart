@@ -34,7 +34,7 @@ class GSFormTheme {
         fontWeight: FontWeight.w700,
         fontSize: 11.0),
     headline3: TextStyle(
-        color: GSFormColors.hintTextDarkColor,
+        color: GSFormColors.textColorDark,
         fontWeight: FontWeight.w500,
         fontSize: 9.0),
     headline4: TextStyle(

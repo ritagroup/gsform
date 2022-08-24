@@ -1,6 +1,6 @@
 name: gsform
-description: GSForm is a wonderfull form maker for flutter also This package helps to creating forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.
-version: 0.0.2
+description: GSForm helps to creating forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.
+version: 0.0.3
 homepage: https://github.com/golrangsystem/gsform.git
 
 
@@ -19,7 +19,6 @@ dependencies:
   image_cropper: ^3.0.0
   image_picker: ^0.8.5+3
   flutter_svg: ^1.1.0
-  flutter_hooks: ^0.18.5+1
   path_provider: ^2.0.11
 
 

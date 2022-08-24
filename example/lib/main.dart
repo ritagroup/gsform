@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gsform/gs_form/core/form_style.dart';
-import 'package:gsform/gs_form/enums/filed_required_type.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/spinner_data_model.dart';
 import 'package:gsform/gs_form/widget/field.dart';
 import 'package:gsform/gs_form/widget/form.dart';
 import 'package:gsform/gs_form/widget/section.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -21,14 +18,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      themeMode: ThemeMode.light,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        brightness: Brightness.light,
+        backgroundColor: const Color(0xfff5f5f5),
+        textTheme: null,
       ),
+      darkTheme: ThemeData(brightness: Brightness.dark, backgroundColor: const Color(0xff3c3c3c)),
       home: MainTestPage(),
     );
   }
 }
 
+// ignore: must_be_immutable
 class MainTestPage extends StatelessWidget {
   MainTestPage({Key? key}) : super(key: key);
 
@@ -38,7 +40,6 @@ class MainTestPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color(0xFFf6f6f6),
         appBar: AppBar(
           title: const Text('GSForm example'),
         ),
@@ -52,18 +53,17 @@ class MainTestPage extends StatelessWidget {
                     Navigator.pushAndRemoveUntil<dynamic>(
                       context,
                       MaterialPageRoute<dynamic>(builder: (BuildContext context) => MultiSectionForm()),
-                          (route) => true, //if you want to disable back feature set to false
+                      (route) => true, //if you want to disable back feature set to false
                     );
                   },
                   child: const Text('Multi Section form'),
                 ),
-
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pushAndRemoveUntil<dynamic>(
                       context,
                       MaterialPageRoute<dynamic>(builder: (BuildContext context) => SingleSectionForm()),
-                          (route) => true, //if you want to disable back feature set to false
+                      (route) => true, //if you want to disable back feature set to false
                     );
                   },
                   child: const Text('Single Section form'),
@@ -77,368 +77,112 @@ class MainTestPage extends StatelessWidget {
   }
 }
 
-class MultiSectionForm extends StatelessWidget {
-  MultiSectionForm({Key? key}) : super(key: key);
-
-  late GSForm form ;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFFf6f6f6),
-      appBar: AppBar(
-        title: const Text('Multi section screen'),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: form =GSForm.multiSection(context,
-                    style: GSFormStyle(
-                        backgroundFieldColor: const Color(0xfff5f5f5),
-                        backgroundSectionColor: const Color(0xffffffff),
-                        sectionCardElevation: 0,
-                        titleStyle: const TextStyle(color: Color(0xff999999), fontWeight: FontWeight.w500, fontSize: 12.0),
-                        fieldHintStyle: const TextStyle(color: Color(0xff999999), fontWeight: FontWeight.w500, fontSize: 10.0),
-                        fieldTextStyle: const TextStyle(color: Color(0xff262626), fontWeight: FontWeight.w500, fontSize: 12.0),
-                        sectionRadius: 10.0,
-                        requireType: GSFieldRequireTypeEnum.text,
-                        requiredText:'required'
-                    ),
-                    sections: [
-                      GSSection(fields: [
-                        GSField.mobile(
-                          tag: 'mobile',
-                          title: 'Phone number',
-                          maxLength: 11,
-                          helpMessage: 'some help',
-                          weight: 12,
-                          errorMessage: 'some error',
-                          hint: 'some hint',
-                        ),
-                        GSField.textPlain(
-                          tag: 'explain',
-                          title: 'Explain',
-                          weight: 12,
-                          maxLength: 150,
-                          showCounter: true,
-                          required: true,
-                        ),
-                        GSField.password(
-                          tag: 'password',
-                          title: 'Password',
-                          errorMessage: 'error',
-                          weight: 12,
-                          helpMessage: 'help',
-                        ),
-                        GSField.email(
-                          tag: 'email',
-                          title: 'Email',
-                          errorMessage: 'error',
-                          helpMessage: 'help',
-                          postfixWidget: const Icon(Icons.email),
-                          weight: 12,
-                          prefixWidget: const Icon(Icons.verified_user),
-                          required: true,
-                        ),
-                      ], sectionTitle: 'section 1'),
-                      GSSection(fields: [
-                        GSField.datePicker(
-                          tag: 'licenceExpireDate',
-                          title: 'DatePicker',
-                          weight: 12,
-                          required: true,
-                          postfixWidget: const Icon(Icons.calendar_month),
-                          displayDateType: GSDateFormatType.numeric,
-                          initialDate: GSDate(
-                            day: DateTime.now().day,
-                            month: DateTime.now().month,
-                            year: DateTime.now().year,
-                          ),
-                          calendarType: GSCalendarType.gregorian,
-                        ),
-                        GSField.dateRangePicker(
-                          tag: 'licenceExpireDate',
-                          title: 'DatePicker',
-                          weight: 12,
-                          from: 'from',
-                          to: 'to',
-                          required: true,
-                          postfixWidget: const Icon(Icons.calendar_month),
-                          displayDateType: GSDateFormatType.numeric,
-                          initialDate: GSDate(
-                            day: DateTime.now().day,
-                            month: DateTime.now().month,
-                            year: DateTime.now().year,
-                          ),
-                          calendarType: GSCalendarType.gregorian,
-                        ),
-                        GSField.time(
-                          tag: 'licenceExpireDate',
-                          title: 'TimePicker',
-                          hint: 'pick time',
-                          weight: 12,
-                          required: false,
-                          postfixWidget: const Icon(Icons.punch_clock_sharp),
-                        ),
-                      ], sectionTitle: 'section 1'),
-                      GSSection(fields: [
-                        GSField.imagePicker(
-                          tag: 'img',
-                          iconAssets: 'assets/icons/ic_picture.svg',
-                          title: 'ImagePicker',
-                          errorMessage: 'some error',
-                          helpMessage: 'some help',
-                          hint: 'Take or choose a photo',
-                          required: true,
-                          weight: 12,
-                          iconColor: Colors.red,
-                        ),
-                        GSField.qrScanner(
-                          tag: 'qr',
-                          iconAssets: 'assets/icons/ic_qr_code.svg',
-                          title: 'Barcode',
-                          hint: "Scan Some Barcodes",
-                          required: true,
-                          weight: 12,
-                          iconColor: Colors.grey,
-                          helpMessage: 'some help',
-                          showTitle: false,
-                          errorMessage: 'error',
-                        ),
-                      ], sectionTitle: 'section 1'),
-                    ]),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      bool isValid = form.isValid();
-                      Map<String, dynamic> map = form.onSubmit();
-                      debugPrint(isValid.toString());
-                      debugPrint(map.toString());
-                    },
-                    child: const Text('Submit'),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class SingleSectionForm extends StatelessWidget {
   SingleSectionForm({Key? key}) : super(key: key);
 
-  late GSForm form ;
+  late GSForm form;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFf6f6f6),
       appBar: AppBar(
         title: const Text('Single section Page'),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 40.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             Expanded(
               child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: form = GSForm.singleSection(
-                    style: GSFormStyle(
-                      backgroundFieldColor: const Color(0xfff5f5f5),
-                      backgroundSectionColor: const Color(0xffffffff),
-                      sectionCardElevation: 0,
-                      titleStyle:
-                      const TextStyle(color: Color(0xff999999), fontWeight: FontWeight.w500, fontSize: 12.0),
-                      fieldHintStyle:
-                      const TextStyle(color: Color(0xff999999), fontWeight: FontWeight.w500, fontSize: 10.0),
-                      fieldTextStyle:
-                      const TextStyle(color: Color(0xff262626), fontWeight: FontWeight.w500, fontSize: 12.0),
-                      sectionRadius: 10.0,
-                      requireType: GSFieldRequireTypeEnum.star,
+                child: form = GSForm.singleSection(
+                  context,
+                  fields: [
+                    GSField.text(
+                      tag: 'name',
+                      title: 'First Name',
+                      minLine: 1,
+                      maxLine: 1,
+                      weight: 12,
+                      hint: 'jhon',
+                      required: false,
+                      errorMessage: 'please enter a name',
                     ),
-                    context,
-                    fields: [
-                      GSField.radioGroup(
-                        hint: 'Radio Group',
-                        tag: 'radio',
-                        required: false,
-                        weight: 12,
-                        scrollable: true,
-                        height: 150,
-                        title: 'Size number',
-                        items: [
-                          RadioDataModel(title: 'size 1', isSelected: false),
-                          RadioDataModel(title: 'size 2', isSelected: false),
-                        ],
-                        callBack: (_) {
-                        },
+                    GSField.text(
+                      tag: 'lastName',
+                      title: 'Last name',
+                      minLine: 1,
+                      maxLine: 1,
+                      weight: 12,
+                      required: true,
+                    ),
+                    GSField.password(
+                      tag: 'password',
+                      title: 'Password',
+                      helpMessage: 'contain letter and number',
+                      errorMessage: 'error',
+                      weight: 6,
+                      required: true,
+                    ),
+                    GSField.datePicker(
+                      tag: 'licenceExpireDate',
+                      title: 'Birth Date',
+                      weight: 6,
+                      required: true,
+                      postfixWidget: const Icon(
+                        Icons.calendar_month,
+                        color: Color(0xff676767),
                       ),
-
-                      GSField.datePicker(
-                        tag: 'licenceExpireDate',
-                        title: 'DatePicker',
-                        weight: 12,
-                        required: true,
-                        postfixWidget: const Icon(Icons.calendar_month),
-                        displayDateType: GSDateFormatType.numeric,
-                        initialDate: GSDate(
-                          day: DateTime.now().day,
-                          month: DateTime.now().month,
-                          year: DateTime.now().year,
+                      displayDateType: GSDateFormatType.fullText,
+                      initialDate: GSDate(
+                        day: DateTime.now().day,
+                        month: DateTime.now().month,
+                        year: DateTime.now().year,
+                      ),
+                      calendarType: GSCalendarType.gregorian,
+                    ),
+                    GSField.spinner(
+                      tag: 'customer_type',
+                      required: false,
+                      weight: 6,
+                      title: 'Gender',
+                      items: [
+                        SpinnerDataModel(
+                          name: 'man',
+                          id: 1,
                         ),
-                        calendarType: GSCalendarType.gregorian,
-                      ),
-                      GSField.dateRangePicker(
-                        tag: 'licenceExpireDate',
-                        title: 'DatePicker',
-                        weight: 12,
-                        from: 'from',
-                        to: 'to',
-                        required: true,
-                        postfixWidget: const Icon(Icons.calendar_month),
-                        displayDateType: GSDateFormatType.numeric,
-                        initialDate: GSDate(
-                          day: DateTime.now().day,
-                          month: DateTime.now().month,
-                          year: DateTime.now().year,
+                        SpinnerDataModel(
+                          name: 'woman',
+                          id: 2,
                         ),
-                        calendarType: GSCalendarType.gregorian,
-                      ),
-                      GSField.time(
-                        tag: 'licenceExpireDate',
-                        title: 'TimePicker',
-                        hint: 'pick time',
-                        weight: 12,
-                        required: false,
-                        postfixWidget: const Icon(Icons.punch_clock_sharp),
-                      ),
-                      GSField.spinner(
-                        hint: 'Spinner',
-                        tag: 'customer_type',
-                        required: false,
-                        weight: 12,
-                        title: 'Customer Type',
-                        items: [
-                          SpinnerDataModel(
-                            name: 'value1',
-                            id: 1,
-                          ),
-                          SpinnerDataModel(
-                            name: 'value2',
-                            id: 2,
-                          ),
-                        ],
-                      ),
-                      GSField.text(
-                        tag: 'name',
-                        title: 'Name',
-                        minLine: 1,
-                        maxLine: 1,
-                        weight: 6,
-                        required: false,
-                        errorMessage: 'please enter a name',
-                      ),
-                      GSField.text(
-                        tag: 'lastName',
-                        title: 'Last name',
-                        minLine: 1,
-                        maxLine: 1,
-                        weight: 6,
-                        required: true,
-                      ),
-                      GSField.number(
-                        tag: 'code',
-                        title: 'Code',
-                        maxLength: 10,
-                        weight: 12,
-                        required: true,
-                        errorMessage: 'some error',
-                        hint: 'code',
-                      ),
-                      GSField.mobile(
-                        tag: 'mobile',
-                        title: 'Phone number',
-                        maxLength: 11,
-                        helpMessage: 'some help',
-                        weight: 12,
-                        required: false,
-                        errorMessage: 'some error',
-                        hint: 'some hint',
-                      ),
-                      GSField.textPlain(
-                        tag: 'explain',
-                        title: 'Explain',
-                        weight: 12,
-                        required: true,
-                      ),
-                      GSField.password(
-                        tag: 'password',
-                        title: 'Password',
-                        errorMessage: 'error',
-                        weight: 12,
-                        required: true,
-                        helpMessage: 'help',
-                      ),
-                      GSField.email(
-                        tag: 'email',
-                        title: 'Email',
-                        errorMessage: 'error',
-                        helpMessage: 'help',
-                        postfixWidget: const Icon(Icons.email),
-                        weight: 12,
-                        prefixWidget: const Icon(Icons.verified_user),
-                        required: false,
-                      ),
-                      GSField.price(
-                        tag: 'price',
-                        title: 'Price',
-                        errorMessage: 'error',
-                        helpMessage: 'help',
-                        currencyName: '\$',
-                        weight: 12,
-                        required: true,
-                      ),
-                      GSField.imagePicker(
-                        tag: 'img',
-                        iconAssets: 'assets/icons/ic_picture.svg',
-                        title: 'ImagePicker',
-                        errorMessage: 'some error',
-                        helpMessage: 'some help',
-                        hint: 'Take or choose a photo',
-                        required: true,
-                        weight: 12,
-                        iconColor: Colors.red,
-                      ),
-                      GSField.qrScanner(
-                        tag: 'qr',
-                        iconAssets: 'assets/icons/ic_qr_code.svg',
-                        title: 'Barcode',
-                        hint: "Scan Some Barcodes",
-                        required: true,
-                        weight: 12,
-                        iconColor: Colors.grey,
-                        helpMessage: 'some help',
-                        showTitle: false,
-                        errorMessage: 'error',
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                    GSField.mobile(
+                      tag: 'mobile',
+                      title: 'Phone number',
+                      maxLength: 11,
+                      helpMessage: '9357814747',
+                      weight: 6,
+                      required: false,
+                      errorMessage: 'some error',
+                    ),
+                    GSField.email(
+                      tag: 'email',
+                      title: 'Email',
+                      errorMessage: 'error',
+                      helpMessage: 'someemail@gmail.com',
+                      postfixWidget: const Icon(Icons.email, color: Color(0xff676767)),
+                      weight: 12,
+                      required: false,
+                    ),
+                    GSField.textPlain(
+                      tag: 'explain',
+                      title: 'Description',
+                      weight: 12,
+                      maxLength: 150,
+                      required: true,
+                      minLine: 4,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -461,7 +205,170 @@ class SingleSectionForm extends StatelessWidget {
                 ],
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
+// ignore: must_be_immutable
+class MultiSectionForm extends StatelessWidget {
+  MultiSectionForm({Key? key}) : super(key: key);
+
+  late GSForm form;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Multi section screen'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 12.0, right: 12, top: 24),
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: form = GSForm.multiSection(context, sections: [
+                  GSSection(
+                    sectionTitle: 'User information',
+                    fields: [
+                      GSField.text(
+                        tag: 'name',
+                        title: 'Name',
+                        minLine: 1,
+                        maxLine: 1,
+                      GSField.radioGroup(
+                        hint: 'Radio Group',
+                        tag: 'radio',
+                        required: false,
+                        weight: 12,
+                        scrollable: true,
+                        height: 150,
+                        title: 'Size number',
+                        items: [
+                          RadioDataModel(title: 'size 1', isSelected: false),
+                          RadioDataModel(title: 'size 2', isSelected: false),
+                        ],
+                        callBack: (_) {
+                        },
+                      ),
+
+                      GSField.datePicker(
+                        tag: 'licenceExpireDate',
+                        title: 'DatePicker',
+                        weight: 12,
+                        required: false,
+                        errorMessage: 'please enter a name',
+                      ),
+                      GSField.text(
+                        tag: 'lastName',
+                        title: 'Last name',
+                        minLine: 1,
+                        maxLine: 1,
+                        weight: 12,
+                        required: true,
+                      ),
+                      GSField.spinner(
+                        tag: 'customer_type',
+                        required: false,
+                        weight: 6,
+                        title: 'Gender',
+                        items: [
+                          SpinnerDataModel(
+                            name: 'man',
+                            id: 1,
+                          ),
+                          SpinnerDataModel(
+                            name: 'woman',
+                            id: 2,
+                          ),
+                        ],
+                      ),
+                      GSField.mobile(
+                        tag: 'mobile',
+                        title: 'Phone number',
+                        maxLength: 11,
+                        helpMessage: '9357814747',
+                        weight: 6,
+                        required: false,
+                        errorMessage: 'some error',
+                      ),
+                    ],
+                  ),
+                  GSSection(
+                    sectionTitle: 'Market information',
+                    fields: [
+                      GSField.text(
+                        tag: 'name',
+                        title: 'Market name',
+                        minLine: 1,
+                        maxLine: 1,
+                        weight: 12,
+                        required: false,
+                        errorMessage: 'please enter a name',
+                      ),
+                      GSField.textPlain(
+                        hint: 'sds',
+                        tag: 'lastName',
+                        title: 'Market address',
+                        maxLine: 4,
+                        maxLength: 233,
+                        showCounter: false,
+                        weight: 12,
+                        prefixWidget: const Icon(Icons.location_city, color: Colors.blue),
+                        required: true,
+                      ),
+                      GSField.spinner(
+                        tag: 'customer_type',
+                        required: false,
+                        weight: 6,
+                        title: 'Market type',
+                        items: [
+                          SpinnerDataModel(
+                            name: 'Super market',
+                            id: 1,
+                          ),
+                          SpinnerDataModel(
+                            name: 'woman',
+                            id: 2,
+                          ),
+                        ],
+                      ),
+                      GSField.mobile(
+                        tag: 'mobile',
+                        title: 'Telephone',
+                        maxLength: 11,
+                        helpMessage: '9357814747',
+                        weight: 6,
+                        required: false,
+                        errorMessage: 'some error',
+                      ),
+                    ],
+                  ),
+                ]),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        bool isValid = form.isValid();
+                        Map<String, dynamic> map = form.onSubmit();
+                        debugPrint(isValid.toString());
+                        debugPrint(map.toString());
+                      },
+                      child: const Text('Submit'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

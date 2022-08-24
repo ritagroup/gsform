@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
@@ -6,7 +8,6 @@ import 'package:gsform/gs_form/enums/filed_required_type.dart';
 import 'package:gsform/gs_form/model/fields_model/qr_scanner_model.dart';
 import 'package:gsform/gs_form/screens/qr_scanner_screen.dart';
 import 'package:gsform/gs_form/values/colors.dart';
-// ignore: must_be_immutable
 class GSQRScannerField extends StatefulWidget implements GSFieldCallBack {
   final GSQRScannerModel model;
   final GSFormStyle formStyle;

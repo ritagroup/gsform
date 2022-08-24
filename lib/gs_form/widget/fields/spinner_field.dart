@@ -1,4 +1,6 @@
 
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
@@ -60,7 +62,7 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
             underline: const SizedBox(),
             iconSize: 0,
             icon: const Padding(
-              padding: EdgeInsets.only(left: 6.0, right: 6.0),
+              padding: EdgeInsets.only(left: 10.0, right: 10.0),
               child: Icon(
                 Icons.keyboard_arrow_down,
                 size: 20,
@@ -73,7 +75,7 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
                 DropdownMenuItem(
                     value: e,
                     child: Padding(
-                      padding: EdgeInsetsDirectional.only(start: 8.0),
+                      padding: const EdgeInsetsDirectional.only(start: 8.0),
                       child: Text(
                         e.name,
                         style: e.id == widget.hintIndex

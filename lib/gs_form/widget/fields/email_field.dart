@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gsform/gs_form/core/constant.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 
 import '../../core/form_style.dart';
 import '../../model/fields_model/email_model.dart';
 
-// ignore: must_be_immutable
-class GSEmailField extends HookWidget implements GSFieldCallBack {
-  late GSEmailModel model;
-  GSFormStyle formStyle;
+class GSEmailField extends StatelessWidget implements GSFieldCallBack {
+  final  GSEmailModel model;
+  final GSFormStyle formStyle;
 
-  late var controller;
+  final TextEditingController? controller = TextEditingController();
 
   GSEmailField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    controller = useTextEditingController();
     return Padding(
-      padding: const EdgeInsets.only(right: 8.0, left: 8.0),
+      padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
         controller: controller,
         maxLength: model.maxLength,

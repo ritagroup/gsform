@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/fields_model/text_plain_model.dart';
 
-// ignore: must_be_immutable
-class GSTextPlainField extends HookWidget implements GSFieldCallBack {
-  late GSTextPlainModel model;
-  GSFormStyle formStyle;
+class GSTextPlainField extends StatelessWidget implements GSFieldCallBack {
+  final  GSTextPlainModel model;
+  final GSFormStyle formStyle;
 
-  late var controller;
+  final TextEditingController? controller = TextEditingController();
 
   GSTextPlainField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    controller = useTextEditingController();
     return Padding(
-      padding: const EdgeInsets.only(right: 8.0, left: 8.0,bottom: 8.0),
+      padding: const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
       child: TextField(
         controller: controller,
         maxLines: model.maxLine,
@@ -26,14 +23,12 @@ class GSTextPlainField extends HookWidget implements GSFieldCallBack {
         focusNode: model.focusNode,
         maxLength: model.maxLength,
         style: formStyle.fieldTextStyle,
-        textInputAction: model.nextFocusNode != null
-            ? TextInputAction.next
-            : TextInputAction.done,
+        textInputAction: model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
         onSubmitted: (_) {
           FocusScope.of(context).requestFocus(model.nextFocusNode);
         },
         decoration: InputDecoration(
-          counter: model.showCounter!=null ? null : const Offstage(),
+          counter: model.showCounter ?? false ? null : const Offstage(),
           hintText: model.hint,
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,

@@ -1,3 +1,4 @@
+
 abstract class GSFieldCallBack {
   bool isValid();
 
