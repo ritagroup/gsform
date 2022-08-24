@@ -9,7 +9,7 @@ class GSTextField extends HookWidget implements GSFieldCallBack {
   late GSTextModel model;
   GSFormStyle formStyle;
 
-  late var controller;
+  late dynamic controller;
 
   GSTextField(this.model, this.formStyle, {Key? key}) : super(key: key);
 

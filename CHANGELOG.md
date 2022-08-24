@@ -3,4 +3,7 @@
 ## 0.0.2
 * Add some Examples
 * Complete readme
+* ## 0.0.3
+* Fixed some bugs
+
 

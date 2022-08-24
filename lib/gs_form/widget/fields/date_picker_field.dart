@@ -83,7 +83,7 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
   Widget build(BuildContext context) {
     widget.context = context ;
     return Padding(
-      padding: const EdgeInsets.only(right: 10.0, left: 10.0 , top: 22 , bottom: 22),
+      padding: const EdgeInsets.only(right: 10.0, left: 10.0 , top: 18 , bottom: 18),
       child: InkWell(
         child: Row(
           children: [

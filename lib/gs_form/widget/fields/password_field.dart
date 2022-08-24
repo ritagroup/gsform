@@ -41,8 +41,9 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top:6 ,right: 10.0, left: 10.0),
+      padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
+        textAlignVertical: TextAlignVertical.center,
         keyboardType: TextInputType.visiblePassword,
         obscureText: widget.obscured,
         focusNode: widget.model.focusNode,
@@ -72,7 +73,7 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
                 widget.obscured
                     ? Icons.visibility_rounded
                     : Icons.visibility_off_rounded,
-                size: 25,
+                size: 24,
               ),
             ),
           ),

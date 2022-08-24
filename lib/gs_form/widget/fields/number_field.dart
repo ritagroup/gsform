@@ -10,7 +10,7 @@ class GSNumberField extends HookWidget implements GSFieldCallBack {
   late GSNumberModel model;
   GSFormStyle formStyle;
 
-  late var controller ;
+  late dynamic controller ;
 
   GSNumberField(this.model, this.formStyle, {Key? key}) : super(key: key);
 

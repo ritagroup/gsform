@@ -11,7 +11,7 @@ class GSPriceField extends HookWidget implements GSFieldCallBack {
   late GSPriceModel model;
   GSFormStyle formStyle;
 
-  late var controller ;
+  late dynamic controller ;
 
   GSPriceField(this.model, this.formStyle, {Key? key}) : super(key: key);
 

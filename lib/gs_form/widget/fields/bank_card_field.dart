@@ -9,7 +9,7 @@ import '../../util/util.dart';
 // ignore: must_be_immutable
 class GSBankCardField extends HookWidget implements GSFieldCallBack {
   GSBankCardModel model;
-  late var controller ;
+  late dynamic controller ;
   GSFormStyle formStyle;
 
   GSBankCardField(this.model, this.formStyle, {Key? key}) : super(key: key);

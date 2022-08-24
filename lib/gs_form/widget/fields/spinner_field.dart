@@ -5,6 +5,7 @@ import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/data_model/spinner_data_model.dart';
 import 'package:gsform/gs_form/model/fields_model/spinner_model.dart';
 
+// ignore: must_be_immutable
 class GSSpinnerField extends StatefulWidget implements GSFieldCallBack {
   final hintIndex = -1;
 
@@ -73,7 +74,7 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
                 DropdownMenuItem(
                     value: e,
                     child: Padding(
-                      padding: EdgeInsetsDirectional.only(start: 8.0),
+                      padding: const EdgeInsetsDirectional.only(start: 8.0),
                       child: Text(
                         e.name,
                         style: e.id == widget.hintIndex

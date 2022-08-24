@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class MainTestPage extends StatelessWidget {
   MainTestPage({Key? key}) : super(key: key);
 
@@ -76,6 +77,144 @@ class MainTestPage extends StatelessWidget {
 }
 
 // ignore: must_be_immutable
+
+// ignore: must_be_immutable
+class SingleSectionForm extends StatelessWidget {
+  SingleSectionForm({Key? key}) : super(key: key);
+
+  late GSForm form;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+
+      appBar: AppBar(
+        title: const Text('Single section Page'),
+      ),
+      body: Column(
+
+        children: [
+          Container(color: Colors.red,
+            height: 100,
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: form = GSForm.singleSection(
+                context,
+                fields: [
+                  GSField.text(
+                    tag: 'name',
+                    title: 'First Name',
+                    minLine: 1,
+                    maxLine: 1,
+                    weight: 12,
+                    hint: 'jhon',
+                    required: false,
+                    errorMessage: 'please enter a name',
+                  ),
+                  GSField.text(
+                    tag: 'lastName',
+                    title: 'Last name',
+                    minLine: 1,
+                    maxLine: 1,
+                    weight: 12,
+                    required: true,
+                  ),
+                  GSField.password(
+                    tag: 'password',
+                    title: 'Password',
+                    helpMessage: 'contain letter and number',
+                    errorMessage: 'error',
+                    weight: 6,
+                    required: true,
+                  ),
+                  GSField.datePicker(
+                    tag: 'licenceExpireDate',
+                    title: 'Birth Date',
+                    weight: 6,
+                    required: true,
+                    postfixWidget: const Icon(
+                      Icons.calendar_month,
+                      color: Color(0xff676767),
+                    ),
+                    displayDateType: GSDateFormatType.fullText,
+                    initialDate: GSDate(
+                      day: DateTime.now().day,
+                      month: DateTime.now().month,
+                      year: DateTime.now().year,
+                    ),
+                    calendarType: GSCalendarType.gregorian,
+                  ),
+                  GSField.spinner(
+                    tag: 'customer_type',
+                    required: false,
+                    weight: 6,
+                    title: 'Gender',
+                    items: [
+                      SpinnerDataModel(
+                        name: 'man',
+                        id: 1,
+                      ),
+                      SpinnerDataModel(
+                        name: 'woman',
+                        id: 2,
+                      ),
+                    ],
+                  ),
+                  GSField.mobile(
+                    tag: 'mobile',
+                    title: 'Phone number',
+                    maxLength: 11,
+                    helpMessage: '9357814747',
+                    weight: 6,
+                    required: false,
+                    errorMessage: 'some error',
+                  ),
+                  GSField.email(
+                    tag: 'email',
+                    title: 'Email',
+                    errorMessage: 'error',
+                    helpMessage: 'someemail@gmail.com',
+                    postfixWidget: const Icon(Icons.email, color: Color(0xff676767)),
+                    weight: 12,
+                    required: false,
+                  ),
+                  GSField.textPlain(
+                    tag: 'explain',
+                    title: 'Description',
+                    weight: 12,
+                    maxLength: 150,
+                    required: true,
+                    minLine: 4,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      bool isValid = form.isValid();
+                      Map<String, dynamic> map = form.onSubmit();
+                      debugPrint(isValid.toString());
+                      debugPrint(map.toString());
+                    },
+                    child: const Text('Submit'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 class MultiSectionForm extends StatelessWidget {
   MultiSectionForm({Key? key}) : super(key: key);
 
@@ -162,7 +301,7 @@ class MultiSectionForm extends StatelessWidget {
                             maxLength: 233,
                             showCounter: false,
                             weight: 12,
-                            prefixWidget: Icon(Icons.location_city, color: Colors.blue),
+                            prefixWidget: const Icon(Icons.location_city, color: Colors.blue),
                             required: true,
                           ),
                           GSField.spinner(
@@ -193,143 +332,6 @@ class MultiSectionForm extends StatelessWidget {
                         ],
                       ),
                     ]),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-// ignore: must_be_immutable
-class SingleSectionForm extends StatelessWidget {
-  SingleSectionForm({Key? key}) : super(key: key);
-
-  late GSForm form;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-
-      appBar: AppBar(
-        title: const Text('Single section Page'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                child: form = GSForm.singleSection(
-                  context,
-                  fields: [
-                    GSField.text(
-                      tag: 'name',
-                      title: 'First Name',
-                      minLine: 1,
-                      maxLine: 1,
-                      weight: 12,
-                      hint: 'jhon',
-                      required: false,
-                      errorMessage: 'please enter a name',
-                    ),
-                    GSField.text(
-                      tag: 'lastName',
-                      title: 'Last name',
-                      minLine: 1,
-                      maxLine: 1,
-                      weight: 12,
-                      required: true,
-                    ),
-                    GSField.password(
-                      tag: 'password',
-                      title: 'Password',
-                      helpMessage: 'contain letter and number',
-                      errorMessage: 'error',
-                      weight: 12,
-                      required: true,
-                    ),
-                    GSField.datePicker(
-                      tag: 'licenceExpireDate',
-                      title: 'Birth Date',
-                      weight: 12,
-                      required: true,
-                      postfixWidget: const Icon(
-                        Icons.calendar_month,
-                        color: Color(0xff676767),
-                      ),
-                      displayDateType: GSDateFormatType.fullText,
-                      initialDate: GSDate(
-                        day: DateTime.now().day,
-                        month: DateTime.now().month,
-                        year: DateTime.now().year,
-                      ),
-                      calendarType: GSCalendarType.gregorian,
-                    ),
-                    GSField.spinner(
-                      tag: 'customer_type',
-                      required: false,
-                      weight: 6,
-                      title: 'Gender',
-                      items: [
-                        SpinnerDataModel(
-                          name: 'man',
-                          id: 1,
-                        ),
-                        SpinnerDataModel(
-                          name: 'woman',
-                          id: 2,
-                        ),
-                      ],
-                    ),
-                    GSField.mobile(
-                      tag: 'mobile',
-                      title: 'Phone number',
-                      maxLength: 11,
-                      helpMessage: '9357814747',
-                      weight: 6,
-                      required: false,
-                      errorMessage: 'some error',
-                    ),
-                    GSField.email(
-                      tag: 'email',
-                      title: 'Email',
-                      errorMessage: 'error',
-                      helpMessage: 'someemail@gmail.com',
-                      postfixWidget: const Icon(Icons.email, color: Color(0xff676767)),
-                      weight: 12,
-                      required: false,
-                    ),
-                    GSField.textPlain(
-                      tag: 'explain',
-                      title: 'Description',
-                      weight: 12,
-                      maxLength: 150,
-                      required: true,
-                      minLine: 4,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        bool isValid = form.isValid();
-                        Map<String, dynamic> map = form.onSubmit();
-                        debugPrint(isValid.toString());
-                        debugPrint(map.toString());
-                      },
-                      child: const Text('Submit'),
-                    ),
-                  ),
-                ],
               ),
             ),
           ],

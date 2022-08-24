@@ -59,16 +59,16 @@ class GSSection extends StatelessWidget {
     return Column(
       children: [
         sectionTitle != null
-            ? Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 3.0, right: 3.0),
-                    child: Text(
+            ? Padding(
+                padding: const EdgeInsetsDirectional.only(start: 4),
+                child: Row(
+                  children: [
+                    Text(
                       sectionTitle!,
-                      style: GSFormTheme.textThemeStyle.headline1,
+                      style: style?.sectionTitleStyle ?? GSFormTheme.textThemeStyle.headline1,
                     ),
-                  ),
-                ],
+                  ],
+                ),
               )
             : Container(),
         const SizedBox(height: 6.0),
@@ -83,7 +83,10 @@ class GSSection extends StatelessWidget {
           ),
           child: Padding(
             padding: EdgeInsets.only(
-                left: style!.sectionCardPadding, right: style!.sectionCardPadding, top: 12.0, bottom: 8.0),
+                left: style!.sectionCardPadding,
+                right: style!.sectionCardPadding,
+                top: style!.sectionCardPadding,
+                bottom: style!.sectionCardPadding),
             child: ListView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
@@ -93,7 +96,7 @@ class GSSection extends StatelessWidget {
                 }),
           ),
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 14),
       ],
     );
   }

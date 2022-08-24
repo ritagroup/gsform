@@ -10,7 +10,7 @@ class GSMobileField extends HookWidget implements GSFieldCallBack {
   late GSMobileModel model;
   GSFormStyle formStyle;
 
-  late var controller ;
+  late dynamic controller ;
 
   GSMobileField(this.model, this.formStyle, {Key? key}) : super(key: key);
 

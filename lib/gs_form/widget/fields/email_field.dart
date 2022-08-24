@@ -11,7 +11,7 @@ class GSEmailField extends HookWidget implements GSFieldCallBack {
   late GSEmailModel model;
   GSFormStyle formStyle;
 
-  late var controller;
+  late dynamic controller;
 
   GSEmailField(this.model, this.formStyle, {Key? key}) : super(key: key);
 

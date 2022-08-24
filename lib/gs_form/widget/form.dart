@@ -13,7 +13,7 @@ class GSForm extends StatelessWidget {
   late List<GSSection> sections;
   late List<Widget> fields;
 
-  GSForm.singleSection(BuildContext context , {Key? key, this.style, required this.fields}) : super(key: key) {
+  GSForm.singleSection(BuildContext context, {Key? key, this.style, required this.fields}) : super(key: key) {
     style ??= GSFormUtils.checkIfDarkModeEnabled(context)
         ? style ?? GSFormStyle.singleSectionFormDefaultDarkStyle
         : GSFormStyle.singleSectionFormDefaultStyle;
@@ -25,13 +25,13 @@ class GSForm extends StatelessWidget {
       )
     ];
     GSForm.multiSection(
-      context ,
+      context,
       style: style,
       sections: sections,
     );
   }
 
-  GSForm.multiSection(BuildContext context , {Key? key, this.style, required this.sections}) : super(key: key) {
+  GSForm.multiSection(BuildContext context, {Key? key, this.style, required this.sections}) : super(key: key) {
     style ??= GSFormUtils.checkIfDarkModeEnabled(context)
         ? style ?? GSFormStyle.multiSectionFormDefaultDarkStyle
         : GSFormStyle.multiSectionFormDefaultStyle;
