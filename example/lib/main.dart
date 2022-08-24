@@ -85,6 +85,7 @@ class MainTestPage extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class SingleSectionForm extends StatelessWidget {
   SingleSectionForm({Key? key}) : super(key: key);
 
