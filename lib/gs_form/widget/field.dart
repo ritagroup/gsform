@@ -102,20 +102,20 @@ class GSField extends StatefulWidget {
     String? cameraPopupIcon,
     String? galleryPopupIcon,
     required String iconAssets,
-    GSImageSource? imageSource,
+    bool? allowPickFromGallery,
     Color? iconColor,
     bool? showCropper,
   }) : super(key: key) {
     model = GSImagePickerModel(
       type: GSFieldTypeEnum.imagePicker,
       tag: tag,
-      showCropper: showCropper?? true,
-      imageSource: imageSource ?? GSImageSource.both,
+      showCropper: showCropper ?? true,
+      imageSource: GSImageSource.both,
       showTitle: showTitle ?? false,
       title: title,
       cameraPopupTitle: cameraPopupTitle,
       galleryPopupTitle: galleryPopupTitle,
-      cameraPopupIcon:cameraPopupIcon ,
+      cameraPopupIcon: cameraPopupIcon,
       galleryPopupIcon: galleryPopupIcon,
       errorMessage: errorMessage,
       helpMessage: helpMessage,
@@ -652,116 +652,119 @@ class _GSFieldState extends State<GSField> {
       }
     };
 
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Visibility(
-          visible: widget.model.showTitle!,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 1),
-            child: Opacity(
-                opacity: _showRequiredStar(widget.model),
-                child: const Text(
-                  '*',
-                  style: TextStyle(color: GSFormColors.red, fontSize: 14),
-                )),
+    return Padding(
+      padding: const EdgeInsets.only(left: 2.0, right: 2.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Visibility(
+            visible: widget.model.showTitle!,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 3),
+              child: Opacity(
+                  opacity: _showRequiredStar(widget.model),
+                  child: const Text(
+                    '*',
+                    style: TextStyle(color: GSFormColors.red, fontSize: 14),
+                  )),
+            ),
           ),
-        ),
-        const SizedBox(width: 1.0),
-        Expanded(
-          child: Column(
-            children: [
-              Visibility(
-                visible: widget.model.showTitle!,
-                child: Row(
-                  children: [
-                    Text(widget.model.title!,
-                        style: widget.formStyle!.titleTextStyle),
-                    const SizedBox(width: 4.0),
-                    Opacity(
-                      opacity: _showRequiredText(widget.model),
-                      child: Text(
-                        widget.formStyle!.requiredText,
-                        style: const TextStyle(
-                            color: GSFormColors.red, fontSize: 10),
+          const SizedBox(width: 1.0),
+          Expanded(
+            child: Column(
+              children: [
+                Visibility(
+                  visible: widget.model.showTitle!,
+                  child: Row(
+                    children: [
+                      Text(widget.model.title!,
+                          style: widget.formStyle!.titleTextStyle),
+                      const SizedBox(width: 4.0),
+                      Opacity(
+                        opacity: _showRequiredText(widget.model),
+                        child: Text(
+                          widget.formStyle!.requiredText,
+                          style: const TextStyle(
+                              color: GSFormColors.red, fontSize: 10),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 4.0),
-              Container(
-                decoration: GSFormUtils.getFieldDecoration(
-                    widget.formStyle!, widget.model.status),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Visibility(
-                      visible:
-                          widget.model.prefixWidget == null ? false : true,
-                      child: Row(
-                        children: [
-                          const SizedBox(width: 8.0),
-                          widget.model.prefixWidget ??
-                              const SizedBox(width: 0),
-                          const SizedBox(width: 8.0),
-                          Container(
-                            height: 30.0,
-                            color: GSFormColors.dividerColor,
-                            width: 1.0,
-                          ),
-                        ],
+                const SizedBox(height: 4.0),
+                Container(
+                  decoration: GSFormUtils.getFieldDecoration(
+                      widget.formStyle!, widget.model.status),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Visibility(
+                        visible:
+                            widget.model.prefixWidget == null ? false : true,
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 8.0),
+                            widget.model.prefixWidget ??
+                                const SizedBox(width: 0),
+                            const SizedBox(width: 8.0),
+                            Container(
+                              height: 30.0,
+                              color: GSFormColors.dividerColor,
+                              width: 1.0,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Expanded(child: widget.child!),
-                    Visibility(
-                      visible:
-                          widget.model.postfixWidget == null ? false : true,
-                      child: Row(
-                        children: [
-                          const SizedBox(width: 10.0),
-                          widget.model.postfixWidget ??
-                              const SizedBox(width: 0),
-                          const SizedBox(width: 10.0),
-                        ],
+                      Expanded(child: widget.child!),
+                      Visibility(
+                        visible:
+                            widget.model.postfixWidget == null ? false : true,
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10.0),
+                            widget.model.postfixWidget ??
+                                const SizedBox(width: 0),
+                            const SizedBox(width: 10.0),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 4.0),
-              Opacity(
-                opacity: (widget.model.status == GSFieldStatusEnum.error &&
-                            widget.model.errorMessage != null) ||
-                        widget.model.helpMessage != null
-                    ? 1
-                    : 0,
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      widget.model.status == GSFieldStatusEnum.error
-                          ? 'assets/icons/ic_alret.svg'
-                          : 'assets/icons/ic_info.svg',
-                      width: 7.0,
-                      height: 7.0,
-                    ),
-                    const SizedBox(width: 1.0),
-                    Text(
-                      widget.model.status == GSFieldStatusEnum.error
-                          ? widget.model.errorMessage ?? ''
-                          : widget.model.helpMessage ?? '',
-                      style: widget.model.status == GSFieldStatusEnum.error
-                          ? widget.formStyle!.errorTextStyle
-                          : widget.formStyle!.helpTextStyle,
-                    ),
-                  ],
+                const SizedBox(height: 4.0),
+                Opacity(
+                  opacity: (widget.model.status == GSFieldStatusEnum.error &&
+                              widget.model.errorMessage != null) ||
+                          widget.model.helpMessage != null
+                      ? 1
+                      : 0,
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        widget.model.status == GSFieldStatusEnum.error
+                            ? 'assets/icons/ic_alret.svg'
+                            : 'assets/icons/ic_info.svg',
+                        width: 7.0,
+                        height: 7.0,
+                      ),
+                      const SizedBox(width: 1.0),
+                      Text(
+                        widget.model.status == GSFieldStatusEnum.error
+                            ? widget.model.errorMessage ?? ''
+                            : widget.model.helpMessage ?? '',
+                        style: widget.model.status == GSFieldStatusEnum.error
+                            ? widget.formStyle!.errorTextStyle
+                            : widget.formStyle!.helpTextStyle,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 5.0),
-            ],
+                const SizedBox(height: 5.0),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

@@ -71,7 +71,7 @@ class RadioItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 8, bottom: 8),
+      margin: const EdgeInsets.all(8),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
@@ -97,7 +97,7 @@ class RadioItem extends StatelessWidget {
                             width: 10,
                             height: 10,
                             decoration: const BoxDecoration(
-                              color: Colors.red,
+                              color: Colors.blue,
                               shape: BoxShape.circle,
                             ),
                           )

@@ -24,7 +24,9 @@ class MyApp extends StatelessWidget {
         backgroundColor: const Color(0xfff5f5f5),
         textTheme: null,
       ),
-      darkTheme: ThemeData(brightness: Brightness.dark, backgroundColor: const Color(0xff3c3c3c)),
+      darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          backgroundColor: const Color(0xff3c3c3c)),
       home: MainTestPage(),
     );
   }
@@ -52,8 +54,11 @@ class MainTestPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushAndRemoveUntil<dynamic>(
                       context,
-                      MaterialPageRoute<dynamic>(builder: (BuildContext context) => MultiSectionForm()),
-                      (route) => true, //if you want to disable back feature set to false
+                      MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) =>
+                              MultiSectionForm()),
+                      (route) =>
+                          true, //if you want to disable back feature set to false
                     );
                   },
                   child: const Text('Multi Section form'),
@@ -62,8 +67,11 @@ class MainTestPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushAndRemoveUntil<dynamic>(
                       context,
-                      MaterialPageRoute<dynamic>(builder: (BuildContext context) => SingleSectionForm()),
-                      (route) => true, //if you want to disable back feature set to false
+                      MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) =>
+                              SingleSectionForm()),
+                      (route) =>
+                          true, //if you want to disable back feature set to false
                     );
                   },
                   child: const Text('Single Section form'),
@@ -170,7 +178,8 @@ class SingleSectionForm extends StatelessWidget {
                       title: 'Email',
                       errorMessage: 'error',
                       helpMessage: 'someemail@gmail.com',
-                      postfixWidget: const Icon(Icons.email, color: Color(0xff676767)),
+                      postfixWidget:
+                          const Icon(Icons.email, color: Color(0xff676767)),
                       weight: 12,
                       required: false,
                     ),
@@ -231,72 +240,67 @@ class MultiSectionForm extends StatelessWidget {
             Expanded(
               child: SingleChildScrollView(
                 child: form = GSForm.multiSection(context, sections: [
-                  GSSection(
-                    sectionTitle: 'User information',
-                    fields: [
-                      GSField.text(
-                        tag: 'name',
-                        title: 'Name',
-                        minLine: 1,
-                        maxLine: 1,
-                      GSField.radioGroup(
-                        hint: 'Radio Group',
-                        tag: 'radio',
-                        required: false,
-                        weight: 12,
-                        scrollable: true,
-                        height: 150,
-                        title: 'Size number',
-                        items: [
-                          RadioDataModel(title: 'size 1', isSelected: false),
-                          RadioDataModel(title: 'size 2', isSelected: false),
-                        ],
-                        callBack: (_) {
-                        },
-                      ),
-
-                      GSField.datePicker(
-                        tag: 'licenceExpireDate',
-                        title: 'DatePicker',
-                        weight: 12,
-                        required: false,
-                        errorMessage: 'please enter a name',
-                      ),
-                      GSField.text(
-                        tag: 'lastName',
-                        title: 'Last name',
-                        minLine: 1,
-                        maxLine: 1,
-                        weight: 12,
-                        required: true,
-                      ),
-                      GSField.spinner(
-                        tag: 'customer_type',
-                        required: false,
-                        weight: 6,
-                        title: 'Gender',
-                        items: [
-                          SpinnerDataModel(
-                            name: 'man',
-                            id: 1,
-                          ),
-                          SpinnerDataModel(
-                            name: 'woman',
-                            id: 2,
-                          ),
-                        ],
-                      ),
-                      GSField.mobile(
-                        tag: 'mobile',
-                        title: 'Phone number',
-                        maxLength: 11,
-                        helpMessage: '9357814747',
-                        weight: 6,
-                        required: false,
-                        errorMessage: 'some error',
-                      ),
-                    ],
-                  ),
+                  GSSection(sectionTitle: 'User information', fields: [
+                    GSField.text(
+                      tag: 'name',
+                      title: 'Name',
+                      minLine: 1,
+                      maxLine: 1,
+                    ),
+                    GSField.radioGroup(
+                      hint: 'Radio Group',
+                      tag: 'radio',
+                      required: false,
+                      weight: 12,
+                      title: 'Size number',
+                      items: [
+                        RadioDataModel(title: 'size 1', isSelected: false),
+                        RadioDataModel(title: 'size 2', isSelected: false),
+                      ],
+                      callBack: (_) {},
+                    ),
+                    GSField.datePicker(
+                      calendarType: GSCalendarType.gregorian,
+                      tag: 'licenceExpireDate',
+                      title: 'DatePicker',
+                      weight: 12,
+                      required: false,
+                      errorMessage: 'please enter a name',
+                    ),
+                    GSField.text(
+                      tag: 'lastName',
+                      title: 'Last name',
+                      minLine: 1,
+                      maxLine: 1,
+                      weight: 12,
+                      required: true,
+                    ),
+                    GSField.spinner(
+                      tag: 'customer_type',
+                      required: false,
+                      weight: 6,
+                      title: 'Gender',
+                      items: [
+                        SpinnerDataModel(
+                          name: 'man',
+                          id: 1,
+                        ),
+                        SpinnerDataModel(
+                          name: 'woman',
+                          id: 2,
+                        ),
+                      ],
+                    ),
+                    GSField.mobile(
+                      tag: 'mobile',
+                      title: 'Phone number',
+                      maxLength: 11,
+                      helpMessage: '9357814747',
+                      weight: 6,
+                      required: false,
+                      errorMessage: 'some error',
+                    ),
+                  ]),
                   GSSection(
                     sectionTitle: 'Market information',
                     fields: [
@@ -317,7 +321,8 @@ class MultiSectionForm extends StatelessWidget {
                         maxLength: 233,
                         showCounter: false,
                         weight: 12,
-                        prefixWidget: const Icon(Icons.location_city, color: Colors.blue),
+                        prefixWidget:
+                            const Icon(Icons.location_city, color: Colors.blue),
                         required: true,
                       ),
                       GSField.spinner(
