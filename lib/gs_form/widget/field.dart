@@ -5,6 +5,7 @@ import 'package:gsform/gs_form/enums/field_status.dart';
 import 'package:gsform/gs_form/enums/filed_required_type.dart';
 import 'package:gsform/gs_form/enums/filed_type.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
+import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/spinner_data_model.dart';
 import 'package:gsform/gs_form/model/fields_model/bank_card_filed_model.dart';
 import 'package:gsform/gs_form/model/fields_model/date_picker_model.dart';
@@ -16,6 +17,7 @@ import 'package:gsform/gs_form/model/fields_model/mobile_model.dart';
 import 'package:gsform/gs_form/model/fields_model/number_model.dart';
 import 'package:gsform/gs_form/model/fields_model/price_model.dart';
 import 'package:gsform/gs_form/model/fields_model/qr_scanner_model.dart';
+import 'package:gsform/gs_form/model/fields_model/radio_model.dart';
 import 'package:gsform/gs_form/model/fields_model/spinner_model.dart';
 import 'package:gsform/gs_form/model/fields_model/text_filed_model.dart';
 import 'package:gsform/gs_form/model/fields_model/text_password_model.dart';
@@ -34,6 +36,7 @@ import 'package:gsform/gs_form/widget/fields/number_field.dart';
 import 'package:gsform/gs_form/widget/fields/password_field.dart';
 import 'package:gsform/gs_form/widget/fields/price_field.dart';
 import 'package:gsform/gs_form/widget/fields/qr_scanner_field.dart';
+import 'package:gsform/gs_form/widget/fields/radio_group_field.dart';
 import 'package:gsform/gs_form/widget/fields/spinner_field.dart';
 import 'package:gsform/gs_form/widget/fields/text_field.dart';
 import 'package:gsform/gs_form/widget/fields/text_plain_field.dart';
@@ -158,6 +161,50 @@ class GSField extends StatefulWidget {
     );
   }
 
+  GSField.radioGroup(
+      {Key? key,
+      required String tag,
+      String? title,
+      String? errorMessage,
+      String? helpMessage,
+      Widget? prefixWidget,
+      bool? required,
+      bool? showTitle,
+      GSFieldStatusEnum? status,
+      String? value,
+      int? weight,
+      RegExp? validateRegEx,
+      String? hint,
+      Axis? scrollDirection,
+      Widget? selectedIcon,
+      Widget? unSelectedIcon,
+      bool? scrollable,
+      double? height,
+      required List<RadioDataModel> items,
+      required ValueChanged<RadioDataModel> callBack})
+      : super(key: key) {
+    model = GSRadioModel(
+      type: GSFieldTypeEnum.radioGroup,
+      tag: tag,
+      showTitle: showTitle ?? true,
+      title: title,
+      errorMessage: errorMessage,
+      helpMessage: helpMessage,
+      required: required,
+      status: status,
+      value: value,
+      weight: weight,
+      hint: hint,
+      items: items,
+      callBack: callBack,
+      scrollDirection: scrollDirection,
+      unSelectedIcon: unSelectedIcon,
+      selectedIcon: selectedIcon,
+      scrollable: scrollable ?? false,
+      height: height,
+    );
+  }
+
   GSField.text(
       {Key? key,
       required String tag,
@@ -267,8 +314,7 @@ class GSField extends StatefulWidget {
         maxLine: maxLine,
         minLine: minLine,
         maxLength: maxLength,
-        showCounter: showCounter
-    );
+        showCounter: showCounter);
   }
 
   GSField.mobile({
@@ -794,6 +840,10 @@ class _GSFieldState extends State<GSField> {
       case GSFieldTypeEnum.spinner:
         widget.child =
             GSSpinnerField(widget.model as GSSpinnerModel, widget.formStyle!);
+        break;
+      case GSFieldTypeEnum.radioGroup:
+        widget.child =
+            GSRadioGroupField(widget.model as GSRadioModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.imagePicker:
         widget.child = GSImagePickerField(

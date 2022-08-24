@@ -33,7 +33,7 @@ class GSTextPlainField extends HookWidget implements GSFieldCallBack {
           FocusScope.of(context).requestFocus(model.nextFocusNode);
         },
         decoration: InputDecoration(
-          counter: model.showCounter! ? null : const Offstage(),
+          counter: model.showCounter!=null ? null : const Offstage(),
           hintText: model.hint,
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,

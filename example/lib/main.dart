@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/enums/filed_required_type.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
+import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/spinner_data_model.dart';
 import 'package:gsform/gs_form/widget/field.dart';
 import 'package:gsform/gs_form/widget/form.dart';
@@ -273,6 +274,22 @@ class SingleSectionForm extends StatelessWidget {
                     ),
                     context,
                     fields: [
+                      GSField.radioGroup(
+                        hint: 'Radio Group',
+                        tag: 'radio',
+                        required: false,
+                        weight: 12,
+                        scrollable: true,
+                        height: 150,
+                        title: 'Size number',
+                        items: [
+                          RadioDataModel(title: 'size 1', isSelected: false),
+                          RadioDataModel(title: 'size 2', isSelected: false),
+                        ],
+                        callBack: (_) {
+                        },
+                      ),
+
                       GSField.datePicker(
                         tag: 'licenceExpireDate',
                         title: 'DatePicker',
