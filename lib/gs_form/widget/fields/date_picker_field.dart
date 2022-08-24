@@ -15,9 +15,7 @@ class GSDatePickerField extends StatefulWidget implements GSFieldCallBack {
 
   String selectedDateText = '';
   Jalali? selectedJalaliDate;
-
   DateTime? selectedGregorianDate;
-
   late BuildContext context ;
 
   GSDatePickerField(this.model, this.formStyle, {Key? key}) : super(key: key);

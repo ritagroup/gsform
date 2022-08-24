@@ -19,7 +19,6 @@ dependencies:
   image_cropper: ^3.0.0
   image_picker: ^0.8.5+3
   flutter_svg: ^1.1.0
-  flutter_hooks: ^0.18.5+1
   path_provider: ^2.0.11
 
 

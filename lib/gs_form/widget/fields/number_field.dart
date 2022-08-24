@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 
 import '../../core/form_style.dart';
 import '../../model/fields_model/number_model.dart';
 
-// ignore: must_be_immutable
-class GSNumberField extends HookWidget implements GSFieldCallBack {
-  late GSNumberModel model;
-  GSFormStyle formStyle;
 
-  late dynamic controller ;
+class GSNumberField extends StatelessWidget implements GSFieldCallBack {
+  final  GSNumberModel model;
+  final GSFormStyle formStyle;
+
+  final TextEditingController? controller = TextEditingController();
 
   GSNumberField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    controller = useTextEditingController() ;
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
@@ -25,9 +23,7 @@ class GSNumberField extends HookWidget implements GSFieldCallBack {
         style: formStyle.fieldTextStyle,
         keyboardType: TextInputType.phone,
         focusNode: model.focusNode,
-        textInputAction: model.nextFocusNode != null
-            ? TextInputAction.next
-            : TextInputAction.done,
+        textInputAction: model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
         onSubmitted: (_) {
           FocusScope.of(context).requestFocus(model.nextFocusNode);
         },

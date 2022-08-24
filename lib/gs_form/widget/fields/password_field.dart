@@ -1,10 +1,11 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 
 import '../../core/form_style.dart';
 import '../../model/fields_model/text_password_model.dart';
 
-// ignore: must_be_immutable
 class GSPasswordField extends StatefulWidget implements GSFieldCallBack {
   late GSPasswordModel model;
   GSFormStyle formStyle;

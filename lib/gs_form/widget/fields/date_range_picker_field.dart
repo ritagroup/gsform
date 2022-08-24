@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
@@ -6,7 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:persian_datetime_picker/persian_datetime_picker.dart';
 import '../../core/form_style.dart';
 
-// ignore: must_be_immutable
+
 class GSDateRangePickerField extends StatefulWidget implements GSFieldCallBack {
   final GSDateRangePickerModel model;
   final GSFormStyle formStyle;

@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gsform/gs_form/model/fields_model/bank_card_filed_model.dart';
 
 import '../../core/field_callback.dart';
 import '../../core/form_style.dart';
 import '../../util/util.dart';
 
-// ignore: must_be_immutable
-class GSBankCardField extends HookWidget implements GSFieldCallBack {
-  GSBankCardModel model;
-  late dynamic controller ;
-  GSFormStyle formStyle;
+class GSBankCardField extends StatelessWidget implements GSFieldCallBack {
+  final GSBankCardModel model;
+  final TextEditingController? controller = TextEditingController();
+  final GSFormStyle formStyle;
 
   GSBankCardField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    controller = useTextEditingController() ;
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
@@ -28,9 +25,7 @@ class GSBankCardField extends HookWidget implements GSFieldCallBack {
         style: formStyle.fieldTextStyle,
         keyboardType: TextInputType.number,
         focusNode: model.focusNode,
-        textInputAction: model.nextFocusNode != null
-            ? TextInputAction.next
-            : TextInputAction.done,
+        textInputAction: model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
         onSubmitted: (_) {
           FocusScope.of(context).requestFocus(model.nextFocusNode);
         },
