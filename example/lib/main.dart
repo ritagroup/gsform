@@ -87,7 +87,6 @@ class SingleSectionForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         title: const Text('Single section Page'),
       ),
@@ -214,6 +213,7 @@ class SingleSectionForm extends StatelessWidget {
     );
   }
 }
+
 // ignore: must_be_immutable
 class MultiSectionForm extends StatelessWidget {
   MultiSectionForm({Key? key}) : super(key: key);
@@ -232,106 +232,105 @@ class MultiSectionForm extends StatelessWidget {
           children: [
             Expanded(
               child: SingleChildScrollView(
-                child: form = GSForm.multiSection(context,
-                    sections: [
-                      GSSection(
-                        sectionTitle: 'User information',
-                        fields: [
-                          GSField.text(
-                            tag: 'name',
-                            title: 'Name',
-                            minLine: 1,
-                            maxLine: 1,
-                            weight: 12,
-                            required: false,
-                            errorMessage: 'please enter a name',
+                child: form = GSForm.multiSection(context, sections: [
+                  GSSection(
+                    sectionTitle: 'User information',
+                    fields: [
+                      GSField.text(
+                        tag: 'name',
+                        title: 'Name',
+                        minLine: 1,
+                        maxLine: 1,
+                        weight: 12,
+                        required: false,
+                        errorMessage: 'please enter a name',
+                      ),
+                      GSField.text(
+                        tag: 'lastName',
+                        title: 'Last name',
+                        minLine: 1,
+                        maxLine: 1,
+                        weight: 12,
+                        required: true,
+                      ),
+                      GSField.spinner(
+                        tag: 'customer_type',
+                        required: false,
+                        weight: 6,
+                        title: 'Gender',
+                        items: [
+                          SpinnerDataModel(
+                            name: 'man',
+                            id: 1,
                           ),
-                          GSField.text(
-                            tag: 'lastName',
-                            title: 'Last name',
-                            minLine: 1,
-                            maxLine: 1,
-                            weight: 12,
-                            required: true,
-                          ),
-                          GSField.spinner(
-                            tag: 'customer_type',
-                            required: false,
-                            weight: 6,
-                            title: 'Gender',
-                            items: [
-                              SpinnerDataModel(
-                                name: 'man',
-                                id: 1,
-                              ),
-                              SpinnerDataModel(
-                                name: 'woman',
-                                id: 2,
-                              ),
-                            ],
-                          ),
-                          GSField.mobile(
-                            tag: 'mobile',
-                            title: 'Phone number',
-                            maxLength: 11,
-                            helpMessage: '9357814747',
-                            weight: 6,
-                            required: false,
-                            errorMessage: 'some error',
+                          SpinnerDataModel(
+                            name: 'woman',
+                            id: 2,
                           ),
                         ],
                       ),
-                      GSSection(
-                        sectionTitle: 'Market information',
-                        fields: [
-                          GSField.text(
-                            tag: 'name',
-                            title: 'Market name',
-                            minLine: 1,
-                            maxLine: 1,
-                            weight: 12,
-                            required: false,
-                            errorMessage: 'please enter a name',
+                      GSField.mobile(
+                        tag: 'mobile',
+                        title: 'Phone number',
+                        maxLength: 11,
+                        helpMessage: '9357814747',
+                        weight: 6,
+                        required: false,
+                        errorMessage: 'some error',
+                      ),
+                    ],
+                  ),
+                  GSSection(
+                    sectionTitle: 'Market information',
+                    fields: [
+                      GSField.text(
+                        tag: 'name',
+                        title: 'Market name',
+                        minLine: 1,
+                        maxLine: 1,
+                        weight: 12,
+                        required: false,
+                        errorMessage: 'please enter a name',
+                      ),
+                      GSField.textPlain(
+                        hint: 'sds',
+                        tag: 'lastName',
+                        title: 'Market address',
+                        maxLine: 4,
+                        maxLength: 233,
+                        showCounter: false,
+                        weight: 12,
+                        prefixWidget: const Icon(Icons.location_city, color: Colors.blue),
+                        required: true,
+                      ),
+                      GSField.spinner(
+                        tag: 'customer_type',
+                        required: false,
+                        weight: 6,
+                        title: 'Market type',
+                        items: [
+                          SpinnerDataModel(
+                            name: 'Super market',
+                            id: 1,
                           ),
-                          GSField.textPlain(
-                            hint: 'sds',
-                            tag: 'lastName',
-                            title: 'Market address',
-                            maxLine: 4,
-                            maxLength: 233,
-                            showCounter: false,
-                            weight: 12,
-                            prefixWidget: const Icon(Icons.location_city, color: Colors.blue),
-                            required: true,
-                          ),
-                          GSField.spinner(
-                            tag: 'customer_type',
-                            required: false,
-                            weight: 6,
-                            title: 'Market type',
-                            items: [
-                              SpinnerDataModel(
-                                name: 'Super market',
-                                id: 1,
-                              ),
-                              SpinnerDataModel(
-                                name: 'woman',
-                                id: 2,
-                              ),
-                            ],
-                          ),
-                          GSField.mobile(
-                            tag: 'mobile',
-                            title: 'Telephone',
-                            maxLength: 11,
-                            helpMessage: '9357814747',
-                            weight: 6,
-                            required: false,
-                            errorMessage: 'some error',
+                          SpinnerDataModel(
+                            name: 'woman',
+                            id: 2,
                           ),
                         ],
                       ),
-                    ]),
+                      GSField.mobile(
+                        tag: 'mobile',
+                        title: 'Telephone',
+                        maxLength: 11,
+                        helpMessage: '9357814747',
+                        weight: 6,
+                        required: false,
+                        errorMessage: 'some error',
+                      ),
+                    ],
+                  ),
+                ]),
               ),
             ),
             Padding(
