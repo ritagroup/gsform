@@ -102,7 +102,7 @@ class GSField extends StatefulWidget {
     String? cameraPopupIcon,
     String? galleryPopupIcon,
     required String iconAssets,
-    bool? allowPickFromGallery,
+    GSImageSource? imageSource,
     Color? iconColor,
     bool? showCropper,
   }) : super(key: key) {
@@ -110,7 +110,7 @@ class GSField extends StatefulWidget {
       type: GSFieldTypeEnum.imagePicker,
       tag: tag,
       showCropper: showCropper ?? true,
-      imageSource: GSImageSource.both,
+      imageSource: imageSource??GSImageSource.both,
       showTitle: showTitle ?? false,
       title: title,
       cameraPopupTitle: cameraPopupTitle,
