@@ -110,6 +110,12 @@ GSFormStyle(
   </tr>
  </table>
 
+## Dark Support
+<p align="center">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/darksupport.png?raw=true" alt="alternatetext"  height="450">
+</br>
+</p>
+
 ## Fields
 
 <table>
