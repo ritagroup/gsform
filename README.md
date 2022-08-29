@@ -27,9 +27,10 @@ See real examples:
 
 <!-- Use for instance <https://github.com/ekalinin/github-markdown-toc>: -->
 
-> * [GSForm](#title--repository-name)
 >   * [Installation](#installation)
->   * [Style](#style)
+>   * [Theme](#theme)
+>   	* [Style](#style)
+>   	* [Dark Support](#darksupport)
 <!-- >   * [Features](#features) -->
 >   * [Fields](#fields)
 >   * [Attributes](#attributes)
