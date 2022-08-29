@@ -5,6 +5,7 @@ import 'package:gsform/gs_form/model/fields_model/radio_model.dart';
 
 import '../../core/field_callback.dart';
 
+// ignore: must_be_immutable
 class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
   final GSRadioModel model;
 

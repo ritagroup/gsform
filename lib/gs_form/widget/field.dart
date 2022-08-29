@@ -578,7 +578,7 @@ class GSField extends StatefulWidget {
       prefixWidget: prefixWidget,
       postfixWidget: Text(
         currencyName ?? '',
-        style: GSFormTheme.textThemeStyle.headline3,
+        style: GSFormTheme.textThemeStyle.displaySmall,
       ),
       required: required,
       status: status,

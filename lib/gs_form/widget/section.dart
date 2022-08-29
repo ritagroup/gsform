@@ -65,7 +65,7 @@ class GSSection extends StatelessWidget {
                   children: [
                     Text(
                       sectionTitle!,
-                      style: style?.sectionTitleStyle ?? GSFormTheme.textThemeStyle.headline1,
+                      style: style?.sectionTitleStyle ?? GSFormTheme.textThemeStyle.displayLarge,
                     ),
                   ],
                 ),

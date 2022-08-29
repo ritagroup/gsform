@@ -250,7 +250,6 @@ class MultiSectionForm extends StatelessWidget {
                         RadioDataModel(title: 'size 2', isSelected: false),
                       ],
                       callBack: (data) {
-                        print(data.title);
                       },
                     ),
                     GSField.datePicker(
