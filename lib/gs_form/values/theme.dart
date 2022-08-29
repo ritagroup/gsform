@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'colors.dart';
 
 class GSFormTheme {
-  static TextTheme textThemeStyle = const  TextTheme(
+  static TextTheme textThemeStyle = const TextTheme(
     displayLarge: TextStyle(color: GSFormColors.textColorHeader, fontWeight: FontWeight.w700, fontSize: 12.0),
     displayMedium: TextStyle(color: GSFormColors.textColor, fontWeight: FontWeight.w700, fontSize: 11.0),
     displaySmall: TextStyle(color: GSFormColors.hintTextColor, fontWeight: FontWeight.w500, fontSize: 9.0),

@@ -276,7 +276,7 @@ class ImagePickedView extends StatelessWidget {
                       height: 20.0,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
+                          primary: Colors.red,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                         ),
                         onPressed: () {
