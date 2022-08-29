@@ -732,12 +732,14 @@ class _GSFieldState extends State<GSField> {
                       : 0,
                   child: Row(
                     children: [
-                      SvgPicture.asset(
-                        widget.model.status == GSFieldStatusEnum.error
-                            ? 'assets/icons/ic_alret.svg'
-                            : 'assets/icons/ic_info.svg',
-                        width: 7.0,
-                        height: 7.0,
+                      SizedBox(
+                        width: 8.0,
+                        height: 8.0,
+                        child: SvgPicture.asset(
+                          widget.model.status == GSFieldStatusEnum.error
+                              ? 'packages/gsform/assets/ic_alret.svg'
+                              : 'packages/gsform/assets/ic_info.svg',
+                        ),
                       ),
                       const SizedBox(width: 1.0),
                       Text(
