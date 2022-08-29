@@ -4,7 +4,7 @@ import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/fields_model/text_filed_model.dart';
 
 class GSTextField extends StatelessWidget implements GSFieldCallBack {
-  final  GSTextModel model;
+  final GSTextModel model;
   final GSFormStyle formStyle;
 
   final TextEditingController? controller = TextEditingController();

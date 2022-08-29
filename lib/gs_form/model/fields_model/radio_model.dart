@@ -45,4 +45,3 @@ class GSRadioModel extends GSFieldModel {
           showTitle: showTitle,
         );
 }
-

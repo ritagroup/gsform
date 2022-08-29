@@ -4,9 +4,8 @@ import 'package:gsform/gs_form/core/field_callback.dart';
 import '../../core/form_style.dart';
 import '../../model/fields_model/number_model.dart';
 
-
 class GSNumberField extends StatelessWidget implements GSFieldCallBack {
-  final  GSNumberModel model;
+  final GSNumberModel model;
   final GSFormStyle formStyle;
 
   final TextEditingController? controller = TextEditingController();

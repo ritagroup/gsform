@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'field_model.dart';
 
-
 class GSImagePickerModel extends GSFieldModel {
   String? hint;
   String iconAsset;
@@ -44,10 +43,6 @@ class GSImagePickerModel extends GSFieldModel {
           weight: weight,
           showTitle: showTitle,
         );
-
-
 }
 
-enum GSImageSource{
-  camera , gallery , both
-}
+enum GSImageSource { camera, gallery, both }

@@ -8,6 +8,7 @@ import 'package:gsform/gs_form/enums/filed_required_type.dart';
 import 'package:gsform/gs_form/model/fields_model/qr_scanner_model.dart';
 import 'package:gsform/gs_form/screens/qr_scanner_screen.dart';
 import 'package:gsform/gs_form/values/colors.dart';
+
 class GSQRScannerField extends StatefulWidget implements GSFieldCallBack {
   final GSQRScannerModel model;
   final GSFormStyle formStyle;
@@ -69,9 +70,7 @@ class _GSQRScannerFieldState extends State<GSQRScannerField> {
                 children: [
                   SvgPicture.asset(
                     widget.model.iconAsset,
-                    color: widget._scannedValue == null
-                        ? widget.model.iconColor
-                        : GSFormColors.green,
+                    color: widget._scannedValue == null ? widget.model.iconColor : GSFormColors.green,
                     height: 30.0,
                     width: 30.0,
                   ),

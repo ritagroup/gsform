@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:gsform/gs_form/model/fields_model/field_model.dart';
 
-
 class GSQRScannerModel extends GSFieldModel {
   String? hint;
   String iconAsset;

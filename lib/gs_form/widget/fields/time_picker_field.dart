@@ -15,7 +15,7 @@ class GSTimePickerField extends StatefulWidget implements GSFieldCallBack {
 
   bool isTimeSelected = false;
   TimeOfDay? selectedTime;
-  late BuildContext context ;
+  late BuildContext context;
 
   GSTimePickerField(this.model, this.formStyle, {Key? key}) : super(key: key) {
     selectedTimeText = model.hint ?? 'زمان را انتخاب کنید';
@@ -31,7 +31,6 @@ class GSTimePickerField extends StatefulWidget implements GSFieldCallBack {
 
   @override
   bool isValid() {
-
     if (!(model.required ?? false)) {
       return true;
     } else {
@@ -47,29 +46,23 @@ class GSTimePickerField extends StatefulWidget implements GSFieldCallBack {
     return selectedTime == null
         ? null
         : TimeDataModel(
-            displayTime: selectedTime!.format(context),
-            hour: selectedTime!.hour,
-            minute: selectedTime!.minute);
+            displayTime: selectedTime!.format(context), hour: selectedTime!.hour, minute: selectedTime!.minute);
   }
-
-
 }
 
 class _GSTimePickerFieldState extends State<GSTimePickerField> {
   @override
   Widget build(BuildContext context) {
-    widget.context = context  ;
+    widget.context = context;
     return Padding(
-      padding: const EdgeInsets.only(right: 10.0, left: 10.0 , top: 16 , bottom: 16),
+      padding: const EdgeInsets.only(right: 10.0, left: 10.0, top: 16, bottom: 16),
       child: InkWell(
         child: Row(
           children: [
             Expanded(
               child: Text(
                 widget.selectedTimeText!,
-                style: widget.isTimeSelected
-                    ? widget.formStyle.fieldTextStyle
-                    : widget.formStyle.fieldHintStyle,
+                style: widget.isTimeSelected ? widget.formStyle.fieldTextStyle : widget.formStyle.fieldHintStyle,
               ),
             ),
           ],
@@ -88,12 +81,8 @@ class _GSTimePickerFieldState extends State<GSTimePickerField> {
       initialEntryMode: PTimePickerEntryMode.dial,
     );
     if (picked != null) {
-      String hour = picked.hour.toString().length == 1
-          ? '0${picked.hour}'
-          : picked.hour.toString();
-      String minute = picked.minute.toString().length == 1
-          ? '0${picked.minute}'
-          : picked.minute.toString();
+      String hour = picked.hour.toString().length == 1 ? '0${picked.hour}' : picked.hour.toString();
+      String minute = picked.minute.toString().length == 1 ? '0${picked.minute}' : picked.minute.toString();
       widget.selectedTimeText = '$hour:$minute';
       widget.selectedTime = picked;
       widget.isTimeSelected = true;
@@ -108,5 +97,4 @@ class _GSTimePickerFieldState extends State<GSTimePickerField> {
       setState(() {});
     }
   }
-
 }

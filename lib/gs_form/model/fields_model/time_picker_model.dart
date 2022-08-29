@@ -19,7 +19,6 @@ class GSTimePickerModel extends GSFieldModel {
     value,
     validateReg,
     weight,
-
     showTitle,
     this.hint,
     this.initialTime,

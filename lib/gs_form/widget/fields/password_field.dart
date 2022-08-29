@@ -51,9 +51,7 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
         style: widget.formStyle.fieldTextStyle,
         controller: widget.controller,
         obscuringCharacter: '●',
-        textInputAction: widget.model.nextFocusNode != null
-            ? TextInputAction.next
-            : TextInputAction.done,
+        textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
         onSubmitted: (_) {
           FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
         },
@@ -71,9 +69,7 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
             child: Container(
               transform: Matrix4.translationValues(10, 0, 0),
               child: Icon(
-                widget.obscured
-                    ? Icons.visibility_rounded
-                    : Icons.visibility_off_rounded,
+                widget.obscured ? Icons.visibility_rounded : Icons.visibility_off_rounded,
                 size: 24,
               ),
             ),
@@ -89,10 +85,10 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
       setState(() => {widget.obscured = !widget.obscured});
     }
   }
+
   @override
   void dispose() {
     widget.controller?.dispose();
     super.dispose();
-
   }
 }

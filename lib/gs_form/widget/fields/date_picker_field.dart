@@ -16,7 +16,7 @@ class GSDatePickerField extends StatefulWidget implements GSFieldCallBack {
   String selectedDateText = '';
   Jalali? selectedJalaliDate;
   DateTime? selectedGregorianDate;
-  late BuildContext context ;
+  late BuildContext context;
 
   GSDatePickerField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
@@ -79,9 +79,9 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
 
   @override
   Widget build(BuildContext context) {
-    widget.context = context ;
+    widget.context = context;
     return Padding(
-      padding: const EdgeInsets.only(right: 10.0, left: 10.0 , top: 18 , bottom: 18),
+      padding: const EdgeInsets.only(right: 10.0, left: 10.0, top: 18, bottom: 18),
       child: InkWell(
         child: Row(
           children: [

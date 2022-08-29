@@ -1,4 +1,3 @@
-
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
@@ -37,7 +36,6 @@ class GSSpinnerField extends StatefulWidget implements GSFieldCallBack {
       return true;
     }
   }
-
 }
 
 class _GSSpinnerFieldState extends State<GSSpinnerField> {
@@ -71,8 +69,7 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
             isExpanded: true,
             value: widget.value ?? widget.model.items[0],
             items: widget.model.items
-                .map((e) =>
-                DropdownMenuItem(
+                .map((e) => DropdownMenuItem(
                     value: e,
                     child: Padding(
                       padding: const EdgeInsetsDirectional.only(start: 8.0),

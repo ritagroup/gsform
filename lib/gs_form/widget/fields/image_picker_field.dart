@@ -1,5 +1,3 @@
-
-
 import 'dart:io';
 
 import 'package:figma_squircle/figma_squircle.dart';
@@ -58,19 +56,18 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
             borderRadius: BorderRadius.circular(10.0),
           ),
           onTap: () {
-            if (widget.model.imageSource ==  GSImageSource.both) {
+            if (widget.model.imageSource == GSImageSource.both) {
               GSFormUtils.showImagePickerBottomSheet(
                 cameraName: widget.model.cameraPopupTitle,
                 galleryName: widget.model.galleryPopupTitle,
                 cameraAssets: widget.model.cameraPopupIcon,
                 galleryAssets: widget.model.galleryPopupIcon,
-
                 context,
                 (image) async {
                   _fillImagePath(image);
                 },
               );
-            } else if(widget.model.imageSource == GSImageSource.camera) {
+            } else if (widget.model.imageSource == GSImageSource.camera) {
               GSFormUtils.pickImage(ImageSource.camera).then(
                 (imageFile) {
                   if (imageFile != null) {
@@ -78,9 +75,9 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
                   }
                 },
               );
-            }else{
+            } else {
               GSFormUtils.pickImage(ImageSource.gallery).then(
-                    (imageFile) {
+                (imageFile) {
                   if (imageFile != null) {
                     _fillImagePath(imageFile);
                   }

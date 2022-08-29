@@ -44,11 +44,8 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
       height: widget.model.height,
       child: ListView.builder(
         itemCount: widget.model.items.length,
-        shrinkWrap:
-            widget.model.scrollable == null ? false : !widget.model.scrollable!,
-        physics: !widget.model.scrollable!
-            ? const NeverScrollableScrollPhysics()
-            : const BouncingScrollPhysics(),
+        shrinkWrap: widget.model.scrollable == null ? false : !widget.model.scrollable!,
+        physics: !widget.model.scrollable! ? const NeverScrollableScrollPhysics() : const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
           return Material(
             color: Colors.transparent,
@@ -68,8 +65,7 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
               ),
               child: Padding(
                 padding: const EdgeInsets.only(left: 4.0, right: 4),
-                child: RadioItem(
-                    widget.model.items[index], widget.model, widget.formStyle!),
+                child: RadioItem(widget.model.items[index], widget.model, widget.formStyle!),
               ),
             ),
           );
@@ -84,8 +80,7 @@ class RadioItem extends StatelessWidget {
   final GSFormStyle formStyle;
   final GSRadioModel _model;
 
-  const RadioItem(this._item, this._model, this.formStyle, {Key? key})
-      : super(key: key);
+  const RadioItem(this._item, this._model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

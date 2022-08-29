@@ -5,7 +5,7 @@
 
 <p align="center">
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/gsform_logo.png?raw=true" width="300" height="100">
-	
+
 </br>
 
 </p>
@@ -13,7 +13,8 @@
  -->
 This package helps to create forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.
 
-Also included are common ready-made form input fields for GSForm. This gives you a convenient way of adding common ready-made input fields instead of creating your own FormBuilderField from scratch.
+Also included are common ready-made form input fields for GSForm. This gives you a convenient way of
+adding common ready-made input fields instead of creating your own FormBuilderField from scratch.
 <!--* Project status: working -->
 
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/header.jpg?raw=true">
@@ -27,22 +28,24 @@ See real examples:
 <!-- Use for instance <https://github.com/ekalinin/github-markdown-toc>: -->
 
 > * [GSForm](#title--repository-name)
->   * [Installation](#installation)
+    >
+* [Installation](#installation)
 >   * [Style](#style)
 <!-- >   * [Features](#features) -->
->   * [Fields](#fields)
+> * [Fields](#fields)
 >   * [Attributes](#attributes)
->       * [Text](#text)
->   	* [TextPlain](#textplain)
->   	* [Number](#number)
->   	* [Spinner](#spinner)
->   	* [DatePicker](#datepicker)
->   	* [DateRangedPicker](#daterangedpicker)
->   	* [TimePicker](#timepicker)
->   	* [Mobile](#mobile)
->   	* [Email](#email)
->   	* [Password](#password)
->   	* [Price](#price)
+      >
+* [Text](#text)
+>    * [TextPlain](#textplain)
+>    * [Number](#number)
+>    * [Spinner](#spinner)
+>    * [DatePicker](#datepicker)
+>    * [DateRangedPicker](#daterangedpicker)
+>    * [TimePicker](#timepicker)
+>    * [Mobile](#mobile)
+>    * [Email](#email)
+>    * [Password](#password)
+>    * [Price](#price)
 <!-- >   	* [BankCard](#bankcard) -->
 >
 >
@@ -54,7 +57,7 @@ See real examples:
 <!-- >     * [Deploy (how to install build product)](#deploy-how-to-install-build-product) -->
 <!-- >   * [Resources (Documentation and other links)](#resources-documentation-and-other-links) -->
 <!-- >   * [Contributing / Reporting issues](#contributing--reporting-issues) -->
->   * [License](#license)
+> * [License](#license)
 >   * [About Golrang System](#about-golrang-system)
 
 ## Installation
@@ -63,22 +66,27 @@ Run this command:
 
 With Flutter:
 </br>
+
 ```
 flutter pub add gsform
 ```
+
 This will add a line like this to your package's pubspec.yaml (and run an implicit flutter pub get):
 
 ```
 dependencies:
   gsform: ^0.0.4
 ```
-Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn more.
+
+Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn
+more.
 
 ## Style
+
 <table>
   <tr>
     <td>
-	  
+
 ```dart
 GSFormStyle(
 	backgroundFieldColor: COLOR,
@@ -97,12 +105,11 @@ GSFormStyle(
 )
 
 ```
-	
+
 <td><img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/style.png?raw=true" alt="alternatetext" width="250" height="450">
 	  </td>
   </tr>
  </table>
-
 
 ## Fields
 
@@ -135,6 +142,7 @@ GSField.text(
 	prefixWidget: widget,
 )
 ```
+
 </td>
 <td>
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text.png?raw=true" alt="alternatetext" width="150" height="270">
@@ -164,6 +172,7 @@ GSField.text(
 	prefixWidget: widget,
 )
 ```
+
 </td>
 <td>
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text_plain.png?raw=true" alt="alternatetext" width="150" height="270">
@@ -188,6 +197,7 @@ GSField.text(
 	helpMessage: 'less than 100',
 ),
 ```
+
 </td>
 <td>
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/number.png?raw=true" alt="alternatetext" width="150" height="270">
@@ -217,6 +227,7 @@ GSField.text(
 	],
 )
 ```
+
 </td>
 <td>
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/spinner.png?raw=true" alt="alternatetext" width="150" height="270">
@@ -246,6 +257,7 @@ GSField.text(
 	prefixWidget: widget,
 )
 ```
+
 </td>
 <td>
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/date.png?raw=true" alt="alternatetext" width="150" height="270">
@@ -279,6 +291,7 @@ GSField.dateRangePicker(
 	prefixWidget: widget,
 )
 ```
+
 </td>
 <td>
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/range_date.png?raw=true" alt="alternatetext" width="150" height="270">
@@ -305,6 +318,7 @@ GSField.time(
 	weight: 12
 	)
 ```
+
 </td>
 <td>
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/time.png?raw=true" alt="alternatetext" width="150" height="270">
@@ -333,6 +347,7 @@ GSField.mobile(
 	required: true,
 )
 ```
+
 </td>
 <td>
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/mobile.png?raw=true" alt="alternatetext" width="150" height="270">
@@ -361,6 +376,7 @@ GSField.email(
 	required: true,
 )
 ```
+
 </td>
 <td>
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/email.png?raw=true" alt="alternatetext" width="150" height="270">
@@ -387,6 +403,7 @@ GSField.password(
 	required: true,
 )
 ```
+
 </td>
 <td>
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/password.png?raw=true" alt="alternatetext" width="150" height="270">
@@ -414,6 +431,7 @@ GSField.price(
 	required: true,
 )
 ```
+
 </td>
 <td>
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/price.png?raw=true" alt="alternatetext" width="150" height="270">
@@ -440,6 +458,7 @@ GSField.bankCard(
 	helpMessage: 'help message',
 )
 ```
+
 </td>
 <td>
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/card.png?raw=true" alt="alternatetext" width="150" height="270">
@@ -448,11 +467,10 @@ GSField.bankCard(
 
 </table>
 
-
 ## Attributes
 
-Some features are common to all fields, which are introduced in the table below.
-The specific features of each field will be explained in detail below.
+Some features are common to all fields, which are introduced in the table below. The specific
+features of each field will be explained in detail below.
 
 <table>
   <tr>
@@ -541,8 +559,8 @@ The specific features of each field will be explained in detail below.
   </tr>
 </table>
 
-
 ## Text
+
 <table>
   <tr>
     <td>Attribute</td>
@@ -560,8 +578,8 @@ The specific features of each field will be explained in detail below.
   </tr>
 </table>
 
-
 ## TextPlain
+
 <table>
   <tr>
     <td>Attribute</td>
@@ -600,8 +618,8 @@ The specific features of each field will be explained in detail below.
   </tr>
 </table>
 
-
 ## Number
+
 <table>
   <tr>
     <td>Attribute</td>
@@ -620,6 +638,7 @@ The specific features of each field will be explained in detail below.
 </table>
 
 ## Spinner
+
 <table>
   <tr>
     <td>Attribute</td>
@@ -638,6 +657,7 @@ The specific features of each field will be explained in detail below.
 </table>
 
 ## Mobile
+
 <table>
   <tr>
     <td>Attribute</td>
@@ -656,6 +676,7 @@ The specific features of each field will be explained in detail below.
 </table>
 
 ## Email
+
 <table>
   <tr>
     <td>Attribute</td>
@@ -673,8 +694,8 @@ The specific features of each field will be explained in detail below.
   </tr>
 </table>
 
-
 ## Password
+
 <table>
  <tr>
     <td>Attribute</td>
@@ -693,6 +714,7 @@ The specific features of each field will be explained in detail below.
 </table>
 
 ## Price
+
 <table>
  <tr>
     <td>Attribute</td>
@@ -718,6 +740,7 @@ The specific features of each field will be explained in detail below.
 </table>
 
 ## DatePicker
+
 <table>
   <tr>
     <td>Attribute</td>
@@ -763,8 +786,8 @@ The specific features of each field will be explained in detail below.
   </tr>
 </table>
 
-
 ## DateRangedPicker
+
 <table>
   <tr>
     <td>Attribute</td>
@@ -819,6 +842,7 @@ The specific features of each field will be explained in detail below.
 </table>
 
 ## TimePicker
+
 <table>
   <tr>
     <td>Attribute</td>
@@ -857,10 +881,17 @@ Link to JIRA component (or project if there is no component for that project). S
 
 ## About Golrang System
 
-Golrang System Company is an active company in the field of information and communication technology, which aims to provide information technology solutions to help productivity and improve the capability and profitability of Golrang Industrial Group as the arm of the senior management since the beginning of the group's establishment. The passage of time has reached growth.
+Golrang System Company is an active company in the field of information and communication
+technology, which aims to provide information technology solutions to help productivity and improve
+the capability and profitability of Golrang Industrial Group as the arm of the senior management
+since the beginning of the group's establishment. The passage of time has reached growth.
 
-Considering the expansion of the use of information technology in the field of industry and the trend of companies towards globalization, this company has put the provision of advanced information and communication technology solutions on its agenda, and it tries to be an integrated task by focusing on the field of information and communication technology. Be responsible for creating systems, project management and technical and consulting services. 
- 
+Considering the expansion of the use of information technology in the field of industry and the
+trend of companies towards globalization, this company has put the provision of advanced information
+and communication technology solutions on its agenda, and it tries to be an integrated task by
+focusing on the field of information and communication technology. Be responsible for creating
+systems, project management and technical and consulting services.
+
 ## License
 
 [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)

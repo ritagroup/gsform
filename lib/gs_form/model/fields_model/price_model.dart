@@ -21,7 +21,6 @@ class GSPriceModel extends GSFieldModel {
       validateRegEx,
       maxLength,
       weight,
-
       showTitle,
       this.hint})
       : super(

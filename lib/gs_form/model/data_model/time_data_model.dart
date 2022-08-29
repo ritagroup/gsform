@@ -5,6 +5,5 @@ class TimeDataModel {
 
   int minute;
 
-  TimeDataModel(
-      {required this.displayTime, required this.hour, required this.minute});
+  TimeDataModel({required this.displayTime, required this.hour, required this.minute});
 }

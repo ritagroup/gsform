@@ -22,22 +22,21 @@ abstract class GSFieldModel {
   FocusNode? focusNode;
   FocusNode? nextFocusNode;
 
-  GSFieldModel(
-      {this.type,
-      required this.tag,
-      this.showTitle,
-      this.title,
-      this.errorMessage,
-      this.helpMessage,
-      this.prefixWidget,
-      this.postfixWidget,
-      this.required,
-      this.value,
-      this.validateRegEx,
-      this.weight,
-      this.focusNode,
-      this.nextFocusNode,
-      GSFieldStatusEnum? status,
-      })
-      : status = status ?? GSFieldStatusEnum.normal;
+  GSFieldModel({
+    this.type,
+    required this.tag,
+    this.showTitle,
+    this.title,
+    this.errorMessage,
+    this.helpMessage,
+    this.prefixWidget,
+    this.postfixWidget,
+    this.required,
+    this.value,
+    this.validateRegEx,
+    this.weight,
+    this.focusNode,
+    this.nextFocusNode,
+    GSFieldStatusEnum? status,
+  }) : status = status ?? GSFieldStatusEnum.normal;
 }

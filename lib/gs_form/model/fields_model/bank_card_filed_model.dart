@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/model/fields_model/field_model.dart';
 
-
 class GSBankCardModel extends GSFieldModel {
   String? hint;
 

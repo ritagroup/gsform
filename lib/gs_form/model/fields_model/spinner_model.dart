@@ -1,4 +1,3 @@
-
 import '../data_model/spinner_data_model.dart';
 import 'field_model.dart';
 

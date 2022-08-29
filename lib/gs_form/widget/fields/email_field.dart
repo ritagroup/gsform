@@ -6,7 +6,7 @@ import '../../core/form_style.dart';
 import '../../model/fields_model/email_model.dart';
 
 class GSEmailField extends StatelessWidget implements GSFieldCallBack {
-  final  GSEmailModel model;
+  final GSEmailModel model;
   final GSFormStyle formStyle;
 
   final TextEditingController? controller = TextEditingController();

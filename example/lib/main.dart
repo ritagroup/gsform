@@ -24,9 +24,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: const Color(0xfff5f5f5),
         textTheme: null,
       ),
-      darkTheme: ThemeData(
-          brightness: Brightness.dark,
-          backgroundColor: const Color(0xff3c3c3c)),
+      darkTheme: ThemeData(brightness: Brightness.dark, backgroundColor: const Color(0xff3c3c3c)),
       home: MainTestPage(),
     );
   }
@@ -54,11 +52,8 @@ class MainTestPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushAndRemoveUntil<dynamic>(
                       context,
-                      MaterialPageRoute<dynamic>(
-                          builder: (BuildContext context) =>
-                              MultiSectionForm()),
-                      (route) =>
-                          true, //if you want to disable back feature set to false
+                      MaterialPageRoute<dynamic>(builder: (BuildContext context) => MultiSectionForm()),
+                      (route) => true, //if you want to disable back feature set to false
                     );
                   },
                   child: const Text('Multi Section form'),
@@ -67,11 +62,8 @@ class MainTestPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushAndRemoveUntil<dynamic>(
                       context,
-                      MaterialPageRoute<dynamic>(
-                          builder: (BuildContext context) =>
-                              SingleSectionForm()),
-                      (route) =>
-                          true, //if you want to disable back feature set to false
+                      MaterialPageRoute<dynamic>(builder: (BuildContext context) => SingleSectionForm()),
+                      (route) => true, //if you want to disable back feature set to false
                     );
                   },
                   child: const Text('Single Section form'),
@@ -179,8 +171,7 @@ class SingleSectionForm extends StatelessWidget {
                       title: 'Email',
                       errorMessage: 'error',
                       helpMessage: 'someemail@gmail.com',
-                      postfixWidget:
-                          const Icon(Icons.email, color: Color(0xff676767)),
+                      postfixWidget: const Icon(Icons.email, color: Color(0xff676767)),
                       weight: 12,
                       required: false,
                     ),
@@ -324,8 +315,7 @@ class MultiSectionForm extends StatelessWidget {
                         maxLength: 233,
                         showCounter: false,
                         weight: 12,
-                        prefixWidget:
-                            const Icon(Icons.location_city, color: Colors.blue),
+                        prefixWidget: const Icon(Icons.location_city, color: Colors.blue),
                         required: true,
                       ),
                       GSField.spinner(
