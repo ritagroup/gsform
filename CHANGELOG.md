@@ -6,5 +6,8 @@
 ## 0.0.3
 * Fixed some bugs
 ## 0.0.4
+* Fixed some bugs 
+* Add Radio group as field of GSForm 
+* Improved styles
 
 
