@@ -74,7 +74,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```
 dependencies:
-  gsform: ^0.0.4
+  gsform: ^0.0.5
 ```
 
 Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn
