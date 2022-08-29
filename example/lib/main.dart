@@ -250,14 +250,16 @@ class MultiSectionForm extends StatelessWidget {
                     GSField.radioGroup(
                       hint: 'Radio Group',
                       tag: 'radio',
-                      required: false,
+                      required: true,
                       weight: 12,
                       title: 'Size number',
                       items: [
                         RadioDataModel(title: 'size 1', isSelected: false),
                         RadioDataModel(title: 'size 2', isSelected: false),
                       ],
-                      callBack: (_) {},
+                      callBack: (data) {
+                        print(data.title);
+                      },
                     ),
                     GSField.datePicker(
                       calendarType: GSCalendarType.gregorian,

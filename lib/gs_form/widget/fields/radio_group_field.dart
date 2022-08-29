@@ -3,16 +3,33 @@ import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
 import 'package:gsform/gs_form/model/fields_model/radio_model.dart';
 
-class GSRadioGroupField extends StatefulWidget {
+import '../../core/field_callback.dart';
+
+class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
   final GSRadioModel model;
 
   final GSFormStyle? formStyle;
 
-  const GSRadioGroupField(this.model, this.formStyle, {Key? key})
-      : super(key: key);
+  GSRadioGroupField(this.model, this.formStyle, {Key? key}) : super(key: key);
+
+  RadioDataModel? valueObject;
 
   @override
   State<GSRadioGroupField> createState() => _GSRadioGroupFieldState();
+
+  @override
+  getValue() {
+    return valueObject ?? '';
+  }
+
+  @override
+  bool isValid() {
+    if (!(model.required ?? false)) {
+      return true;
+    } else {
+      return valueObject != null;
+    }
+  }
 }
 
 class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
@@ -42,6 +59,8 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
                 }
                 widget.model.items[index].isSelected = true;
                 widget.model.callBack(widget.model.items[index]);
+                widget.valueObject = widget.model.items[index];
+                setState(() => {});
                 setState(() {});
               },
               customBorder: RoundedRectangleBorder(
@@ -49,8 +68,8 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
               ),
               child: Padding(
                 padding: const EdgeInsets.only(left: 4.0, right: 4),
-                child: RadioItem(widget.model.items[index], widget.model,
-                    widget.formStyle!),
+                child: RadioItem(
+                    widget.model.items[index], widget.model, widget.formStyle!),
               ),
             ),
           );

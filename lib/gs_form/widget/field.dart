@@ -677,7 +677,7 @@ class _GSFieldState extends State<GSField> {
                   visible: widget.model.showTitle!,
                   child: Row(
                     children: [
-                      Text(widget.model.title!,
+                      Text(widget.model.title ?? "",
                           style: widget.formStyle!.titleTextStyle),
                       const SizedBox(width: 4.0),
                       Opacity(
