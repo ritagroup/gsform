@@ -28,24 +28,22 @@ See real examples:
 <!-- Use for instance <https://github.com/ekalinin/github-markdown-toc>: -->
 
 > * [GSForm](#title--repository-name)
-    >
-* [Installation](#installation)
+>   * [Installation](#installation)
 >   * [Style](#style)
 <!-- >   * [Features](#features) -->
-> * [Fields](#fields)
+>   * [Fields](#fields)
 >   * [Attributes](#attributes)
-      >
-* [Text](#text)
->    * [TextPlain](#textplain)
->    * [Number](#number)
->    * [Spinner](#spinner)
->    * [DatePicker](#datepicker)
->    * [DateRangedPicker](#daterangedpicker)
->    * [TimePicker](#timepicker)
->    * [Mobile](#mobile)
->    * [Email](#email)
->    * [Password](#password)
->    * [Price](#price)
+>       * [Text](#text)
+>   	* [TextPlain](#textplain)
+>   	* [Number](#number)
+>   	* [Spinner](#spinner)
+>   	* [DatePicker](#datepicker)
+>   	* [DateRangedPicker](#daterangedpicker)
+>   	* [TimePicker](#timepicker)
+>   	* [Mobile](#mobile)
+>   	* [Email](#email)
+>   	* [Password](#password)
+>   	* [Price](#price)
 <!-- >   	* [BankCard](#bankcard) -->
 >
 >
