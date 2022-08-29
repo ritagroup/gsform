@@ -27,25 +27,24 @@ See real examples:
 
 <!-- Use for instance <https://github.com/ekalinin/github-markdown-toc>: -->
 
-> * [GSForm](#title--repository-name)
-    >
-* [Installation](#installation)
->   * [Style](#style)
+>   * [Installation](#installation)
+>   * [Theme](#theme)
+>   	* [Style](#style)
+>   	* [Dark Support](#darksupport)
 <!-- >   * [Features](#features) -->
-> * [Fields](#fields)
+>   * [Fields](#fields)
 >   * [Attributes](#attributes)
-      >
-* [Text](#text)
->    * [TextPlain](#textplain)
->    * [Number](#number)
->    * [Spinner](#spinner)
->    * [DatePicker](#datepicker)
->    * [DateRangedPicker](#daterangedpicker)
->    * [TimePicker](#timepicker)
->    * [Mobile](#mobile)
->    * [Email](#email)
->    * [Password](#password)
->    * [Price](#price)
+>       * [Text](#text)
+>   	* [TextPlain](#textplain)
+>   	* [Number](#number)
+>   	* [Spinner](#spinner)
+>   	* [DatePicker](#datepicker)
+>   	* [DateRangedPicker](#daterangedpicker)
+>   	* [TimePicker](#timepicker)
+>   	* [Mobile](#mobile)
+>   	* [Email](#email)
+>   	* [Password](#password)
+>   	* [Price](#price)
 <!-- >   	* [BankCard](#bankcard) -->
 >
 >
@@ -749,24 +748,31 @@ features of each field will be explained in detail below.
     <td>Required</td>
     <td>Description</td>
   </tr>
+   <tr>
+    <td>displayDateType</td>
+    <td><code> GSCalendarType </code></td>
+    <td>  jalali, gregoria </td>
+    <td><code> true </code></td>
+    <td>you can choose type of calendar jalali or gregorian</td>
+  </tr>
   <tr>
     <td>initialDate</td>
-    <td><code> Jalali </code></td>
-    <td> - </td>
+    <td><code> GSDate </code></td>
+    <td>  year,month,day </td>
     <td><code> false </code></td>
-    <td>initialDate that of calendar</td>
+    <td>initialDate of calendar</td>
   </tr>
   <tr>
     <td>availableFrom</td>
-    <td><code> Jalali </code></td>
-    <td> - </td>
+    <td><code> GSDate </code></td>
+    <td>  year,month,day </td>
     <td><code> false </code></td>
     <td>available date from</td>
   </tr>
   <tr>
     <td>availableTo</td>
-    <td><code> Jalali </code></td>
-    <td> - </td>
+    <td><code> GSDate </code></td>
+    <td>  year,month,day </td>
     <td><code> false </code></td>
     <td>available date to</td>
   </tr>
@@ -797,23 +803,37 @@ features of each field will be explained in detail below.
     <td>Description</td>
   </tr>
   <tr>
+    <td>calendarType</td>
+    <td><code> GSCalendarType </code></td>
+    <td>  jalali, gregoria </td>
+    <td><code> true </code></td>
+    <td>you can choose type of calendar jalali or gregorian</td>
+  </tr>
+  <tr>
+    <td>displayDateType</td>
+    <td><code> GSDateFormatType </code></td>
+    <td> <code> numeric, // 1401/04/04 </code></br> <code> fullText, //  شنبه 04 تیر 1401 </code></br> <code> mediumText, // شنبه 04 تیر </code></br> <code> shortText, // 04 تیر ,1401 </code></br> </td>
+    <td><code> false </code></td>
+    <td>you can choose type of display type</td>
+  </tr>
+  <tr>
     <td>initialDate</td>
-    <td><code> Jalali </code></td>
-    <td> - </td>
+    <td><code> GSDate </code></td>
+    <td>  year,month,day </td>
     <td><code> false </code></td>
     <td>initial date  of calendar</td>
   </tr>
   <tr>
     <td>availableFrom</td>
-    <td><code> Jalali </code></td>
-    <td> - </td>
+    <td><code> GSDate </code></td>
+    <td>  year,month,day </td>
     <td><code> false </code></td>
     <td>available date from</td>
   </tr>
   <tr>
     <td>availableTo</td>
-    <td><code> Jalali </code></td>
-    <td> - </td>
+    <td><code> GSDate </code></td>
+    <td>  year,month,day </td>
     <td><code> false </code></td>
     <td>available date to</td>
   </tr>
@@ -829,7 +849,7 @@ features of each field will be explained in detail below.
     <td><code> String </code></td>
     <td> - </td>
     <td><code> false </code></td>
-    <td>this String change FROM after select date</td>
+    <td>From text in return selected date</td>
   </tr>
 
   <tr>
@@ -837,7 +857,7 @@ features of each field will be explained in detail below.
     <td><code> String </code></td>
     <td> - </td>
     <td><code> false </code></td>
-    <td>this String change TO after select date</td>
+    <td>To text in return selected date</td>
   </tr>
 </table>
 
