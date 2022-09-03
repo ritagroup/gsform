@@ -9,6 +9,7 @@ import '../../core/field_callback.dart';
 class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
   final GSRadioModel model;
 
+
   final GSFormStyle? formStyle;
 
   GSRadioGroupField(this.model, this.formStyle, {Key? key}) : super(key: key);
@@ -34,43 +35,60 @@ class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
 }
 
 class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
+
   @override
   void initState() {
     super.initState();
   }
 
+
+
+
+
   @override
   Widget build(BuildContext context) {
+
     return SizedBox(
       height: widget.model.height,
-      child: ListView.builder(
-        itemCount: widget.model.items.length,
-        shrinkWrap: widget.model.scrollable == null ? false : !widget.model.scrollable!,
-        physics: !widget.model.scrollable! ? const NeverScrollableScrollPhysics() : const BouncingScrollPhysics(),
-        itemBuilder: (context, index) {
-          return Material(
-            color: Colors.transparent,
-            child: InkWell(
-              onTap: () {
-                for (var element in widget.model.items) {
-                  element.isSelected = false;
-                }
-                widget.model.items[index].isSelected = true;
-                widget.model.callBack(widget.model.items[index]);
-                widget.valueObject = widget.model.items[index];
-                setState(() => {});
-                setState(() {});
-              },
-              customBorder: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(6.0),
+      child: RawScrollbar(
+        thumbColor: widget.model.scrollBarColor?? Colors.blue,
+        trackRadius: const Radius.circular(6),
+        radius: const Radius.circular(6),
+        interactive: true,
+        trackVisibility: true,
+        thumbVisibility: true,
+        thickness:widget.model.showScrollBar??false?6:0,
+
+
+        child: ListView.builder(
+          itemCount: widget.model.items.length,
+          shrinkWrap: widget.model.scrollable == null ? false : !widget.model.scrollable!,
+          physics: !widget.model.scrollable! ? const NeverScrollableScrollPhysics() : const BouncingScrollPhysics(),
+          itemBuilder: (context, index) {
+            return Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () {
+                  for (var element in widget.model.items) {
+                    element.isSelected = false;
+                  }
+                  widget.model.items[index].isSelected = true;
+                  widget.model.callBack(widget.model.items[index]);
+                  widget.valueObject = widget.model.items[index];
+                  setState(() => {});
+                  setState(() {});
+                },
+                customBorder: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6.0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 4.0, right: 4),
+                  child: RadioItem(widget.model.items[index], widget.model, widget.formStyle!),
+                ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 4.0, right: 4),
-                child: RadioItem(widget.model.items[index], widget.model, widget.formStyle!),
-              ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

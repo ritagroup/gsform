@@ -11,28 +11,34 @@ class GSRadioModel extends GSFieldModel {
   bool? scrollable;
   double? height;
   Axis? scrollDirection;
+  bool? showScrollBar;
+
+  Color? scrollBarColor;
+
   final ValueChanged<RadioDataModel> callBack;
 
-  GSRadioModel({
-    type,
-    tag,
-    title,
-    errorMessage,
-    helpMessage,
-    required,
-    status,
-    value,
-    weight,
-    showTitle,
-    required this.items,
-    required this.callBack,
-    this.selectedIcon,
-    this.unSelectedIcon,
-    this.hint,
-    this.scrollable,
-    this.height,
-    this.scrollDirection,
-  }) : super(
+  GSRadioModel(
+      {type,
+      tag,
+      title,
+      errorMessage,
+      helpMessage,
+      required,
+      status,
+      value,
+      weight,
+      showTitle,
+      required this.items,
+      required this.callBack,
+      this.selectedIcon,
+      this.unSelectedIcon,
+      this.hint,
+      this.scrollable,
+      this.height,
+      this.scrollDirection,
+      this.scrollBarColor,
+      this.showScrollBar})
+      : super(
           type: type,
           tag: tag,
           title: title,

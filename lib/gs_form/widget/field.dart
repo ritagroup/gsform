@@ -180,6 +180,8 @@ class GSField extends StatefulWidget {
       Widget? unSelectedIcon,
       bool? scrollable,
       double? height,
+      bool? showScrollBar,
+      Color? scrollBarColor,
       required List<RadioDataModel> items,
       required ValueChanged<RadioDataModel> callBack})
       : super(key: key) {
@@ -194,6 +196,8 @@ class GSField extends StatefulWidget {
       status: status,
       value: value,
       weight: weight,
+      showScrollBar: showScrollBar,
+      scrollBarColor: scrollBarColor,
       hint: hint,
       items: items,
       callBack: callBack,
