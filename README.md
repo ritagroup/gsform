@@ -77,7 +77,7 @@ dependencies:
 ```
 
 Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn
-more.
+more about it.
 
 ## Style
 
