@@ -110,10 +110,13 @@ GSFormStyle(
  </table>
 
 ## Dark Support
+As we all now Dark theme is trending and most of the popular app has the feature to turn into the dark mode, we support Dark theme in GSForm if you did'nt user custom Style in components, otherwise you should handle this yourself.
+
 <p align="center">
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/darksupport.png?raw=true" alt="alternatetext"  height="450">
 </br>
 </p>
+
 
 ## Fields
 
