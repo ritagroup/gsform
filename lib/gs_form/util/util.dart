@@ -49,13 +49,14 @@ class GSFormUtils {
     );
   }
 
-  static showImagePickerBottomSheet(BuildContext context,
-      void Function(File image) callback, {
-        String? galleryName = 'Gallery',
-        String? cameraName = 'Camera',
-        String? cameraAssets,
-        String? galleryAssets,
-      }) {
+  static showImagePickerBottomSheet(
+    BuildContext context,
+    void Function(File image) callback, {
+    String? galleryName = 'Gallery',
+    String? cameraName = 'Camera',
+    String? cameraAssets,
+    String? galleryAssets,
+  }) {
     showModalBottomSheet(
       backgroundColor: Colors.transparent,
       isScrollControlled: true,
@@ -92,15 +93,15 @@ class GSFormUtils {
                             children: [
                               cameraAssets == null
                                   ? const Icon(
-                                Icons.camera,
-                                size: 40.0,
-                                color: Colors.blue,
-                              )
+                                      Icons.camera,
+                                      size: 40.0,
+                                      color: Colors.blue,
+                                    )
                                   : SvgPicture.asset(
-                                cameraAssets,
-                                width: 40.0,
-                                height: 40.0,
-                              ),
+                                      cameraAssets,
+                                      width: 40.0,
+                                      height: 40.0,
+                                    ),
                               const SizedBox(height: 10.0),
                               Text(
                                 cameraName ?? 'Camera',
@@ -125,15 +126,15 @@ class GSFormUtils {
                             children: [
                               galleryAssets == null
                                   ? const Icon(
-                                Icons.photo_library,
-                                size: 40.0,
-                                color: Colors.blue,
-                              )
+                                      Icons.photo_library,
+                                      size: 40.0,
+                                      color: Colors.blue,
+                                    )
                                   : SvgPicture.asset(
-                                galleryAssets,
-                                width: 40.0,
-                                height: 40.0,
-                              ),
+                                      galleryAssets,
+                                      width: 40.0,
+                                      height: 40.0,
+                                    ),
                               const SizedBox(height: 10.0),
                               Text(
                                 galleryName ?? 'Gallery',

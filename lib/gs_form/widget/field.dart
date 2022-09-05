@@ -679,21 +679,25 @@ class _GSFieldState extends State<GSField> {
               children: [
                 Visibility(
                   visible: widget.model.showTitle!,
-                  child: Row(
+                  child: Column(
                     children: [
-                      Text(widget.model.title ?? "", style: widget.formStyle!.titleTextStyle),
-                      const SizedBox(width: 4.0),
-                      Opacity(
-                        opacity: _showRequiredText(widget.model),
-                        child: Text(
-                          widget.formStyle!.requiredText,
-                          style: const TextStyle(color: GSFormColors.red, fontSize: 10),
-                        ),
+                      Row(
+                        children: [
+                          Text(widget.model.title ?? "", style: widget.formStyle!.titleTextStyle),
+                          const SizedBox(width: 4.0),
+                          Opacity(
+                            opacity: _showRequiredText(widget.model),
+                            child: Text(
+                              widget.formStyle!.requiredText,
+                              style: const TextStyle(color: GSFormColors.red, fontSize: 10),
+                            ),
+                          ),
+                        ],
                       ),
+                      const SizedBox(height: 6.0),
                     ],
                   ),
                 ),
-                const SizedBox(height: 4.0),
                 Container(
                   decoration: GSFormUtils.getFieldDecoration(widget.formStyle!, widget.model.status),
                   child: Row(

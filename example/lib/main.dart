@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/spinner_data_model.dart';
@@ -89,125 +90,124 @@ class SingleSectionForm extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Single section Page'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                child: form = GSForm.singleSection(
-                  context,
-                  fields: [
-                    GSField.text(
-                      tag: 'name',
-                      title: 'First Name',
-                      minLine: 1,
-                      maxLine: 1,
-                      weight: 12,
-                      hint: 'jhon',
-                      required: false,
-                      errorMessage: 'please enter a name',
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: form = GSForm.singleSection(
+                context,
+                style: GSFormStyle(sectionCardPadding: 0),
+                fields: [
+                  GSField.text(
+                    showTitle: false,
+                    tag: 'name',
+                    title: 'First Name',
+                    minLine: 1,
+                    maxLine: 1,
+                    weight: 12,
+                    hint: 'jhon',
+                    required: false,
+                    errorMessage: 'please enter a name',
+                  ),
+                  GSField.text(
+                    tag: 'lastName',
+                    title: 'Last name',
+                    minLine: 1,
+                    maxLine: 1,
+                    weight: 12,
+                    required: true,
+                  ),
+                  GSField.password(
+                    tag: 'password',
+                    title: 'Password',
+                    helpMessage: 'contain letter and number',
+                    errorMessage: 'error',
+                    weight: 6,
+                    required: true,
+                  ),
+                  GSField.datePicker(
+                    tag: 'licenceExpireDate',
+                    title: 'Birth Date',
+                    weight: 6,
+                    required: true,
+                    postfixWidget: const Icon(
+                      Icons.calendar_month,
+                      color: Color(0xff676767),
                     ),
-                    GSField.text(
-                      tag: 'lastName',
-                      title: 'Last name',
-                      minLine: 1,
-                      maxLine: 1,
-                      weight: 12,
-                      required: true,
+                    displayDateType: GSDateFormatType.fullText,
+                    initialDate: GSDate(
+                      day: DateTime.now().day,
+                      month: DateTime.now().month,
+                      year: DateTime.now().year,
                     ),
-                    GSField.password(
-                      tag: 'password',
-                      title: 'Password',
-                      helpMessage: 'contain letter and number',
-                      errorMessage: 'error',
-                      weight: 6,
-                      required: true,
-                    ),
-                    GSField.datePicker(
-                      tag: 'licenceExpireDate',
-                      title: 'Birth Date',
-                      weight: 6,
-                      required: true,
-                      postfixWidget: const Icon(
-                        Icons.calendar_month,
-                        color: Color(0xff676767),
+                    calendarType: GSCalendarType.gregorian,
+                  ),
+                  GSField.spinner(
+                    tag: 'customer_type',
+                    required: false,
+                    weight: 6,
+                    title: 'Gender',
+                    items: [
+                      SpinnerDataModel(
+                        name: 'man',
+                        id: 1,
                       ),
-                      displayDateType: GSDateFormatType.fullText,
-                      initialDate: GSDate(
-                        day: DateTime.now().day,
-                        month: DateTime.now().month,
-                        year: DateTime.now().year,
+                      SpinnerDataModel(
+                        name: 'woman',
+                        id: 2,
                       ),
-                      calendarType: GSCalendarType.gregorian,
-                    ),
-                    GSField.spinner(
-                      tag: 'customer_type',
-                      required: false,
-                      weight: 6,
-                      title: 'Gender',
-                      items: [
-                        SpinnerDataModel(
-                          name: 'man',
-                          id: 1,
-                        ),
-                        SpinnerDataModel(
-                          name: 'woman',
-                          id: 2,
-                        ),
-                      ],
-                    ),
-                    GSField.mobile(
-                      tag: 'mobile',
-                      title: 'Phone number',
-                      maxLength: 11,
-                      helpMessage: '9357814747',
-                      weight: 6,
-                      required: false,
-                      errorMessage: 'some error',
-                    ),
-                    GSField.email(
-                      tag: 'email',
-                      title: 'Email',
-                      errorMessage: 'error',
-                      helpMessage: 'someemail@gmail.com',
-                      postfixWidget: const Icon(Icons.email, color: Color(0xff676767)),
-                      weight: 12,
-                      required: false,
-                    ),
-                    GSField.textPlain(
-                      tag: 'explain',
-                      title: 'Description',
-                      weight: 12,
-                      maxLength: 150,
-                      required: true,
-                      minLine: 4,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        bool isValid = form.isValid();
-                        Map<String, dynamic> map = form.onSubmit();
-                        debugPrint(isValid.toString());
-                        debugPrint(map.toString());
-                      },
-                      child: const Text('Submit'),
-                    ),
+                    ],
+                  ),
+                  GSField.mobile(
+                    tag: 'mobile',
+                    title: 'Phone number',
+                    maxLength: 11,
+                    helpMessage: '9357814747',
+                    weight: 6,
+                    required: false,
+                    errorMessage: 'some error',
+                  ),
+                  GSField.email(
+                    tag: 'email',
+                    title: 'Email',
+                    errorMessage: 'error',
+                    helpMessage: 'someemail@gmail.com',
+                    postfixWidget: const Icon(Icons.email, color: Color(0xff676767)),
+                    weight: 12,
+                    required: false,
+                  ),
+                  GSField.textPlain(
+                    tag: 'explain',
+                    title: 'Description',
+                    weight: 12,
+                    maxLength: 150,
+                    required: true,
+                    minLine: 4,
                   ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      bool isValid = form.isValid();
+                      Map<String, dynamic> map = form.onSubmit();
+                      debugPrint(isValid.toString());
+                      debugPrint(map.toString());
+                    },
+                    child: const Text('Submit'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -263,8 +263,7 @@ class MultiSectionForm extends StatelessWidget {
                         RadioDataModel(title: 'size 2', isSelected: false),
                         RadioDataModel(title: 'size 2', isSelected: false),
                       ],
-                      callBack: (data) {
-                      },
+                      callBack: (data) {},
                     ),
                     GSField.datePicker(
                       calendarType: GSCalendarType.gregorian,

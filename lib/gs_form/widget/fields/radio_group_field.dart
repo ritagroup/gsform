@@ -9,7 +9,6 @@ import '../../core/field_callback.dart';
 class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
   final GSRadioModel model;
 
-
   final GSFormStyle? formStyle;
 
   GSRadioGroupField(this.model, this.formStyle, {Key? key}) : super(key: key);
@@ -35,31 +34,23 @@ class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
 }
 
 class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
-
   @override
   void initState() {
     super.initState();
   }
 
-
-
-
-
   @override
   Widget build(BuildContext context) {
-
     return SizedBox(
       height: widget.model.height,
       child: RawScrollbar(
-        thumbColor: widget.model.scrollBarColor?? Colors.blue,
+        thumbColor: widget.model.scrollBarColor ?? Colors.blue,
         trackRadius: const Radius.circular(6),
         radius: const Radius.circular(6),
         interactive: true,
         trackVisibility: true,
         thumbVisibility: true,
-        thickness:widget.model.showScrollBar??false?6:0,
-
-
+        thickness: widget.model.showScrollBar ?? false ? 6 : 0,
         child: ListView.builder(
           itemCount: widget.model.items.length,
           shrinkWrap: widget.model.scrollable == null ? false : !widget.model.scrollable!,

@@ -17,4 +17,9 @@
 * Fixed some bugs
 * Improved styles
 
+## 0.0.6
+* Fixed some bugs
+* update readme
+
+
 

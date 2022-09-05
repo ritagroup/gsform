@@ -61,17 +61,21 @@ class GSSection extends StatelessWidget {
         sectionTitle != null
             ? Padding(
                 padding: const EdgeInsetsDirectional.only(start: 4),
-                child: Row(
+                child: Column(
                   children: [
-                    Text(
-                      sectionTitle!,
-                      style: style?.sectionTitleStyle ?? GSFormTheme.textThemeStyle.displayLarge,
+                    Row(
+                      children: [
+                        Text(
+                          sectionTitle!,
+                          style: style?.sectionTitleStyle ?? GSFormTheme.textThemeStyle.displayLarge,
+                        ),
+                      ],
                     ),
+                    const SizedBox(height: 6.0),
                   ],
                 ),
               )
             : Container(),
-        const SizedBox(height: 6.0),
         Card(
           color: style?.backgroundSectionColor,
           elevation: style?.sectionCardElevation,
