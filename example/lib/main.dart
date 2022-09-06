@@ -263,8 +263,7 @@ class MultiSectionForm extends StatelessWidget {
                         RadioDataModel(title: 'size 2', isSelected: false),
                         RadioDataModel(title: 'size 2', isSelected: false),
                       ],
-                      callBack: (data) {
-                      },
+                      callBack: (data) {},
                     ),
                     GSField.datePicker(
                       calendarType: GSCalendarType.gregorian,
