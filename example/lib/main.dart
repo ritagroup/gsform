@@ -5,6 +5,7 @@ import 'package:gsform/gs_form/model/data_model/spinner_data_model.dart';
 import 'package:gsform/gs_form/widget/field.dart';
 import 'package:gsform/gs_form/widget/form.dart';
 import 'package:gsform/gs_form/widget/section.dart';
+import 'package:lottie/lottie.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,13 +19,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: ThemeData(
         brightness: Brightness.light,
+        primaryColor: Colors.blue,
         backgroundColor: const Color(0xfff5f5f5),
         textTheme: null,
       ),
-      darkTheme: ThemeData(brightness: Brightness.dark, backgroundColor: const Color(0xff3c3c3c)),
+      darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          backgroundColor: const Color(0xff3c3c3c)),
       home: MainTestPage(),
     );
   }
@@ -52,8 +57,11 @@ class MainTestPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushAndRemoveUntil<dynamic>(
                       context,
-                      MaterialPageRoute<dynamic>(builder: (BuildContext context) => MultiSectionForm()),
-                      (route) => true, //if you want to disable back feature set to false
+                      MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) =>
+                              MultiSectionForm()),
+                      (route) =>
+                          true, //if you want to disable back feature set to false
                     );
                   },
                   child: const Text('Multi Section form'),
@@ -62,8 +70,11 @@ class MainTestPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushAndRemoveUntil<dynamic>(
                       context,
-                      MaterialPageRoute<dynamic>(builder: (BuildContext context) => SingleSectionForm()),
-                      (route) => true, //if you want to disable back feature set to false
+                      MaterialPageRoute<dynamic>(
+                          builder: (BuildContext context) =>
+                              SingleSectionForm()),
+                      (route) =>
+                          true, //if you want to disable back feature set to false
                     );
                   },
                   child: const Text('Single Section form'),
@@ -171,7 +182,8 @@ class SingleSectionForm extends StatelessWidget {
                       title: 'Email',
                       errorMessage: 'error',
                       helpMessage: 'someemail@gmail.com',
-                      postfixWidget: const Icon(Icons.email, color: Color(0xff676767)),
+                      postfixWidget:
+                          const Icon(Icons.email, color: Color(0xff676767)),
                       weight: 12,
                       required: false,
                     ),
@@ -183,6 +195,15 @@ class SingleSectionForm extends StatelessWidget {
                       required: true,
                       minLine: 4,
                     ),
+                    GSField.imagePicker(
+                      tag: 'a',
+                      hint: 'فایل خود را انتخاب کنید',
+                      iconWidget: Lottie.asset(
+                        'assets/cam.json',
+                        width: 70,
+                        height: 70,
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -263,8 +284,7 @@ class MultiSectionForm extends StatelessWidget {
                         RadioDataModel(title: 'size 2', isSelected: false),
                         RadioDataModel(title: 'size 2', isSelected: false),
                       ],
-                      callBack: (data) {
-                      },
+                      callBack: (data) {},
                     ),
                     GSField.datePicker(
                       calendarType: GSCalendarType.gregorian,
@@ -328,7 +348,8 @@ class MultiSectionForm extends StatelessWidget {
                         maxLength: 233,
                         showCounter: false,
                         weight: 12,
-                        prefixWidget: const Icon(Icons.location_city, color: Colors.blue),
+                        prefixWidget:
+                            const Icon(Icons.location_city, color: Colors.blue),
                         required: true,
                       ),
                       GSField.spinner(

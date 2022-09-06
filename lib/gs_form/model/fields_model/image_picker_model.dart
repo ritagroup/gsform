@@ -1,11 +1,12 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 import 'field_model.dart';
 
 class GSImagePickerModel extends GSFieldModel {
   String? hint;
-  String iconAsset;
-  Color? iconColor;
+  Widget iconWidget;
   String? cameraPopupTitle;
   String? galleryPopupTitle;
   String? cameraPopupIcon;
@@ -13,26 +14,25 @@ class GSImagePickerModel extends GSFieldModel {
   GSImageSource? imageSource;
   bool? showCropper;
 
-  GSImagePickerModel(
-      {type,
-      tag,
-      title,
-      errorMessage,
-      helpMessage,
-      required,
-      status,
-      weight,
-      showTitle,
-      required this.iconAsset,
-      this.cameraPopupIcon,
-      this.galleryPopupIcon,
-      this.showCropper,
-      this.cameraPopupTitle,
-      this.galleryPopupTitle,
-      this.imageSource,
-      this.hint,
-      this.iconColor})
-      : super(
+  GSImagePickerModel({
+    type,
+    tag,
+    title,
+    errorMessage,
+    helpMessage,
+    required,
+    status,
+    weight,
+    showTitle,
+    required this.iconWidget,
+    this.cameraPopupIcon,
+    this.galleryPopupIcon,
+    this.showCropper,
+    this.cameraPopupTitle,
+    this.galleryPopupTitle,
+    this.imageSource,
+    this.hint,
+  }) : super(
           type: type,
           tag: tag,
           title: title,
