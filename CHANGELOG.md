@@ -19,7 +19,8 @@
 
 ## 0.0.6
 * Fixed some bugs
-* update readme
+* Update readme
+* Add icon widget to file picker  
 
 
 
