@@ -135,7 +135,8 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
 }
 
 class NormalView extends StatelessWidget {
-  const NormalView({required this.model, required this.formStyle, Key? key}) : super(key: key);
+  const NormalView({required this.model, required this.formStyle, Key? key})
+      : super(key: key);
   final GSImagePickerModel model;
   final GSFormStyle formStyle;
 
@@ -147,12 +148,7 @@ class NormalView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(
-            model.iconAsset,
-            color: Colors.red,
-            height: 30.0,
-            width: 30.0,
-          ),
+          model.iconWidget,
           const SizedBox(height: 6.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -269,7 +265,8 @@ class ImagePickedView extends StatelessWidget {
                   children: [
                     Text(
                       model.title!,
-                      style: formStyle.titleTextStyle.copyWith(color: Colors.white),
+                      style: formStyle.titleTextStyle
+                          .copyWith(color: Colors.white),
                     ),
                     const Spacer(),
                     SizedBox(
@@ -277,7 +274,8 @@ class ImagePickedView extends StatelessWidget {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           primary: Colors.red,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
                         ),
                         onPressed: () {
                           onDeleteImage.call();
@@ -289,7 +287,8 @@ class ImagePickedView extends StatelessWidget {
                             Text(
                               'حذف',
                               maxLines: 1,
-                              style: formStyle.titleTextStyle.copyWith(color: Colors.white),
+                              style: formStyle.titleTextStyle
+                                  .copyWith(color: Colors.white),
                             ),
                           ],
                         ),

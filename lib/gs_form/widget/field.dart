@@ -101,7 +101,7 @@ class GSField extends StatefulWidget {
     String? galleryPopupTitle,
     String? cameraPopupIcon,
     String? galleryPopupIcon,
-    required String iconAssets,
+    required Widget iconWidget,
     GSImageSource? imageSource,
     Color? iconColor,
     bool? showCropper,
@@ -123,8 +123,7 @@ class GSField extends StatefulWidget {
       status: status,
       weight: weight,
       hint: hint,
-      iconAsset: iconAssets,
-      iconColor: iconColor,
+      iconWidget: iconWidget,
     );
   }
 
@@ -699,16 +698,19 @@ class _GSFieldState extends State<GSField> {
                   ),
                 ),
                 Container(
-                  decoration: GSFormUtils.getFieldDecoration(widget.formStyle!, widget.model.status),
+                  decoration: GSFormUtils.getFieldDecoration(
+                      widget.formStyle!, widget.model.status),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Visibility(
-                        visible: widget.model.prefixWidget == null ? false : true,
+                        visible:
+                            widget.model.prefixWidget == null ? false : true,
                         child: Row(
                           children: [
                             const SizedBox(width: 8.0),
-                            widget.model.prefixWidget ?? const SizedBox(width: 0),
+                            widget.model.prefixWidget ??
+                                const SizedBox(width: 0),
                             const SizedBox(width: 8.0),
                             Container(
                               height: 30.0,
@@ -720,11 +722,13 @@ class _GSFieldState extends State<GSField> {
                       ),
                       Expanded(child: widget.child!),
                       Visibility(
-                        visible: widget.model.postfixWidget == null ? false : true,
+                        visible:
+                            widget.model.postfixWidget == null ? false : true,
                         child: Row(
                           children: [
                             const SizedBox(width: 10.0),
-                            widget.model.postfixWidget ?? const SizedBox(width: 0),
+                            widget.model.postfixWidget ??
+                                const SizedBox(width: 0),
                             const SizedBox(width: 10.0),
                           ],
                         ),
@@ -734,7 +738,8 @@ class _GSFieldState extends State<GSField> {
                 ),
                 const SizedBox(height: 4.0),
                 Opacity(
-                  opacity: (widget.model.status == GSFieldStatusEnum.error && widget.model.errorMessage != null) ||
+                  opacity: (widget.model.status == GSFieldStatusEnum.error &&
+                              widget.model.errorMessage != null) ||
                           widget.model.helpMessage != null
                       ? 1
                       : 0,

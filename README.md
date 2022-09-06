@@ -29,7 +29,9 @@ See real examples:
 >   * [Installation](#installation)
 >   * [Theme](#theme)
 >   	* [Style](#style)
->   	* [Dark Support](#darksupport)
+>   	* [Dark Support](#dark-support)
+>   	* [Direction](#direction)
+>   	* [Required Show Types](#required-show-types)
 <!-- >   * [Features](#features) -->
 >   * [Fields](#fields)
 >   * [Attributes](#attributes)
@@ -117,6 +119,11 @@ As we all now Dark theme is trending and most of the popular app has the feature
 </br>
 </p>
 
+## Direction
+Some languages of the world (Arabic, Hebrew etc.) are RTL, meaning they are read right-to-left, instead of left-to-right. GSForm Support RTL Direction !
+
+## Required Show Types
+You can set type of required show in form with GSFieldRequireTypeEnum (text Or star) 
 
 ## Fields
 
