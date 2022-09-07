@@ -148,7 +148,7 @@ class RadioItem extends StatelessWidget {
                           width: 18,
                           height: 18,
                           decoration: const BoxDecoration(
-                            color: Colors.white,
+                            color: Colors.grey,
                             shape: BoxShape.circle,
                           ),
                         )
