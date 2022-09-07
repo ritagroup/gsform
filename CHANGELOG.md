@@ -25,3 +25,8 @@
 ## 0.0.7
 * Add search field for radio group
 
+## 0.0.8
+* Improved styles
+* Improved design
+
+
