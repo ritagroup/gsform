@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
 import 'package:gsform/gs_form/model/fields_model/radio_model.dart';
@@ -34,18 +33,19 @@ class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
 }
 
 class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
+  ScrollController controller = ScrollController();
+
   @override
   void initState() {
     super.initState();
+
   }
 
   String keyword = "";
 
   @override
   Widget build(BuildContext context) {
-    List<RadioDataModel> filteredItems = widget.model.items
-        .where((i) => i.title.contains(keyword) == true)
-        .toList();
+    List<RadioDataModel> filteredItems = widget.model.items.where((i) => i.title.contains(keyword) == true).toList();
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -65,8 +65,7 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
                 child: TextField(
                   decoration: InputDecoration(
                       hintText: widget.model.searchHint,
-                      prefixIcon:
-                          widget.model.searchIcon ?? const Icon(Icons.search),
+                      prefixIcon: widget.model.searchIcon ?? const Icon(Icons.search),
                       border: InputBorder.none),
                   onChanged: (text) {
                     setState(() {
@@ -85,17 +84,15 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
             trackRadius: const Radius.circular(6),
             radius: const Radius.circular(6),
             interactive: true,
+            controller: controller,
             trackVisibility: true,
             thumbVisibility: true,
             thickness: widget.model.showScrollBar ?? false ? 6 : 0,
             child: ListView.builder(
+              controller: controller,
               itemCount: filteredItems.length,
-              shrinkWrap: widget.model.scrollable == null
-                  ? false
-                  : !widget.model.scrollable!,
-              physics: !widget.model.scrollable!
-                  ? const NeverScrollableScrollPhysics()
-                  : const BouncingScrollPhysics(),
+              shrinkWrap: widget.model.scrollable == null ? false : !widget.model.scrollable!,
+              physics: !widget.model.scrollable! ? const NeverScrollableScrollPhysics() : const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 return Material(
                   color: Colors.transparent,
@@ -115,8 +112,7 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 4.0, right: 4),
-                      child: RadioItem(filteredItems[index], widget.model,
-                          widget.formStyle!),
+                      child: RadioItem(filteredItems[index], widget.model, widget.formStyle!),
                     ),
                   ),
                 );
@@ -134,8 +130,7 @@ class RadioItem extends StatelessWidget {
   final GSFormStyle formStyle;
   final GSRadioModel _model;
 
-  const RadioItem(this._item, this._model, this.formStyle, {Key? key})
-      : super(key: key);
+  const RadioItem(this._item, this._model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
