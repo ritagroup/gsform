@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gsform/gs_form/enums/filed_required_type.dart';
 import 'package:gsform/gs_form/values/colors.dart';
 import 'package:gsform/gs_form/values/theme.dart';
 
@@ -10,7 +9,6 @@ class GSFormStyle {
   TextStyle errorTextStyle;
   TextStyle helpTextStyle;
   TextStyle sectionTitleStyle;
-  GSFieldRequireTypeEnum requireType;
   Color backgroundFieldColor;
   Color backgroundSectionColor;
   Color fieldBorderColor;
@@ -23,7 +21,6 @@ class GSFormStyle {
 
   GSFormStyle({
     TextStyle? titleStyle,
-    GSFieldRequireTypeEnum? requireType,
     Color? backgroundFieldColor,
     Color? backgroundSectionColor,
     Color? fieldBorderColor,
@@ -39,13 +36,12 @@ class GSFormStyle {
     TextStyle? sectionTitleStyle,
   })  : backgroundSectionColor = backgroundSectionColor ?? GSFormColors.white,
         backgroundFieldColor = backgroundFieldColor ?? GSFormColors.colorBackground,
-        requireType = requireType ?? GSFieldRequireTypeEnum.star,
         titleTextStyle = titleStyle ?? GSFormTheme.textThemeStyle.displayMedium!,
         fieldRadius = fieldRadius ?? 10.0,
         sectionRadius = sectionRadius ?? 4.0,
         sectionCardElevation = sectionCardElevation ?? 2.0,
         sectionCardPadding = sectionCardPadding ?? 2.0,
-        requiredText = requiredText ?? '(required)',
+        requiredText = requiredText ?? '',
         fieldHintStyle = fieldHintStyle ?? GSFormTheme.textThemeStyle.displayMedium!,
         fieldTextStyle = fieldTextStyle ?? GSFormTheme.textThemeStyle.displayMedium!,
         errorTextStyle = errorTextStyle ?? GSFormTheme.textThemeStyle.headlineSmall!,

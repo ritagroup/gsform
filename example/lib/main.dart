@@ -50,7 +50,7 @@ class MainTestPage extends StatelessWidget {
         ),
         body: Center(
           child: Padding(
-            padding: const EdgeInsets.only(top: 40.0),
+            padding: const EdgeInsets.only(top: 0.0),
             child: Column(
               children: [
                 ElevatedButton(
@@ -101,7 +101,7 @@ class SingleSectionForm extends StatelessWidget {
         title: const Text('Single section Page'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(0.0),
         child: Column(
           children: [
             Expanded(
@@ -114,7 +114,7 @@ class SingleSectionForm extends StatelessWidget {
                       title: 'First Name',
                       minLine: 1,
                       maxLine: 1,
-                      weight: 12,
+                      weight: 4,
                       hint: 'jhon',
                       required: false,
                       errorMessage: 'please enter a name',
@@ -124,7 +124,7 @@ class SingleSectionForm extends StatelessWidget {
                       title: 'Last name',
                       minLine: 1,
                       maxLine: 1,
-                      weight: 12,
+                      weight: 4,
                       required: true,
                     ),
                     GSField.password(
@@ -132,13 +132,13 @@ class SingleSectionForm extends StatelessWidget {
                       title: 'Password',
                       helpMessage: 'contain letter and number',
                       errorMessage: 'error',
-                      weight: 6,
+                      weight: 4,
                       required: true,
                     ),
                     GSField.datePicker(
                       tag: 'licenceExpireDate',
                       title: 'Birth Date',
-                      weight: 6,
+                      weight: 12,
                       required: true,
                       postfixWidget: const Icon(
                         Icons.calendar_month,
@@ -155,7 +155,7 @@ class SingleSectionForm extends StatelessWidget {
                     GSField.spinner(
                       tag: 'customer_type',
                       required: false,
-                      weight: 6,
+                      weight: 12,
                       title: 'Gender',
                       items: [
                         SpinnerDataModel(
@@ -173,7 +173,7 @@ class SingleSectionForm extends StatelessWidget {
                       title: 'Phone number',
                       maxLength: 11,
                       helpMessage: '9357814747',
-                      weight: 6,
+                      weight: 12,
                       required: false,
                       errorMessage: 'some error',
                     ),
@@ -233,6 +233,7 @@ class SingleSectionForm extends StatelessWidget {
                     ),
                     GSField.imagePicker(
                       tag: 'a',
+                      title: 'انتخاب تصویر',
                       hint: 'فایل خود را انتخاب کنید',
                       iconWidget: Lottie.asset(
                         'assets/cam.json',

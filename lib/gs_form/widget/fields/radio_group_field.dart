@@ -38,7 +38,6 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
   @override
   void initState() {
     super.initState();
-
   }
 
   String keyword = "";

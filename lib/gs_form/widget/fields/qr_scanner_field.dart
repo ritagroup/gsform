@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
-import 'package:gsform/gs_form/enums/filed_required_type.dart';
 import 'package:gsform/gs_form/model/fields_model/qr_scanner_model.dart';
 import 'package:gsform/gs_form/screens/qr_scanner_screen.dart';
 import 'package:gsform/gs_form/values/colors.dart';
@@ -78,27 +77,13 @@ class _GSQRScannerFieldState extends State<GSQRScannerField> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 3),
-                        child: Opacity(
-                          opacity: _showRequiredStar(),
-                          child: const Text(
-                            '*',
-                            style: TextStyle(
-                              color: GSFormColors.red,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 4.0),
                       Text(
                         widget.model.title ?? '',
                         style: widget.formStyle.titleTextStyle,
                       ),
                       const SizedBox(height: 4.0),
                       Visibility(
-                        visible: _showRequiredText() == 1 ? true : false,
+                        visible: true,
                         child: Text(
                           widget.formStyle.requiredText,
                           style: const TextStyle(
@@ -124,29 +109,6 @@ class _GSQRScannerFieldState extends State<GSQRScannerField> {
             )),
       ),
     );
-  }
-
-  _showRequiredStar() {
-    if (widget.model.required != null) {
-      if (widget.model.required!) {
-        if (widget.formStyle.requireType == GSFieldRequireTypeEnum.star) {
-          return 1.0;
-        }
-      }
-    }
-    return 0.0;
-  }
-
-  _showRequiredText() {
-    if (widget.model.required != null) {
-      if (widget.model.required!) {
-        if (widget.formStyle.requireType == GSFieldRequireTypeEnum.text) {
-          return 1.0;
-        }
-      }
-    }
-
-    return 0.0;
   }
 
   _route(BuildContext context, Widget screen) {

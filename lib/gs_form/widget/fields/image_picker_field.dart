@@ -2,10 +2,8 @@ import 'dart:io';
 
 import 'package:figma_squircle/figma_squircle.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
-import 'package:gsform/gs_form/enums/filed_required_type.dart';
 import 'package:gsform/gs_form/model/fields_model/image_picker_model.dart';
 import 'package:gsform/gs_form/util/util.dart';
 import 'package:gsform/gs_form/values/colors.dart';
@@ -25,7 +23,7 @@ class GSImagePickerField extends StatefulWidget implements GSFieldCallBack {
 
   @override
   getValue() {
-    return _croppedFilePath!;
+    return _croppedFilePath;
   }
 
   @override
@@ -135,8 +133,7 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
 }
 
 class NormalView extends StatelessWidget {
-  const NormalView({required this.model, required this.formStyle, Key? key})
-      : super(key: key);
+  const NormalView({required this.model, required this.formStyle, Key? key}) : super(key: key);
   final GSImagePickerModel model;
   final GSFormStyle formStyle;
 
@@ -153,25 +150,12 @@ class NormalView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 3),
-                child: Opacity(
-                  opacity: _showRequiredStar(),
-                  child: const Text(
-                    '*',
-                    style: TextStyle(
-                      color: GSFormColors.red,
-                      fontSize: 14,
-                    ),
-                  ),
-                ),
-              ),
               Text(
                 model.title ?? '',
                 style: formStyle.titleTextStyle,
               ),
               Visibility(
-                visible: _showRequiredText() == 1 ? true : false,
+                visible: false,
                 child: Text(
                   formStyle.requiredText,
                   style: const TextStyle(
@@ -190,29 +174,6 @@ class NormalView extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  _showRequiredStar() {
-    if (model.required != null) {
-      if (model.required!) {
-        if (formStyle.requireType == GSFieldRequireTypeEnum.star) {
-          return 1.0;
-        }
-      }
-    }
-    return 0.0;
-  }
-
-  _showRequiredText() {
-    if (model.required != null) {
-      if (model.required!) {
-        if (formStyle.requireType == GSFieldRequireTypeEnum.text) {
-          return 1.0;
-        }
-      }
-    }
-
-    return 0.0;
   }
 }
 
@@ -265,8 +226,7 @@ class ImagePickedView extends StatelessWidget {
                   children: [
                     Text(
                       model.title!,
-                      style: formStyle.titleTextStyle
-                          .copyWith(color: Colors.white),
+                      style: formStyle.titleTextStyle.copyWith(color: Colors.white),
                     ),
                     const Spacer(),
                     SizedBox(
@@ -274,8 +234,7 @@ class ImagePickedView extends StatelessWidget {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           primary: Colors.red,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                         ),
                         onPressed: () {
                           onDeleteImage.call();
@@ -287,8 +246,7 @@ class ImagePickedView extends StatelessWidget {
                             Text(
                               'حذف',
                               maxLines: 1,
-                              style: formStyle.titleTextStyle
-                                  .copyWith(color: Colors.white),
+                              style: formStyle.titleTextStyle.copyWith(color: Colors.white),
                             ),
                           ],
                         ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/enums/field_status.dart';
-import 'package:gsform/gs_form/enums/filed_required_type.dart';
 import 'package:gsform/gs_form/enums/filed_type.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
@@ -662,212 +661,150 @@ class _GSFieldState extends State<GSField> {
       }
     };
 
-    return Padding(
-      padding: const EdgeInsets.only(left: 2.0, right: 2.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Visibility(
-            visible: widget.model.showTitle!,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 3),
-              child: Opacity(
-                  opacity: _showRequiredStar(widget.model),
-                  child: const Text(
-                    '*',
-                    style: TextStyle(color: GSFormColors.red, fontSize: 14),
-                  )),
-            ),
-          ),
-          const SizedBox(width: 1.0),
-          Expanded(
-            child: Column(
-              children: [
-                Visibility(
-                  visible: widget.model.showTitle!,
-                  child: Column(
-                    children: [
-                      Row(
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: Column(
+            children: [
+              Visibility(
+                visible: widget.model.showTitle!,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(widget.model.title ?? "", style: widget.formStyle!.titleTextStyle),
+                        const SizedBox(width: 4.0),
+                        Opacity(
+                          opacity: widget.model.required ?? false ? 1 : 0,
+                          child: Text(
+                            widget.formStyle!.requiredText,
+                            style: const TextStyle(color: GSFormColors.red, fontSize: 10),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 6.0),
+                  ],
+                ),
+              ),
+              Container(
+                decoration: GSFormUtils.getFieldDecoration(widget.formStyle!, widget.model.status),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Visibility(
+                      visible: widget.model.prefixWidget == null ? false : true,
+                      child: Row(
                         children: [
-                          Text(widget.model.title ?? "",
-                              style: widget.formStyle!.titleTextStyle),
-                          const SizedBox(width: 4.0),
-                          Opacity(
-                            opacity: _showRequiredText(widget.model),
-                            child: Text(
-                              widget.formStyle!.requiredText,
-                              style: const TextStyle(
-                                  color: GSFormColors.red, fontSize: 10),
-                            ),
+                          const SizedBox(width: 8.0),
+                          widget.model.prefixWidget ?? const SizedBox(width: 0),
+                          const SizedBox(width: 8.0),
+                          Container(
+                            height: 30.0,
+                            color: GSFormColors.dividerColor,
+                            width: 1.0,
                           ),
                         ],
                       ),
-                      const SizedBox(height: 6.0),
-                    ],
-                  ),
+                    ),
+                    Expanded(child: widget.child!),
+                    Visibility(
+                      visible: widget.model.postfixWidget == null ? false : true,
+                      child: Row(
+                        children: [
+                          const SizedBox(width: 10.0),
+                          widget.model.postfixWidget ?? const SizedBox(width: 0),
+                          const SizedBox(width: 10.0),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                Container(
-                  decoration: GSFormUtils.getFieldDecoration(
-                      widget.formStyle!, widget.model.status),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Visibility(
-                        visible:
-                            widget.model.prefixWidget == null ? false : true,
-                        child: Row(
-                          children: [
-                            const SizedBox(width: 8.0),
-                            widget.model.prefixWidget ??
-                                const SizedBox(width: 0),
-                            const SizedBox(width: 8.0),
-                            Container(
-                              height: 30.0,
-                              color: GSFormColors.dividerColor,
-                              width: 1.0,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Expanded(child: widget.child!),
-                      Visibility(
-                        visible:
-                            widget.model.postfixWidget == null ? false : true,
-                        child: Row(
-                          children: [
-                            const SizedBox(width: 10.0),
-                            widget.model.postfixWidget ??
-                                const SizedBox(width: 0),
-                            const SizedBox(width: 10.0),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 4.0),
-                Opacity(
-                  opacity: (widget.model.status == GSFieldStatusEnum.error &&
-                              widget.model.errorMessage != null) ||
-                          widget.model.helpMessage != null
-                      ? 1
-                      : 0,
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 8.0,
-                        height: 8.0,
-                        child: SvgPicture.asset(
-                          widget.model.status == GSFieldStatusEnum.error
-                              ? 'packages/gsform/assets/ic_alret.svg'
-                              : 'packages/gsform/assets/ic_info.svg',
-                        ),
-                      ),
-                      const SizedBox(width: 1.0),
-                      Text(
+              ),
+              const SizedBox(height: 4.0),
+              Opacity(
+                opacity: (widget.model.status == GSFieldStatusEnum.error && widget.model.errorMessage != null) ||
+                        widget.model.helpMessage != null
+                    ? 1
+                    : 0,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 8.0,
+                      height: 8.0,
+                      child: SvgPicture.asset(
                         widget.model.status == GSFieldStatusEnum.error
-                            ? widget.model.errorMessage ?? ''
-                            : widget.model.helpMessage ?? '',
-                        style: widget.model.status == GSFieldStatusEnum.error
-                            ? widget.formStyle!.errorTextStyle
-                            : widget.formStyle!.helpTextStyle,
+                            ? 'packages/gsform/assets/ic_alret.svg'
+                            : 'packages/gsform/assets/ic_info.svg',
                       ),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(width: 1.0),
+                    Text(
+                      widget.model.status == GSFieldStatusEnum.error
+                          ? widget.model.errorMessage ?? ''
+                          : widget.model.helpMessage ?? '',
+                      style: widget.model.status == GSFieldStatusEnum.error
+                          ? widget.formStyle!.errorTextStyle
+                          : widget.formStyle!.helpTextStyle,
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 5.0),
-              ],
-            ),
+              ),
+              const SizedBox(height: 5.0),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
-  }
-
-  _showRequiredStar(GSFieldModel model) {
-    if (model.required != null) {
-      if (model.required!) {
-        if (widget.formStyle!.requireType == GSFieldRequireTypeEnum.star) {
-          return 1.0;
-        }
-      }
-    }
-    return 0.0;
-  }
-
-  _showRequiredText(GSFieldModel model) {
-    if (model.required != null) {
-      if (model.required!) {
-        if (widget.formStyle!.requireType == GSFieldRequireTypeEnum.text) {
-          return 1.0;
-        }
-      }
-    }
-
-    return 0.0;
   }
 
   _fillChild() {
     switch (widget.model.type) {
       case GSFieldTypeEnum.text:
-        widget.child =
-            GSTextField(widget.model as GSTextModel, widget.formStyle!);
+        widget.child = GSTextField(widget.model as GSTextModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.number:
-        widget.child =
-            GSNumberField(widget.model as GSNumberModel, widget.formStyle!);
+        widget.child = GSNumberField(widget.model as GSNumberModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.textPlain:
-        widget.child = GSTextPlainField(
-            widget.model as GSTextPlainModel, widget.formStyle!);
+        widget.child = GSTextPlainField(widget.model as GSTextPlainModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.mobile:
-        widget.child =
-            GSMobileField(widget.model as GSMobileModel, widget.formStyle!);
+        widget.child = GSMobileField(widget.model as GSMobileModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.password:
-        widget.child =
-            GSPasswordField(widget.model as GSPasswordModel, widget.formStyle!);
+        widget.child = GSPasswordField(widget.model as GSPasswordModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.date:
-        widget.child = GSDatePickerField(
-            widget.model as GSDatePickerModel, widget.formStyle!);
+        widget.child = GSDatePickerField(widget.model as GSDatePickerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.dateRage:
-        widget.child = GSDateRangePickerField(
-            widget.model as GSDateRangePickerModel, widget.formStyle!);
+        widget.child = GSDateRangePickerField(widget.model as GSDateRangePickerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.time:
-        widget.child = GSTimePickerField(
-            widget.model as GSTimePickerModel, widget.formStyle!);
+        widget.child = GSTimePickerField(widget.model as GSTimePickerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.email:
-        widget.child =
-            GSEmailField(widget.model as GSEmailModel, widget.formStyle!);
+        widget.child = GSEmailField(widget.model as GSEmailModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.price:
-        widget.child =
-            GSPriceField(widget.model as GSPriceModel, widget.formStyle!);
+        widget.child = GSPriceField(widget.model as GSPriceModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.bankCard:
-        widget.child =
-            GSBankCardField(widget.model as GSBankCardModel, widget.formStyle!);
+        widget.child = GSBankCardField(widget.model as GSBankCardModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.spinner:
-        widget.child =
-            GSSpinnerField(widget.model as GSSpinnerModel, widget.formStyle!);
+        widget.child = GSSpinnerField(widget.model as GSSpinnerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.radioGroup:
-        widget.child =
-            GSRadioGroupField(widget.model as GSRadioModel, widget.formStyle!);
+        widget.child = GSRadioGroupField(widget.model as GSRadioModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.imagePicker:
-        widget.child = GSImagePickerField(
-            widget.model as GSImagePickerModel, widget.formStyle!);
+        widget.child = GSImagePickerField(widget.model as GSImagePickerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.qrScanner:
-        widget.child = GSQRScannerField(
-            widget.model as GSQRScannerModel, widget.formStyle!);
+        widget.child = GSQRScannerField(widget.model as GSQRScannerModel, widget.formStyle!);
         break;
 
       default:

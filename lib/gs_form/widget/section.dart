@@ -32,14 +32,22 @@ class GSSection extends StatelessWidget {
               child: field,
             ),
           );
+
           weightSum += field.model.weight ?? 12;
           if (i < fields.length - 1 && fields[i + 1] is GSField) {
             field.model.nextFocusNode = (fields[i + 1] as GSField).model.focusNode;
           }
           field.formStyle = style!;
           i++;
+
+          // این شرط برای فاصله انداختن بین ویجت هاست به طوری روی اولین ویجت اعمال نشود
+          if (weightSum != 12) {
+            childrenAtRow.add(const SizedBox(
+              width: 12,
+            ));
+          }
         }
-        rows.add(Row(children: childrenAtRow));
+        rows.add(Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: childrenAtRow));
         weightSum = 0;
       } else {
         rows.add(

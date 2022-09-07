@@ -1,1 +1,0 @@
-enum GSFieldRequireTypeEnum { text, star }
