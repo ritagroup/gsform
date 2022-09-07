@@ -181,31 +181,38 @@ class GSField extends StatefulWidget {
       double? height,
       bool? showScrollBar,
       Color? scrollBarColor,
+      required bool searchable,
+      String? searchHint,
+      Icon? searchIcon,
+      BoxDecoration? searchBoxDecoration,
       required List<RadioDataModel> items,
       required ValueChanged<RadioDataModel> callBack})
       : super(key: key) {
     model = GSRadioModel(
-      type: GSFieldTypeEnum.radioGroup,
-      tag: tag,
-      showTitle: showTitle ?? true,
-      title: title,
-      errorMessage: errorMessage,
-      helpMessage: helpMessage,
-      required: required,
-      status: status,
-      value: value,
-      weight: weight,
-      showScrollBar: showScrollBar,
-      scrollBarColor: scrollBarColor,
-      hint: hint,
-      items: items,
-      callBack: callBack,
-      scrollDirection: scrollDirection,
-      unSelectedIcon: unSelectedIcon,
-      selectedIcon: selectedIcon,
-      scrollable: scrollable ?? false,
-      height: height,
-    );
+        type: GSFieldTypeEnum.radioGroup,
+        tag: tag,
+        showTitle: showTitle ?? true,
+        title: title,
+        errorMessage: errorMessage,
+        helpMessage: helpMessage,
+        required: required,
+        status: status,
+        value: value,
+        weight: weight,
+        showScrollBar: showScrollBar,
+        scrollBarColor: scrollBarColor,
+        hint: hint,
+        items: items,
+        callBack: callBack,
+        scrollDirection: scrollDirection,
+        unSelectedIcon: unSelectedIcon,
+        selectedIcon: selectedIcon,
+        scrollable: scrollable ?? false,
+        height: height,
+        searchable: searchable,
+        searchHint: searchHint,
+        searchIcon: searchIcon,
+        searchBoxDecoration: searchBoxDecoration);
   }
 
   GSField.text(
@@ -682,13 +689,15 @@ class _GSFieldState extends State<GSField> {
                     children: [
                       Row(
                         children: [
-                          Text(widget.model.title ?? "", style: widget.formStyle!.titleTextStyle),
+                          Text(widget.model.title ?? "",
+                              style: widget.formStyle!.titleTextStyle),
                           const SizedBox(width: 4.0),
                           Opacity(
                             opacity: _showRequiredText(widget.model),
                             child: Text(
                               widget.formStyle!.requiredText,
-                              style: const TextStyle(color: GSFormColors.red, fontSize: 10),
+                              style: const TextStyle(
+                                  color: GSFormColors.red, fontSize: 10),
                             ),
                           ),
                         ],
@@ -801,49 +810,64 @@ class _GSFieldState extends State<GSField> {
   _fillChild() {
     switch (widget.model.type) {
       case GSFieldTypeEnum.text:
-        widget.child = GSTextField(widget.model as GSTextModel, widget.formStyle!);
+        widget.child =
+            GSTextField(widget.model as GSTextModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.number:
-        widget.child = GSNumberField(widget.model as GSNumberModel, widget.formStyle!);
+        widget.child =
+            GSNumberField(widget.model as GSNumberModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.textPlain:
-        widget.child = GSTextPlainField(widget.model as GSTextPlainModel, widget.formStyle!);
+        widget.child = GSTextPlainField(
+            widget.model as GSTextPlainModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.mobile:
-        widget.child = GSMobileField(widget.model as GSMobileModel, widget.formStyle!);
+        widget.child =
+            GSMobileField(widget.model as GSMobileModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.password:
-        widget.child = GSPasswordField(widget.model as GSPasswordModel, widget.formStyle!);
+        widget.child =
+            GSPasswordField(widget.model as GSPasswordModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.date:
-        widget.child = GSDatePickerField(widget.model as GSDatePickerModel, widget.formStyle!);
+        widget.child = GSDatePickerField(
+            widget.model as GSDatePickerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.dateRage:
-        widget.child = GSDateRangePickerField(widget.model as GSDateRangePickerModel, widget.formStyle!);
+        widget.child = GSDateRangePickerField(
+            widget.model as GSDateRangePickerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.time:
-        widget.child = GSTimePickerField(widget.model as GSTimePickerModel, widget.formStyle!);
+        widget.child = GSTimePickerField(
+            widget.model as GSTimePickerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.email:
-        widget.child = GSEmailField(widget.model as GSEmailModel, widget.formStyle!);
+        widget.child =
+            GSEmailField(widget.model as GSEmailModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.price:
-        widget.child = GSPriceField(widget.model as GSPriceModel, widget.formStyle!);
+        widget.child =
+            GSPriceField(widget.model as GSPriceModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.bankCard:
-        widget.child = GSBankCardField(widget.model as GSBankCardModel, widget.formStyle!);
+        widget.child =
+            GSBankCardField(widget.model as GSBankCardModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.spinner:
-        widget.child = GSSpinnerField(widget.model as GSSpinnerModel, widget.formStyle!);
+        widget.child =
+            GSSpinnerField(widget.model as GSSpinnerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.radioGroup:
-        widget.child = GSRadioGroupField(widget.model as GSRadioModel, widget.formStyle!);
+        widget.child =
+            GSRadioGroupField(widget.model as GSRadioModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.imagePicker:
-        widget.child = GSImagePickerField(widget.model as GSImagePickerModel, widget.formStyle!);
+        widget.child = GSImagePickerField(
+            widget.model as GSImagePickerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.qrScanner:
-        widget.child = GSQRScannerField(widget.model as GSQRScannerModel, widget.formStyle!);
+        widget.child = GSQRScannerField(
+            widget.model as GSQRScannerModel, widget.formStyle!);
         break;
 
       default:

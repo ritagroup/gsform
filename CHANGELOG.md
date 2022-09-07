@@ -22,5 +22,6 @@
 * Update readme
 * Add icon widget to file picker  
 
-
+## 0.0.7
+* Add search field for radio group
 

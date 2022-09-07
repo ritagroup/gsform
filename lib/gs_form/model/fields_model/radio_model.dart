@@ -12,7 +12,10 @@ class GSRadioModel extends GSFieldModel {
   double? height;
   Axis? scrollDirection;
   bool? showScrollBar;
-
+  bool searchable;
+  String? searchHint;
+  Icon? searchIcon;
+  BoxDecoration? searchBoxDecoration;
   Color? scrollBarColor;
 
   final ValueChanged<RadioDataModel> callBack;
@@ -37,7 +40,11 @@ class GSRadioModel extends GSFieldModel {
       this.height,
       this.scrollDirection,
       this.scrollBarColor,
-      this.showScrollBar})
+      this.showScrollBar,
+      required this.searchable,
+      this.searchHint,
+      this.searchIcon,
+      this.searchBoxDecoration})
       : super(
           type: type,
           tag: tag,

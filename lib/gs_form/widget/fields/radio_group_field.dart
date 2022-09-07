@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
 import 'package:gsform/gs_form/model/fields_model/radio_model.dart';
@@ -8,7 +9,6 @@ import '../../core/field_callback.dart';
 // ignore: must_be_immutable
 class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
   final GSRadioModel model;
-
   final GSFormStyle? formStyle;
 
   GSRadioGroupField(this.model, this.formStyle, {Key? key}) : super(key: key);
@@ -39,48 +39,92 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
     super.initState();
   }
 
+  String keyword = "";
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: widget.model.height,
-      child: RawScrollbar(
-        thumbColor: widget.model.scrollBarColor ?? Colors.blue,
-        trackRadius: const Radius.circular(6),
-        radius: const Radius.circular(6),
-        interactive: true,
-        trackVisibility: true,
-        thumbVisibility: true,
-        thickness: widget.model.showScrollBar ?? false ? 6 : 0,
-        child: ListView.builder(
-          itemCount: widget.model.items.length,
-          shrinkWrap: widget.model.scrollable == null ? false : !widget.model.scrollable!,
-          physics: !widget.model.scrollable! ? const NeverScrollableScrollPhysics() : const BouncingScrollPhysics(),
-          itemBuilder: (context, index) {
-            return Material(
-              color: Colors.transparent,
-              child: InkWell(
-                onTap: () {
-                  for (var element in widget.model.items) {
-                    element.isSelected = false;
-                  }
-                  widget.model.items[index].isSelected = true;
-                  widget.model.callBack(widget.model.items[index]);
-                  widget.valueObject = widget.model.items[index];
-                  setState(() => {});
-                  setState(() {});
-                },
-                customBorder: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6.0),
+    List<RadioDataModel> filteredItems = widget.model.items
+        .where((i) => i.title.contains(keyword) == true)
+        .toList();
+
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        widget.model.searchable
+            ? Container(
+                margin: const EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
+                decoration: widget.model.searchBoxDecoration ??
+                    BoxDecoration(
+                      border: Border.all(
+                        color: const Color(0xffEAEAEA),
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                child: TextField(
+                  decoration: InputDecoration(
+                      hintText: widget.model.searchHint,
+                      prefixIcon:
+                          widget.model.searchIcon ?? const Icon(Icons.search),
+                      border: InputBorder.none),
+                  onChanged: (text) {
+                    setState(() {
+                      keyword = text;
+                    });
+                  },
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 4.0, right: 4),
-                  child: RadioItem(widget.model.items[index], widget.model, widget.formStyle!),
-                ),
+              )
+            : const SizedBox(
+                height: 0,
               ),
-            );
-          },
+        SizedBox(
+          height: widget.model.height,
+          child: RawScrollbar(
+            thumbColor: widget.model.scrollBarColor ?? Colors.blue,
+            trackRadius: const Radius.circular(6),
+            radius: const Radius.circular(6),
+            interactive: true,
+            trackVisibility: true,
+            thumbVisibility: true,
+            thickness: widget.model.showScrollBar ?? false ? 6 : 0,
+            child: ListView.builder(
+              itemCount: filteredItems.length,
+              shrinkWrap: widget.model.scrollable == null
+                  ? false
+                  : !widget.model.scrollable!,
+              physics: !widget.model.scrollable!
+                  ? const NeverScrollableScrollPhysics()
+                  : const BouncingScrollPhysics(),
+              itemBuilder: (context, index) {
+                return Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () {
+                      for (var element in filteredItems) {
+                        element.isSelected = false;
+                      }
+                      filteredItems[index].isSelected = true;
+                      widget.model.callBack(filteredItems[index]);
+                      widget.valueObject = filteredItems[index];
+                      setState(() => {});
+                      setState(() {});
+                    },
+                    customBorder: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 4.0, right: 4),
+                      child: RadioItem(filteredItems[index], widget.model,
+                          widget.formStyle!),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }
@@ -90,7 +134,8 @@ class RadioItem extends StatelessWidget {
   final GSFormStyle formStyle;
   final GSRadioModel _model;
 
-  const RadioItem(this._item, this._model, this.formStyle, {Key? key}) : super(key: key);
+  const RadioItem(this._item, this._model, this.formStyle, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +178,7 @@ class RadioItem extends StatelessWidget {
                 width: 8,
               ),
               Container(
-                margin: const EdgeInsets.only(left: 10),
+                margin: const EdgeInsetsDirectional.only(start: 8.0),
                 child: Text(
                   _item.title,
                   style: formStyle.fieldHintStyle,
