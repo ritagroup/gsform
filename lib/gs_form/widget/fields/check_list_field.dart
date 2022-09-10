@@ -57,9 +57,7 @@ class _GSCheckListFieldState extends State<GSCheckListField> {
       i++;
     }
 
-    List<CheckDataModel> filteredItems = widget.model.items
-        .where((i) => i.title.contains(keyword) == true)
-        .toList();
+    List<CheckDataModel> filteredItems = widget.model.items.where((i) => i.title.contains(keyword) == true).toList();
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -81,8 +79,7 @@ class _GSCheckListFieldState extends State<GSCheckListField> {
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.only(top: 8),
                     hintText: widget.model.searchHint,
-                    prefixIcon:
-                        widget.model.searchIcon ?? const Icon(Icons.search),
+                    prefixIcon: widget.model.searchIcon ?? const Icon(Icons.search),
                     border: InputBorder.none,
                   ),
                   onChanged: (text) {
@@ -109,19 +106,14 @@ class _GSCheckListFieldState extends State<GSCheckListField> {
             child: ListView.builder(
               controller: controller,
               itemCount: filteredItems.length,
-              shrinkWrap: widget.model.scrollable == null
-                  ? false
-                  : !widget.model.scrollable!,
-              physics: !widget.model.scrollable!
-                  ? const NeverScrollableScrollPhysics()
-                  : const BouncingScrollPhysics(),
+              shrinkWrap: widget.model.scrollable == null ? false : !widget.model.scrollable!,
+              physics: !widget.model.scrollable! ? const NeverScrollableScrollPhysics() : const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 return Material(
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      filteredItems[index].isSelected =
-                          !filteredItems[index].isSelected;
+                      filteredItems[index].isSelected = !filteredItems[index].isSelected;
 
                       widget.model.callBack(filteredItems[index]);
                       setState(() => {});
@@ -132,8 +124,7 @@ class _GSCheckListFieldState extends State<GSCheckListField> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 4.0, right: 4),
-                      child: CheckBoxItem(filteredItems[index], widget.model,
-                          widget.formStyle!),
+                      child: CheckBoxItem(filteredItems[index], widget.model, widget.formStyle!),
                     ),
                   ),
                 );
@@ -151,8 +142,7 @@ class CheckBoxItem extends StatelessWidget {
   final GSFormStyle formStyle;
   final GSCheckBoxModel _model;
 
-  const CheckBoxItem(this._item, this._model, this.formStyle, {Key? key})
-      : super(key: key);
+  const CheckBoxItem(this._item, this._model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

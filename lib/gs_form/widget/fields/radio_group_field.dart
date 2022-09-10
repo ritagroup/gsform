@@ -44,9 +44,7 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
 
   @override
   Widget build(BuildContext context) {
-    List<RadioDataModel> filteredItems = widget.model.items
-        .where((i) => i.title.contains(keyword) == true)
-        .toList();
+    List<RadioDataModel> filteredItems = widget.model.items.where((i) => i.title.contains(keyword) == true).toList();
 
     for (var element in widget.model.items) {
       if (element.isSelected) {
@@ -74,8 +72,7 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
                   decoration: InputDecoration(
                       contentPadding: const EdgeInsets.only(top: 8),
                       hintText: widget.model.searchHint,
-                      prefixIcon:
-                          widget.model.searchIcon ?? const Icon(Icons.search),
+                      prefixIcon: widget.model.searchIcon ?? const Icon(Icons.search),
                       border: InputBorder.none),
                   onChanged: (text) {
                     setState(() {
@@ -101,12 +98,8 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
             child: ListView.builder(
               controller: controller,
               itemCount: filteredItems.length,
-              shrinkWrap: widget.model.scrollable == null
-                  ? false
-                  : !widget.model.scrollable!,
-              physics: !widget.model.scrollable!
-                  ? const NeverScrollableScrollPhysics()
-                  : const BouncingScrollPhysics(),
+              shrinkWrap: widget.model.scrollable == null ? false : !widget.model.scrollable!,
+              physics: !widget.model.scrollable! ? const NeverScrollableScrollPhysics() : const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 return Material(
                   color: Colors.transparent,
@@ -126,8 +119,7 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 4.0, right: 4),
-                      child: RadioItem(filteredItems[index], widget.model,
-                          widget.formStyle!),
+                      child: RadioItem(filteredItems[index], widget.model, widget.formStyle!),
                     ),
                   ),
                 );
@@ -145,8 +137,7 @@ class RadioItem extends StatelessWidget {
   final GSFormStyle formStyle;
   final GSRadioModel _model;
 
-  const RadioItem(this._item, this._model, this.formStyle, {Key? key})
-      : super(key: key);
+  const RadioItem(this._item, this._model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
