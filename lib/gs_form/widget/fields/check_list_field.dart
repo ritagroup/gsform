@@ -1,25 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
+import 'package:gsform/gs_form/model/data_model/check_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
+import 'package:gsform/gs_form/model/fields_model/checkbox_model.dart';
 import 'package:gsform/gs_form/model/fields_model/radio_model.dart';
 
 import '../../core/field_callback.dart';
 
 // ignore: must_be_immutable
-class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
-  final GSRadioModel model;
+class GSCheckListField extends StatefulWidget implements GSFieldCallBack {
+  final GSCheckBoxModel model;
   final GSFormStyle? formStyle;
 
-  GSRadioGroupField(this.model, this.formStyle, {Key? key}) : super(key: key);
+  GSCheckListField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
-  RadioDataModel? valueObject;
+  List<CheckDataModel> valueObject = [];
+  List<int> selectedItems = [];
 
   @override
-  State<GSRadioGroupField> createState() => _GSRadioGroupFieldState();
+  State<GSCheckListField> createState() => _GSCheckListFieldState();
 
   @override
   getValue() {
-    return valueObject ?? '';
+    return valueObject;
   }
 
   @override
@@ -32,7 +35,7 @@ class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
   }
 }
 
-class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
+class _GSCheckListFieldState extends State<GSCheckListField> {
   ScrollController controller = ScrollController();
 
   @override
@@ -44,15 +47,19 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
 
   @override
   Widget build(BuildContext context) {
-    List<RadioDataModel> filteredItems = widget.model.items
-        .where((i) => i.title.contains(keyword) == true)
-        .toList();
-
+    int i = 0;
+    widget.valueObject = [];
     for (var element in widget.model.items) {
       if (element.isSelected) {
-        widget.valueObject = element;
+        widget.selectedItems.add(i);
+        widget.valueObject.add(element);
       }
+      i++;
     }
+
+    List<CheckDataModel> filteredItems = widget.model.items
+        .where((i) => i.title.contains(keyword) == true)
+        .toList();
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -61,7 +68,7 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
         widget.model.searchable
             ? Container(
                 margin: const EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-                height: 44,
+                height: 44.0,
                 decoration: widget.model.searchBoxDecoration ??
                     BoxDecoration(
                       border: Border.all(
@@ -72,11 +79,12 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
                     ),
                 child: TextField(
                   decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.only(top: 8),
-                      hintText: widget.model.searchHint,
-                      prefixIcon:
-                          widget.model.searchIcon ?? const Icon(Icons.search),
-                      border: InputBorder.none),
+                    contentPadding: const EdgeInsets.only(top: 8),
+                    hintText: widget.model.searchHint,
+                    prefixIcon:
+                        widget.model.searchIcon ?? const Icon(Icons.search),
+                    border: InputBorder.none,
+                  ),
                   onChanged: (text) {
                     setState(() {
                       keyword = text;
@@ -112,12 +120,10 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      for (var element in filteredItems) {
-                        element.isSelected = false;
-                      }
-                      filteredItems[index].isSelected = true;
+                      filteredItems[index].isSelected =
+                          !filteredItems[index].isSelected;
+
                       widget.model.callBack(filteredItems[index]);
-                      widget.valueObject = filteredItems[index];
                       setState(() => {});
                       setState(() {});
                     },
@@ -126,7 +132,7 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 4.0, right: 4),
-                      child: RadioItem(filteredItems[index], widget.model,
+                      child: CheckBoxItem(filteredItems[index], widget.model,
                           widget.formStyle!),
                     ),
                   ),
@@ -140,12 +146,12 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
   }
 }
 
-class RadioItem extends StatelessWidget {
-  final RadioDataModel _item;
+class CheckBoxItem extends StatelessWidget {
+  final CheckDataModel _item;
   final GSFormStyle formStyle;
-  final GSRadioModel _model;
+  final GSCheckBoxModel _model;
 
-  const RadioItem(this._item, this._model, this.formStyle, {Key? key})
+  const CheckBoxItem(this._item, this._model, this.formStyle, {Key? key})
       : super(key: key);
 
   @override
@@ -166,7 +172,8 @@ class RadioItem extends StatelessWidget {
                           height: 18,
                           decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(0.4),
-                            shape: BoxShape.circle,
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(4),
                           ),
                         )
                       : _model.unSelectedIcon!,
@@ -176,9 +183,10 @@ class RadioItem extends StatelessWidget {
                         ? Container(
                             width: 10,
                             height: 10,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               color: Colors.blue,
-                              shape: BoxShape.circle,
+                              shape: BoxShape.rectangle,
+                              borderRadius: BorderRadius.circular(3),
                             ),
                           )
                         : _model.selectedIcon!,

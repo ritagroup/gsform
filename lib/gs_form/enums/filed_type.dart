@@ -10,7 +10,7 @@ enum GSFieldTypeEnum {
   time,
   price,
   number,
-  checkBox,
+  checkList,
   radioGroup,
   pinCode,
   masked,
