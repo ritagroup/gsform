@@ -41,6 +41,9 @@ class GSPasswordField extends StatefulWidget implements GSFieldCallBack {
 class _GSPasswordFieldState extends State<GSPasswordField> {
   @override
   Widget build(BuildContext context) {
+    if (widget.model.value != null) {
+      widget.controller?.text = widget.model.value;
+    }
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(

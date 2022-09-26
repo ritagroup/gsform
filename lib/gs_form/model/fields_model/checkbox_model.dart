@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/model/data_model/check_data_model.dart';
-import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
 
 import 'field_model.dart';
 

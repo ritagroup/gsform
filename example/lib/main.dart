@@ -119,10 +119,12 @@ class SingleSectionForm extends StatelessWidget {
                         maxLine: 1,
                         weight: 4,
                         hint: 'jhon',
+                        value: 'سعید دسترس1',
                         required: false,
                         errorMessage: 'please enter a name',
                       ),
                       GSField.text(
+                        value: 'سعید دسترس',
                         tag: 'lastName',
                         title: 'Last name',
                         minLine: 1,
@@ -332,6 +334,7 @@ class MultiSectionForm extends StatelessWidget {
                 child: form = GSForm.multiSection(context, sections: [
                   GSSection(sectionTitle: 'User information', fields: [
                     GSField.text(
+                      value: '2سعید دسترس',
                       tag: 'name',
                       title: 'Name',
                       minLine: 1,
@@ -382,6 +385,7 @@ class MultiSectionForm extends StatelessWidget {
                       errorMessage: 'please enter a name',
                     ),
                     GSField.text(
+                      value: 'سعید دسترس3',
                       tag: 'lastName',
                       title: 'Last name',
                       minLine: 1,

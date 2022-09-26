@@ -15,6 +15,9 @@ class GSEmailField extends StatelessWidget implements GSFieldCallBack {
 
   @override
   Widget build(BuildContext context) {
+    if (model.value != null) {
+      controller?.text = model.value;
+    }
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(

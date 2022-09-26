@@ -32,3 +32,8 @@
 ## 0.0.9
 * Add CheckBoxList
 * Fix RadioGroup initial selected data
+
+## 0.1.0
+* Add set value for text fields
+* Improved form fields
+* Fixed some bugs

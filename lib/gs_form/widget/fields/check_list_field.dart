@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/data_model/check_data_model.dart';
-import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
 import 'package:gsform/gs_form/model/fields_model/checkbox_model.dart';
-import 'package:gsform/gs_form/model/fields_model/radio_model.dart';
 
 import '../../core/field_callback.dart';
 
