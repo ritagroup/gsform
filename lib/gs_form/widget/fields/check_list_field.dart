@@ -28,7 +28,7 @@ class GSCheckListField extends StatefulWidget implements GSFieldCallBack {
     if (!(model.required ?? false)) {
       return true;
     } else {
-      return valueObject != null;
+      return valueObject.isNotEmpty;
     }
   }
 }

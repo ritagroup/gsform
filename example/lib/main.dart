@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:gsform/gs_form/model/data_model/check_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
@@ -22,6 +23,17 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
+      locale: const  Locale('en', 'US'),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        // uses `flutter_localizations`
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', 'US'),
+        Locale('fa', 'IR')
+      ],
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.blue,
@@ -117,7 +129,7 @@ class SingleSectionForm extends StatelessWidget {
                         title: 'First Name',
                         minLine: 1,
                         maxLine: 1,
-                        weight: 4,
+                        weight: 6,
                         hint: 'jhon',
                         value: 'سعید دسترس1',
                         required: false,
@@ -129,7 +141,7 @@ class SingleSectionForm extends StatelessWidget {
                         title: 'Last name',
                         minLine: 1,
                         maxLine: 1,
-                        weight: 4,
+                        weight: 6,
                         required: true,
                       ),
                       GSField.password(
@@ -137,7 +149,7 @@ class SingleSectionForm extends StatelessWidget {
                         title: 'Password',
                         helpMessage: 'contain letter and number',
                         errorMessage: 'error',
-                        weight: 4,
+                        weight: 12,
                         required: true,
                       ),
                       GSField.datePicker(

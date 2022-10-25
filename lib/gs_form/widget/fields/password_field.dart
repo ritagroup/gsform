@@ -45,7 +45,7 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
       widget.controller?.text = widget.model.value;
     }
     return Padding(
-      padding: const EdgeInsets.only(right: 10.0, left: 10.0),
+      padding: const EdgeInsetsDirectional.only(start: 10.0),
       child: TextField(
         textAlignVertical: TextAlignVertical.center,
         keyboardType: TextInputType.visiblePassword,
@@ -69,12 +69,8 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
             onTap: () {
               _update();
             },
-            child: Container(
-              transform: Matrix4.translationValues(10, 0, 0),
-              child: Icon(
-                widget.obscured ? Icons.visibility_rounded : Icons.visibility_off_rounded,
-                size: 24,
-              ),
+            child: Icon(
+              widget.obscured ? Icons.visibility_rounded : Icons.visibility_off_rounded,
             ),
           ),
           hintStyle: widget.formStyle.fieldHintStyle,

@@ -37,3 +37,7 @@
 * Add set value for text fields
 * Improved form fields
 * Fixed some bugs
+
+## 0.1.1
+* Improved form fields
+* Fixed some bugs
