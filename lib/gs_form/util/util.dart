@@ -33,6 +33,10 @@ class GSFormUtils {
         backgroundColor = style.backgroundFieldColor;
         borderColor = style.fieldBorderColor;
         break;
+      case GSFieldStatusEnum.disabled:
+        backgroundColor = style.backgroundFieldColorDisable;
+        borderColor = style.fieldBorderColor;
+        break;
       default:
         backgroundColor = GSFormColors.white;
         borderColor = GSFormColors.white;

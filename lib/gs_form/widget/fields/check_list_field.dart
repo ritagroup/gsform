@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/data_model/check_data_model.dart';
 import 'package:gsform/gs_form/model/fields_model/checkbox_model.dart';
+import 'package:gsform/gs_form/values/colors.dart';
 
 import '../../core/field_callback.dart';
 
@@ -35,6 +36,7 @@ class GSCheckListField extends StatefulWidget implements GSFieldCallBack {
 
 class _GSCheckListFieldState extends State<GSCheckListField> {
   ScrollController controller = ScrollController();
+  TextEditingController textController = TextEditingController();
 
   @override
   void initState() {
@@ -73,18 +75,39 @@ class _GSCheckListFieldState extends State<GSCheckListField> {
                       ),
                       borderRadius: BorderRadius.circular(8),
                     ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.only(top: 8),
-                    hintText: widget.model.searchHint,
-                    prefixIcon: widget.model.searchIcon ?? const Icon(Icons.search),
-                    border: InputBorder.none,
-                  ),
-                  onChanged: (text) {
-                    setState(() {
-                      keyword = text;
-                    });
-                  },
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: textController,
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.only(top: 8),
+                          hintText: widget.model.searchHint,
+                          prefixIcon: widget.model.searchIcon ?? const Icon(Icons.search),
+                          border: InputBorder.none,
+                        ),
+                        onChanged: (text) {
+                          setState(() {
+                            keyword = text;
+                          });
+                        },
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        keyword = '';
+                        textController.text = '';
+                        setState(() {});
+                      },
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(
+                          Icons.close,
+                          color: GSFormColors.hintTextColor,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               )
             : const SizedBox(
@@ -112,9 +135,7 @@ class _GSCheckListFieldState extends State<GSCheckListField> {
                   child: InkWell(
                     onTap: () {
                       filteredItems[index].isSelected = !filteredItems[index].isSelected;
-
                       widget.model.callBack(filteredItems[index]);
-                      setState(() => {});
                       setState(() {});
                     },
                     customBorder: RoundedRectangleBorder(

@@ -13,6 +13,7 @@ class GSFormColors {
   static const textColorHeader = Color(0xff1c1c1c);
   static const dividerColor = Color(0xffeaeaea);
   static const colorBackground = Color(0xfff5f5f5);
+  static const colorBackgroundDisable = Color(0xffbbbbbb);
 
   static const black = Color(0xff171717);
 

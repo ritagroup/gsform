@@ -10,6 +10,7 @@ class GSFormStyle {
   TextStyle helpTextStyle;
   TextStyle sectionTitleStyle;
   Color backgroundFieldColor;
+  Color backgroundFieldColorDisable;
   Color backgroundSectionColor;
   Color fieldBorderColor;
 
@@ -24,6 +25,7 @@ class GSFormStyle {
     Color? backgroundFieldColor,
     Color? backgroundSectionColor,
     Color? fieldBorderColor,
+    Color? backgroundFieldColorDisable,
     double? fieldRadius,
     double? sectionRadius,
     double? sectionCardElevation,
@@ -36,6 +38,7 @@ class GSFormStyle {
     TextStyle? sectionTitleStyle,
   })  : backgroundSectionColor = backgroundSectionColor ?? GSFormColors.white,
         backgroundFieldColor = backgroundFieldColor ?? GSFormColors.colorBackground,
+        backgroundFieldColorDisable = backgroundFieldColorDisable ?? GSFormColors.colorBackgroundDisable,
         titleTextStyle = titleStyle ?? GSFormTheme.textThemeStyle.displayMedium!,
         fieldRadius = fieldRadius ?? 10.0,
         sectionRadius = sectionRadius ?? 4.0,

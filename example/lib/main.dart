@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:gsform/gs_form/enums/field_status.dart';
 import 'package:gsform/gs_form/model/data_model/check_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
@@ -23,26 +24,21 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
-      locale: const  Locale('en', 'US'),
+      locale: const Locale('en', 'US'),
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         // uses `flutter_localizations`
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [
-        Locale('en', 'US'),
-        Locale('fa', 'IR')
-      ],
+      supportedLocales: const [Locale('en', 'US'), Locale('fa', 'IR')],
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.blue,
         backgroundColor: const Color(0xfff5f5f5),
         textTheme: null,
       ),
-      darkTheme: ThemeData(
-          brightness: Brightness.dark,
-          backgroundColor: const Color(0xff3c3c3c)),
+      darkTheme: ThemeData(brightness: Brightness.dark, backgroundColor: const Color(0xff3c3c3c)),
       home: MainTestPage(),
     );
   }
@@ -70,11 +66,8 @@ class MainTestPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushAndRemoveUntil<dynamic>(
                       context,
-                      MaterialPageRoute<dynamic>(
-                          builder: (BuildContext context) =>
-                              MultiSectionForm()),
-                      (route) =>
-                          true, //if you want to disable back feature set to false
+                      MaterialPageRoute<dynamic>(builder: (BuildContext context) => MultiSectionForm()),
+                      (route) => true, //if you want to disable back feature set to false
                     );
                   },
                   child: const Text('Multi Section form'),
@@ -83,11 +76,8 @@ class MainTestPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushAndRemoveUntil<dynamic>(
                       context,
-                      MaterialPageRoute<dynamic>(
-                          builder: (BuildContext context) =>
-                              SingleSectionForm()),
-                      (route) =>
-                          true, //if you want to disable back feature set to false
+                      MaterialPageRoute<dynamic>(builder: (BuildContext context) => SingleSectionForm()),
+                      (route) => true, //if you want to disable back feature set to false
                     );
                   },
                   child: const Text('Single Section form'),
@@ -125,6 +115,7 @@ class SingleSectionForm extends StatelessWidget {
                     context,
                     fields: [
                       GSField.text(
+                        status: GSFieldStatusEnum.disabled,
                         tag: 'name',
                         title: 'First Name',
                         minLine: 1,
@@ -199,8 +190,7 @@ class SingleSectionForm extends StatelessWidget {
                         title: 'Email',
                         errorMessage: 'error',
                         helpMessage: 'someemail@gmail.com',
-                        postfixWidget:
-                            const Icon(Icons.email, color: Color(0xff676767)),
+                        postfixWidget: const Icon(Icons.email, color: Color(0xff676767)),
                         weight: 12,
                         required: false,
                       ),
@@ -451,8 +441,7 @@ class MultiSectionForm extends StatelessWidget {
                         maxLength: 233,
                         showCounter: false,
                         weight: 12,
-                        prefixWidget:
-                            const Icon(Icons.location_city, color: Colors.blue),
+                        prefixWidget: const Icon(Icons.location_city, color: Colors.blue),
                         required: true,
                       ),
                       GSField.spinner(

@@ -1,1 +1,1 @@
-enum GSFieldStatusEnum { normal, success, error }
+enum GSFieldStatusEnum { normal, success, error, disabled }
