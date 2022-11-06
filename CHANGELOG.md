@@ -41,3 +41,9 @@
 ## 0.1.1
 * Improved form fields
 * Fixed some bugs
+
+* ## 0.1.2
+* Improved form fields
+* Add Disable Status to fields status
+
+
