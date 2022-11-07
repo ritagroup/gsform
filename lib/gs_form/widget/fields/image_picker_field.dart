@@ -154,8 +154,8 @@ class NormalView extends StatelessWidget {
                 model.title ?? '',
                 style: formStyle.titleTextStyle,
               ),
-              Visibility(
-                visible: false,
+              Opacity(
+                opacity: model.required ?? false ? 1 : 0,
                 child: Text(
                   formStyle.requiredText,
                   style: const TextStyle(
@@ -233,7 +233,7 @@ class ImagePickedView extends StatelessWidget {
                       height: 20.0,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
+                          // backgroundColor: Colors.red,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                         ),
                         onPressed: () {

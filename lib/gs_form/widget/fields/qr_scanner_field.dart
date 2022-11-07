@@ -82,8 +82,8 @@ class _GSQRScannerFieldState extends State<GSQRScannerField> {
                         style: widget.formStyle.titleTextStyle,
                       ),
                       const SizedBox(height: 4.0),
-                      Visibility(
-                        visible: true,
+                      Opacity(
+                        opacity: model.required ?? false ? 1 : 0,
                         child: Text(
                           widget.formStyle.requiredText,
                           style: const TextStyle(
