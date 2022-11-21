@@ -1,26 +1,23 @@
-import 'dart:ui';
-
+import 'package:flutter/cupertino.dart';
 import 'package:gsform/gs_form/model/fields_model/field_model.dart';
 
 class GSQRScannerModel extends GSFieldModel {
   String? hint;
-  String iconAsset;
-  Color? iconColor;
+  Widget? iconWidget;
 
-  GSQRScannerModel(
-      {type,
-      tag,
-      title,
-      errorMessage,
-      helpMessage,
-      required,
-      status,
-      weight,
-      showTitle,
-      this.hint,
-      required this.iconAsset,
-      this.iconColor})
-      : super(
+  GSQRScannerModel({
+    type,
+    tag,
+    title,
+    errorMessage,
+    helpMessage,
+    required,
+    status,
+    weight,
+    showTitle,
+    this.hint,
+    this.iconWidget,
+  }) : super(
           type: type,
           tag: tag,
           title: title,

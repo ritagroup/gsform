@@ -16,7 +16,7 @@ abstract class GSFieldModel {
 
   GSFieldStatusEnum status;
 
-  dynamic value;
+  dynamic defaultValue;
   RegExp? validateRegEx;
   int? weight;
   FocusNode? focusNode;
@@ -32,7 +32,7 @@ abstract class GSFieldModel {
     this.prefixWidget,
     this.postfixWidget,
     this.required,
-    this.value,
+    this.defaultValue,
     this.validateRegEx,
     this.weight,
     this.focusNode,

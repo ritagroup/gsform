@@ -11,8 +11,8 @@ class GSSpinnerField extends StatefulWidget implements GSFieldCallBack {
 
   GSSpinnerModel model;
   GSFormStyle formStyle;
-
-  SpinnerDataModel? value;
+  SpinnerDataModel? returnedData;
+  SpinnerDataModel ? defaultValue ;
 
   GSSpinnerField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
@@ -21,13 +21,13 @@ class GSSpinnerField extends StatefulWidget implements GSFieldCallBack {
 
   @override
   getValue() {
-    return value?.name ?? model.items[0].name;
+    return returnedData;
   }
 
   @override
   bool isValid() {
     if (model.required != null && model.required!) {
-      if (value?.id == -1 || value == null) {
+      if (returnedData?.id == -1 || returnedData == null) {
         return false;
       } else {
         return true;
@@ -41,10 +41,16 @@ class GSSpinnerField extends StatefulWidget implements GSFieldCallBack {
 class _GSSpinnerFieldState extends State<GSSpinnerField> {
   @override
   void initState() {
+    for (var element in widget.model.items) {
+      if (element.isSelected ?? false) {
+        widget.returnedData = element ;
+        return ;
+      }
+    }
     if (widget.model.hint != null && widget.model.hint!.isNotEmpty && widget.hintIndex != widget.model.items[0].id) {
       widget.model.items.insert(
         0,
-        SpinnerDataModel(name: widget.model.hint!, id: widget.hintIndex),
+        SpinnerDataModel(name: widget.model.hint!, id: widget.hintIndex, data: null, isSelected: false),
       );
     }
 
@@ -67,7 +73,7 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
               ),
             ),
             isExpanded: true,
-            value: widget.value ?? widget.model.items[0],
+            value: widget.returnedData ?? widget.model.items[0],
             items: widget.model.items
                 .map((e) => DropdownMenuItem(
                     value: e,
@@ -83,7 +89,7 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
                 .toList(),
             onChanged: (value) {
               if (value?.id != widget.hintIndex) {
-                widget.value = value;
+                widget.returnedData = value;
                 setState(() => {});
               }
             },

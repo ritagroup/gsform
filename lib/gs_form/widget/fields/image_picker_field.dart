@@ -40,60 +40,61 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
   @override
   void initState() {
     super.initState();
-    widget._croppedFilePath = null;
+    if (widget.model.defaultValue != null) {
+      widget._croppedFilePath = widget.model.defaultValue;
+    } else {
+      widget._croppedFilePath = null;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 140.0,
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          customBorder: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          onTap: () {
-            if (widget.model.imageSource == GSImageSource.both) {
-              GSFormUtils.showImagePickerBottomSheet(
-                cameraName: widget.model.cameraPopupTitle,
-                galleryName: widget.model.galleryPopupTitle,
-                cameraAssets: widget.model.cameraPopupIcon,
-                galleryAssets: widget.model.galleryPopupIcon,
-                context,
-                (image) async {
-                  _fillImagePath(image);
-                },
-              );
-            } else if (widget.model.imageSource == GSImageSource.camera) {
-              GSFormUtils.pickImage(ImageSource.camera).then(
-                (imageFile) {
-                  if (imageFile != null) {
-                    _fillImagePath(imageFile);
-                  }
-                },
-              );
-            } else {
-              GSFormUtils.pickImage(ImageSource.gallery).then(
-                (imageFile) {
-                  if (imageFile != null) {
-                    _fillImagePath(imageFile);
-                  }
-                },
-              );
-            }
-          },
-          child: widget._croppedFilePath == null
-              ? NormalView(model: widget.model, formStyle: widget.formStyle)
-              : ImagePickedView(
-                  croppedFilePath: widget._croppedFilePath!,
-                  model: widget.model,
-                  formStyle: widget.formStyle,
-                  onDeleteImage: () {
-                    widget._croppedFilePath = null;
-                    setState(() {});
-                  }),
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        customBorder: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
         ),
+        onTap: () {
+          if (widget.model.imageSource == GSImageSource.both) {
+            GSFormUtils.showImagePickerBottomSheet(
+              cameraName: widget.model.cameraPopupTitle,
+              galleryName: widget.model.galleryPopupTitle,
+              cameraAssets: widget.model.cameraPopupIcon,
+              galleryAssets: widget.model.galleryPopupIcon,
+              context,
+              (image) async {
+                _fillImagePath(image);
+              },
+            );
+          } else if (widget.model.imageSource == GSImageSource.camera) {
+            GSFormUtils.pickImage(ImageSource.camera).then(
+              (imageFile) {
+                if (imageFile != null) {
+                  _fillImagePath(imageFile);
+                }
+              },
+            );
+          } else {
+            GSFormUtils.pickImage(ImageSource.gallery).then(
+              (imageFile) {
+                if (imageFile != null) {
+                  _fillImagePath(imageFile);
+                }
+              },
+            );
+          }
+        },
+        child: widget._croppedFilePath == null
+            ? NormalView(model: widget.model, formStyle: widget.formStyle)
+            : ImagePickedView(
+                croppedFilePath: widget._croppedFilePath!,
+                model: widget.model,
+                formStyle: widget.formStyle,
+                onDeleteImage: () {
+                  widget._croppedFilePath = null;
+                  setState(() {});
+                }),
       ),
     );
   }
@@ -140,7 +141,7 @@ class NormalView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -150,19 +151,22 @@ class NormalView extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Visibility(
+                visible: model.required ?? false,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 4, left: 4),
+                  child: Text(
+                    formStyle.requiredText,
+                    style: const TextStyle(
+                      color: GSFormColors.red,
+                      fontSize: 10,
+                    ),
+                  ),
+                ),
+              ),
               Text(
                 model.title ?? '',
                 style: formStyle.titleTextStyle,
-              ),
-              Visibility(
-                visible: false,
-                child: Text(
-                  formStyle.requiredText,
-                  style: const TextStyle(
-                    color: GSFormColors.red,
-                    fontSize: 10,
-                  ),
-                ),
               ),
             ],
           ),
@@ -194,71 +198,74 @@ class ImagePickedView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.file(File(croppedFilePath), fit: BoxFit.contain),
-          ],
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Container(
-              height: 32.0,
-              decoration: const BoxDecoration(
-                color: Colors.black54,
-                borderRadius: SmoothBorderRadius.only(
-                  bottomLeft: SmoothRadius(
-                    cornerRadius: 11.0,
-                    cornerSmoothing: 1,
-                  ),
-                  bottomRight: SmoothRadius(
-                    cornerRadius: 11.0,
-                    cornerSmoothing: 1,
-                  ),
-                ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(right: 8.0, left: 8.0),
-                child: Row(
-                  children: [
-                    Text(
-                      model.title!,
-                      style: formStyle.titleTextStyle.copyWith(color: Colors.white),
+    return SizedBox(
+      height: 140,
+      child: Stack(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.file(File(croppedFilePath), fit: BoxFit.contain),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                height: 32.0,
+                decoration: const BoxDecoration(
+                  color: Colors.black54,
+                  borderRadius: SmoothBorderRadius.only(
+                    bottomLeft: SmoothRadius(
+                      cornerRadius: 11.0,
+                      cornerSmoothing: 1,
                     ),
-                    const Spacer(),
-                    SizedBox(
-                      height: 20.0,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                        ),
-                        onPressed: () {
-                          onDeleteImage.call();
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const SizedBox(width: 8),
-                            Text(
-                              'حذف',
-                              maxLines: 1,
-                              style: formStyle.titleTextStyle.copyWith(color: Colors.white),
-                            ),
-                          ],
-                        ),
+                    bottomRight: SmoothRadius(
+                      cornerRadius: 11.0,
+                      cornerSmoothing: 1,
+                    ),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 8.0, left: 8.0),
+                  child: Row(
+                    children: [
+                      Text(
+                        model.title!,
+                        style: formStyle.titleTextStyle.copyWith(color: Colors.white),
                       ),
-                    )
-                  ],
+                      const Spacer(),
+                      SizedBox(
+                        height: 20.0,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.red,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                          ),
+                          onPressed: () {
+                            onDeleteImage.call();
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const SizedBox(width: 8),
+                              Text(
+                                'حذف',
+                                maxLines: 1,
+                                style: formStyle.titleTextStyle.copyWith(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
-        )
-      ],
+            ],
+          )
+        ],
+      ),
     );
   }
 }

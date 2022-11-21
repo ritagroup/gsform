@@ -32,7 +32,7 @@ class GSMobileModel extends GSFieldModel {
           postfixWidget: postfixWidget,
           required: required,
           status: status,
-          value: value,
+          defaultValue: value,
           validateRegEx: validateReg,
           weight: weight,
           focusNode: FocusNode(),

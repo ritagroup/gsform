@@ -41,7 +41,7 @@ class GSDatePickerModel extends GSFieldModel {
             postfixWidget: postfixWidget,
             required: required,
             status: status,
-            value: value,
+            defaultValue: value,
             weight: weight,
             showTitle: showTitle);
 }

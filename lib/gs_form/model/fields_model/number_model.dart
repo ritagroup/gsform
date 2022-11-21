@@ -3,7 +3,6 @@ import 'package:gsform/gs_form/model/fields_model/field_model.dart';
 
 class GSNumberModel extends GSFieldModel {
   int? maxLength;
-
   String? hint;
 
   GSNumberModel(
@@ -18,10 +17,10 @@ class GSNumberModel extends GSFieldModel {
       status,
       value,
       validateRegEx,
-      maxLength,
       weight,
       focusNode,
       showTitle,
+      this.maxLength,
       this.hint})
       : super(
           type: type,
@@ -33,7 +32,7 @@ class GSNumberModel extends GSFieldModel {
           postfixWidget: postfixWidget,
           required: required,
           status: status,
-          value: value,
+          defaultValue: value,
           validateRegEx: validateRegEx,
           weight: weight,
           focusNode: FocusNode(),

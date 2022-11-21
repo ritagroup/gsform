@@ -51,8 +51,8 @@ class GSDateRangePickerField extends StatefulWidget implements GSFieldCallBack {
           : DateDataRangeModel(
               startDateServerType: selectedStartDate!.toDateTime(),
               endDateServerType: selectedEndDate!.toDateTime(),
-              startTimeStamp: selectedStartDate!.toDateTime().microsecondsSinceEpoch,
-              endTimeStamp: selectedEndDate!.toDateTime().microsecondsSinceEpoch,
+              startTimeStamp: selectedStartDate!.toDateTime().millisecondsSinceEpoch,
+              endTimeStamp: selectedEndDate!.toDateTime().millisecondsSinceEpoch,
               displayStartDateStr: selectedDateText,
               displayEndDateStr: selectedDateText);
     } else {
@@ -61,8 +61,8 @@ class GSDateRangePickerField extends StatefulWidget implements GSFieldCallBack {
           : DateDataRangeModel(
               startDateServerType: selectedGregorianStartDate!,
               endDateServerType: selectedGregorianEndDate!,
-              startTimeStamp: selectedGregorianStartDate!.microsecondsSinceEpoch,
-              endTimeStamp: selectedGregorianEndDate!.microsecondsSinceEpoch,
+              startTimeStamp: selectedGregorianStartDate!.millisecondsSinceEpoch,
+              endTimeStamp: selectedGregorianEndDate!.millisecondsSinceEpoch,
               displayStartDateStr: selectedDateText,
               displayEndDateStr: selectedDateText);
     }

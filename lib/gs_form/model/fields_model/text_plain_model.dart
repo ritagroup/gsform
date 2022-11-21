@@ -38,7 +38,7 @@ class GSTextPlainModel extends GSFieldModel {
           postfixWidget: postfixWidget,
           required: required,
           status: status,
-          value: value,
+          defaultValue: value,
           validateRegEx: validateRegEx,
           weight: weight,
           focusNode: FocusNode(),

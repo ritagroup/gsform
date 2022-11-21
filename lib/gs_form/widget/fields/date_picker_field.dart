@@ -47,14 +47,14 @@ class GSDatePickerField extends StatefulWidget implements GSFieldCallBack {
           ? null
           : DateDataModel(
               dateServerType: selectedJalaliDate!.toDateTime(),
-              timeStamp: selectedJalaliDate!.toDateTime().microsecondsSinceEpoch,
+              timeStamp: selectedJalaliDate!.toDateTime().millisecondsSinceEpoch,
               showDateStr: selectedDateText);
     } else {
       return selectedGregorianDate == null
           ? null
           : DateDataModel(
               dateServerType: selectedGregorianDate!,
-              timeStamp: selectedGregorianDate!.microsecondsSinceEpoch,
+              timeStamp: selectedGregorianDate!.millisecondsSinceEpoch,
               showDateStr: selectedDateText);
     }
   }

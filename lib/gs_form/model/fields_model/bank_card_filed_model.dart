@@ -30,7 +30,7 @@ class GSBankCardModel extends GSFieldModel {
           required: required,
           status: status,
           showTitle: showTitle,
-          value: value,
+          defaultValue: value,
           validateRegEx: validateRegEx,
           weight: weight,
           focusNode: FocusNode(),

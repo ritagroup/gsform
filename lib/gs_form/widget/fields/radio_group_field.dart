@@ -13,14 +13,14 @@ class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
 
   GSRadioGroupField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
-  RadioDataModel? valueObject;
+  RadioDataModel? returnedData;
 
   @override
   State<GSRadioGroupField> createState() => _GSRadioGroupFieldState();
 
   @override
   getValue() {
-    return valueObject ?? '';
+    return returnedData ?? '';
   }
 
   @override
@@ -28,7 +28,7 @@ class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
     if (!(model.required ?? false)) {
       return true;
     } else {
-      return valueObject != null;
+      return returnedData != null;
     }
   }
 }
@@ -50,7 +50,7 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
 
     for (var element in widget.model.items) {
       if (element.isSelected) {
-        widget.valueObject = element;
+        widget.returnedData = element;
       }
     }
 
@@ -133,7 +133,7 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
                       }
                       filteredItems[index].isSelected = true;
                       widget.model.callBack(filteredItems[index]);
-                      widget.valueObject = filteredItems[index];
+                      widget.returnedData = filteredItems[index];
                       setState(() => {});
                     },
                     customBorder: RoundedRectangleBorder(

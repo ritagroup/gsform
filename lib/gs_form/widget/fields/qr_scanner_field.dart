@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/fields_model/qr_scanner_model.dart';
@@ -42,8 +41,8 @@ class _GSQRScannerFieldState extends State<GSQRScannerField> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 140.0,
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
       child: Material(
         color: Colors.transparent,
         child: InkWell(
@@ -67,30 +66,27 @@ class _GSQRScannerFieldState extends State<GSQRScannerField> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(
-                    widget.model.iconAsset,
-                    color: widget._scannedValue == null ? widget.model.iconColor : GSFormColors.green,
-                    height: 30.0,
-                    width: 30.0,
-                  ),
+                  widget.model.iconWidget ?? Container(),
                   const SizedBox(height: 6.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Visibility(
+                        visible: widget.model.required ?? false,
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 4 , left: 4),
+                          child: Text(
+                            widget.formStyle.requiredText,
+                            style: const TextStyle(
+                              color: GSFormColors.red,
+                              fontSize: 10,
+                            ),
+                          ),
+                        ),
+                      ),
                       Text(
                         widget.model.title ?? '',
                         style: widget.formStyle.titleTextStyle,
-                      ),
-                      const SizedBox(height: 4.0),
-                      Visibility(
-                        visible: true,
-                        child: Text(
-                          widget.formStyle.requiredText,
-                          style: const TextStyle(
-                            color: GSFormColors.red,
-                            fontSize: 10,
-                          ),
-                        ),
                       ),
                     ],
                   ),

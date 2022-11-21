@@ -69,7 +69,7 @@ class GSField extends StatefulWidget {
     GSFieldStatusEnum? status,
     int? weight,
     String? hint,
-    required String iconAssets,
+    Widget? iconWidget,
     Color? iconColor,
   }) : super(key: key) {
     model = GSQRScannerModel(
@@ -83,14 +83,16 @@ class GSField extends StatefulWidget {
       status: status,
       weight: weight,
       hint: hint,
-      iconAsset: iconAssets,
-      iconColor: iconColor,
+      iconWidget: iconWidget,
+
     );
   }
 
   GSField.imagePicker({
     Key? key,
     required String tag,
+    required Widget iconWidget,
+    String? defaultImagePathValue ,
     String? title,
     String? errorMessage,
     String? helpMessage,
@@ -103,7 +105,6 @@ class GSField extends StatefulWidget {
     String? galleryPopupTitle,
     String? cameraPopupIcon,
     String? galleryPopupIcon,
-    required Widget iconWidget,
     GSImageSource? imageSource,
     Color? iconColor,
     bool? showCropper,
@@ -126,6 +127,7 @@ class GSField extends StatefulWidget {
       weight: weight,
       hint: hint,
       iconWidget: iconWidget,
+      defaultValue : defaultImagePathValue
     );
   }
 

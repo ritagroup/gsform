@@ -13,14 +13,13 @@ class GSTextPlainField extends StatelessWidget implements GSFieldCallBack {
 
   @override
   Widget build(BuildContext context) {
-    if (model.value != null) {
-      controller?.text = model.value;
+    if (model.defaultValue != null) {
+      controller?.text = model.defaultValue;
     }
     return Padding(
       padding: const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
       child: TextField(
         controller: controller,
-        maxLines: model.maxLine,
         minLines: model.minLine ?? 3,
         keyboardType: TextInputType.multiline,
         focusNode: model.focusNode,
