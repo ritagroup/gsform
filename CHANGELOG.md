@@ -46,4 +46,12 @@
 * Improved form fields
 * Add Disable Status to fields status
 
+* ## 0.1.3
+* Improved form fields
+* Fix some bug 
+* Change Radio group returned value type 
+* Set initial value for spinner 
+
+
+
 

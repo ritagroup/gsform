@@ -5,7 +5,8 @@ class GSDateRangePickerModel extends GSFieldModel {
   String? hint;
   GSDateFormatType? dateFormatType;
   bool? isPastAvailable;
-  GSDate? initialDate;
+  GSDate? initialStartDate;
+  GSDate? initialEndDate;
   GSDate? availableFrom;
   GSDate? availableTo;
   GSCalendarType calendarType;
@@ -31,7 +32,8 @@ class GSDateRangePickerModel extends GSFieldModel {
     this.isPastAvailable,
     this.availableFrom,
     this.availableTo,
-    this.initialDate,
+    this.initialStartDate,
+    this.initialEndDate,
     required this.calendarType,
     this.from,
     this.to,

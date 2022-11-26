@@ -52,6 +52,15 @@ class GSTimePickerField extends StatefulWidget implements GSFieldCallBack {
 
 class _GSTimePickerFieldState extends State<GSTimePickerField> {
   @override
+  void initState() {
+    super.initState();
+    if (widget.model.initialTime != null) {
+      widget.selectedTime = widget.model.initialTime;
+      _displayTime(widget.selectedTime!);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     widget.context = context;
     return Padding(
@@ -79,13 +88,13 @@ class _GSTimePickerFieldState extends State<GSTimePickerField> {
       context: widget.context,
       initialTime: widget.model.initialTime ?? TimeOfDay.now(),
       initialEntryMode: PTimePickerEntryMode.dial,
+      useRootNavigator: false,
     );
     if (picked != null) {
-      String hour = picked.hour.toString().length == 1 ? '0${picked.hour}' : picked.hour.toString();
-      String minute = picked.minute.toString().length == 1 ? '0${picked.minute}' : picked.minute.toString();
-      widget.selectedTimeText = '$hour:$minute';
       widget.selectedTime = picked;
+      widget.model.initialTime = picked;
       widget.isTimeSelected = true;
+      _displayTime(picked);
       update();
     } else {
       widget.isTimeSelected = false;
@@ -96,5 +105,11 @@ class _GSTimePickerFieldState extends State<GSTimePickerField> {
     if (mounted) {
       setState(() {});
     }
+  }
+
+  _displayTime(TimeOfDay time) {
+    String hour = time.hour.toString().length == 1 ? '0${time.hour}' : time.hour.toString();
+    String minute = time.minute.toString().length == 1 ? '0${time.minute}' : time.minute.toString();
+    widget.selectedTimeText = '$hour:$minute';
   }
 }

@@ -20,7 +20,7 @@ class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
 
   @override
   getValue() {
-    return returnedData ?? '';
+    return returnedData;
   }
 
   @override
@@ -119,6 +119,7 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
             thumbVisibility: true,
             thickness: widget.model.showScrollBar ?? false ? 6 : 0,
             child: ListView.builder(
+              scrollDirection: widget.model.scrollDirection ?? Axis.vertical,
               controller: controller,
               itemCount: filteredItems.length,
               shrinkWrap: widget.model.scrollable == null ? false : !widget.model.scrollable!,

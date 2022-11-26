@@ -20,7 +20,7 @@ class GSTextPlainField extends StatelessWidget implements GSFieldCallBack {
       padding: const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
       child: TextField(
         controller: controller,
-        minLines: model.minLine ?? 3,
+        minLines: model.minLine,
         keyboardType: TextInputType.multiline,
         focusNode: model.focusNode,
         maxLength: model.maxLength,

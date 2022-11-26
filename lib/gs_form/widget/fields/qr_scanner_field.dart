@@ -74,7 +74,7 @@ class _GSQRScannerFieldState extends State<GSQRScannerField> {
                       Visibility(
                         visible: widget.model.required ?? false,
                         child: Padding(
-                          padding: const EdgeInsets.only(right: 4 , left: 4),
+                          padding: const EdgeInsets.only(right: 4, left: 4),
                           child: Text(
                             widget.formStyle.requiredText,
                             style: const TextStyle(

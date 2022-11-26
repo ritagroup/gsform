@@ -84,7 +84,6 @@ class GSField extends StatefulWidget {
       weight: weight,
       hint: hint,
       iconWidget: iconWidget,
-
     );
   }
 
@@ -92,7 +91,7 @@ class GSField extends StatefulWidget {
     Key? key,
     required String tag,
     required Widget iconWidget,
-    String? defaultImagePathValue ,
+    String? defaultImagePathValue,
     String? title,
     String? errorMessage,
     String? helpMessage,
@@ -110,25 +109,24 @@ class GSField extends StatefulWidget {
     bool? showCropper,
   }) : super(key: key) {
     model = GSImagePickerModel(
-      type: GSFieldTypeEnum.imagePicker,
-      tag: tag,
-      showCropper: showCropper ?? true,
-      imageSource: imageSource ?? GSImageSource.both,
-      showTitle: showTitle ?? false,
-      title: title,
-      cameraPopupTitle: cameraPopupTitle,
-      galleryPopupTitle: galleryPopupTitle,
-      cameraPopupIcon: cameraPopupIcon,
-      galleryPopupIcon: galleryPopupIcon,
-      errorMessage: errorMessage,
-      helpMessage: helpMessage,
-      required: required,
-      status: status,
-      weight: weight,
-      hint: hint,
-      iconWidget: iconWidget,
-      defaultValue : defaultImagePathValue
-    );
+        type: GSFieldTypeEnum.imagePicker,
+        tag: tag,
+        showCropper: showCropper ?? true,
+        imageSource: imageSource ?? GSImageSource.both,
+        showTitle: showTitle ?? false,
+        title: title,
+        cameraPopupTitle: cameraPopupTitle,
+        galleryPopupTitle: galleryPopupTitle,
+        cameraPopupIcon: cameraPopupIcon,
+        galleryPopupIcon: galleryPopupIcon,
+        errorMessage: errorMessage,
+        helpMessage: helpMessage,
+        required: required,
+        status: status,
+        weight: weight,
+        hint: hint,
+        iconWidget: iconWidget,
+        defaultValue: defaultImagePathValue);
   }
 
   GSField.spinner({
@@ -523,7 +521,8 @@ class GSField extends StatefulWidget {
     String? hint,
     GSDateFormatType? displayDateType,
     bool? isPastAvailable,
-    GSDate? initialDate,
+    GSDate? initialStartDate,
+    GSDate? initialEndDate,
     GSDate? availableFrom,
     GSDate? availableTo,
   }) : super(key: key) {
@@ -545,7 +544,8 @@ class GSField extends StatefulWidget {
         hint: hint,
         isPastAvailable: isPastAvailable,
         dateFormatType: displayDateType,
-        initialDate: initialDate,
+        initialStartDate: initialStartDate,
+        initialEndDate: initialEndDate,
         availableFrom: availableTo,
         availableTo: availableTo,
         calendarType: calendarType);

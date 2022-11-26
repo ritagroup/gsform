@@ -12,7 +12,7 @@ class GSSpinnerField extends StatefulWidget implements GSFieldCallBack {
   GSSpinnerModel model;
   GSFormStyle formStyle;
   SpinnerDataModel? returnedData;
-  SpinnerDataModel ? defaultValue ;
+  SpinnerDataModel? defaultValue;
 
   GSSpinnerField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
@@ -43,8 +43,8 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
   void initState() {
     for (var element in widget.model.items) {
       if (element.isSelected ?? false) {
-        widget.returnedData = element ;
-        return ;
+        widget.returnedData = element;
+        return;
       }
     }
     if (widget.model.hint != null && widget.model.hint!.isNotEmpty && widget.hintIndex != widget.model.items[0].id) {

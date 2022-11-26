@@ -21,6 +21,18 @@ class GSDateRangePickerField extends StatefulWidget implements GSFieldCallBack {
   DateTime? selectedGregorianEndDate;
   late BuildContext context;
 
+  late Jalali jalaliInitialStartDate;
+  late Jalali jalaliInitialEndDate;
+  late Jalali jalaliAvailableFrom;
+  late Jalali jalaliAvailableTo;
+
+  late DateTime gregorianInitialStartDate;
+  late DateTime gregorianInitialEndDate;
+  late DateTime gregorianAvailableFrom;
+  late DateTime gregorianAvailableTo;
+
+  bool isDateSelected = false;
+
   GSDateRangePickerField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
@@ -70,16 +82,6 @@ class GSDateRangePickerField extends StatefulWidget implements GSFieldCallBack {
 }
 
 class _GSDateRangePickerFieldState extends State<GSDateRangePickerField> {
-  late Jalali jalaliInitialDate;
-  late Jalali jalaliAvailableFrom;
-  late Jalali jalaliAvailableTo;
-
-  late DateTime gregorianInitialDate;
-  late DateTime gregorianAvailableFrom;
-  late DateTime gregorianAvailableTo;
-
-  bool isDateSelected = false;
-
   @override
   void initState() {
     _initialDates();
@@ -99,7 +101,7 @@ class _GSDateRangePickerFieldState extends State<GSDateRangePickerField> {
               Expanded(
                 child: Text(
                   widget.selectedDateText.isEmpty ? widget.model.hint ?? '' : widget.selectedDateText,
-                  style: isDateSelected ? widget.formStyle.fieldTextStyle : widget.formStyle.fieldHintStyle,
+                  style: widget.isDateSelected ? widget.formStyle.fieldTextStyle : widget.formStyle.fieldHintStyle,
                 ),
               ),
             ],
@@ -121,20 +123,22 @@ class _GSDateRangePickerFieldState extends State<GSDateRangePickerField> {
       context: widget.context,
       initialEntryMode: PDatePickerEntryMode.calendar,
       initialDateRange: JalaliRange(
-        start: jalaliInitialDate,
-        end: jalaliInitialDate.addDays(2),
+        start: widget.jalaliInitialStartDate,
+        end: widget.jalaliInitialEndDate,
       ),
-      firstDate: jalaliAvailableFrom,
-      lastDate: jalaliAvailableTo,
+      firstDate: widget.jalaliAvailableFrom,
+      lastDate: widget.jalaliAvailableTo,
     );
     if (picked?.start != null && picked?.end != null) {
       widget.selectedStartDate = picked?.start;
       widget.selectedEndDate = picked?.end;
-      isDateSelected = true;
+      widget.jalaliInitialStartDate = picked!.start;
+      widget.jalaliInitialEndDate = picked.end;
+      widget.isDateSelected = true;
       _displayDate();
       update();
     } else {
-      isDateSelected = false;
+      widget.isDateSelected = false;
     }
   }
 
@@ -143,20 +147,23 @@ class _GSDateRangePickerFieldState extends State<GSDateRangePickerField> {
       context: widget.context,
       initialEntryMode: DatePickerEntryMode.calendar,
       initialDateRange: DateTimeRange(
-        start: gregorianInitialDate,
-        end: gregorianInitialDate.add(const Duration(days: 2)),
+        start: widget.gregorianInitialStartDate,
+        end: widget.gregorianInitialEndDate,
       ),
-      firstDate: gregorianAvailableFrom,
-      lastDate: gregorianAvailableTo,
+      firstDate: widget.gregorianAvailableFrom,
+      lastDate: widget.gregorianAvailableTo,
     );
     if (picked?.start != null && picked?.end != null) {
       widget.selectedGregorianStartDate = picked?.start;
       widget.selectedGregorianEndDate = picked?.end;
-      isDateSelected = true;
+      widget.gregorianInitialStartDate = picked!.start;
+
+      widget.gregorianInitialEndDate = picked.end;
+      widget.isDateSelected = true;
       _displayGregorianDate();
       update();
     } else {
-      isDateSelected = false;
+      widget.isDateSelected = false;
     }
   }
 
@@ -169,17 +176,29 @@ class _GSDateRangePickerFieldState extends State<GSDateRangePickerField> {
   }
 
   _initialGregorianDates() {
-    if (widget.model.initialDate == null) {
-      gregorianInitialDate = DateTime.now();
+    if (widget.model.initialStartDate == null) {
+      widget.gregorianInitialStartDate = DateTime.now();
     } else {
-      gregorianInitialDate =
-          DateTime(widget.model.initialDate!.year, widget.model.initialDate!.month, widget.model.initialDate!.day);
+      widget.gregorianInitialStartDate = DateTime(widget.model.initialStartDate!.year,
+          widget.model.initialStartDate!.month, widget.model.initialStartDate!.day);
+      widget.selectedGregorianStartDate = widget.gregorianInitialStartDate;
+    }
+
+    if (widget.model.initialEndDate == null) {
+      widget.gregorianInitialEndDate = DateTime.now().add(const Duration(days: 2));
+    } else {
+      widget.gregorianInitialEndDate = DateTime(
+          widget.model.initialEndDate!.year, widget.model.initialEndDate!.month, widget.model.initialEndDate!.day);
+      widget.selectedGregorianEndDate = widget.gregorianInitialEndDate;
+    }
+    if (widget.model.initialEndDate != null && widget.model.initialStartDate != null) {
+      _displayGregorianDate();
     }
 
     if (widget.model.availableTo == null) {
-      gregorianAvailableTo = DateTime(2100, 1, 1);
+      widget.gregorianAvailableTo = DateTime(2100, 1, 1);
     } else {
-      gregorianAvailableTo =
+      widget.gregorianAvailableTo =
           DateTime(widget.model.availableTo!.year, widget.model.availableTo!.month, widget.model.availableTo!.day);
     }
 
@@ -187,17 +206,28 @@ class _GSDateRangePickerFieldState extends State<GSDateRangePickerField> {
   }
 
   _initialJalaliDates() {
-    if (widget.model.initialDate == null) {
-      jalaliInitialDate = Jalali.now();
+    if (widget.model.initialStartDate == null) {
+      widget.jalaliInitialStartDate = Jalali.now();
     } else {
-      jalaliInitialDate =
-          Jalali(widget.model.initialDate!.year, widget.model.initialDate!.month, widget.model.initialDate!.day);
+      widget.jalaliInitialStartDate = Jalali(widget.model.initialStartDate!.year, widget.model.initialStartDate!.month,
+          widget.model.initialStartDate!.day);
+      widget.selectedStartDate = widget.jalaliInitialStartDate;
+      _displayDate();
+    }
+
+    if (widget.model.initialEndDate == null) {
+      widget.jalaliInitialEndDate = Jalali.now().add(days: 2);
+    } else {
+      widget.jalaliInitialEndDate = Jalali(
+          widget.model.initialEndDate!.year, widget.model.initialEndDate!.month, widget.model.initialEndDate!.day);
+      widget.selectedEndDate = widget.jalaliInitialEndDate;
+      _displayDate();
     }
 
     if (widget.model.availableTo == null) {
-      jalaliAvailableTo = Jalali.MAX;
+      widget.jalaliAvailableTo = Jalali.MAX;
     } else {
-      jalaliAvailableTo =
+      widget.jalaliAvailableTo =
           Jalali(widget.model.availableTo!.year, widget.model.availableTo!.month, widget.model.availableTo!.day);
     }
 
@@ -207,26 +237,26 @@ class _GSDateRangePickerFieldState extends State<GSDateRangePickerField> {
   _initialGregorianAvailableFromDate() {
     if (widget.model.isPastAvailable ?? false) {
       if (widget.model.availableFrom != null) {
-        gregorianAvailableFrom = DateTime(
+        widget.gregorianAvailableFrom = DateTime(
             widget.model.availableFrom!.year, widget.model.availableFrom!.month, widget.model.availableFrom!.day);
       } else {
-        gregorianAvailableFrom = DateTime(1700, 1, 1);
+        widget.gregorianAvailableFrom = DateTime(1700, 1, 1);
       }
     } else {
-      gregorianAvailableFrom = gregorianInitialDate;
+      widget.gregorianAvailableFrom = widget.gregorianInitialStartDate;
     }
   }
 
   _initialJalaliAvailableFromDate() {
     if (widget.model.isPastAvailable ?? false) {
       if (widget.model.availableFrom != null) {
-        jalaliAvailableFrom = Jalali(
+        widget.jalaliAvailableFrom = Jalali(
             widget.model.availableFrom!.year, widget.model.availableFrom!.month, widget.model.availableFrom!.day);
       } else {
-        jalaliAvailableFrom = Jalali.MIN;
+        widget.jalaliAvailableFrom = Jalali.MIN;
       }
     } else {
-      jalaliAvailableFrom = jalaliInitialDate;
+      widget.jalaliAvailableFrom = widget.jalaliInitialStartDate;
     }
   }
 
