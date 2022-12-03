@@ -52,6 +52,9 @@
 * Change Radio group returned value type 
 * Set initial value for spinner 
 
+* ## 0.1.4
+* Add required all to gsCheckListField
+* Fix improve fields   
 
 
 

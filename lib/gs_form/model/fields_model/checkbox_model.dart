@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gsform/gs_form/enums/required_check_list_enum.dart';
 import 'package:gsform/gs_form/model/data_model/check_data_model.dart';
 
 import 'field_model.dart';
@@ -18,6 +19,7 @@ class GSCheckBoxModel extends GSFieldModel {
   BoxDecoration? searchBoxDecoration;
   Color? scrollBarColor;
   List<int>? selectedItems;
+  RequiredCheckListEnum? requiredCheckListEnum;
 
   final ValueChanged<CheckDataModel> callBack;
 
@@ -34,6 +36,7 @@ class GSCheckBoxModel extends GSFieldModel {
       showTitle,
       required this.items,
       required this.callBack,
+      this.requiredCheckListEnum,
       this.selectedIcon,
       this.unSelectedIcon,
       this.hint,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
+import 'package:gsform/gs_form/enums/required_check_list_enum.dart';
 import 'package:gsform/gs_form/model/data_model/check_data_model.dart';
 import 'package:gsform/gs_form/model/fields_model/checkbox_model.dart';
 import 'package:gsform/gs_form/values/colors.dart';
@@ -29,7 +30,11 @@ class GSCheckListField extends StatefulWidget implements GSFieldCallBack {
     if (!(model.required ?? false)) {
       return true;
     } else {
-      return valueObject.isNotEmpty;
+      if (model.requiredCheckListEnum == RequiredCheckListEnum.atLeastOneItem) {
+        return valueObject.isNotEmpty;
+      } else {
+        return valueObject.length == model.items.length;
+      }
     }
   }
 }
@@ -165,55 +170,49 @@ class CheckBoxItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(8),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: Row(
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          Row(
+        children: [
+          Stack(
+            alignment: Alignment.center,
             children: [
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  _model.unSelectedIcon == null
-                      ? Container(
-                          width: 18,
-                          height: 18,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(0.4),
-                            shape: BoxShape.rectangle,
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                        )
-                      : _model.unSelectedIcon!,
-                  Visibility(
-                    visible: _item.isSelected,
-                    child: _model.selectedIcon == null
-                        ? Container(
-                            width: 10,
-                            height: 10,
-                            decoration: BoxDecoration(
-                              color: Colors.blue,
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.circular(3),
-                            ),
-                          )
-                        : _model.selectedIcon!,
-                  )
-                ],
-              ),
-              const SizedBox(
-                width: 8,
-              ),
-              Container(
-                margin: const EdgeInsetsDirectional.only(start: 8.0),
-                child: Text(
-                  _item.title,
-                  style: formStyle.fieldHintStyle,
-                ),
-              ),
+              _model.unSelectedIcon == null
+                  ? Container(
+                      width: 18,
+                      height: 18,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.4),
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                    )
+                  : _model.unSelectedIcon!,
+              Visibility(
+                visible: _item.isSelected,
+                child: _model.selectedIcon == null
+                    ? Container(
+                        width: 10,
+                        height: 10,
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.circular(3),
+                        ),
+                      )
+                    : _model.selectedIcon!,
+              )
             ],
-          )
+          ),
+          const SizedBox(
+            width: 8,
+          ),
+          Expanded(
+            child: Text(
+              _item.title,
+              style: formStyle.fieldTextStyle,
+            ),
+          ),
         ],
       ),
     );

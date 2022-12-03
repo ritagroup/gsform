@@ -44,6 +44,8 @@ import 'package:gsform/gs_form/widget/fields/text_field.dart';
 import 'package:gsform/gs_form/widget/fields/text_plain_field.dart';
 import 'package:gsform/gs_form/widget/fields/time_picker_field.dart';
 
+import '../enums/required_check_list_enum.dart';
+
 // ignore: must_be_immutable
 class GSField extends StatefulWidget {
   late GSFieldModel model;
@@ -217,34 +219,38 @@ class GSField extends StatefulWidget {
         searchBoxDecoration: searchBoxDecoration);
   }
 
-  GSField.checkList(
-      {Key? key,
-      required String tag,
-      String? title,
-      String? errorMessage,
-      String? helpMessage,
-      Widget? prefixWidget,
-      bool? required,
-      bool? showTitle,
-      GSFieldStatusEnum? status,
-      String? value,
-      int? weight,
-      RegExp? validateRegEx,
-      String? hint,
-      Axis? scrollDirection,
-      Widget? selectedIcon,
-      Widget? unSelectedIcon,
-      bool? scrollable,
-      double? height,
-      bool? showScrollBar,
-      Color? scrollBarColor,
-      required bool searchable,
-      String? searchHint,
-      Icon? searchIcon,
-      BoxDecoration? searchBoxDecoration,
-      required List<CheckDataModel> items,
-      required ValueChanged<CheckDataModel> callBack})
-      : super(key: key) {
+  GSField.checkList({
+    Key? key,
+    required String tag,
+    required bool searchable,
+    required List<CheckDataModel> items,
+    required ValueChanged<CheckDataModel> callBack,
+    RequiredCheckListEnum? requiredCheckListEnum,
+    String? title,
+    String? errorMessage,
+    String? helpMessage,
+    Widget? prefixWidget,
+    bool? showTitle,
+    GSFieldStatusEnum? status,
+    String? value,
+    int? weight,
+    RegExp? validateRegEx,
+    String? hint,
+    Axis? scrollDirection,
+    Widget? selectedIcon,
+    Widget? unSelectedIcon,
+    bool? scrollable,
+    double? height,
+    bool? showScrollBar,
+    Color? scrollBarColor,
+    String? searchHint,
+    Icon? searchIcon,
+    BoxDecoration? searchBoxDecoration,
+  }) : super(key: key) {
+    bool isRequired = false;
+    if (requiredCheckListEnum != null && requiredCheckListEnum != RequiredCheckListEnum.none) {
+      isRequired = true;
+    }
     model = GSCheckBoxModel(
         type: GSFieldTypeEnum.checkList,
         tag: tag,
@@ -252,7 +258,7 @@ class GSField extends StatefulWidget {
         title: title,
         errorMessage: errorMessage,
         helpMessage: helpMessage,
-        required: required,
+        required: isRequired,
         status: status,
         value: value,
         weight: weight,
@@ -269,7 +275,8 @@ class GSField extends StatefulWidget {
         searchable: searchable,
         searchHint: searchHint,
         searchIcon: searchIcon,
-        searchBoxDecoration: searchBoxDecoration);
+        searchBoxDecoration: searchBoxDecoration,
+        requiredCheckListEnum: requiredCheckListEnum);
   }
 
   GSField.text(

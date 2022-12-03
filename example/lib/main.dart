@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:gsform/gs_form/enums/field_status.dart';
+import 'package:gsform/gs_form/enums/required_check_list_enum.dart';
 import 'package:gsform/gs_form/model/data_model/check_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
@@ -200,7 +201,7 @@ class SingleSectionForm extends StatelessWidget {
                         scrollBarColor: Colors.red,
                         height: 200,
                         scrollable: true,
-                        required: true,
+                        requiredCheckListEnum: RequiredCheckListEnum.none,
                         weight: 12,
                         title: 'Size number',
                         searchable: true,
@@ -214,7 +215,8 @@ class SingleSectionForm extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         items: [
-                          CheckDataModel(title: 'checkbox', isSelected: true),
+                          CheckDataModel(
+                              title: 'checkbox ga;oj  ou ougaqou rou wrou or uoru our roro rwoe wreo or roujrowrjwrojbrgo rjwebo;gjrojbr orjb ', isSelected: true),
                           CheckDataModel(title: 'ipsum', isSelected: false),
                           CheckDataModel(title: 'item', isSelected: true),
                           CheckDataModel(title: 'size', isSelected: false),
@@ -252,7 +254,6 @@ class SingleSectionForm extends StatelessWidget {
                         items: [
                           RadioDataModel(title: 'lorem', isSelected: true),
                           RadioDataModel(title: 'ipsum', isSelected: false),
-
                         ],
                         callBack: (data) {},
                       ),
@@ -262,7 +263,6 @@ class SingleSectionForm extends StatelessWidget {
                         weight: 12,
                         maxLength: 150,
                         required: true,
-
                       ),
                       GSField.imagePicker(
                         tag: 'a',
@@ -337,7 +337,7 @@ class MultiSectionForm extends StatelessWidget {
                       tag: 'radio',
                       showScrollBar: true,
                       scrollBarColor: Colors.red,
-                      scrollDirection: Axis.horizontal ,
+                      scrollDirection: Axis.horizontal,
                       height: 50,
                       scrollable: true,
                       required: true,
@@ -356,7 +356,6 @@ class MultiSectionForm extends StatelessWidget {
                       items: [
                         RadioDataModel(title: 'lorem', isSelected: false),
                         RadioDataModel(title: 'ipsum', isSelected: false),
-
                       ],
                       callBack: (data) {},
                     ),
