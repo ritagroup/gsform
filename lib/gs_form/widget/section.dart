@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/values/theme.dart';
 import 'package:gsform/gs_form/widget/field.dart';
+import 'package:gsform/gs_form/widget/fields/text_plain_field.dart';
 
 // ignore: must_be_immutable
 class GSSection extends StatelessWidget {
@@ -34,7 +35,7 @@ class GSSection extends StatelessWidget {
           );
 
           weightSum += field.model.weight ?? 12;
-          if (i < fields.length - 1 && fields[i + 1] is GSField) {
+          if (i < fields.length - 1 && fields[i + 1] is GSField && fields[i + 1] is! GSTextPlainField) {
             field.model.nextFocusNode = (fields[i + 1] as GSField).model.focusNode;
           }
           field.formStyle = style!;

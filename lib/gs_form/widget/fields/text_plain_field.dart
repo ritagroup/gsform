@@ -21,11 +21,14 @@ class GSTextPlainField extends StatelessWidget implements GSFieldCallBack {
       child: TextField(
         controller: controller,
         minLines: model.minLine,
+        enableSuggestions: false,
+        autocorrect: false,
+        maxLines: model.maxLine,
         keyboardType: TextInputType.multiline,
         focusNode: model.focusNode,
         maxLength: model.maxLength,
         style: formStyle.fieldTextStyle,
-        textInputAction: model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
+        textInputAction: TextInputAction.newline,
         onSubmitted: (_) {
           FocusScope.of(context).requestFocus(model.nextFocusNode);
         },

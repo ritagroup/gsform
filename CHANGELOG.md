@@ -56,5 +56,7 @@
 * Add required all to gsCheckListField
 * Fix improve fields   
 
+* ## 0.1.5
+* Fix maxLine Scrollable in GSTextPlainField
 
 
