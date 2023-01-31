@@ -15,6 +15,7 @@ import 'package:gsform/gs_form/model/fields_model/email_model.dart';
 import 'package:gsform/gs_form/model/fields_model/field_model.dart';
 import 'package:gsform/gs_form/model/fields_model/image_picker_model.dart';
 import 'package:gsform/gs_form/model/fields_model/mobile_model.dart';
+import 'package:gsform/gs_form/model/fields_model/multi_image_picker_model.dart';
 import 'package:gsform/gs_form/model/fields_model/number_model.dart';
 import 'package:gsform/gs_form/model/fields_model/price_model.dart';
 import 'package:gsform/gs_form/model/fields_model/qr_scanner_model.dart';
@@ -45,6 +46,7 @@ import 'package:gsform/gs_form/widget/fields/text_plain_field.dart';
 import 'package:gsform/gs_form/widget/fields/time_picker_field.dart';
 
 import '../enums/required_check_list_enum.dart';
+import 'fields/multi_image_picker_field.dart';
 
 // ignore: must_be_immutable
 class GSField extends StatefulWidget {
@@ -129,6 +131,55 @@ class GSField extends StatefulWidget {
         hint: hint,
         iconWidget: iconWidget,
         defaultValue: defaultImagePathValue);
+  }
+
+  GSField.multiImagePicker({
+    Key? key,
+    required String tag,
+    required Widget iconWidget,
+    List<String>? defaultImagePathValues,
+    String? title,
+    String? errorMessage,
+    String? helpMessage,
+    bool? required,
+    bool? showTitle,
+    GSFieldStatusEnum? status,
+    int? weight,
+    String? hint,
+    String? cameraPopupTitle,
+    String? galleryPopupTitle,
+    String? cameraPopupIcon,
+    String? galleryPopupIcon,
+    GSImageSource? imageSource,
+    Color? iconColor,
+    bool? showCropper,
+    double? maximumSizePerImageInBytes,
+    double? maximumImageCount,
+    VoidCallback? onErrorSizeItem,
+  }) : super(key: key) {
+    model = GSMultiImagePickerModel(
+      type: GSFieldTypeEnum.multiImagePicker,
+      tag: tag,
+      showCropper: showCropper ?? true,
+      imageSource: imageSource ?? GSImageSource.both,
+      showTitle: showTitle ?? false,
+      title: title,
+      cameraPopupTitle: cameraPopupTitle,
+      galleryPopupTitle: galleryPopupTitle,
+      cameraPopupIcon: cameraPopupIcon,
+      galleryPopupIcon: galleryPopupIcon,
+      errorMessage: errorMessage,
+      helpMessage: helpMessage,
+      required: required,
+      status: status,
+      weight: weight,
+      hint: hint,
+      iconWidget: iconWidget,
+      defaultImagePath: defaultImagePathValues,
+      maximumImageCount: maximumImageCount ,
+      maximumSizePerImageInBytes: maximumSizePerImageInBytes ,
+      onErrorSizeItem: onErrorSizeItem ,
+    );
   }
 
   GSField.spinner({
@@ -881,6 +932,9 @@ class _GSFieldState extends State<GSField> {
         break;
       case GSFieldTypeEnum.qrScanner:
         widget.child = GSQRScannerField(widget.model as GSQRScannerModel, widget.formStyle!);
+        break;
+      case GSFieldTypeEnum.multiImagePicker:
+        widget.child = GSMultiImagePickerField(widget.model as GSMultiImagePickerModel, widget.formStyle!);
         break;
 
       default:
