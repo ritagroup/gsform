@@ -111,26 +111,31 @@ class GSField extends StatefulWidget {
     GSImageSource? imageSource,
     Color? iconColor,
     bool? showCropper,
+    double? maximumSizePerImageInBytes,
+    VoidCallback? onErrorSizeItem,
   }) : super(key: key) {
     model = GSImagePickerModel(
-        type: GSFieldTypeEnum.imagePicker,
-        tag: tag,
-        showCropper: showCropper ?? true,
-        imageSource: imageSource ?? GSImageSource.both,
-        showTitle: showTitle ?? false,
-        title: title,
-        cameraPopupTitle: cameraPopupTitle,
-        galleryPopupTitle: galleryPopupTitle,
-        cameraPopupIcon: cameraPopupIcon,
-        galleryPopupIcon: galleryPopupIcon,
-        errorMessage: errorMessage,
-        helpMessage: helpMessage,
-        required: required,
-        status: status,
-        weight: weight,
-        hint: hint,
-        iconWidget: iconWidget,
-        defaultValue: defaultImagePathValue);
+      type: GSFieldTypeEnum.imagePicker,
+      tag: tag,
+      showCropper: showCropper ?? true,
+      imageSource: imageSource ?? GSImageSource.both,
+      showTitle: showTitle ?? false,
+      title: title,
+      cameraPopupTitle: cameraPopupTitle,
+      galleryPopupTitle: galleryPopupTitle,
+      cameraPopupIcon: cameraPopupIcon,
+      galleryPopupIcon: galleryPopupIcon,
+      errorMessage: errorMessage,
+      helpMessage: helpMessage,
+      required: required,
+      status: status,
+      weight: weight,
+      hint: hint,
+      iconWidget: iconWidget,
+      defaultValue: defaultImagePathValue,
+      maximumSizePerImageInBytes: maximumSizePerImageInBytes,
+      onErrorSizeItem: onErrorSizeItem,
+    );
   }
 
   GSField.multiImagePicker({
@@ -153,7 +158,7 @@ class GSField extends StatefulWidget {
     GSImageSource? imageSource,
     Color? iconColor,
     bool? showCropper,
-    double? maximumSizePerImageInBytes,
+    double? maximumSizePerImageInKB,
     double? maximumImageCount,
     VoidCallback? onErrorSizeItem,
   }) : super(key: key) {
@@ -176,9 +181,9 @@ class GSField extends StatefulWidget {
       hint: hint,
       iconWidget: iconWidget,
       defaultImagePath: defaultImagePathValues,
-      maximumImageCount: maximumImageCount ,
-      maximumSizePerImageInBytes: maximumSizePerImageInBytes ,
-      onErrorSizeItem: onErrorSizeItem ,
+      maximumImageCount: maximumImageCount,
+      maximumSizePerImageInKB: maximumSizePerImageInKB,
+      onErrorSizeItem: onErrorSizeItem,
     );
   }
 
@@ -493,6 +498,7 @@ class GSField extends StatefulWidget {
     RegExp? validateRegEx,
     int? maxLength,
     bool? showTitle,
+    bool? showCounter ,
     String? hint,
   }) : super(key: key) {
     model = GSNumberModel(
@@ -510,6 +516,7 @@ class GSField extends StatefulWidget {
       weight: weight,
       maxLength: maxLength,
       hint: hint,
+      showCounter : showCounter ,
     );
   }
 

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
 import 'package:gsform/gs_form/model/fields_model/date_range_picker_model.dart';
+import 'package:gsform/gs_form/util/util.dart';
 import 'package:intl/intl.dart';
 import 'package:persian_datetime_picker/persian_datetime_picker.dart';
 
@@ -99,9 +100,16 @@ class _GSDateRangePickerFieldState extends State<GSDateRangePickerField> {
           child: Row(
             children: [
               Expanded(
-                child: Text(
-                  widget.selectedDateText.isEmpty ? widget.model.hint ?? '' : widget.selectedDateText,
-                  style: widget.isDateSelected ? widget.formStyle.fieldTextStyle : widget.formStyle.fieldHintStyle,
+                child: Align(
+                  alignment: widget.model.dateFormatType == GSDateFormatType.numeric
+                      ? Alignment.centerLeft
+                      : GSFormUtils.isDirectionRTL(context)
+                          ? Alignment.centerRight
+                          : Alignment.centerLeft,
+                  child: Text(
+                    widget.selectedDateText.isEmpty ? widget.model.hint ?? '' : widget.selectedDateText,
+                    style: widget.isDateSelected ? widget.formStyle.fieldTextStyle : widget.formStyle.fieldHintStyle,
+                  ),
                 ),
               ),
             ],

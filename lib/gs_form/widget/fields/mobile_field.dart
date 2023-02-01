@@ -19,6 +19,7 @@ class GSMobileField extends StatelessWidget implements GSFieldCallBack {
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
+        textAlign: TextAlign.left,
         controller: controller,
         maxLength: model.maxLength,
         style: formStyle.fieldTextStyle,

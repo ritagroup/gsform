@@ -104,7 +104,15 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
       _cropImage(image);
     } else {
       setState(() {});
-      widget._croppedFilePath = image.path;
+      if (widget.model.maximumSizePerImageInBytes != null) {
+        if (image.lengthSync() / 1000 < widget.model.maximumSizePerImageInBytes!) {
+          widget._croppedFilePath = image.path;
+        } else {
+          widget.model.onErrorSizeItem?.call();
+        }
+      } else {
+        widget._croppedFilePath = image.path;
+      }
     }
   }
 
@@ -127,7 +135,15 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
     );
     if (croppedFile != null) {
       setState(() {
-        widget._croppedFilePath = croppedFile.path;
+        if (widget.model.maximumSizePerImageInBytes != null) {
+          if (image.lengthSync() / 1000 < widget.model.maximumSizePerImageInBytes!) {
+            widget._croppedFilePath = image.path;
+          } else {
+            widget.model.onErrorSizeItem?.call();
+          }
+        } else {
+          widget._croppedFilePath = image.path;
+        }
       });
     }
   }

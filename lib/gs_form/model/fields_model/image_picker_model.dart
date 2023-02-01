@@ -11,6 +11,8 @@ class GSImagePickerModel extends GSFieldModel {
   String? galleryPopupIcon;
   GSImageSource? imageSource;
   bool? showCropper;
+  double? maximumSizePerImageInBytes;
+  VoidCallback? onErrorSizeItem;
 
   GSImagePickerModel({
     type,
@@ -31,6 +33,8 @@ class GSImagePickerModel extends GSFieldModel {
     this.galleryPopupTitle,
     this.imageSource,
     this.hint,
+    this.maximumSizePerImageInBytes,
+    this.onErrorSizeItem,
   }) : super(
             type: type,
             tag: tag,

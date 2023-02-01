@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
+import 'package:gsform/gs_form/util/util.dart';
 import 'package:intl/intl.dart';
 import 'package:persian_datetime_picker/persian_datetime_picker.dart';
 
@@ -80,27 +81,31 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
   @override
   Widget build(BuildContext context) {
     widget.context = context;
-    return Padding(
-      padding: const EdgeInsets.only(right: 10.0, left: 10.0, top: 18, bottom: 18),
-      child: InkWell(
+    return InkWell(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 10.0, left: 10.0, top: 18, bottom: 18),
         child: Row(
           children: [
             Expanded(
-              child: Text(
-                widget.selectedDateText.isEmpty ? widget.model.hint ?? '' : widget.selectedDateText,
-                style: widget.isDateSelected ? widget.formStyle.fieldTextStyle : widget.formStyle.fieldHintStyle,
+              child: Align(
+                alignment: widget.model.dateFormatType == GSDateFormatType.numeric ? Alignment.centerLeft :GSFormUtils.isDirectionRTL(context)?Alignment.centerRight :Alignment.centerLeft ,
+                child: Text(
+                  widget.selectedDateText.isEmpty ? widget.model.hint ?? '' : widget.selectedDateText,
+                  style: widget.isDateSelected ? widget.formStyle.fieldTextStyle : widget.formStyle.fieldHintStyle,
+                  maxLines: 1,
+                ),
               ),
             ),
           ],
         ),
-        onTap: () {
-          if (widget.model.calendarType == GSCalendarType.jalali) {
-            _openDatePicker();
-          } else {
-            _openGregorianPicker();
-          }
-        },
       ),
+      onTap: () {
+        if (widget.model.calendarType == GSCalendarType.jalali) {
+          _openDatePicker();
+        } else {
+          _openGregorianPicker();
+        }
+      },
     );
   }
 

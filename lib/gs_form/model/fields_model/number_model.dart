@@ -4,6 +4,7 @@ import 'package:gsform/gs_form/model/fields_model/field_model.dart';
 class GSNumberModel extends GSFieldModel {
   int? maxLength;
   String? hint;
+  bool? showCounter;
 
   GSNumberModel(
       {type,
@@ -20,6 +21,7 @@ class GSNumberModel extends GSFieldModel {
       weight,
       focusNode,
       showTitle,
+      this.showCounter,
       this.maxLength,
       this.hint})
       : super(

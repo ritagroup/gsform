@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:gsform/gs_form/enums/field_status.dart';
-import 'package:gsform/gs_form/enums/required_check_list_enum.dart';
-import 'package:gsform/gs_form/model/data_model/check_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/spinner_data_model.dart';
 import 'package:gsform/gs_form/widget/field.dart';
 import 'package:gsform/gs_form/widget/form.dart';
 import 'package:gsform/gs_form/widget/section.dart';
-import 'package:lottie/lottie.dart';
 
 void main() {
   runApp(const MyApp());
@@ -65,11 +61,11 @@ class MainTestPage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                      Navigator.pushAndRemoveUntil<dynamic>(
-                        context,
-                        MaterialPageRoute<dynamic>(builder: (BuildContext context) => MultiSectionForm()),
-                        (route) => true, //if you want to disable back feature set to false
-                      );
+                    Navigator.pushAndRemoveUntil<dynamic>(
+                      context,
+                      MaterialPageRoute<dynamic>(builder: (BuildContext context) => MultiSectionForm()),
+                      (route) => true, //if you want to disable back feature set to false
+                    );
                   },
                   child: const Text('Multi Section form'),
                 ),
@@ -152,12 +148,7 @@ class SingleSectionForm extends StatelessWidget {
                       //     Icons.calendar_month,
                       //     color: Color(0xff676767),
                       //   ),
-                      //   displayDateType: GSDateFormatType.fullText,
-                      //   initialDate: GSDate(
-                      //     day: DateTime.now().day,
-                      //     month: DateTime.now().month,
-                      //     year: DateTime.now().year,
-                      //   ),
+                      //   displayDateType: GSDateFormatType.numeric,
                       //   calendarType: GSCalendarType.gregorian,
                       // ),
                       // GSField.spinner(
@@ -168,7 +159,7 @@ class SingleSectionForm extends StatelessWidget {
                       //   items: [
                       //     SpinnerDataModel(
                       //       name: 'man',
-                      //       id: 1,
+                      //       id: 1,counter: model.showCounter ?? false ? null : const Offstage(),
                       //     ),
                       //     SpinnerDataModel(
                       //       name: 'woman',
@@ -183,6 +174,7 @@ class SingleSectionForm extends StatelessWidget {
                       //   helpMessage: '9357814747',
                       //   weight: 12,
                       //   required: false,
+                      //   hint: 'مسیاصعا',
                       //   errorMessage: 'some error',
                       // ),
                       // GSField.email(
@@ -273,23 +265,29 @@ class SingleSectionForm extends StatelessWidget {
                       //     width: 70,
                       //     height: 70,
                       //   ),
+                      //   maximumSizePerImageInBytes: 100,
+                      //   onErrorSizeItem: () {
+                      //     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      //       content: Text("maximum size exception"),
+                      //     ));
+                      //   },
                       // ),
-
-                      GSField.multiImagePicker(
-                        tag: 'multi',
-                        required: true,
-                        title: 'انتخاب تصویر',
-                        hint: 'فایل خود را انتخاب کنید',
-                        iconWidget: const Icon(Icons.add),
-                        maximumImageCount: 1,
-                        showCropper: false,
-                        onErrorSizeItem: (){
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text("maximum size exception"),
-                          ));
-                        },
-
-                      ),
+                      //
+                      // GSField.multiImagePicker(
+                      //   tag: 'multi',
+                      //   required: true,
+                      //   title: 'انتخاب تصویر',
+                      //   hint: 'فایل خود را انتخاب کنید',
+                      //   iconWidget: const Icon(Icons.add),
+                      //   maximumImageCount: 5,
+                      //   showCropper: false,
+                      //   maximumSizePerImageInKB: 80,
+                      //   onErrorSizeItem: () {
+                      //     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      //       content: Text("maximum size exception"),
+                      //     ));
+                      //   },
+                      // ),
                       // GSField.textPlain(
                       //   tag: 'explain',
                       //   title: 'Description',
@@ -299,13 +297,21 @@ class SingleSectionForm extends StatelessWidget {
                       // ),
                       //
                       // GSField.textPlain(
+                      //   showCounter: true,
                       //   tag: 'explain',
                       //   title: 'Description',
                       //   weight: 12,
                       //   maxLine: 5,
                       //   required: true,
                       // ),
-
+                      GSField.number(
+                        tag: 'explain',
+                        title: 'Description',
+                        weight: 12,
+                        maxLength: 5,
+                        showCounter: false,
+                        required: true,
+                      ),
                     ],
                   ),
                 ),

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 
 import '../core/form_style.dart';
 import '../enums/field_status.dart';
@@ -159,6 +160,7 @@ class GSFormUtils {
     );
   }
 
+
   static Future<File?> pickImage(ImageSource imageSource) async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(
@@ -172,6 +174,10 @@ class GSFormUtils {
     }
 
     return null;
+  }
+
+  static bool isDirectionRTL(BuildContext context){
+    return Bidi.isRtlLanguage( Localizations.localeOf(context).languageCode);
   }
 }
 

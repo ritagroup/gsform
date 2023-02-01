@@ -20,6 +20,7 @@ class GSNumberField extends StatelessWidget implements GSFieldCallBack {
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
+        textAlign: TextAlign.left,
         controller: controller,
         maxLength: model.maxLength,
         style: formStyle.fieldTextStyle,
@@ -30,8 +31,9 @@ class GSNumberField extends StatelessWidget implements GSFieldCallBack {
           FocusScope.of(context).requestFocus(model.nextFocusNode);
         },
         decoration: InputDecoration(
+          counter: (model.showCounter ?? false) ? null : const Offstage(),
           hintText: model.hint,
-          counterText: '',
+          counterStyle: formStyle.fieldHintStyle,
           focusedBorder: InputBorder.none,
           enabledBorder: InputBorder.none,
           errorBorder: InputBorder.none,

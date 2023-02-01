@@ -36,6 +36,7 @@ flutter:
   assets:
     - packages/gsform/assets/ic_alret.svg
     - packages/gsform/assets/ic_info.svg
+    - packages/gsform/assets/ic_trash.svg
 
 #
 # For details regarding assets in packages, see
