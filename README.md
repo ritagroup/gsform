@@ -915,7 +915,7 @@ Link to JIRA component (or project if there is no component for that project). S
  -->
  
 
-## About Golrang System
+## About Rita Group
 
 Golrang System Company is an active company in the field of information and communication
 technology, which aims to provide information technology solutions to help productivity and improve
