@@ -59,4 +59,12 @@
 * ## 0.1.5
 * Fix maxLine Scrollable in GSTextPlainField
 
+* ## 0.1.6
+* Add MultiImagePickerField
+* Add Ability to Check image size and image count in MultiImagePickerField and ImagePickerField
+* Show counter in NumberField 
+* Improve some fields 
+* Fix some bug 
+
+
 

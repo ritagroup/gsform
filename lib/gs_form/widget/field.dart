@@ -498,7 +498,7 @@ class GSField extends StatefulWidget {
     RegExp? validateRegEx,
     int? maxLength,
     bool? showTitle,
-    bool? showCounter ,
+    bool? showCounter,
     String? hint,
   }) : super(key: key) {
     model = GSNumberModel(
@@ -516,7 +516,7 @@ class GSField extends StatefulWidget {
       weight: weight,
       maxLength: maxLength,
       hint: hint,
-      showCounter : showCounter ,
+      showCounter: showCounter,
     );
   }
 

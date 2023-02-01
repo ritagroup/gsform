@@ -17,5 +17,5 @@ enum GSFieldTypeEnum {
   bankCard,
   imagePicker,
   qrScanner,
-  multiImagePicker ,
+  multiImagePicker,
 }

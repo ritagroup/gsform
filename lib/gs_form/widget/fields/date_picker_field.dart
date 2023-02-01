@@ -88,7 +88,11 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
           children: [
             Expanded(
               child: Align(
-                alignment: widget.model.dateFormatType == GSDateFormatType.numeric ? Alignment.centerLeft :GSFormUtils.isDirectionRTL(context)?Alignment.centerRight :Alignment.centerLeft ,
+                alignment: widget.model.dateFormatType == GSDateFormatType.numeric
+                    ? Alignment.centerLeft
+                    : GSFormUtils.isDirectionRTL(context)
+                        ? Alignment.centerRight
+                        : Alignment.centerLeft,
                 child: Text(
                   widget.selectedDateText.isEmpty ? widget.model.hint ?? '' : widget.selectedDateText,
                   style: widget.isDateSelected ? widget.formStyle.fieldTextStyle : widget.formStyle.fieldHintStyle,
