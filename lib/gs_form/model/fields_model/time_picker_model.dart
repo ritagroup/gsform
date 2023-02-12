@@ -5,6 +5,7 @@ import 'field_model.dart';
 class GSTimePickerModel extends GSFieldModel {
   String? hint;
   TimeOfDay? initialTime;
+  TimePickerType? timePickerType;
 
   GSTimePickerModel({
     type,
@@ -20,6 +21,7 @@ class GSTimePickerModel extends GSFieldModel {
     validateReg,
     weight,
     showTitle,
+    this.timePickerType,
     this.hint,
     this.initialTime,
   }) : super(
@@ -38,3 +40,5 @@ class GSTimePickerModel extends GSFieldModel {
           showTitle: showTitle,
         );
 }
+
+enum TimePickerType { persian, english }

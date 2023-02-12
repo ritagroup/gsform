@@ -1,6 +1,6 @@
 name: gsform
 description: GSForm helps to creating forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.
-version: 0.1.6
+version: 0.1.7
 homepage: https://github.com/golrangsystem/gsform.git
 
 

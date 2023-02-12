@@ -64,7 +64,10 @@
 * Add Ability to Check image size and image count in MultiImagePickerField and ImagePickerField
 * Show counter in NumberField 
 * Improve some fields 
-* Fix some bug 
+* Fix some bug
+
+* ## 0.1.7
+* Fix bug in TimePicker
 
 
 
