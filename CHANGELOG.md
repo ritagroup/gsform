@@ -69,5 +69,8 @@
 * ## 0.1.7
 * Fix bug in TimePicker
 
+* ## 0.1.8
+* Add call back to spinner field 
+
 
 

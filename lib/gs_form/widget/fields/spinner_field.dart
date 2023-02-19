@@ -90,6 +90,7 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
             onChanged: (value) {
               if (value?.id != widget.hintIndex) {
                 widget.returnedData = value;
+                widget.model.onChange?.call(value);
                 setState(() => {});
               }
             },

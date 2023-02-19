@@ -36,10 +36,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.blue,
-        backgroundColor: const Color(0xfff5f5f5),
-        textTheme: null,
+        textTheme: null, colorScheme: null,
       ),
-      darkTheme: ThemeData(brightness: Brightness.dark, backgroundColor: const Color(0xff3c3c3c)),
+      darkTheme: ThemeData(brightness: Brightness.dark, colorScheme: null),
       home: MainTestPage(),
     );
   }
@@ -293,7 +292,7 @@ class SingleSectionForm extends StatelessWidget {
                         iconWidget: const Icon(Icons.add),
                         maximumImageCount: 5,
                         showCropper: false,
-                        defaultImagePathValues: ['/data/user/0/com.golrang.salesplus2/app_flutter/testImage.png'],
+                        defaultImagePathValues: const ['/data/user/0/com.golrang.salesplus2/app_flutter/testImage.png'],
                         maximumSizePerImageInKB: 80,
                         onErrorSizeItem: () {
                           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
@@ -431,6 +430,9 @@ class MultiSectionForm extends StatelessWidget {
                       required: false,
                       weight: 6,
                       title: 'Gender',
+                      onChange: (model) {
+
+                      },
                       items: [
                         SpinnerDataModel(
                           name: 'man',

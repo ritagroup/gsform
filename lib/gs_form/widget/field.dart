@@ -200,6 +200,7 @@ class GSField extends StatefulWidget {
     String? value,
     int? weight,
     RegExp? validateRegEx,
+    ValueChanged<SpinnerDataModel?>? onChange,
     required List<SpinnerDataModel> items,
     String? hint,
   }) : super(key: key) {
@@ -217,6 +218,7 @@ class GSField extends StatefulWidget {
       weight: weight,
       items: items,
       hint: hint,
+      onChange: onChange,
     );
   }
 

@@ -17,7 +17,6 @@ class GSRadioModel extends GSFieldModel {
   Icon? searchIcon;
   BoxDecoration? searchBoxDecoration;
   Color? scrollBarColor;
-
   final ValueChanged<RadioDataModel> callBack;
 
   GSRadioModel(
