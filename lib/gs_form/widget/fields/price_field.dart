@@ -26,6 +26,8 @@ class GSPriceField extends StatelessWidget implements GSFieldCallBack {
         controller: controller,
         maxLength: model.maxLength,
         keyboardType: TextInputType.number,
+        textAlign: TextAlign.left,
+        textAlignVertical: TextAlignVertical.center,
         focusNode: model.focusNode,
         style: formStyle.fieldTextStyle,
         textInputAction: model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,

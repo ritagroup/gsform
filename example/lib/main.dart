@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/enums/field_status.dart';
 import 'package:gsform/gs_form/enums/required_check_list_enum.dart';
 import 'package:gsform/gs_form/model/data_model/check_data_model.dart';
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.blue,
-        textTheme: null, colorScheme: null,
+        textTheme: null,
+        colorScheme: null,
       ),
       darkTheme: ThemeData(brightness: Brightness.dark, colorScheme: null),
       home: MainTestPage(),
@@ -111,8 +113,19 @@ class SingleSectionForm extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: form = GSForm.singleSection(
+                    style: GSFormStyle(titleStyle: const TextStyle(color: Colors.green, fontSize: 16.0)),
                     context,
                     fields: [
+                      GSField.number(
+                        tag: 'explain',
+                        title: 'Description',
+                        weight: 12,
+                        maxLength: 5,
+                        showCounter: false,
+                        required: true,
+                        prefixWidget: Text('دقیقه'),
+                        postfixWidget: Text('ثانیه'),
+                      ),
                       GSField.time(
                         tag: 'time',
                         title: 'Select time',
@@ -315,14 +328,7 @@ class SingleSectionForm extends StatelessWidget {
                         maxLine: 5,
                         required: true,
                       ),
-                      GSField.number(
-                        tag: 'explain',
-                        title: 'Description',
-                        weight: 12,
-                        maxLength: 5,
-                        showCounter: false,
-                        required: true,
-                      ),
+
                     ],
                   ),
                 ),
@@ -430,9 +436,7 @@ class MultiSectionForm extends StatelessWidget {
                       required: false,
                       weight: 6,
                       title: 'Gender',
-                      onChange: (model) {
-
-                      },
+                      onChange: (model) {},
                       items: [
                         SpinnerDataModel(
                           name: 'man',

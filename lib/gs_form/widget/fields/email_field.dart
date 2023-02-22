@@ -23,6 +23,7 @@ class GSEmailField extends StatelessWidget implements GSFieldCallBack {
       child: TextField(
         controller: controller,
         maxLength: model.maxLength,
+        textAlignVertical: TextAlignVertical.center,
         style: formStyle.fieldTextStyle,
         keyboardType: TextInputType.emailAddress,
         focusNode: model.focusNode,
