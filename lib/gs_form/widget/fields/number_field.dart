@@ -19,30 +19,27 @@ class GSNumberField extends StatelessWidget implements GSFieldCallBack {
     }
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
-      child: Container(
-        color: Colors.red,
-        child: TextField(
-          textAlign: TextAlign.left,
-          textAlignVertical: TextAlignVertical.center,
-          controller: controller,
-          maxLength: model.maxLength,
-          style: formStyle.fieldTextStyle,
-          keyboardType: TextInputType.phone,
-          focusNode: model.focusNode,
-          textInputAction: model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
-          onSubmitted: (_) {
-            FocusScope.of(context).requestFocus(model.nextFocusNode);
-          },
-          decoration: InputDecoration(
-            counter: (model.showCounter ?? false) ? null : const Offstage(),
-            hintText: model.hint,
-            counterStyle: formStyle.fieldHintStyle,
-            focusedBorder: InputBorder.none,
-            enabledBorder: InputBorder.none,
-            errorBorder: InputBorder.none,
-            disabledBorder: InputBorder.none,
-            hintStyle: formStyle.fieldHintStyle,
-          ),
+      child: TextField(
+        textAlign: TextAlign.left,
+        textAlignVertical: TextAlignVertical.center,
+        controller: controller,
+        maxLength: model.maxLength,
+        style: formStyle.fieldTextStyle,
+        keyboardType: TextInputType.phone,
+        focusNode: model.focusNode,
+        textInputAction: model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
+        onSubmitted: (_) {
+          FocusScope.of(context).requestFocus(model.nextFocusNode);
+        },
+        decoration: InputDecoration(
+          counter: (model.showCounter ?? false) ? null : const Offstage(),
+          hintText: model.hint,
+          counterStyle: formStyle.fieldHintStyle,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
+          hintStyle: formStyle.fieldHintStyle,
         ),
       ),
     );

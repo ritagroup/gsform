@@ -76,5 +76,8 @@
 * ## 0.1.9
 * Fix text aline in number field  
 
+* ## 0.1.9
+* Fix bugs  
+
 
 
