@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
+import 'package:gsform/gs_form/util/util.dart';
 
 import '../../core/form_style.dart';
 import '../../model/fields_model/number_model.dart';
@@ -20,7 +21,6 @@ class GSNumberField extends StatelessWidget implements GSFieldCallBack {
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
-        textAlign: TextAlign.left,
         textAlignVertical: TextAlignVertical.center,
         controller: controller,
         maxLength: model.maxLength,

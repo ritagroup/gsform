@@ -22,7 +22,6 @@ class GSTextField extends StatelessWidget implements GSFieldCallBack {
         controller: controller,
         maxLength: model.maxLength,
         style: formStyle.fieldTextStyle,
-        textAlign: TextAlign.left,
         keyboardType: TextInputType.text,
         focusNode: model.focusNode,
         textInputAction: model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
@@ -37,6 +36,7 @@ class GSTextField extends StatelessWidget implements GSFieldCallBack {
           errorBorder: InputBorder.none,
           disabledBorder: InputBorder.none,
           hintStyle: formStyle.fieldHintStyle,
+
         ),
       ),
     );
