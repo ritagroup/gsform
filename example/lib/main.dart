@@ -7,6 +7,7 @@ import 'package:gsform/gs_form/model/data_model/check_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/spinner_data_model.dart';
+import 'package:gsform/gs_form/model/fields_model/image_picker_model.dart';
 import 'package:gsform/gs_form/widget/field.dart';
 import 'package:gsform/gs_form/widget/form.dart';
 import 'package:gsform/gs_form/widget/section.dart';
@@ -116,6 +117,10 @@ class SingleSectionForm extends StatelessWidget {
                     style: GSFormStyle(titleStyle: const TextStyle(color: Colors.green, fontSize: 16.0)),
                     context,
                     fields: [
+                      GSField.imagePicker(
+                        tag: 'image_upload',
+                        iconWidget: const Icon(Icons.camera_alt_outlined),
+                      ),
                       GSField.number(
                         tag: 'explain',
                         title: 'Description',
@@ -125,6 +130,14 @@ class SingleSectionForm extends StatelessWidget {
                         required: true,
                         prefixWidget: Text('دقیقه'),
                         postfixWidget: Text('ثانیه'),
+                      ),
+                      GSField.imagePicker(
+                        tag: 'image',
+                        iconWidget: const Icon(
+                          Icons.image,
+                        ),
+                        title: 'image',
+                        imageSource: GSImageSource.both,
                       ),
                       GSField.time(
                         tag: 'time',
@@ -190,6 +203,7 @@ class SingleSectionForm extends StatelessWidget {
                           SpinnerDataModel(
                             name: 'woman',
                             id: 2,
+                            isSelected: true,
                           ),
                         ],
                       ),
@@ -328,7 +342,6 @@ class SingleSectionForm extends StatelessWidget {
                         maxLine: 5,
                         required: true,
                       ),
-
                     ],
                   ),
                 ),

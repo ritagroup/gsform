@@ -36,7 +36,6 @@ class GSTextField extends StatelessWidget implements GSFieldCallBack {
           errorBorder: InputBorder.none,
           disabledBorder: InputBorder.none,
           hintStyle: formStyle.fieldHintStyle,
-
         ),
       ),
     );
