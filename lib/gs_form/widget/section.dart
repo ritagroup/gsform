@@ -41,7 +41,7 @@ class GSSection extends StatelessWidget {
           field.formStyle = style!;
           i++;
 
-          // این شرط برای فاصله انداختن بین ویجت هاست به طوری روی اولین ویجت اعمال نشود
+          // This is a condition for the interval between the two phases of the first two phases and the desired actions.
           if (weightSum != 12) {
             childrenAtRow.add(const SizedBox(
               width: 12,
@@ -96,11 +96,9 @@ class GSSection extends StatelessWidget {
           ),
           child: Padding(
             padding: EdgeInsets.only(
-                left: style!.sectionCardPadding,
-                right: style!.sectionCardPadding,
-                top: style!.sectionCardPadding,
-                bottom: style!.sectionCardPadding),
+                left: style!.sectionCardPadding, right: style!.sectionCardPadding, top: style!.sectionCardPadding, bottom: style!.sectionCardPadding),
             child: ListView.builder(
+                padding: const EdgeInsets.all(0),
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: rows.length,
