@@ -79,5 +79,8 @@
 * ## 0.1.9
 * Fix bugs  
 
+* ## 0.2.1
+* Fix bugs  
+* Upgrade some library dependency 
 
 
