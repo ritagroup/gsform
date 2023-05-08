@@ -81,6 +81,9 @@
 
 * ## 0.2.1
 * Fix bugs  
-* Upgrade some library dependency 
+* Upgrade some library dependency
+* 
+* ## 0.2.3
+* Add web support  
 
 
