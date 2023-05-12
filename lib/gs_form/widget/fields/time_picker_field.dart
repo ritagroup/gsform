@@ -18,7 +18,7 @@ class GSTimePickerField extends StatefulWidget implements GSFieldCallBack {
   late BuildContext context;
 
   GSTimePickerField(this.model, this.formStyle, {Key? key}) : super(key: key) {
-    selectedTimeText = model.hint ?? 'زمان را انتخاب کنید';
+    selectedTimeText = model.hint ?? 'Select a time';
   }
 
   @override
@@ -45,8 +45,7 @@ class GSTimePickerField extends StatefulWidget implements GSFieldCallBack {
   _provideData(BuildContext context) {
     return selectedTime == null
         ? null
-        : TimeDataModel(
-            displayTime: selectedTime!.format(context), hour: selectedTime!.hour, minute: selectedTime!.minute);
+        : TimeDataModel(displayTime: selectedTime!.format(context), hour: selectedTime!.hour, minute: selectedTime!.minute);
   }
 }
 

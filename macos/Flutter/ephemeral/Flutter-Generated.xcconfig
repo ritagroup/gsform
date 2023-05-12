@@ -1,6 +1,6 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=C:\Projects\flutterSdk\flutter
-FLUTTER_APPLICATION_PATH=C:\Projects\FlutterProjects\gsform
+FLUTTER_ROOT=/Users/brandon/development/flutter
+FLUTTER_APPLICATION_PATH=/Users/brandon/gsform
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_BUILD_DIR=build
 FLUTTER_BUILD_NAME=0.2.0
