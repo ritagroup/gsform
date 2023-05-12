@@ -123,7 +123,7 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
       compressQuality: 100,
       uiSettings: [
         AndroidUiSettings(
-            toolbarTitle: 'ویرایش تصویر',
+            toolbarTitle: 'Preview',
             toolbarColor: GSFormColors.white,
             toolbarWidgetColor: Colors.black,
             initAspectRatio: CropAspectRatioPreset.original,
@@ -204,12 +204,7 @@ class ImagePickedView extends StatelessWidget {
   final GSFormStyle formStyle;
   final VoidCallback onDeleteImage;
 
-  ImagePickedView(
-      {required this.croppedFilePath,
-      Key? key,
-      required this.model,
-      required this.formStyle,
-      required this.onDeleteImage})
+  ImagePickedView({required this.croppedFilePath, Key? key, required this.model, required this.formStyle, required this.onDeleteImage})
       : super(key: key);
 
   @override

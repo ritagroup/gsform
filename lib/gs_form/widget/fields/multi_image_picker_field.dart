@@ -99,8 +99,7 @@ class _GSMultiImagePickerFieldState extends State<GSMultiImagePickerField> {
 }
 
 class SelectItem extends StatelessWidget {
-  const SelectItem({required this.model, required this.style, required this.callBack, required this.isEnable, Key? key})
-      : super(key: key);
+  const SelectItem({required this.model, required this.style, required this.callBack, required this.isEnable, Key? key}) : super(key: key);
 
   final GSMultiImagePickerModel model;
   final GSFormStyle style;
@@ -188,7 +187,7 @@ class SelectItem extends StatelessWidget {
       compressQuality: 100,
       uiSettings: [
         AndroidUiSettings(
-            toolbarTitle: 'ویرایش تصویر',
+            toolbarTitle: 'Preview',
             toolbarColor: GSFormColors.white,
             toolbarWidgetColor: Colors.black,
             initAspectRatio: CropAspectRatioPreset.original,
