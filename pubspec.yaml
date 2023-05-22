@@ -6,8 +6,8 @@ homepage: https://github.com/golrangsystem/gsform.git
 
 
 environment:
-  sdk: ">=2.17.5 <3.0.0"
-  flutter: ">=1.17.0 <=3.0.5"
+  sdk: '>=2.17.5 <4.0.0'
+  flutter: '>=2.17.5 <4.0.0'
 
 dependencies:
   flutter:
@@ -18,7 +18,7 @@ dependencies:
   qr_code_scanner: ^1.0.1
   image_cropper: ^4.0.1
   image_picker: ^0.8.7+5
-  flutter_svg:
+  flutter_svg: 2.0.5
   path_provider: ^2.0.15
 
 dev_dependencies:
