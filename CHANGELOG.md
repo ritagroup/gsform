@@ -84,6 +84,9 @@
 * Upgrade some library dependency
 * 
 * ## 0.2.3
-* Add web support  
+* Add web support
+
+* * ## 0.2.4
+* Update dependency   
 
 
