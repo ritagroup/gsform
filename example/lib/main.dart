@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/enums/field_status.dart';
 import 'package:gsform/gs_form/enums/required_check_list_enum.dart';
@@ -28,12 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       locale: const Locale('en', 'US'),
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        // uses `flutter_localizations`
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
+
       supportedLocales: const [Locale('en', 'US'), Locale('fa', 'IR')],
       theme: ThemeData(
         brightness: Brightness.light,
@@ -114,7 +108,7 @@ class SingleSectionForm extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: form = GSForm.singleSection(
-                    style: GSFormStyle(titleStyle: const TextStyle(color: Colors.green, fontSize: 16.0)),
+                    style: GSFormStyle(titleStyle: const TextStyle(color: Colors.black87, fontSize: 16.0)),
                     context,
                     fields: [
                       GSField.imagePicker(
@@ -128,8 +122,8 @@ class SingleSectionForm extends StatelessWidget {
                         maxLength: 5,
                         showCounter: false,
                         required: true,
-                        prefixWidget: Text('دقیقه'),
-                        postfixWidget: Text('ثانیه'),
+                        prefixWidget: const Text('دقیقه'),
+                        postfixWidget: const Text('ثانیه'),
                       ),
                       GSField.imagePicker(
                         tag: 'image',

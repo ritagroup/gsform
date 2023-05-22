@@ -263,7 +263,7 @@ class ImageBox extends StatelessWidget {
                 'packages/gsform/assets/ic_trash.svg',
                 height: 15,
                 width: 15,
-                color: Colors.white,
+                colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
               ),
             ),
           ),

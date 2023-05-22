@@ -81,7 +81,7 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
 
   _update() {
     if (mounted) {
-      setState(() => {widget.obscured = !widget.obscured});
+      setState(() => widget.obscured = !widget.obscured);
     }
   }
 
