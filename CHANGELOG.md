@@ -92,6 +92,6 @@
 * * ## 0.2.5
 * Fix dependency 
 
-* * ## 0.2.5
+* * ## 0.2.6
 * Fix dependency intl
 
