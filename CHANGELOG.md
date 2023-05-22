@@ -89,4 +89,6 @@
 * * ## 0.2.4
 * Update dependency   
 
+* * ## 0.2.4
+* Fix dependency 
 
