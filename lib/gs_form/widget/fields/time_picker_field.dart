@@ -10,6 +10,7 @@ import 'package:persian_datetime_picker/persian_datetime_picker.dart';
 class GSTimePickerField extends StatefulWidget implements GSFieldCallBack {
   late GSTimePickerModel model;
   GSFormStyle formStyle;
+  Function(TimeOfDay?)? onChanged;
 
   String? selectedTimeText;
 
@@ -17,7 +18,7 @@ class GSTimePickerField extends StatefulWidget implements GSFieldCallBack {
   TimeOfDay? selectedTime;
   late BuildContext context;
 
-  GSTimePickerField(this.model, this.formStyle, {Key? key}) : super(key: key) {
+  GSTimePickerField(this.model, this.formStyle, this.onChanged, {Key? key}) : super(key: key) {
     selectedTimeText = model.hint ?? 'Select a time';
   }
 
@@ -120,6 +121,7 @@ class _GSTimePickerFieldState extends State<GSTimePickerField> {
     } else {
       widget.isTimeSelected = false;
     }
+    widget.onChanged?.call(picked);
   }
 
   update() {

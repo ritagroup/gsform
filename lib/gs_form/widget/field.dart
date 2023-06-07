@@ -55,6 +55,9 @@ class GSField extends StatefulWidget {
   GSFormStyle? formStyle;
 
   VoidCallback? onUpdate;
+  Function(String?)? onChange;
+  Function(DateTime?)? onDateChange;
+  Function(TimeOfDay?)? onTimeChange;
 
   update() {
     onUpdate!.call();
@@ -91,29 +94,30 @@ class GSField extends StatefulWidget {
     );
   }
 
-  GSField.imagePicker({
-    Key? key,
-    required String tag,
-    required Widget iconWidget,
-    String? defaultImagePathValue,
-    String? title,
-    String? errorMessage,
-    String? helpMessage,
-    bool? required,
-    bool? showTitle,
-    GSFieldStatusEnum? status,
-    int? weight,
-    String? hint,
-    String? cameraPopupTitle,
-    String? galleryPopupTitle,
-    String? cameraPopupIcon,
-    String? galleryPopupIcon,
-    GSImageSource? imageSource,
-    Color? iconColor,
-    bool? showCropper,
-    double? maximumSizePerImageInBytes,
-    VoidCallback? onErrorSizeItem,
-  }) : super(key: key) {
+  GSField.imagePicker(
+      {Key? key,
+      required String tag,
+      required Widget iconWidget,
+      String? defaultImagePathValue,
+      String? title,
+      String? errorMessage,
+      String? helpMessage,
+      bool? required,
+      bool? showTitle,
+      GSFieldStatusEnum? status,
+      int? weight,
+      String? hint,
+      String? cameraPopupTitle,
+      String? galleryPopupTitle,
+      String? cameraPopupIcon,
+      String? galleryPopupIcon,
+      GSImageSource? imageSource,
+      Color? iconColor,
+      bool? showCropper,
+      double? maximumSizePerImageInBytes,
+      VoidCallback? onErrorSizeItem,
+      Function(String?)? onChanged})
+      : super(key: key) {
     model = GSImagePickerModel(
       type: GSFieldTypeEnum.imagePicker,
       tag: tag,
@@ -136,6 +140,7 @@ class GSField extends StatefulWidget {
       maximumSizePerImageInBytes: maximumSizePerImageInBytes,
       onErrorSizeItem: onErrorSizeItem,
     );
+    onChange = onChanged;
   }
 
   GSField.multiImagePicker({
@@ -354,7 +359,8 @@ class GSField extends StatefulWidget {
       int? maxLength,
       int? minLine,
       int? maxLine,
-      String? hint})
+      String? hint,
+      Function(String?)? onChanged})
       : super(key: key) {
     model = GSTextModel(
       type: GSFieldTypeEnum.text,
@@ -372,6 +378,7 @@ class GSField extends StatefulWidget {
       maxLength: maxLength,
       hint: hint,
     );
+    onChange = onChanged;
   }
 
   GSField.password(
@@ -428,7 +435,8 @@ class GSField extends StatefulWidget {
       int? minLine,
       int? maxLine,
       String? hint,
-      bool? showCounter})
+      bool? showCounter,
+      Function(String?)? onChanged})
       : super(key: key) {
     model = GSTextPlainModel(
         type: GSFieldTypeEnum.textPlain,
@@ -448,6 +456,7 @@ class GSField extends StatefulWidget {
         minLine: minLine,
         maxLength: maxLength,
         showCounter: showCounter);
+    onChange = onChanged;
   }
 
   GSField.mobile({
@@ -522,29 +531,30 @@ class GSField extends StatefulWidget {
     );
   }
 
-  GSField.datePicker({
-    Key? key,
-    required String tag,
-    required GSCalendarType calendarType,
-    String? title,
-    String? errorMessage,
-    String? helpMessage,
-    Widget? prefixWidget,
-    Widget? postfixWidget,
-    bool? required,
-    bool? showTitle,
-    GSFieldStatusEnum? status,
-    String? value,
-    int? weight,
-    RegExp? validateReg,
-    int? maxLength,
-    String? hint,
-    GSDateFormatType? displayDateType,
-    bool? isPastAvailable,
-    GSDate? initialDate,
-    GSDate? availableFrom,
-    GSDate? availableTo,
-  }) : super(key: key) {
+  GSField.datePicker(
+      {Key? key,
+      required String tag,
+      required GSCalendarType calendarType,
+      String? title,
+      String? errorMessage,
+      String? helpMessage,
+      Widget? prefixWidget,
+      Widget? postfixWidget,
+      bool? required,
+      bool? showTitle,
+      GSFieldStatusEnum? status,
+      String? value,
+      int? weight,
+      RegExp? validateReg,
+      int? maxLength,
+      String? hint,
+      GSDateFormatType? displayDateType,
+      bool? isPastAvailable,
+      GSDate? initialDate,
+      GSDate? availableFrom,
+      GSDate? availableTo,
+      Function(DateTime?)? onChanged})
+      : super(key: key) {
     model = GSDatePickerModel(
         type: GSFieldTypeEnum.date,
         tag: tag,
@@ -565,6 +575,7 @@ class GSField extends StatefulWidget {
         initialDate: initialDate,
         availableFrom: availableTo,
         availableTo: availableTo);
+    onDateChange = onChanged;
   }
 
   GSField.dateRangePicker({
@@ -618,25 +629,27 @@ class GSField extends StatefulWidget {
         calendarType: calendarType);
   }
 
-  GSField.time({
-    Key? key,
-    required String tag,
-    String? title,
-    String? errorMessage,
-    String? helpMessage,
-    Widget? prefixWidget,
-    Widget? postfixWidget,
-    bool? showTitle,
-    bool? required,
-    GSFieldStatusEnum? status,
-    String? value,
-    int? weight,
-    RegExp? validateReg,
-    int? maxLength,
-    String? hint,
-    TimeOfDay? initialTime,
-    // TimePickerType ? timePickerType ,
-  }) : super(key: key) {
+  GSField.time(
+      {Key? key,
+      required String tag,
+      String? title,
+      String? errorMessage,
+      String? helpMessage,
+      Widget? prefixWidget,
+      Widget? postfixWidget,
+      bool? showTitle,
+      bool? required,
+      GSFieldStatusEnum? status,
+      String? value,
+      int? weight,
+      RegExp? validateReg,
+      int? maxLength,
+      String? hint,
+      TimeOfDay? initialTime,
+      Function(TimeOfDay?)? onChanged
+      // TimePickerType ? timePickerType ,
+      })
+      : super(key: key) {
     model = GSTimePickerModel(
       type: GSFieldTypeEnum.time,
       tag: tag,
@@ -654,6 +667,7 @@ class GSField extends StatefulWidget {
       initialTime: initialTime,
       timePickerType: TimePickerType.english,
     );
+    onTimeChange = onChanged;
   }
 
   GSField.email({
@@ -859,8 +873,7 @@ class _GSFieldState extends State<GSField> {
                 ),
                 const SizedBox(height: 4.0),
                 Opacity(
-                  opacity: (widget.model.status == GSFieldStatusEnum.error && widget.model.errorMessage != null) ||
-                          widget.model.helpMessage != null
+                  opacity: (widget.model.status == GSFieldStatusEnum.error && widget.model.errorMessage != null) || widget.model.helpMessage != null
                       ? 1
                       : 0,
                   child: Row(
@@ -876,12 +889,8 @@ class _GSFieldState extends State<GSField> {
                       ),
                       const SizedBox(width: 1.0),
                       Text(
-                        widget.model.status == GSFieldStatusEnum.error
-                            ? widget.model.errorMessage ?? ''
-                            : widget.model.helpMessage ?? '',
-                        style: widget.model.status == GSFieldStatusEnum.error
-                            ? widget.formStyle!.errorTextStyle
-                            : widget.formStyle!.helpTextStyle,
+                        widget.model.status == GSFieldStatusEnum.error ? widget.model.errorMessage ?? '' : widget.model.helpMessage ?? '',
+                        style: widget.model.status == GSFieldStatusEnum.error ? widget.formStyle!.errorTextStyle : widget.formStyle!.helpTextStyle,
                       ),
                     ],
                   ),
@@ -898,13 +907,13 @@ class _GSFieldState extends State<GSField> {
   _fillChild() {
     switch (widget.model.type) {
       case GSFieldTypeEnum.text:
-        widget.child = GSTextField(widget.model as GSTextModel, widget.formStyle!);
+        widget.child = GSTextField(widget.model as GSTextModel, widget.formStyle!, widget.onChange);
         break;
       case GSFieldTypeEnum.number:
         widget.child = GSNumberField(widget.model as GSNumberModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.textPlain:
-        widget.child = GSTextPlainField(widget.model as GSTextPlainModel, widget.formStyle!);
+        widget.child = GSTextPlainField(widget.model as GSTextPlainModel, widget.formStyle!, widget.onChange);
         break;
       case GSFieldTypeEnum.mobile:
         widget.child = GSMobileField(widget.model as GSMobileModel, widget.formStyle!);
@@ -913,13 +922,13 @@ class _GSFieldState extends State<GSField> {
         widget.child = GSPasswordField(widget.model as GSPasswordModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.date:
-        widget.child = GSDatePickerField(widget.model as GSDatePickerModel, widget.formStyle!);
+        widget.child = GSDatePickerField(widget.model as GSDatePickerModel, widget.formStyle!, widget.onDateChange);
         break;
       case GSFieldTypeEnum.dateRage:
         widget.child = GSDateRangePickerField(widget.model as GSDateRangePickerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.time:
-        widget.child = GSTimePickerField(widget.model as GSTimePickerModel, widget.formStyle!);
+        widget.child = GSTimePickerField(widget.model as GSTimePickerModel, widget.formStyle!, widget.onTimeChange);
         break;
       case GSFieldTypeEnum.email:
         widget.child = GSEmailField(widget.model as GSEmailModel, widget.formStyle!);
@@ -940,7 +949,7 @@ class _GSFieldState extends State<GSField> {
         widget.child = GSCheckListField(widget.model as GSCheckBoxModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.imagePicker:
-        widget.child = GSImagePickerField(widget.model as GSImagePickerModel, widget.formStyle!);
+        widget.child = GSImagePickerField(widget.model as GSImagePickerModel, widget.formStyle!, widget.onChange);
         break;
       case GSFieldTypeEnum.qrScanner:
         widget.child = GSQRScannerField(widget.model as GSQRScannerModel, widget.formStyle!);

@@ -13,6 +13,7 @@ import '../../model/fields_model/date_picker_model.dart';
 class GSDatePickerField extends StatefulWidget implements GSFieldCallBack {
   late GSDatePickerModel model;
   final GSFormStyle formStyle;
+  Function(DateTime?)? onChanged;
 
   String selectedDateText = '';
   Jalali? selectedJalaliDate;
@@ -29,7 +30,7 @@ class GSDatePickerField extends StatefulWidget implements GSFieldCallBack {
 
   bool isDateSelected = false;
 
-  GSDatePickerField(this.model, this.formStyle, {Key? key}) : super(key: key);
+  GSDatePickerField(this.model, this.formStyle, this.onChanged, {Key? key}) : super(key: key);
 
   @override
   State<GSDatePickerField> createState() => _GSDatePickerFieldState();
@@ -64,9 +65,7 @@ class GSDatePickerField extends StatefulWidget implements GSFieldCallBack {
       return selectedGregorianDate == null
           ? null
           : DateDataModel(
-              dateServerType: selectedGregorianDate!,
-              timeStamp: selectedGregorianDate!.millisecondsSinceEpoch,
-              showDateStr: selectedDateText);
+              dateServerType: selectedGregorianDate!, timeStamp: selectedGregorianDate!.millisecondsSinceEpoch, showDateStr: selectedDateText);
     }
   }
 }
@@ -125,8 +124,7 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
     if (widget.model.initialDate == null) {
       widget.gregorianInitialDate = DateTime.now();
     } else {
-      widget.gregorianInitialDate =
-          DateTime(widget.model.initialDate!.year, widget.model.initialDate!.month, widget.model.initialDate!.day);
+      widget.gregorianInitialDate = DateTime(widget.model.initialDate!.year, widget.model.initialDate!.month, widget.model.initialDate!.day);
       widget.selectedGregorianDate = widget.gregorianInitialDate;
       _displayGregorianDate();
     }
@@ -134,8 +132,7 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
     if (widget.model.availableTo == null) {
       widget.gregorianAvailableTo = DateTime(2100, 1, 1);
     } else {
-      widget.gregorianAvailableTo =
-          DateTime(widget.model.availableTo!.year, widget.model.availableTo!.month, widget.model.availableTo!.day);
+      widget.gregorianAvailableTo = DateTime(widget.model.availableTo!.year, widget.model.availableTo!.month, widget.model.availableTo!.day);
     }
 
     _initialGregorianAvailableFromDate();
@@ -145,8 +142,7 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
     if (widget.model.initialDate == null) {
       widget.jalaliInitialDate = Jalali.now();
     } else {
-      widget.jalaliInitialDate =
-          Jalali(widget.model.initialDate!.year, widget.model.initialDate!.month, widget.model.initialDate!.day);
+      widget.jalaliInitialDate = Jalali(widget.model.initialDate!.year, widget.model.initialDate!.month, widget.model.initialDate!.day);
       widget.selectedJalaliDate = widget.jalaliInitialDate;
       _displayDate();
     }
@@ -154,8 +150,7 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
     if (widget.model.availableTo == null) {
       widget.jalaliAvailableTo = Jalali.MAX;
     } else {
-      widget.jalaliAvailableTo =
-          Jalali(widget.model.availableTo!.year, widget.model.availableTo!.month, widget.model.availableTo!.day);
+      widget.jalaliAvailableTo = Jalali(widget.model.availableTo!.year, widget.model.availableTo!.month, widget.model.availableTo!.day);
     }
 
     _initialJalaliAvailableFromDate();
@@ -164,8 +159,8 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
   _initialGregorianAvailableFromDate() {
     if (widget.model.isPastAvailable ?? false) {
       if (widget.model.availableFrom != null) {
-        widget.gregorianAvailableFrom = DateTime(
-            widget.model.availableFrom!.year, widget.model.availableFrom!.month, widget.model.availableFrom!.day);
+        widget.gregorianAvailableFrom =
+            DateTime(widget.model.availableFrom!.year, widget.model.availableFrom!.month, widget.model.availableFrom!.day);
       } else {
         widget.gregorianAvailableFrom = DateTime(1700, 1, 1);
       }
@@ -177,8 +172,7 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
   _initialJalaliAvailableFromDate() {
     if (widget.model.isPastAvailable ?? false) {
       if (widget.model.availableFrom != null) {
-        widget.jalaliAvailableFrom = Jalali(
-            widget.model.availableFrom!.year, widget.model.availableFrom!.month, widget.model.availableFrom!.day);
+        widget.jalaliAvailableFrom = Jalali(widget.model.availableFrom!.year, widget.model.availableFrom!.month, widget.model.availableFrom!.day);
       } else {
         widget.jalaliAvailableFrom = Jalali.MIN;
       }
@@ -221,6 +215,7 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
     } else {
       widget.isDateSelected = false;
     }
+    widget.onChanged?.call(picked);
   }
 
   update() {

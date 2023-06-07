@@ -6,10 +6,11 @@ import 'package:gsform/gs_form/model/fields_model/text_filed_model.dart';
 class GSTextField extends StatelessWidget implements GSFieldCallBack {
   final GSTextModel model;
   final GSFormStyle formStyle;
+  Function(String)? onChanged;
 
   final TextEditingController? controller = TextEditingController();
 
-  GSTextField(this.model, this.formStyle, {Key? key}) : super(key: key);
+  GSTextField(this.model, this.formStyle, this.onChanged, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,9 @@ class GSTextField extends StatelessWidget implements GSFieldCallBack {
         textInputAction: model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
         onSubmitted: (_) {
           FocusScope.of(context).requestFocus(model.nextFocusNode);
+        },
+        onChanged: (value) {
+          onChanged?.call(value);
         },
         decoration: InputDecoration(
           hintText: model.hint,

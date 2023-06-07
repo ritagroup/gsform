@@ -14,8 +14,9 @@ import 'package:image_picker/image_picker.dart';
 class GSImagePickerField extends StatefulWidget implements GSFieldCallBack {
   final GSImagePickerModel model;
   final GSFormStyle formStyle;
+  Function(String?)? onChanged;
 
-  GSImagePickerField(this.model, this.formStyle, {Key? key}) : super(key: key);
+  GSImagePickerField(this.model, this.formStyle, this.onChanged, {Key? key}) : super(key: key);
   String? _croppedFilePath;
 
   @override
@@ -114,6 +115,7 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
         widget._croppedFilePath = image.path;
       }
     }
+    widget.onChanged?.call(widget._croppedFilePath);
   }
 
   Future<void> _cropImage(File image) async {

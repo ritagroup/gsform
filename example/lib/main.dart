@@ -78,9 +78,7 @@ class MainTestPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pushAndRemoveUntil<dynamic>(
-                        context,
-                        MaterialPageRoute<dynamic>(builder: (BuildContext context) => SingleSectionForm()),
-                        (route) => true);
+                        context, MaterialPageRoute<dynamic>(builder: (BuildContext context) => SingleSectionForm()), (route) => true);
                   },
                   child: const Text('Single Section form'),
                 ),
@@ -148,6 +146,9 @@ class SingleSectionForm extends StatelessWidget {
                           Icons.calendar_month,
                           color: Color(0xff676767),
                         ),
+                        onChanged: (value) {
+                          print('TIME IS: $value');
+                        },
                       ),
                       GSField.text(
                         status: GSFieldStatusEnum.disabled,
@@ -294,6 +295,9 @@ class SingleSectionForm extends StatelessWidget {
                         weight: 12,
                         maxLength: 150,
                         required: true,
+                        onChanged: (value) {
+                          print("value is $value");
+                        },
                       ),
                       GSField.imagePicker(
                         tag: 'a',
@@ -399,6 +403,9 @@ class MultiSectionForm extends StatelessWidget {
                       title: 'Name',
                       minLine: 1,
                       maxLine: 1,
+                      onChanged: (value) {
+                        print("value is $value");
+                      },
                     ),
                     GSField.radioGroup(
                       hint: 'Radio Group',
@@ -434,6 +441,9 @@ class MultiSectionForm extends StatelessWidget {
                       weight: 12,
                       required: false,
                       errorMessage: 'please enter a name',
+                      onChanged: (value) {
+                        print('DATE IS: $value');
+                      },
                     ),
                     GSField.text(
                       value: 'سعید دسترس3',
