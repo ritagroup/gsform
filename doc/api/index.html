@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 6.2.1">
+  <meta name="description" content="gsform API docs, for the Dart programming language.">
+  <title>gsform - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://github.com/golrangsystem/gsform.git">gsform package</a></li>
+  </ol>
+  <div class="self-name">gsform</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        brightness_4
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        brightness_5
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <!-- >  **Warning**: under cunstruction  -->
+<br>
+<br>
+<p align="center">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/gsform_logo.png?raw=true" width="300" height="100">
+<br>
+</p>
+<p>This package helps to create forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.</p>
+<p>Also included are common ready-made form input fields for GSForm. This gives you a convenient way of
+adding common ready-made input fields instead of creating your own FormBuilderField from scratch.</p>
+<!--* Project status: working -->
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/header.jpg?raw=true">
+<p>See real examples:</p>
+<ul>
+<li><a href="https://github.com/golrangsystem/gsform/tree/main/example">github.com/golrangsystem/gsform/tree/main/example</a></li>
+</ul>
+<h2 id="table-of-contents">Table of contents</h2>
+<!-- Use for instance <https://github.com/ekalinin/github-markdown-toc>: -->
+<blockquote>
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#theme">Theme</a>
+<ul>
+<li><a href="#style">Style</a>
+<ul>
+<li><a href="#dark-support">Dark Support</a></li>
+<li><a href="#direction">Direction</a></li>
+<li><a href="#required-show-types">Required Show Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<!-- >   * [Features](#features) -->
+<blockquote>
+<ul>
+<li><a href="#fields">Fields</a></li>
+<li><a href="#attributes">Attributes</a>
+<ul>
+<li><a href="#text">Text</a></li>
+<li><a href="#textplain">TextPlain</a>
+<ul>
+<li><a href="#number">Number</a></li>
+<li><a href="#spinner">Spinner</a></li>
+<li><a href="#datepicker">DatePicker</a></li>
+<li><a href="#daterangedpicker">DateRangedPicker</a></li>
+<li><a href="#timepicker">TimePicker</a></li>
+<li><a href="#mobile">Mobile</a></li>
+<li><a href="#email">Email</a></li>
+<li><a href="#password">Password</a></li>
+<li><a href="#price">Price</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<!-- >   	* [BankCard](#bankcard) -->
+<blockquote>
+</blockquote>
+<!-- >     * [Content](#content) -->
+<!-- >     * [Limitations](#limitations) -->
+<!-- >     * [Deploy (how to install build product)](#deploy-how-to-install-build-product) -->
+<!-- >   * [Contributing / Reporting issues](#contributing--reporting-issues) -->
+<blockquote>
+<ul>
+<li><a href="#license">License</a>
+<ul>
+<li><a href="#about-golrang-system">About Golrang System</a></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="installation">Installation</h2>
+<p>Run this command:</p>
+<p>With Flutter:
+<br></p>
+<pre class="language-dart"><code>flutter pub add gsform
+</code></pre>
+<p>This will add a line like this to your package's pubspec.yaml (and run an implicit flutter pub get):</p>
+<pre class="language-dart"><code>dependencies:
+  gsform: ^0.1.7
+</code></pre>
+<p>Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn
+more about it.</p>
+<h2 id="style">Style</h2>
+<table>
+  <tbody><tr>
+    <td>
+<pre class="language-dart"><code class="language-dart">GSFormStyle(
+	backgroundFieldColor: COLOR,
+	backgroundSectionColor: COLOR,
+	sectionCardElevation: 0
+	titleStyle: TextStyle,
+	fieldHintStyle: TextStyle,
+	fieldTextStyle: TextStyle,
+	sectionRadius: 10.0,
+	errorTextStyle: TextStyle,
+	fieldRadius: double,
+	helpTextStyle:TextStyle ,
+	requireType: GSFieldRequireTypeEnum, //text, star
+	sectionCardPadding: 8.0,
+	requiredText: '(required)'
+)
+
+</code></pre>
+</td><td><img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/style.png?raw=true" alt="alternatetext" width="250" height="450">
+	  </td>
+  </tr>
+ </tbody></table>
+<h2 id="dark-support">Dark Support</h2>
+<p>As we all now Dark theme is trending and most of the popular app has the feature to turn into the dark mode, we support Dark theme in GSForm if you did'nt user custom Style in components, otherwise you should handle this yourself.</p>
+<p align="center">
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/darksupport.png?raw=true" alt="alternatetext" height="450">
+<br>
+</p>
+<h2 id="direction">Direction</h2>
+<p>Some languages of the world (Arabic, Hebrew etc.) are RTL, meaning they are read right-to-left, instead of left-to-right. GSForm Support RTL Direction !</p>
+<h2 id="required-show-types">Required Show Types</h2>
+<p>You can set type of required show in form with GSFieldRequireTypeEnum (text Or star)</p>
+<h2 id="fields">Fields</h2>
+<table>
+<tbody><tr>
+<td> Row </td> <td> Field </td> <td> Sample Code </td> <td> Preview </td>
+</tr>
+<tr style="width:100%;">
+<td> 1 </td>
+<td>
+<a href="#text">Text</a>
+</td>
+<td>
+<pre class="language-dart"><code class="language-dart">GSField.text(
+	tag: 'postalCode',
+	title: 'title',
+	minLine: 1,
+	maxLine: 1,
+	weight: 12,
+	required: true,
+	maxLength: 100,
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	validateRegEx: regX,
+	postfixWidget: widget,
+	prefixWidget: widget,
+)
+</code></pre>
+</td>
+<td>
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text.png?raw=true" alt="alternatetext" width="150" height="270">
+</td>
+</tr>
+<tr>
+<td> 2 </td>
+<td>
+<a href="#textplain">Text Plain</a>
+</td>
+<td>
+<pre class="language-dart"><code class="language-dart"> GSField.textPlain(
+	tag: 'textualAddress',
+	title: 'title',
+	weight: 12,
+	required: true,
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	maxLength: 100,
+	maxLine: 2,
+	minLine: 1,
+	postfixWidget: widget,
+	prefixWidget: widget,
+)
+</code></pre>
+</td>
+<td>
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/text_plain.png?raw=true" alt="alternatetext" width="150" height="270">
+</td>
+</tr>
+<tr>
+<td> 3 </td>
+<td>
+<a href="#number">Number</a>
+</td>
+<td>
+<pre class="language-dart"><code class="language-dart">   GSField.number(
+	tag: '',
+	title: 'title',
+	weight: 12,
+	maxLength: 11,
+	required: true,
+	errorMessage: 'Error Message',
+	helpMessage: 'less than 100',
+),
+</code></pre>
+</td>
+<td>
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/number.png?raw=true" alt="alternatetext" width="150" height="270">
+</td>
+</tr>
+<tr id="my-row">
+<td> 4 </td>
+<td>
+<a href="#spinner">Spinner</a>
+</td>
+<td>
+<pre class="language-dart"><code class="language-dart">  GSField.spinner(
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	tag: 'tag',
+	required: true,
+	weight: 12,
+	title: 'title',
+	items: [
+	SpinnerDataModel(
+	name: '',
+	id: 1,),
+	],
+)
+</code></pre>
+</td>
+<td>
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/spinner.png?raw=true" alt="alternatetext" width="150" height="270">
+</td>
+</tr>
+<tr>
+<td> 5 </td>
+<td>
+<a href="#datepicker">Date Picker</a>
+</td>
+<td>
+<pre class="language-dart"><code class="language-dart"> GSField.datePicker(
+	tag: 'tag',
+	title: 'title',
+	weight: 12,
+	isPastAvailable: false,
+	required: true,
+	postfixWidget: widget,
+	displayDateType: DisplayDateType.numeric,
+	initialDate: Jalali.now(),
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	prefixWidget: widget,
+)
+</code></pre>
+</td>
+<td>
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/date.png?raw=true" alt="alternatetext" width="150" height="270">
+</td>
+</tr>
+<tr>
+<td> 6 </td>
+<td>
+<a href="#daterangedpicker">Date Ranged Picker</a>
+</td>
+<td>
+<pre class="language-dart"><code class="language-dart">GSField.dateRangePicker(
+	tag: 'tag',
+	title: 'title',
+	weight: 12,
+	required: true,
+	postfixWidget: widget,
+	displayDateType: DisplayDateType.numeric,
+	isPastAvailable: false,
+	availableFrom: Jalali,
+	availableTo: Jalali,
+	initialDate: Jalali.now(),
+	from: 'From : ',
+	to: 'To : ',
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	prefixWidget: widget,
+)
+</code></pre>
+</td>
+<td>
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/range_date.png?raw=true" alt="alternatetext" width="150" height="270">
+</td>
+</tr>
+<tr>
+<td> 7 </td>
+<td>
+<a href="#timepicker">Time Picker</a>
+</td>
+<td>
+<pre class="language-dart"><code class="language-dart">GSField.time(
+	tag: 'tag',
+	prefixWidget: widget,
+	postfixWidget: widget,
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	required: true,
+	initialTime: TimeOfDay,
+	weight: 12
+	)
+</code></pre>
+</td>
+<td>
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/time.png?raw=true" alt="alternatetext" width="150" height="270">
+</td>
+</tr>
+<tr>
+<td> 8 </td>
+<td>
+<a href="#mobile">Mobile</a>
+</td>
+<td>
+<pre class="language-dart"><code class="language-dart">GSField.mobile(
+	tag: 'tag',
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	title: 'title',
+	maxLength: 11,
+	postfixWidget: widget,
+	prefixWidget: widget,
+	validateRegEx: regex,
+	weight: 12,
+	required: true,
+)
+</code></pre>
+</td>
+<td>
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/mobile.png?raw=true" alt="alternatetext" width="150" height="270">
+</td>
+</tr>
+<tr>
+<td> 9 </td>
+<td>
+<a href="#email">Email</a>
+</td>
+<td>
+<pre class="language-dart"><code class="language-dart">GSField.email(
+	tag: 'tag',
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	title: 'title',
+	maxLength: 11,
+	postfixWidget: widget,
+	prefixWidget: widget,
+	validateRegEx: regex,
+	weight: 12,
+	required: true,
+)
+</code></pre>
+</td>
+<td>
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/email.png?raw=true" alt="alternatetext" width="150" height="270">
+</td>
+</tr>
+<tr>
+<td> 10 </td>
+<td>
+<a href="#password">Password</a>
+</td>
+<td>
+<pre class="language-dart"><code class="language-dart">GSField.password(
+	tag: 'tag',
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	title: 'title',
+	maxLength: 11,
+	prefixWidget: widget,
+	weight: 12,
+	required: true,
+)
+</code></pre>
+</td>
+<td>
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/password.png?raw=true" alt="alternatetext" width="150" height="270">
+</td>
+</tr>
+<tr>
+<td> 11 </td>
+<td>
+<a href="#price">Price</a>
+</td>
+<td>
+<pre class="language-dart"><code class="language-dart">GSField.price(
+	tag: 'tag',
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+	title: 'title',
+	maxLength: 11,
+	prefixWidget: widget,
+	currencyName: "\$" ,
+	weight: 12,
+	required: true,
+)
+</code></pre>
+</td>
+<td>
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/price.png?raw=true" alt="alternatetext" width="150" height="270">
+</td>
+</tr>
+<tr>
+<td> 12 </td>
+<td>
+Bank Card
+</td>
+<td>
+<pre class="language-dart"><code class="language-dart">GSField.bankCard(
+	tag: 'tag',
+	postfixWidget: widget,
+	prefixWidget: widget,
+	title: 'title',
+	weight: 12,
+	required: true,
+	errorMessage: 'error message',
+	hint: 'hint message',
+	helpMessage: 'help message',
+)
+</code></pre>
+</td>
+<td>
+<img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/card.png?raw=true" alt="alternatetext" width="150" height="270">
+</td>
+</tr>
+</tbody></table>
+<h2 id="attributes">Attributes</h2>
+<p>Some features are common to all fields, which are introduced in the table below. The specific
+features of each field will be explained in detail below.</p>
+<table>
+<tbody><tr>
+<td>Attribute</td>
+<td>Type</td>
+<td>Values</td>
+<td>Required</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>title</td>
+<td><code> String </code></td>
+<td> - </td>
+<td><code> false </code></td>
+<td>title of component</td>
+</tr>
+<tr>
+<td>tag</td>
+<td><code> String </code></td>
+<td> - </td>
+<td><code> true </code></td>
+<td>this is the id of component for receiving data</td>
+</tr>
+<tr>
+<td>errorMessage</td>
+<td><code> String </code></td>
+<td> - </td>
+<td><code> false </code></td>
+<td>this is the hint that shown in component</td>
+</tr>
+<tr>
+<td>helpMessage</td>
+<td><code> String </code></td>
+<td> - </td>
+<td><code> false </code></td>
+<td>this is the help message that shown in component</td>
+</tr>
+<tr>
+<td>prefixWidget</td>
+<td><code> Widget </code></td>
+<td> - </td>
+<td><code> false </code></td>
+<td>this is the prefixWidget and  you can pass widget to show</td>
+</tr>
+<tr>
+<td>postfixWidget</td>
+<td><code> Widget </code></td>
+<td> - </td>
+<td><code> false </code></td>
+<td>this is the postfixWidget and  you can pass widget to show</td>
+</tr>
+<tr>
+<td>required</td>
+<td><code> bool </code></td>
+<td> - </td>
+<td><code> false </code></td>
+<td>this boolean show the component status for validation</td>
+</tr>
+<tr>
+<td>showTitle</td>
+<td><code> bool </code></td>
+<td> - </td>
+<td><code> false </code></td>
+<td>this boolean is for make title above of component visible or inVisible</td>
+</tr>
+<tr>
+<td>status</td>
+<td><code> GSFieldStatusEnum </code></td>
+<td><code>  normal, success, error </code></td>
+<td><code> false </code></td>
+<td>this boolean is for make title above of component visible or inVisible</td>
+</tr>
+<tr>
+<td>validateRegEx</td>
+<td><code> RegExp </code></td>
+<td> - </td>
+<td><code> false </code></td>
+<td>this regx for custom regx that can entered by user</td>
+</tr>
+<tr>
+<td>weight</td>
+<td><code> int </code></td>
+<td> - </td>
+<td><code> false </code></td>
+<td>you can set weight for widget and max is 12 in each line</td>
+</tr>
+</tbody></table>
+<h2 id="text">Text</h2>
+<table>
+  <tbody><tr>
+    <td>Attribute</td>
+    <td>Type</td>
+    <td>Values</td>
+    <td>Required</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>maxLenght</td>
+    <td><code> int </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>maximum lenght of text</td>
+  </tr>
+</tbody></table>
+<h2 id="textplain">TextPlain</h2>
+<table>
+  <tbody><tr>
+    <td>Attribute</td>
+    <td>Type</td>
+    <td>Values</td>
+    <td>Required</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>maxLenght</td>
+    <td><code> int </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>maximum lenght of text</td>
+  </tr>
+   <tr>
+    <td>minLine</td>
+    <td><code> int </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>minimum line of text</td>
+  </tr>
+  <tr>
+    <td>maxLine</td>
+    <td><code> int </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>maximum line of text</td>
+  </tr>
+  <tr>
+    <td>showCounter</td>
+    <td><code> bool </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>this boolean make counter of textField visible or invisible </td>
+  </tr>
+</tbody></table>
+<h2 id="number">Number</h2>
+<table>
+  <tbody><tr>
+    <td>Attribute</td>
+    <td>Type</td>
+    <td>Values</td>
+    <td>Required</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>maxLenght</td>
+    <td><code> int </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>maximum lenght of text</td>
+  </tr>
+</tbody></table>
+<h2 id="spinner">Spinner</h2>
+<table>
+  <tbody><tr>
+    <td>Attribute</td>
+    <td>Type</td>
+    <td>Values</td>
+    <td>Required</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>items</td>
+	  <td><code> List[SpinnerDataModel] </code><br></td>
+    <td> - </td>
+    <td><code> true </code></td>
+    <td>List of data that fill spinner</td>
+  </tr>
+</tbody></table>
+<h2 id="mobile">Mobile</h2>
+<table>
+  <tbody><tr>
+    <td>Attribute</td>
+    <td>Type</td>
+    <td>Values</td>
+    <td>Required</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>maxLenght</td>
+    <td><code> int </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>maximum lenght of text</td>
+  </tr>
+</tbody></table>
+<h2 id="email">Email</h2>
+<table>
+  <tbody><tr>
+    <td>Attribute</td>
+    <td>Type</td>
+    <td>Values</td>
+    <td>Required</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>maxLenght</td>
+    <td><code> int </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>maximum lenght of text</td>
+  </tr>
+</tbody></table>
+<h2 id="password">Password</h2>
+<table>
+ <tbody><tr>
+    <td>Attribute</td>
+    <td>Type</td>
+    <td>Values</td>
+    <td>Required</td>
+    <td>Description</td>
+  </tr>
+ <tr>
+    <td>maxLenght</td>
+    <td><code> int </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>maximum lenght of text</td>
+  </tr>
+</tbody></table>
+<h2 id="price">Price</h2>
+<table>
+ <tbody><tr>
+    <td>Attribute</td>
+    <td>Type</td>
+    <td>Values</td>
+    <td>Required</td>
+    <td>Description</td>
+  </tr>
+ <tr>
+    <td>maxLenght</td>
+    <td><code> int </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>maximum lenght of text</td>
+  </tr>
+  <tr>
+    <td>currencyName</td>
+    <td><code> String </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>the Currency text for example $ </td>
+  </tr>
+</tbody></table>
+<h2 id="datepicker">DatePicker</h2>
+<table>
+  <tbody><tr>
+    <td>Attribute</td>
+    <td>Type</td>
+    <td>Values</td>
+    <td>Required</td>
+    <td>Description</td>
+  </tr>
+   <tr>
+    <td>displayDateType</td>
+    <td><code> GSCalendarType </code></td>
+    <td>  jalali, gregoria </td>
+    <td><code> true </code></td>
+    <td>you can choose type of calendar jalali or gregorian</td>
+  </tr>
+  <tr>
+    <td>initialDate</td>
+    <td><code> GSDate </code></td>
+    <td>  year,month,day </td>
+    <td><code> false </code></td>
+    <td>initialDate of calendar</td>
+  </tr>
+  <tr>
+    <td>availableFrom</td>
+    <td><code> GSDate </code></td>
+    <td>  year,month,day </td>
+    <td><code> false </code></td>
+    <td>available date from</td>
+  </tr>
+  <tr>
+    <td>availableTo</td>
+    <td><code> GSDate </code></td>
+    <td>  year,month,day </td>
+    <td><code> false </code></td>
+    <td>available date to</td>
+  </tr>
+  <tr>
+    <td>isPastAvailable</td>
+    <td><code> boolean </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>this boolean show is past available or not</td>
+  </tr>
+   <tr>
+    <td>displayDateType</td>
+    <td><code> DisplayDateType </code></td>
+    <td> <code> numeric, // 1401/04/04 </code><br> <code> fullText, //  شنبه 04 تیر 1401 </code><br> <code> mediumText, // شنبه 04 تیر </code><br> <code> shortText, // 04 تیر ,1401 </code><br> </td>
+    <td><code> false </code></td>
+    <td>you can pass ENUM type for calendar date type</td>
+  </tr>
+</tbody></table>
+<h2 id="daterangedpicker">DateRangedPicker</h2>
+<table>
+  <tbody><tr>
+    <td>Attribute</td>
+    <td>Type</td>
+    <td>Values</td>
+    <td>Required</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>calendarType</td>
+    <td><code> GSCalendarType </code></td>
+    <td>  jalali, gregoria </td>
+    <td><code> true </code></td>
+    <td>you can choose type of calendar jalali or gregorian</td>
+  </tr>
+  <tr>
+    <td>displayDateType</td>
+    <td><code> GSDateFormatType </code></td>
+    <td> <code> numeric, // 1401/04/04 </code><br> <code> fullText, //  شنبه 04 تیر 1401 </code><br> <code> mediumText, // شنبه 04 تیر </code><br> <code> shortText, // 04 تیر ,1401 </code><br> </td>
+    <td><code> false </code></td>
+    <td>you can choose type of display type</td>
+  </tr>
+  <tr>
+    <td>initialDate</td>
+    <td><code> GSDate </code></td>
+    <td>  year,month,day </td>
+    <td><code> false </code></td>
+    <td>initial date  of calendar</td>
+  </tr>
+  <tr>
+    <td>availableFrom</td>
+    <td><code> GSDate </code></td>
+    <td>  year,month,day </td>
+    <td><code> false </code></td>
+    <td>available date from</td>
+  </tr>
+  <tr>
+    <td>availableTo</td>
+    <td><code> GSDate </code></td>
+    <td>  year,month,day </td>
+    <td><code> false </code></td>
+    <td>available date to</td>
+  </tr>
+  <tr>
+    <td>isPastAvailable</td>
+    <td><code> boolean </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>this boolean show is past available or not</td>
+  </tr>
+  <tr>
+    <td>from</td>
+    <td><code> String </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>From text in return selected date</td>
+  </tr>
+  <tr>
+    <td>to</td>
+    <td><code> String </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>To text in return selected date</td>
+  </tr>
+</tbody></table>
+<h2 id="timepicker">TimePicker</h2>
+<table>
+  <tbody><tr>
+    <td>Attribute</td>
+    <td>Type</td>
+    <td>Values</td>
+    <td>Required</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>initialTime</td>
+    <td><code> TimeOfDay </code></td>
+    <td> - </td>
+    <td><code> false </code></td>
+    <td>initial time of calendar</td>
+  </tr>
+</tbody></table>
+<!-- 
+
+### Deploy (how to install build product)
+
+Direct to MP package if any. Otherwise provide steps to deploy on Nuxeo Platform:
+
+> Copy the built artifacts into `$NUXEO_HOME/templates/custom/bundles/` and activate the `custom` template.
+
+## Resources (Documentation and other links)
+
+## Contributing / Reporting issues
+
+Link to JIRA component (or project if there is no component for that project). Samples:
+
+* [Link to component](https://jira.nuxeo.com/issues/?jql=project%20%3D%20NXP%20AND%20component%20%3D%20Elasticsearch%20AND%20Status%20!%3D%20%22Resolved%22%20ORDER%20BY%20updated%20DESC%2C%20priority%20DESC%2C%20created%20ASC)
+* [Link to project](https://jira.nuxeo.com/secure/CreateIssue!default.jspa?project=NXP)
+ -->
+<h2 id="about-rita-group">About Rita Group</h2>
+<p>Golrang System Company is an active company in the field of information and communication
+technology, which aims to provide information technology solutions to help productivity and improve
+the capability and profitability of Golrang Industrial Group as the arm of the senior management
+since the beginning of the group's establishment. The passage of time has reached growth.</p>
+<p>Considering the expansion of the use of information technology in the field of industry and the
+trend of companies towards globalization, this company has put the provision of advanced information
+and communication technology solutions on its agenda, and it tries to be an integrated task by
+focusing on the field of information and communication technology. Be responsible for creating
+systems, project management and technical and consulting services.</p>
+<h2 id="contributors">Contributors</h2>
+ <a href="https://github.com/golrangsystem/gsform/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=golrangsystem/gsform">
+</a>
+<h2 id="license">License</h2>
+<p><a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache License, Version 2.0</a></p>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="bank_card_field">
+  <span class="name"><a href="gs_form_widget_fields_bank_card_field/gs_form_widget_fields_bank_card_field-library.html">bank_card_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="bank_card_filed_model">
+  <span class="name"><a href="gs_form_model_fields_model_bank_card_filed_model/gs_form_model_fields_model_bank_card_filed_model-library.html">bank_card_filed_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="check_data_model">
+  <span class="name"><a href="gs_form_model_data_model_check_data_model/gs_form_model_data_model_check_data_model-library.html">check_data_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="check_list_field">
+  <span class="name"><a href="gs_form_widget_fields_check_list_field/gs_form_widget_fields_check_list_field-library.html">check_list_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="checkbox_model">
+  <span class="name"><a href="gs_form_model_fields_model_checkbox_model/gs_form_model_fields_model_checkbox_model-library.html">checkbox_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="colors">
+  <span class="name"><a href="gs_form_values_colors/gs_form_values_colors-library.html">colors</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="constant">
+  <span class="name"><a href="gs_form_core_constant/gs_form_core_constant-library.html">constant</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="date_data_model">
+  <span class="name"><a href="gs_form_model_data_model_date_data_model/gs_form_model_data_model_date_data_model-library.html">date_data_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="date_picker_field">
+  <span class="name"><a href="gs_form_widget_fields_date_picker_field/gs_form_widget_fields_date_picker_field-library.html">date_picker_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="date_picker_model">
+  <span class="name"><a href="gs_form_model_fields_model_date_picker_model/gs_form_model_fields_model_date_picker_model-library.html">date_picker_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="date_range_picker_field">
+  <span class="name"><a href="gs_form_widget_fields_date_range_picker_field/gs_form_widget_fields_date_range_picker_field-library.html">date_range_picker_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="date_range_picker_model">
+  <span class="name"><a href="gs_form_model_fields_model_date_range_picker_model/gs_form_model_fields_model_date_range_picker_model-library.html">date_range_picker_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="dimens">
+  <span class="name"><a href="gs_form_values_dimens/gs_form_values_dimens-library.html">dimens</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="email_field">
+  <span class="name"><a href="gs_form_widget_fields_email_field/gs_form_widget_fields_email_field-library.html">email_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="email_model">
+  <span class="name"><a href="gs_form_model_fields_model_email_model/gs_form_model_fields_model_email_model-library.html">email_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="field">
+  <span class="name"><a href="gs_form_widget_field/gs_form_widget_field-library.html">field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="field_callback">
+  <span class="name"><a href="gs_form_core_field_callback/gs_form_core_field_callback-library.html">field_callback</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="field_model">
+  <span class="name"><a href="gs_form_model_fields_model_field_model/gs_form_model_fields_model_field_model-library.html">field_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="field_status">
+  <span class="name"><a href="gs_form_enums_field_status/gs_form_enums_field_status-library.html">field_status</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="filed_type">
+  <span class="name"><a href="gs_form_enums_filed_type/gs_form_enums_filed_type-library.html">filed_type</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="form">
+  <span class="name"><a href="gs_form_widget_form/gs_form_widget_form-library.html">form</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="form_style">
+  <span class="name"><a href="gs_form_core_form_style/gs_form_core_form_style-library.html">form_style</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="gsform">
+  <span class="name"><a href="gsform/gsform-library.html">gsform</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="image_picker_field">
+  <span class="name"><a href="gs_form_widget_fields_image_picker_field/gs_form_widget_fields_image_picker_field-library.html">image_picker_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="image_picker_model">
+  <span class="name"><a href="gs_form_model_fields_model_image_picker_model/gs_form_model_fields_model_image_picker_model-library.html">image_picker_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="mobile_field">
+  <span class="name"><a href="gs_form_widget_fields_mobile_field/gs_form_widget_fields_mobile_field-library.html">mobile_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="mobile_model">
+  <span class="name"><a href="gs_form_model_fields_model_mobile_model/gs_form_model_fields_model_mobile_model-library.html">mobile_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="multi_image_picker_field">
+  <span class="name"><a href="gs_form_widget_fields_multi_image_picker_field/gs_form_widget_fields_multi_image_picker_field-library.html">multi_image_picker_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="multi_image_picker_model">
+  <span class="name"><a href="gs_form_model_fields_model_multi_image_picker_model/gs_form_model_fields_model_multi_image_picker_model-library.html">multi_image_picker_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="number_field">
+  <span class="name"><a href="gs_form_widget_fields_number_field/gs_form_widget_fields_number_field-library.html">number_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="number_model">
+  <span class="name"><a href="gs_form_model_fields_model_number_model/gs_form_model_fields_model_number_model-library.html">number_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="password_field">
+  <span class="name"><a href="gs_form_widget_fields_password_field/gs_form_widget_fields_password_field-library.html">password_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="price_field">
+  <span class="name"><a href="gs_form_widget_fields_price_field/gs_form_widget_fields_price_field-library.html">price_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="price_model">
+  <span class="name"><a href="gs_form_model_fields_model_price_model/gs_form_model_fields_model_price_model-library.html">price_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="qr_scanner_field">
+  <span class="name"><a href="gs_form_widget_fields_qr_scanner_field/gs_form_widget_fields_qr_scanner_field-library.html">qr_scanner_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="qr_scanner_model">
+  <span class="name"><a href="gs_form_model_fields_model_qr_scanner_model/gs_form_model_fields_model_qr_scanner_model-library.html">qr_scanner_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="qr_scanner_screen">
+  <span class="name"><a href="gs_form_screens_qr_scanner_screen/gs_form_screens_qr_scanner_screen-library.html">qr_scanner_screen</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="radio_data_model">
+  <span class="name"><a href="gs_form_model_data_model_radio_data_model/gs_form_model_data_model_radio_data_model-library.html">radio_data_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="radio_group_field">
+  <span class="name"><a href="gs_form_widget_fields_radio_group_field/gs_form_widget_fields_radio_group_field-library.html">radio_group_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="radio_model">
+  <span class="name"><a href="gs_form_model_fields_model_radio_model/gs_form_model_fields_model_radio_model-library.html">radio_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="required_check_list_enum">
+  <span class="name"><a href="gs_form_enums_required_check_list_enum/gs_form_enums_required_check_list_enum-library.html">required_check_list_enum</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="section">
+  <span class="name"><a href="gs_form_widget_section/gs_form_widget_section-library.html">section</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="spinner_data_model">
+  <span class="name"><a href="gs_form_model_data_model_spinner_data_model/gs_form_model_data_model_spinner_data_model-library.html">spinner_data_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="spinner_field">
+  <span class="name"><a href="gs_form_widget_fields_spinner_field/gs_form_widget_fields_spinner_field-library.html">spinner_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="spinner_model">
+  <span class="name"><a href="gs_form_model_fields_model_spinner_model/gs_form_model_fields_model_spinner_model-library.html">spinner_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="text_field">
+  <span class="name"><a href="gs_form_widget_fields_text_field/gs_form_widget_fields_text_field-library.html">text_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="text_filed_model">
+  <span class="name"><a href="gs_form_model_fields_model_text_filed_model/gs_form_model_fields_model_text_filed_model-library.html">text_filed_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="text_password_model">
+  <span class="name"><a href="gs_form_model_fields_model_text_password_model/gs_form_model_fields_model_text_password_model-library.html">text_password_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="text_plain_field">
+  <span class="name"><a href="gs_form_widget_fields_text_plain_field/gs_form_widget_fields_text_plain_field-library.html">text_plain_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="text_plain_model">
+  <span class="name"><a href="gs_form_model_fields_model_text_plain_model/gs_form_model_fields_model_text_plain_model-library.html">text_plain_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="theme">
+  <span class="name"><a href="gs_form_values_theme/gs_form_values_theme-library.html">theme</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="time_data_model">
+  <span class="name"><a href="gs_form_model_data_model_time_data_model/gs_form_model_data_model_time_data_model-library.html">time_data_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="time_picker_field">
+  <span class="name"><a href="gs_form_widget_fields_time_picker_field/gs_form_widget_fields_time_picker_field-library.html">time_picker_field</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="time_picker_model">
+  <span class="name"><a href="gs_form_model_fields_model_time_picker_model/gs_form_model_fields_model_time_picker_model-library.html">time_picker_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="util">
+  <span class="name"><a href="gs_form_util_util/gs_form_util_util-library.html">util</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="https://github.com/golrangsystem/gsform.git">gsform package</a></li>
+</ol>
+
+
+    <h5 class="hidden-xs"><span class="package-name">gsform</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="gs_form_widget_fields_bank_card_field/gs_form_widget_fields_bank_card_field-library.html">bank_card_field</a></li>
+      <li><a href="gs_form_model_fields_model_bank_card_filed_model/gs_form_model_fields_model_bank_card_filed_model-library.html">bank_card_filed_model</a></li>
+      <li><a href="gs_form_model_data_model_check_data_model/gs_form_model_data_model_check_data_model-library.html">check_data_model</a></li>
+      <li><a href="gs_form_widget_fields_check_list_field/gs_form_widget_fields_check_list_field-library.html">check_list_field</a></li>
+      <li><a href="gs_form_model_fields_model_checkbox_model/gs_form_model_fields_model_checkbox_model-library.html">checkbox_model</a></li>
+      <li><a href="gs_form_values_colors/gs_form_values_colors-library.html">colors</a></li>
+      <li><a href="gs_form_core_constant/gs_form_core_constant-library.html">constant</a></li>
+      <li><a href="gs_form_model_data_model_date_data_model/gs_form_model_data_model_date_data_model-library.html">date_data_model</a></li>
+      <li><a href="gs_form_widget_fields_date_picker_field/gs_form_widget_fields_date_picker_field-library.html">date_picker_field</a></li>
+      <li><a href="gs_form_model_fields_model_date_picker_model/gs_form_model_fields_model_date_picker_model-library.html">date_picker_model</a></li>
+      <li><a href="gs_form_widget_fields_date_range_picker_field/gs_form_widget_fields_date_range_picker_field-library.html">date_range_picker_field</a></li>
+      <li><a href="gs_form_model_fields_model_date_range_picker_model/gs_form_model_fields_model_date_range_picker_model-library.html">date_range_picker_model</a></li>
+      <li><a href="gs_form_values_dimens/gs_form_values_dimens-library.html">dimens</a></li>
+      <li><a href="gs_form_widget_fields_email_field/gs_form_widget_fields_email_field-library.html">email_field</a></li>
+      <li><a href="gs_form_model_fields_model_email_model/gs_form_model_fields_model_email_model-library.html">email_model</a></li>
+      <li><a href="gs_form_widget_field/gs_form_widget_field-library.html">field</a></li>
+      <li><a href="gs_form_core_field_callback/gs_form_core_field_callback-library.html">field_callback</a></li>
+      <li><a href="gs_form_model_fields_model_field_model/gs_form_model_fields_model_field_model-library.html">field_model</a></li>
+      <li><a href="gs_form_enums_field_status/gs_form_enums_field_status-library.html">field_status</a></li>
+      <li><a href="gs_form_enums_filed_type/gs_form_enums_filed_type-library.html">filed_type</a></li>
+      <li><a href="gs_form_widget_form/gs_form_widget_form-library.html">form</a></li>
+      <li><a href="gs_form_core_form_style/gs_form_core_form_style-library.html">form_style</a></li>
+      <li><a href="gsform/gsform-library.html">gsform</a></li>
+      <li><a href="gs_form_widget_fields_image_picker_field/gs_form_widget_fields_image_picker_field-library.html">image_picker_field</a></li>
+      <li><a href="gs_form_model_fields_model_image_picker_model/gs_form_model_fields_model_image_picker_model-library.html">image_picker_model</a></li>
+      <li><a href="gs_form_widget_fields_mobile_field/gs_form_widget_fields_mobile_field-library.html">mobile_field</a></li>
+      <li><a href="gs_form_model_fields_model_mobile_model/gs_form_model_fields_model_mobile_model-library.html">mobile_model</a></li>
+      <li><a href="gs_form_widget_fields_multi_image_picker_field/gs_form_widget_fields_multi_image_picker_field-library.html">multi_image_picker_field</a></li>
+      <li><a href="gs_form_model_fields_model_multi_image_picker_model/gs_form_model_fields_model_multi_image_picker_model-library.html">multi_image_picker_model</a></li>
+      <li><a href="gs_form_widget_fields_number_field/gs_form_widget_fields_number_field-library.html">number_field</a></li>
+      <li><a href="gs_form_model_fields_model_number_model/gs_form_model_fields_model_number_model-library.html">number_model</a></li>
+      <li><a href="gs_form_widget_fields_password_field/gs_form_widget_fields_password_field-library.html">password_field</a></li>
+      <li><a href="gs_form_widget_fields_price_field/gs_form_widget_fields_price_field-library.html">price_field</a></li>
+      <li><a href="gs_form_model_fields_model_price_model/gs_form_model_fields_model_price_model-library.html">price_model</a></li>
+      <li><a href="gs_form_widget_fields_qr_scanner_field/gs_form_widget_fields_qr_scanner_field-library.html">qr_scanner_field</a></li>
+      <li><a href="gs_form_model_fields_model_qr_scanner_model/gs_form_model_fields_model_qr_scanner_model-library.html">qr_scanner_model</a></li>
+      <li><a href="gs_form_screens_qr_scanner_screen/gs_form_screens_qr_scanner_screen-library.html">qr_scanner_screen</a></li>
+      <li><a href="gs_form_model_data_model_radio_data_model/gs_form_model_data_model_radio_data_model-library.html">radio_data_model</a></li>
+      <li><a href="gs_form_widget_fields_radio_group_field/gs_form_widget_fields_radio_group_field-library.html">radio_group_field</a></li>
+      <li><a href="gs_form_model_fields_model_radio_model/gs_form_model_fields_model_radio_model-library.html">radio_model</a></li>
+      <li><a href="gs_form_enums_required_check_list_enum/gs_form_enums_required_check_list_enum-library.html">required_check_list_enum</a></li>
+      <li><a href="gs_form_widget_section/gs_form_widget_section-library.html">section</a></li>
+      <li><a href="gs_form_model_data_model_spinner_data_model/gs_form_model_data_model_spinner_data_model-library.html">spinner_data_model</a></li>
+      <li><a href="gs_form_widget_fields_spinner_field/gs_form_widget_fields_spinner_field-library.html">spinner_field</a></li>
+      <li><a href="gs_form_model_fields_model_spinner_model/gs_form_model_fields_model_spinner_model-library.html">spinner_model</a></li>
+      <li><a href="gs_form_widget_fields_text_field/gs_form_widget_fields_text_field-library.html">text_field</a></li>
+      <li><a href="gs_form_model_fields_model_text_filed_model/gs_form_model_fields_model_text_filed_model-library.html">text_filed_model</a></li>
+      <li><a href="gs_form_model_fields_model_text_password_model/gs_form_model_fields_model_text_password_model-library.html">text_password_model</a></li>
+      <li><a href="gs_form_widget_fields_text_plain_field/gs_form_widget_fields_text_plain_field-library.html">text_plain_field</a></li>
+      <li><a href="gs_form_model_fields_model_text_plain_model/gs_form_model_fields_model_text_plain_model-library.html">text_plain_model</a></li>
+      <li><a href="gs_form_values_theme/gs_form_values_theme-library.html">theme</a></li>
+      <li><a href="gs_form_model_data_model_time_data_model/gs_form_model_data_model_time_data_model-library.html">time_data_model</a></li>
+      <li><a href="gs_form_widget_fields_time_picker_field/gs_form_widget_fields_time_picker_field-library.html">time_picker_field</a></li>
+      <li><a href="gs_form_model_fields_model_time_picker_model/gs_form_model_fields_model_time_picker_model-library.html">time_picker_model</a></li>
+      <li><a href="gs_form_util_util/gs_form_util_util-library.html">util</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    gsform
+      0.2.6
+  </span>
+
+  
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

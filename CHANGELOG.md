@@ -95,3 +95,6 @@
 * * ## 0.2.6
 * Fix dependency intl
 
+* * ## 0.2.7
+* Create document
+
