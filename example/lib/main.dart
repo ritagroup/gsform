@@ -367,14 +367,9 @@ class SingleSectionForm extends StatelessWidget {
 }
 
 // ignore: must_be_immutable
-class MultiSectionForm extends StatefulWidget {
+class MultiSectionForm extends StatelessWidget {
   MultiSectionForm({Key? key}) : super(key: key);
 
-  @override
-  State<MultiSectionForm> createState() => _MultiSectionFormState();
-}
-
-class _MultiSectionFormState extends State<MultiSectionForm> {
   late GSForm form;
 
   @override
@@ -433,7 +428,6 @@ class _MultiSectionFormState extends State<MultiSectionForm> {
                       required: false,
                       initialDate: GSDate(day: 10 , month: 5 , year: 2023),
                       errorMessage: 'please enter a name',
-
                     ),
                     GSField.text(
                       value: 'سعید دسترس3',
@@ -536,9 +530,6 @@ class _MultiSectionFormState extends State<MultiSectionForm> {
                         Map<String, dynamic> map = form.onSubmit();
                         debugPrint(isValid.toString());
                         debugPrint(map.toString());
-                        setState(() {
-
-                        });
                       },
                       child: const Text('Submit'),
                     ),
