@@ -79,6 +79,12 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
   }
 
   @override
+  void didUpdateWidget(covariant GSDatePickerField oldWidget) {
+    _initialDates();
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     widget.context = context;
     return InkWell(

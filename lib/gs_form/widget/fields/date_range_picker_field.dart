@@ -90,6 +90,12 @@ class _GSDateRangePickerFieldState extends State<GSDateRangePickerField> {
   }
 
   @override
+  void didUpdateWidget(covariant GSDateRangePickerField oldWidget) {
+    _initialDates();
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     widget.context = context;
     return SizedBox(

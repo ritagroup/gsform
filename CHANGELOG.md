@@ -42,59 +42,63 @@
 * Improved form fields
 * Fixed some bugs
 
-* ## 0.1.2
+## 0.1.2
 * Improved form fields
 * Add Disable Status to fields status
 
-* ## 0.1.3
+## 0.1.3
 * Improved form fields
 * Fix some bug 
 * Change Radio group returned value type 
 * Set initial value for spinner 
 
-* ## 0.1.4
+## 0.1.4
 * Add required all to gsCheckListField
 * Fix improve fields   
 
-* ## 0.1.5
+## 0.1.5
 * Fix maxLine Scrollable in GSTextPlainField
 
-* ## 0.1.6
+## 0.1.6
 * Add MultiImagePickerField
 * Add Ability to Check image size and image count in MultiImagePickerField and ImagePickerField
 * Show counter in NumberField 
 * Improve some fields 
 * Fix some bug
 
-* ## 0.1.7
+## 0.1.7
 * Fix bug in TimePicker
 
-* ## 0.1.8
+## 0.1.8
 * Add call back to spinner field 
 
 
-* ## 0.1.9
+## 0.1.9
 * Fix text aline in number field  
 
-* ## 0.1.9
+## 0.1.9
 * Fix bugs  
 
-* ## 0.2.1
+## 0.2.1
 * Fix bugs  
 * Upgrade some library dependency
-* 
-* ## 0.2.3
+
+## 0.2.3
 * Add web support
 
-* * ## 0.2.4
+## 0.2.4
 * Update dependency   
 
-* * ## 0.2.5
+## 0.2.5
 * Fix dependency 
 
-* * ## 0.2.6
+ ## 0.2.6
 * Fix dependency intl
 
-* * ## 0.2.7
+ ## 0.2.7
 * Create document
+
+## 0.2.8
+* Fix bug 
+* Update dependencies
 

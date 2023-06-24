@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       locale: const Locale('en', 'US'),
-
       supportedLocales: const [Locale('en', 'US'), Locale('fa', 'IR')],
       theme: ThemeData(
         brightness: Brightness.light,
@@ -137,7 +136,7 @@ class SingleSectionForm extends StatelessWidget {
                         tag: 'time',
                         title: 'Select time',
                         weight: 12,
-                        required: true,
+                        required: false,
                         postfixWidget: const Icon(
                           Icons.calendar_month,
                           color: Color(0xff676767),
@@ -368,9 +367,14 @@ class SingleSectionForm extends StatelessWidget {
 }
 
 // ignore: must_be_immutable
-class MultiSectionForm extends StatelessWidget {
+class MultiSectionForm extends StatefulWidget {
   MultiSectionForm({Key? key}) : super(key: key);
 
+  @override
+  State<MultiSectionForm> createState() => _MultiSectionFormState();
+}
+
+class _MultiSectionFormState extends State<MultiSectionForm> {
   late GSForm form;
 
   @override
@@ -427,7 +431,9 @@ class MultiSectionForm extends StatelessWidget {
                       title: 'DatePicker',
                       weight: 12,
                       required: false,
+                      initialDate: GSDate(day: 10 , month: 5 , year: 2023),
                       errorMessage: 'please enter a name',
+
                     ),
                     GSField.text(
                       value: 'سعید دسترس3',
@@ -530,6 +536,9 @@ class MultiSectionForm extends StatelessWidget {
                         Map<String, dynamic> map = form.onSubmit();
                         debugPrint(isValid.toString());
                         debugPrint(map.toString());
+                        setState(() {
+
+                        });
                       },
                       child: const Text('Submit'),
                     ),
