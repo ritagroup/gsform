@@ -426,7 +426,7 @@ class MultiSectionForm extends StatelessWidget {
                       title: 'DatePicker',
                       weight: 12,
                       required: false,
-                      initialDate: GSDate(day: 10 , month: 5 , year: 2023),
+                      initialDate: GSDate(day: 10, month: 5, year: 2023),
                       errorMessage: 'please enter a name',
                     ),
                     GSField.text(
