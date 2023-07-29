@@ -110,6 +110,7 @@ class SingleSectionForm extends StatelessWidget {
                     style: GSFormStyle(titleStyle: const TextStyle(color: Colors.black87, fontSize: 16.0)),
                     context,
                     fields: [
+                      GSField.price(tag: 'price', defaultValue: '20000000'),
                       GSField.imagePicker(
                         tag: 'image_upload',
                         iconWidget: const Icon(Icons.camera_alt_outlined),
@@ -203,7 +204,6 @@ class SingleSectionForm extends StatelessWidget {
                       GSField.mobile(
                         tag: 'mobile',
                         title: 'Phone number',
-                        maxLength: 11,
                         helpMessage: '9357814747',
                         weight: 12,
                         required: false,

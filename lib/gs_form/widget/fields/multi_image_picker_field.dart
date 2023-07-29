@@ -50,6 +50,16 @@ class _GSMultiImagePickerFieldState extends State<GSMultiImagePickerField> {
   }
 
   @override
+  void didUpdateWidget(covariant GSMultiImagePickerField oldWidget) {
+    if ((widget.model.defaultImagePath ?? []).isNotEmpty) {
+      widget._croppedFilePaths.addAll(widget.model.defaultImagePath ?? []);
+    } else {
+      widget._croppedFilePaths = [];
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(24.0),

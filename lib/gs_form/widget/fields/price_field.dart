@@ -18,7 +18,9 @@ class GSPriceField extends StatelessWidget implements GSFieldCallBack {
   @override
   Widget build(BuildContext context) {
     if (model.defaultValue != null) {
-      controller?.text = model.defaultValue;
+      controller?.text = _formatNumber(
+        model.defaultValue,
+      );
     }
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
@@ -56,7 +58,7 @@ class GSPriceField extends StatelessWidget implements GSFieldCallBack {
 
   @override
   getValue() {
-    return controller!.text;
+    return controller!.text.replaceAll(',', '');
   }
 
   @override

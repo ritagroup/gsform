@@ -48,6 +48,16 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
   }
 
   @override
+  void didUpdateWidget(covariant GSImagePickerField oldWidget) {
+    if (widget.model.defaultValue != null) {
+      widget._croppedFilePath = widget.model.defaultValue;
+    } else {
+      widget._croppedFilePath = null;
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,

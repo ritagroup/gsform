@@ -40,6 +40,12 @@ class _GSQRScannerFieldState extends State<GSQRScannerField> {
   }
 
   @override
+  void didUpdateWidget(covariant GSQRScannerField oldWidget) {
+    widget._scannedValue = null;
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),

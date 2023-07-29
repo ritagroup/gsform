@@ -21,7 +21,7 @@ class GSMobileField extends StatelessWidget implements GSFieldCallBack {
       child: TextField(
         textAlign: TextAlign.left,
         controller: controller,
-        maxLength: model.maxLength,
+        maxLength: model.maxLength ?? 11,
         textAlignVertical: TextAlignVertical.center,
         style: formStyle.fieldTextStyle,
         keyboardType: TextInputType.phone,
