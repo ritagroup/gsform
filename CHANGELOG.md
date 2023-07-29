@@ -92,13 +92,18 @@
 ## 0.2.5
 * Fix dependency 
 
- ## 0.2.6
+## 0.2.6
 * Fix dependency intl
 
- ## 0.2.7
+## 0.2.7
 * Create document
 
 ## 0.2.8
 * Fix bug 
 * Update dependencies
+
+## 0.2.9
+* Bug fixing
+* Improve some fields 
+
 
