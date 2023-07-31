@@ -106,4 +106,7 @@
 * Bug fixing
 * Improve some fields 
 
+## 0.3.0
+* Bug fixing
+* Improve some fields 
 

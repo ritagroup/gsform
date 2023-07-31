@@ -63,7 +63,7 @@ class MainTestPage extends StatelessWidget {
                     Navigator.pushAndRemoveUntil<dynamic>(
                       context,
                       MaterialPageRoute<dynamic>(builder: (BuildContext context) => MultiSectionForm()),
-                      (route) => true, //if you want to disable back feature set to false
+                          (route) => true, //if you want to disable back feature set to false
                     );
                   },
                   child: const Text('Multi Section form'),
@@ -73,7 +73,7 @@ class MainTestPage extends StatelessWidget {
                     Navigator.pushAndRemoveUntil<dynamic>(
                         context,
                         MaterialPageRoute<dynamic>(builder: (BuildContext context) => SingleSectionForm()),
-                        (route) => true);
+                            (route) => true);
                   },
                   child: const Text('Single Section form'),
                 ),
@@ -87,10 +87,23 @@ class MainTestPage extends StatelessWidget {
 }
 
 // ignore: must_be_immutable
-class SingleSectionForm extends StatelessWidget {
+class SingleSectionForm extends StatefulWidget {
   SingleSectionForm({Key? key}) : super(key: key);
+  String? value ;
 
+  @override
+  State<SingleSectionForm> createState() => _SingleSectionFormState();
+}
+
+class _SingleSectionFormState extends State<SingleSectionForm> {
   late GSForm form;
+
+  @override
+  void initState() {
+    widget.value = 'dfhbdkfhbdasffffteryuiei577y ';
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,230 +123,13 @@ class SingleSectionForm extends StatelessWidget {
                     style: GSFormStyle(titleStyle: const TextStyle(color: Colors.black87, fontSize: 16.0)),
                     context,
                     fields: [
-                      GSField.price(tag: 'price', defaultValue: '20000000'),
-                      GSField.imagePicker(
-                        tag: 'image_upload',
-                        iconWidget: const Icon(Icons.camera_alt_outlined),
-                      ),
-                      GSField.number(
-                        tag: 'explain',
-                        title: 'Description',
-                        weight: 12,
-                        maxLength: 5,
-                        showCounter: false,
-                        required: true,
-                        prefixWidget: const Text('دقیقه'),
-                        postfixWidget: const Text('ثانیه'),
-                      ),
-                      GSField.imagePicker(
-                        tag: 'image',
-                        iconWidget: const Icon(
-                          Icons.image,
-                        ),
-                        title: 'image',
-                        imageSource: GSImageSource.both,
-                      ),
-                      GSField.time(
-                        tag: 'time',
-                        title: 'Select time',
-                        weight: 12,
-                        required: false,
-                        postfixWidget: const Icon(
-                          Icons.calendar_month,
-                          color: Color(0xff676767),
-                        ),
-                      ),
-                      GSField.text(
-                        status: GSFieldStatusEnum.disabled,
-                        tag: 'name',
-                        title: 'First Name',
-                        minLine: 1,
-                        maxLine: 1,
-                        weight: 6,
-                        hint: 'jhon',
-                        value: 'سعید دسترس1',
-                        required: false,
-                        errorMessage: 'please enter a name',
-                      ),
-                      GSField.text(
-                        value: 'سعید دسترس',
-                        tag: 'lastName',
-                        title: 'Last name',
-                        minLine: 1,
-                        maxLine: 1,
-                        weight: 6,
-                        required: true,
-                      ),
-                      GSField.password(
-                        tag: 'password',
-                        title: 'Password',
-                        helpMessage: 'contain letter and number',
-                        errorMessage: 'error',
-                        weight: 12,
-                        required: true,
-                      ),
-                      GSField.datePicker(
-                        tag: 'licenceExpireDate',
-                        title: 'Birth Date',
-                        weight: 12,
-                        required: true,
-                        postfixWidget: const Icon(
-                          Icons.calendar_month,
-                          color: Color(0xff676767),
-                        ),
-                        displayDateType: GSDateFormatType.numeric,
-                        calendarType: GSCalendarType.gregorian,
-                      ),
-                      GSField.spinner(
-                        tag: 'customer_type',
-                        required: false,
-                        weight: 12,
-                        title: 'Gender',
-                        items: [
-                          SpinnerDataModel(
-                            name: 'man',
-                            id: 1,
-                          ),
-                          SpinnerDataModel(
-                            name: 'woman',
-                            id: 2,
-                            isSelected: true,
-                          ),
-                        ],
-                      ),
-                      GSField.mobile(
-                        tag: 'mobile',
-                        title: 'Phone number',
-                        helpMessage: '9357814747',
-                        weight: 12,
-                        required: false,
-                        hint: 'مسیاصعا',
-                        errorMessage: 'some error',
-                      ),
-                      GSField.email(
-                        tag: 'email',
-                        title: 'Email',
-                        errorMessage: 'error',
-                        helpMessage: 'someemail@gmail.com',
-                        postfixWidget: const Icon(Icons.email, color: Color(0xff676767)),
-                        weight: 12,
-                        required: false,
-                      ),
-                      GSField.checkList(
-                        hint: 'CheckBox List',
-                        tag: 'check',
-                        showScrollBar: true,
-                        scrollBarColor: Colors.red,
-                        height: 200,
-                        scrollable: true,
-                        requiredCheckListEnum: RequiredCheckListEnum.none,
-                        weight: 12,
-                        title: 'Size number',
-                        searchable: true,
-                        searchHint: 'Search...',
-                        searchIcon: const Icon(Icons.search),
-                        searchBoxDecoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.blue,
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        items: [
-                          CheckDataModel(title: 'checkbox  ', isSelected: true),
-                          CheckDataModel(title: 'ipsum', isSelected: false),
-                          CheckDataModel(title: 'item', isSelected: true),
-                          CheckDataModel(title: 'size', isSelected: false),
-                          CheckDataModel(title: 'size 1', isSelected: false),
-                          CheckDataModel(title: 'size 2', isSelected: false),
-                          CheckDataModel(title: 'sample 1', isSelected: false),
-                          CheckDataModel(title: 'Sample 2', isSelected: false),
-                          CheckDataModel(title: 'Radio', isSelected: false),
-                          CheckDataModel(title: 'Tv', isSelected: false),
-                          CheckDataModel(title: 'data 1', isSelected: false),
-                          CheckDataModel(title: 'data 2', isSelected: false),
-                        ],
-                        callBack: (data) {},
-                      ),
-                      GSField.radioGroup(
-                        hint: 'Radio Group',
-                        tag: 'radio',
-                        showScrollBar: true,
-                        scrollBarColor: Colors.red,
-                        height: 200,
-                        scrollable: true,
-                        required: true,
-                        weight: 12,
-                        title: 'Size number',
-                        searchable: true,
-                        searchHint: 'Search...',
-                        searchIcon: const Icon(Icons.search),
-                        searchBoxDecoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.blue,
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        items: [
-                          RadioDataModel(title: 'lorem', isSelected: true),
-                          RadioDataModel(title: 'ipsum', isSelected: false),
-                        ],
-                        callBack: (data) {},
-                      ),
                       GSField.textPlain(
                         tag: 'explain',
                         title: 'Description',
                         weight: 12,
                         maxLength: 150,
                         required: true,
-                      ),
-                      GSField.imagePicker(
-                        tag: 'a',
-                        title: 'انتخاب تصویر',
-                        hint: 'فایل خود را انتخاب کنید',
-                        iconWidget: Lottie.asset(
-                          'assets/cam.json',
-                          width: 70,
-                          height: 70,
-                        ),
-                        maximumSizePerImageInBytes: 100,
-                        onErrorSizeItem: () {
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text("maximum size exception"),
-                          ));
-                        },
-                      ),
-                      GSField.multiImagePicker(
-                        tag: 'multi',
-                        required: true,
-                        title: 'انتخاب تصویر',
-                        hint: 'فایل خود را انتخاب کنید',
-                        iconWidget: const Icon(Icons.add),
-                        maximumImageCount: 5,
-                        showCropper: false,
-                        defaultImagePathValues: const ['/data/user/0/com.golrang.salesplus2/app_flutter/testImage.png'],
-                        maximumSizePerImageInKB: 80,
-                        onErrorSizeItem: () {
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text("maximum size exception"),
-                          ));
-                        },
-                      ),
-                      GSField.textPlain(
-                        tag: 'explain',
-                        title: 'Description',
-                        weight: 12,
-                        maxLine: 2,
-                        required: true,
-                      ),
-                      GSField.textPlain(
-                        showCounter: true,
-                        tag: 'explain',
-                        title: 'Description',
-                        weight: 12,
-                        maxLine: 5,
-                        required: true,
+                        value: widget.value,
                       ),
                     ],
                   ),
@@ -352,6 +148,9 @@ class SingleSectionForm extends StatelessWidget {
                         Map<String, dynamic> map = form.onSubmit();
                         debugPrint(isValid.toString());
                         debugPrint(map.toString());
+                        widget.value = 'dsdsfghfghjhyateraWEAFGLHKJsdsdsddsdsdsdsdsdsdsdssHds';
+
+                        setState(() {});
                       },
                       child: const Text('Submit'),
                     ),

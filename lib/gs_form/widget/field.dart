@@ -441,7 +441,7 @@ class GSField extends StatefulWidget {
         postfixWidget: postfixWidget,
         required: required,
         status: status,
-        value: value,
+        defaultValue: value,
         weight: weight,
         hint: hint,
         maxLine: maxLine,
