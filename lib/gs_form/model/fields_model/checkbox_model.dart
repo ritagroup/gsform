@@ -6,7 +6,7 @@ import 'field_model.dart';
 
 class GSCheckBoxModel extends GSFieldModel {
   List<CheckDataModel> items;
-  String? hint; 
+  String? hint;
   Widget? selectedIcon;
   Widget? unSelectedIcon;
   bool? scrollable;
