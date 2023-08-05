@@ -56,16 +56,22 @@ class _GSTimePickerFieldState extends State<GSTimePickerField> {
     super.initState();
     if (widget.model.initialTime != null) {
       widget.selectedTime = widget.model.initialTime;
+      widget.isTimeSelected = true;
       _displayTime(widget.selectedTime!);
     }
   }
 
   @override
   void didUpdateWidget(covariant GSTimePickerField oldWidget) {
-    if (widget.model.initialTime != null) {
+    if (widget.model.initialTime != null && oldWidget.selectedTime==null) {
       widget.selectedTime = widget.model.initialTime;
-      _displayTime(widget.selectedTime!);
+    } else {
+      widget.selectedTime = oldWidget.selectedTime;
+      widget.selectedTimeText = oldWidget.selectedTimeText;
+      widget.selectedTimeText = oldWidget.selectedTimeText;
     }
+    widget.isTimeSelected = true;
+    _displayTime(widget.selectedTime!);
     super.didUpdateWidget(oldWidget);
   }
 
@@ -99,7 +105,7 @@ class _GSTimePickerFieldState extends State<GSTimePickerField> {
   _openPersianTimePicker() async {
     var picked = await showPersianTimePicker(
       context: widget.context,
-      initialTime: widget.model.initialTime ?? TimeOfDay.now(),
+      initialTime: widget.selectedTime ?? TimeOfDay.now(),
       initialEntryMode: PTimePickerEntryMode.dial,
       useRootNavigator: false,
     );
@@ -117,7 +123,7 @@ class _GSTimePickerFieldState extends State<GSTimePickerField> {
   _openTimePicker() async {
     var picked = await showTimePicker(
       context: widget.context,
-      initialTime: widget.model.initialTime ?? TimeOfDay.now(),
+      initialTime: widget.selectedTime ?? TimeOfDay.now(),
       initialEntryMode: TimePickerEntryMode.dial,
       useRootNavigator: false,
     );

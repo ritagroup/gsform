@@ -4,45 +4,17 @@ import 'package:gsform/gs_form/core/field_callback.dart';
 import '../../core/form_style.dart';
 import '../../model/fields_model/number_model.dart';
 
-class GSNumberField extends StatelessWidget implements GSFieldCallBack {
+class GSNumberField extends StatefulWidget implements GSFieldCallBack {
   final GSNumberModel model;
   final GSFormStyle formStyle;
+  TextEditingController? controller ;
 
-  final TextEditingController? controller = TextEditingController();
+
 
   GSNumberField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    if (model.defaultValue != null) {
-      controller?.text = model.defaultValue;
-    }
-    return Padding(
-      padding: const EdgeInsets.only(right: 10.0, left: 10.0),
-      child: TextField(
-        textAlignVertical: TextAlignVertical.center,
-        controller: controller,
-        maxLength: model.maxLength,
-        style: formStyle.fieldTextStyle,
-        keyboardType: TextInputType.phone,
-        focusNode: model.focusNode,
-        textInputAction: model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
-        onSubmitted: (_) {
-          FocusScope.of(context).requestFocus(model.nextFocusNode);
-        },
-        decoration: InputDecoration(
-          counter: (model.showCounter ?? false) ? null : const Offstage(),
-          hintText: model.hint,
-          counterStyle: formStyle.fieldHintStyle,
-          focusedBorder: InputBorder.none,
-          enabledBorder: InputBorder.none,
-          errorBorder: InputBorder.none,
-          disabledBorder: InputBorder.none,
-          hintStyle: formStyle.fieldHintStyle,
-        ),
-      ),
-    );
-  }
+  State<GSNumberField> createState() => _GSNumberFieldState();
 
   @override
   getValue() {
@@ -61,4 +33,61 @@ class GSNumberField extends StatelessWidget implements GSFieldCallBack {
       return model.validateRegEx!.hasMatch(controller!.text);
     }
   }
+}
+
+class _GSNumberFieldState extends State<GSNumberField> {
+
+  @override
+  void initState() {
+    widget.controller ??= TextEditingController();
+
+    if (widget.model.defaultValue != null) {
+      widget.controller?.text = widget.model.defaultValue;
+    }
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant GSNumberField oldWidget) {
+
+    if (widget.model.defaultValue != null) {
+      widget.controller?.text = widget.model.defaultValue;
+    }
+    widget.controller  =  oldWidget.controller;
+
+    super.didUpdateWidget(oldWidget);
+
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Padding(
+      padding: const EdgeInsets.only(right: 10.0, left: 10.0),
+      child: TextField(
+        textAlignVertical: TextAlignVertical.center,
+        controller: widget.controller,
+        maxLength: widget.model.maxLength,
+        style: widget.formStyle.fieldTextStyle,
+        keyboardType: TextInputType.phone,
+        focusNode: widget.model.focusNode,
+        textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
+        onSubmitted: (_) {
+          FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
+        },
+        decoration: InputDecoration(
+          counter: (widget.model.showCounter ?? false) ? null : const Offstage(),
+          hintText: widget.model.hint,
+          counterStyle: widget.formStyle.fieldHintStyle,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
+          hintStyle: widget.formStyle.fieldHintStyle,
+        ),
+      ),
+    );
+  }
+
+
 }

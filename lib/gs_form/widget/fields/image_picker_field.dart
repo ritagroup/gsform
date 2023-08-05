@@ -52,7 +52,7 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
     if (widget.model.defaultValue != null) {
       widget._croppedFilePath = widget.model.defaultValue;
     } else {
-      widget._croppedFilePath = null;
+      widget._croppedFilePath = oldWidget._croppedFilePath;
     }
     super.didUpdateWidget(oldWidget);
   }

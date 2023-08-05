@@ -3,48 +3,17 @@ import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/fields_model/text_plain_model.dart';
 
-class GSTextPlainField extends StatelessWidget implements GSFieldCallBack {
+class GSTextPlainField extends StatefulWidget implements GSFieldCallBack {
   final GSTextPlainModel model;
   final GSFormStyle formStyle;
+  TextEditingController? controller ;
 
-  final TextEditingController? controller = TextEditingController();
 
   GSTextPlainField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    if (model.defaultValue != null) {
-      controller?.text = model.defaultValue;
-    }
-    return Padding(
-      padding: const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
-      child: TextField(
-        controller: controller,
-        minLines: model.minLine,
-        enableSuggestions: false,
-        autocorrect: false,
-        maxLines: model.maxLine,
-        keyboardType: TextInputType.multiline,
-        focusNode: model.focusNode,
-        maxLength: model.maxLength,
-        style: formStyle.fieldTextStyle,
-        textInputAction: TextInputAction.newline,
-        onSubmitted: (_) {
-          FocusScope.of(context).requestFocus(model.nextFocusNode);
-        },
-        decoration: InputDecoration(
-          counter: model.showCounter ?? false ? null : const Offstage(),
-          hintText: model.hint,
-          focusedBorder: InputBorder.none,
-          enabledBorder: InputBorder.none,
-          counterStyle: formStyle.fieldHintStyle,
-          errorBorder: InputBorder.none,
-          disabledBorder: InputBorder.none,
-          hintStyle: formStyle.fieldHintStyle,
-        ),
-      ),
-    );
-  }
+  State<GSTextPlainField> createState() => _GSTextPlainFieldState();
+
 
   @override
   getValue() {
@@ -63,4 +32,61 @@ class GSTextPlainField extends StatelessWidget implements GSFieldCallBack {
       return model.validateRegEx!.hasMatch(controller!.text);
     }
   }
+}
+
+class _GSTextPlainFieldState extends State<GSTextPlainField> {
+
+  @override
+  void initState() {
+    widget.controller ??= TextEditingController();
+    if (widget.model.defaultValue != null) {
+      widget.controller?.text = widget.model.defaultValue;
+    }
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant GSTextPlainField oldWidget) {
+
+    if (widget.model.defaultValue != null) {
+      widget.controller?.text = widget.model.defaultValue;
+    }
+    widget.controller  =  oldWidget.controller;
+
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Padding(
+      padding: const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
+      child: TextField(
+        controller: widget.controller,
+        minLines: widget.model.minLine,
+        enableSuggestions: false,
+        autocorrect: false,
+        maxLines: widget.model.maxLine,
+        keyboardType: TextInputType.multiline,
+        focusNode: widget.model.focusNode,
+        maxLength: widget.model.maxLength,
+        style: widget.formStyle.fieldTextStyle,
+        textInputAction: TextInputAction.newline,
+        onSubmitted: (_) {
+          FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
+        },
+        decoration: InputDecoration(
+          counter: widget.model.showCounter ?? false ? null : const Offstage(),
+          hintText: widget.model.hint,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          counterStyle: widget.formStyle.fieldHintStyle,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
+          hintStyle: widget.formStyle.fieldHintStyle,
+        ),
+      ),
+    );
+  }
+
 }

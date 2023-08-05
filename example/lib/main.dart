@@ -63,7 +63,7 @@ class MainTestPage extends StatelessWidget {
                     Navigator.pushAndRemoveUntil<dynamic>(
                       context,
                       MaterialPageRoute<dynamic>(builder: (BuildContext context) => MultiSectionForm()),
-                          (route) => true, //if you want to disable back feature set to false
+                      (route) => true, //if you want to disable back feature set to false
                     );
                   },
                   child: const Text('Multi Section form'),
@@ -73,7 +73,7 @@ class MainTestPage extends StatelessWidget {
                     Navigator.pushAndRemoveUntil<dynamic>(
                         context,
                         MaterialPageRoute<dynamic>(builder: (BuildContext context) => SingleSectionForm()),
-                            (route) => true);
+                        (route) => true);
                   },
                   child: const Text('Single Section form'),
                 ),
@@ -89,7 +89,9 @@ class MainTestPage extends StatelessWidget {
 // ignore: must_be_immutable
 class SingleSectionForm extends StatefulWidget {
   SingleSectionForm({Key? key}) : super(key: key);
-  String? value ;
+  String? value;
+
+  late GSFieldStatusEnum status;
 
   @override
   State<SingleSectionForm> createState() => _SingleSectionFormState();
@@ -101,7 +103,7 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
   @override
   void initState() {
     widget.value = 'dfhbdkfhbdasffffteryuiei577y ';
-
+    widget.status = GSFieldStatusEnum.normal;
     super.initState();
   }
 
@@ -123,14 +125,265 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
                     style: GSFormStyle(titleStyle: const TextStyle(color: Colors.black87, fontSize: 16.0)),
                     context,
                     fields: [
-                      GSField.textPlain(
-                        tag: 'explain',
-                        title: 'Description',
-                        weight: 12,
-                        maxLength: 150,
-                        required: true,
-                        value: widget.value,
-                      ),
+                      // GSField.textPlain(
+                      //   tag: 'explain',
+                      //   title: 'Description',
+                      //   weight: 12,
+                      //   maxLength: 150,
+                      //   required: true,
+                      //   // value: widget.value,
+                      //   status: widget.status,
+                      // ),
+                      // GSField.imagePicker(
+                      //   tag: 'image_upload',
+                      //   iconWidget: const Icon(Icons.camera_alt_outlined),
+                      // ),
+                      // GSField.number(
+                      //   tag: 'number',
+                      //   title: 'Description',
+                      //   weight: 12,
+                      //   maxLength: 5,
+                      //   hint: 'fdhfbd',
+                      //   showCounter: false,
+                      //   required: true,
+                      //   prefixWidget: const Text('Min'),
+                      //   postfixWidget: const Text('Sec'),
+                      // ),
+                      // GSField.imagePicker(
+                      //   tag: 'image',
+                      //   iconWidget: const Icon(
+                      //     Icons.image,
+                      //   ),
+                      //   title: 'image',
+                      //   imageSource: GSImageSource.both,
+                      // ),
+                      // GSField.time(
+                      //   tag: 'time',
+                      //   title: 'Select time',
+                      //   weight: 12,
+                      //   required: false,
+                      //   initialTime: TimeOfDay(hour: 12 , minute: 3),
+                      //   postfixWidget: const Icon(
+                      //     Icons.calendar_month,
+                      //     color: Color(0xff676767),
+                      //   ),
+                      // ),
+                      // GSField.text(
+                      //   status: GSFieldStatusEnum.disabled,
+                      //   tag: 'name',
+                      //   title: 'First Name',
+                      //   minLine: 1,
+                      //   maxLine: 1,
+                      //   weight: 6,
+                      //   required: false,
+                      //   errorMessage: 'please enter a name',
+                      // ),
+                      // GSField.text(
+                      //   value: 'سعید دسترس',
+                      //   tag: 'lastName',
+                      //   title: 'Last name',
+                      //   minLine: 1,
+                      //   maxLine: 1,
+                      //   weight: 6,
+                      //   required: true,
+                      // ),
+                      // GSField.password(
+                      //   tag: 'password',
+                      //   title: 'Password',
+                      //   value: '12345',
+                      //   helpMessage: 'contain letter and number',
+                      //   errorMessage: 'error',
+                      //   weight: 12,
+                      //   required: true,
+                      // ),
+                      // GSField.datePicker(
+                      //   tag: 'licenceExpireDate',
+                      //   title: 'Birth Date',
+                      //   weight: 12,
+                      //   required: true,
+                      //   initialDate: GSDate(year: 2023 , month: 8 , day: 30),
+                      //   postfixWidget: const Icon(
+                      //     Icons.calendar_month,
+                      //     color: Color(0xff676767),
+                      //   ),
+                      //   displayDateType: GSDateFormatType.numeric,
+                      //   calendarType: GSCalendarType.gregorian,
+                      // ),
+                      // GSField.spinner(
+                      //   tag: 'gender',
+                      //   required: false,
+                      //   weight: 12,
+                      //   title: 'Gender',
+                      //   items: [
+                      //     SpinnerDataModel(
+                      //       name: 'man',
+                      //       id: 1,
+                      //     ),
+                      //     SpinnerDataModel(
+                      //       name: 'woman1',
+                      //       id: 2,
+                      //       isSelected: true,
+                      //     ),
+                      //     SpinnerDataModel(
+                      //       name: 'woman2',
+                      //       id: 3,
+                      //       isSelected: true,
+                      //     ),
+                      //     SpinnerDataModel(
+                      //       name: 'woman3',
+                      //       id: 4,
+                      //       isSelected: true,
+                      //     ),
+                      //     SpinnerDataModel(
+                      //       name: 'woman4',
+                      //       id: 5,
+                      //       isSelected: true,
+                      //     ),
+                      //     SpinnerDataModel(
+                      //       name: 'woman5',
+                      //       id: 6,
+                      //       isSelected: true,
+                      //     ),
+                      //   ],
+                      // ),
+                      // GSField.mobile(
+                      //   tag: 'mobile',
+                      //   title: 'Phone number',
+                      //   maxLength: 11,
+                      //   helpMessage: '9357814747',
+                      //   weight: 12,
+                      //   required: false,
+                      //   hint: 'Phone number',
+                      //   errorMessage: 'some error',
+                      // ),
+                      // GSField.email(
+                      //   tag: 'email',
+                      //   title: 'Email',
+                      //   errorMessage: 'error',
+                      //   helpMessage: 'someemail@gmail.com',
+                      //   postfixWidget: const Icon(Icons.email, color: Color(0xff676767)),
+                      //   weight: 12,
+                      //   required: false,
+                      // ),
+                      // GSField.checkList(
+                      //   hint: 'CheckBox List',
+                      //   tag: 'check',
+                      //   showScrollBar: true,
+                      //   scrollBarColor: Colors.red,
+                      //   height: 200,
+                      //   scrollable: true,
+                      //   requiredCheckListEnum: RequiredCheckListEnum.none,
+                      //   weight: 12,
+                      //   title: 'Size number',
+                      //   searchable: true,
+                      //   searchHint: 'Search...',
+                      //   searchIcon: const Icon(Icons.search),
+                      //   searchBoxDecoration: BoxDecoration(
+                      //     border: Border.all(
+                      //       color: Colors.blue,
+                      //       width: 1,
+                      //     ),
+                      //     borderRadius: BorderRadius.circular(8),
+                      //   ),
+                      //   items: [
+                      //     CheckDataModel(title: 'checkbox  ', isSelected: true),
+                      //     CheckDataModel(title: 'ipsum', isSelected: false),
+                      //     CheckDataModel(title: 'item', isSelected: true),
+                      //     CheckDataModel(title: 'size', isSelected: false),
+                      //     CheckDataModel(title: 'size 1', isSelected: false),
+                      //     CheckDataModel(title: 'size 2', isSelected: false),
+                      //     CheckDataModel(title: 'sample 1', isSelected: false),
+                      //     CheckDataModel(title: 'Sample 2', isSelected: false),
+                      //     CheckDataModel(title: 'Radio', isSelected: false),
+                      //     CheckDataModel(title: 'Tv', isSelected: false),
+                      //     CheckDataModel(title: 'data 1', isSelected: false),
+                      //     CheckDataModel(title: 'data 2', isSelected: false),
+                      //   ],
+                      //   callBack: (data) {},
+                      // ),
+                      // GSField.radioGroup(
+                      //   hint: 'Radio Group',
+                      //   tag: 'radio',
+                      //   showScrollBar: true,
+                      //   scrollBarColor: Colors.red,
+                      //   height: 200,
+                      //   scrollable: true,
+                      //   required: true,
+                      //   weight: 12,
+                      //   title: 'Size number',
+                      //   searchable: true,
+                      //   searchHint: 'Search...',
+                      //   searchIcon: const Icon(Icons.search),
+                      //   searchBoxDecoration: BoxDecoration(
+                      //     border: Border.all(
+                      //       color: Colors.blue,
+                      //       width: 1,
+                      //     ),
+                      //     borderRadius: BorderRadius.circular(8),
+                      //   ),
+                      //   items: [
+                      //     RadioDataModel(title: 'lorem', isSelected: true),
+                      //     RadioDataModel(title: 'ipsum', isSelected: false),
+                      //     RadioDataModel(title: 'jon', isSelected: false),
+                      //     RadioDataModel(title: 'jack', isSelected: false),
+                      //     RadioDataModel(title: 'sandy', isSelected: false),
+                      //   ],
+                      //   callBack: (data) {},
+                      // ),
+                      // GSField.textPlain(
+                      //   tag: 'explain',
+                      //   title: 'Description',
+                      //   weight: 12,
+                      //   maxLength: 150,
+                      //   required: true,
+                      // ),
+                      // GSField.imagePicker(
+                      //   tag: 'a',
+                      //   title: 'انتخاب تصویر',
+                      //   hint: 'فایل خود را انتخاب کنید',
+                      //   iconWidget: Lottie.asset(
+                      //     'assets/cam.json',
+                      //     width: 70,
+                      //     height: 70,
+                      //   ),
+                      //   maximumSizePerImageInBytes: 100,
+                      //   onErrorSizeItem: () {
+                      //     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      //       content: Text("maximum size exception"),
+                      //     ));
+                      //   },
+                      // ),
+                      // GSField.multiImagePicker(
+                      //   tag: 'multi',
+                      //   required: true,
+                      //   title: 'انتخاب تصویر',
+                      //   hint: 'فایل خود را انتخاب کنید',
+                      //   iconWidget: const Icon(Icons.add),
+                      //   maximumImageCount: 5,
+                      //   showCropper: false,
+                      //   defaultImagePathValues: const ['/data/user/0/com.golrang.salesplus2/app_flutter/testImage.png'],
+                      //   maximumSizePerImageInKB: 80,
+                      //   onErrorSizeItem: () {
+                      //     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      //       content: Text("maximum size exception"),
+                      //     ));
+                      //   },
+                      // ),
+                      // GSField.textPlain(
+                      //   tag: 'explain',
+                      //   title: 'Description',
+                      //   weight: 12,
+                      //   maxLine: 2,
+                      //   required: true,
+                      // ),
+                      // GSField.textPlain(
+                      //   showCounter: true,
+                      //   tag: 'explain',
+                      //   title: 'Description',
+                      //   weight: 12,
+                      //   maxLine: 5,
+                      //   required: true,
+                      // ),
                     ],
                   ),
                 ),
@@ -146,9 +399,7 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
                       onPressed: () {
                         bool isValid = form.isValid();
                         Map<String, dynamic> map = form.onSubmit();
-                        debugPrint(isValid.toString());
-                        debugPrint(map.toString());
-                        widget.value = 'dsdsfghfghjhyateraWEAFGLHKJsdsdsddsdsdsdsdsdsdsdssHds';
+                        debugPrint((map.toString() );
 
                         setState(() {});
                       },
@@ -186,7 +437,7 @@ class MultiSectionForm extends StatelessWidget {
                 child: form = GSForm.multiSection(context, sections: [
                   GSSection(sectionTitle: 'User information', fields: [
                     GSField.text(
-                      value: '2سعید دسترس',
+                      defaultValue: '2سعید دسترس',
                       tag: 'name',
                       title: 'Name',
                       minLine: 1,
@@ -229,7 +480,7 @@ class MultiSectionForm extends StatelessWidget {
                       errorMessage: 'please enter a name',
                     ),
                     GSField.text(
-                      value: 'سعید دسترس3',
+                      defaultValue: 'سعید دسترس3',
                       tag: 'lastName',
                       title: 'Last name',
                       minLine: 1,

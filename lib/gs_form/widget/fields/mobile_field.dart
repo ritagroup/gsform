@@ -3,45 +3,16 @@ import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/fields_model/mobile_model.dart';
 
-class GSMobileField extends StatelessWidget implements GSFieldCallBack {
+class GSMobileField extends StatefulWidget implements GSFieldCallBack {
   final GSMobileModel model;
   final GSFormStyle formStyle;
+  TextEditingController? controller ;
 
-  final TextEditingController? controller = TextEditingController();
 
   GSMobileField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    if (model.defaultValue != null) {
-      controller?.text = model.defaultValue;
-    }
-    return Padding(
-      padding: const EdgeInsets.only(right: 10.0, left: 10.0),
-      child: TextField(
-        textAlign: TextAlign.left,
-        controller: controller,
-        maxLength: model.maxLength ?? 11,
-        textAlignVertical: TextAlignVertical.center,
-        style: formStyle.fieldTextStyle,
-        keyboardType: TextInputType.phone,
-        focusNode: model.focusNode,
-        textInputAction: model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
-        onSubmitted: (_) {
-          FocusScope.of(context).requestFocus(model.nextFocusNode);
-        },
-        decoration: InputDecoration(
-          hintText: model.hint,
-          counterText: '',
-          focusedBorder: InputBorder.none,
-          enabledBorder: InputBorder.none,
-          errorBorder: InputBorder.none,
-          disabledBorder: InputBorder.none,
-          hintStyle: formStyle.fieldHintStyle,
-        ),
-      ),
-    );
-  }
+  State<GSMobileField> createState() => _GSMobileFieldState();
 
   @override
   getValue() {
@@ -60,4 +31,60 @@ class GSMobileField extends StatelessWidget implements GSFieldCallBack {
       return model.validateRegEx!.hasMatch(controller!.text);
     }
   }
+}
+
+class _GSMobileFieldState extends State<GSMobileField> {
+
+  @override
+  void initState() {
+    widget.controller ??= TextEditingController();
+
+    if (widget.model.defaultValue != null) {
+      widget.controller?.text = widget.model.defaultValue;
+    }
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant GSMobileField oldWidget) {
+
+    if (widget.model.defaultValue != null) {
+      widget.controller?.text = widget.model.defaultValue;
+    }
+
+    widget.controller  =  oldWidget.controller;
+
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Padding(
+      padding: const EdgeInsets.only(right: 10.0, left: 10.0),
+      child: TextField(
+        textAlign: TextAlign.left,
+        controller: widget.controller,
+        maxLength: widget.model.maxLength ?? 11,
+        style: widget.formStyle.fieldTextStyle,
+        keyboardType: TextInputType.phone,
+        focusNode: widget.model.focusNode,
+        textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
+        onSubmitted: (_) {
+          FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
+        },
+        decoration: InputDecoration(
+          hintText: widget.model.hint,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          counterText: '',
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,     
+          hintStyle: widget.formStyle.fieldHintStyle,
+        ),
+      ),
+    );
+  }
+
+
 }

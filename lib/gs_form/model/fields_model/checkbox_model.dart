@@ -18,7 +18,6 @@ class GSCheckBoxModel extends GSFieldModel {
   Icon? searchIcon;
   BoxDecoration? searchBoxDecoration;
   Color? scrollBarColor;
-  List<int>? selectedItems;
   RequiredCheckListEnum? requiredCheckListEnum;
 
   final ValueChanged<CheckDataModel> callBack;
@@ -49,7 +48,7 @@ class GSCheckBoxModel extends GSFieldModel {
       this.searchHint,
       this.searchIcon,
       this.searchBoxDecoration,
-      this.selectedItems})
+      })
       : super(
           type: type,
           tag: tag,

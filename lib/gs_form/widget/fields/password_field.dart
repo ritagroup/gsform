@@ -12,7 +12,8 @@ class GSPasswordField extends StatefulWidget implements GSFieldCallBack {
   void Function(void Function())? state;
   bool obscured = true;
 
-  TextEditingController? controller = TextEditingController();
+
+  TextEditingController? controller ;
 
   GSPasswordField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
@@ -40,10 +41,29 @@ class GSPasswordField extends StatefulWidget implements GSFieldCallBack {
 
 class _GSPasswordFieldState extends State<GSPasswordField> {
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    widget.controller ??= TextEditingController();
+
     if (widget.model.defaultValue != null) {
       widget.controller?.text = widget.model.defaultValue;
     }
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant GSPasswordField oldWidget) {
+
+    if (widget.model.defaultValue != null) {
+      widget.controller?.text = widget.model.defaultValue;
+    }
+    widget.controller  =  oldWidget.controller;
+
+    super.didUpdateWidget(oldWidget);
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.only(start: 10.0),
       child: TextField(

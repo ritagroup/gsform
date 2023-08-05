@@ -50,7 +50,7 @@ import 'fields/multi_image_picker_field.dart';
 
 // ignore: must_be_immutable
 class GSField extends StatefulWidget {
-  late GSFieldModel model;
+  GSFieldModel? model;
   Widget? child;
   GSFormStyle? formStyle;
 
@@ -197,7 +197,6 @@ class GSField extends StatefulWidget {
     bool? required,
     bool? showTitle,
     GSFieldStatusEnum? status,
-    String? value,
     int? weight,
     RegExp? validateRegEx,
     ValueChanged<SpinnerDataModel?>? onChange,
@@ -214,7 +213,6 @@ class GSField extends StatefulWidget {
       prefixWidget: prefixWidget,
       required: required,
       status: status,
-      value: value,
       weight: weight,
       items: items,
       hint: hint,
@@ -232,7 +230,6 @@ class GSField extends StatefulWidget {
       bool? required,
       bool? showTitle,
       GSFieldStatusEnum? status,
-      String? value,
       int? weight,
       RegExp? validateRegEx,
       String? hint,
@@ -259,7 +256,6 @@ class GSField extends StatefulWidget {
         helpMessage: helpMessage,
         required: required,
         status: status,
-        value: value,
         weight: weight,
         showScrollBar: showScrollBar,
         scrollBarColor: scrollBarColor,
@@ -290,7 +286,6 @@ class GSField extends StatefulWidget {
     Widget? prefixWidget,
     bool? showTitle,
     GSFieldStatusEnum? status,
-    String? value,
     int? weight,
     RegExp? validateRegEx,
     String? hint,
@@ -318,7 +313,6 @@ class GSField extends StatefulWidget {
         helpMessage: helpMessage,
         required: isRequired,
         status: status,
-        value: value,
         weight: weight,
         showScrollBar: showScrollBar,
         scrollBarColor: scrollBarColor,
@@ -348,7 +342,7 @@ class GSField extends StatefulWidget {
       bool? required,
       bool? showTitle,
       GSFieldStatusEnum? status,
-      String? value,
+      String? defaultValue,
       int? weight,
       RegExp? validateRegEx,
       int? maxLength,
@@ -367,7 +361,7 @@ class GSField extends StatefulWidget {
       postfixWidget: postfixWidget,
       required: required,
       status: status,
-      value: value,
+      value: defaultValue,
       weight: weight,
       maxLength: maxLength,
       hint: hint,
@@ -384,7 +378,7 @@ class GSField extends StatefulWidget {
       bool? required,
       bool? showTitle,
       GSFieldStatusEnum? status,
-      String? value,
+      String? defaultValue,
       int? weight,
       RegExp? validateReg,
       int? maxLength,
@@ -403,7 +397,7 @@ class GSField extends StatefulWidget {
       prefixWidget: prefixWidget,
       required: required,
       status: status,
-      value: value,
+      value: defaultValue,
       weight: weight,
       hint: hint,
       maxLength: maxLength,
@@ -421,7 +415,7 @@ class GSField extends StatefulWidget {
       bool? required,
       bool? showTitle,
       GSFieldStatusEnum? status,
-      String? value,
+      String? defaultValue,
       int? weight,
       RegExp? validateRegEx,
       int? maxLength,
@@ -441,7 +435,7 @@ class GSField extends StatefulWidget {
         postfixWidget: postfixWidget,
         required: required,
         status: status,
-        defaultValue: value,
+        defaultValue: defaultValue,
         weight: weight,
         hint: hint,
         maxLine: maxLine,
@@ -461,7 +455,7 @@ class GSField extends StatefulWidget {
     bool? required,
     bool? showTitle,
     GSFieldStatusEnum? status,
-    String? value,
+    String? defaultValue,
     int? weight,
     RegExp? validateRegEx,
     int? maxLength,
@@ -478,7 +472,7 @@ class GSField extends StatefulWidget {
       required: required,
       showTitle: showTitle ?? true,
       status: status,
-      value: value,
+      value: defaultValue,
       weight: weight,
       maxLength: maxLength,
       hint: hint,
@@ -495,7 +489,7 @@ class GSField extends StatefulWidget {
     Widget? postfixWidget,
     bool? required,
     GSFieldStatusEnum? status,
-    String? value,
+    String? defaultValue,
     int? weight,
     RegExp? validateRegEx,
     int? maxLength,
@@ -514,7 +508,7 @@ class GSField extends StatefulWidget {
       postfixWidget: postfixWidget,
       required: required,
       status: status,
-      value: value,
+      value: defaultValue,
       weight: weight,
       maxLength: maxLength,
       hint: hint,
@@ -534,7 +528,6 @@ class GSField extends StatefulWidget {
     bool? required,
     bool? showTitle,
     GSFieldStatusEnum? status,
-    String? value,
     int? weight,
     RegExp? validateReg,
     int? maxLength,
@@ -557,7 +550,6 @@ class GSField extends StatefulWidget {
         postfixWidget: postfixWidget,
         required: required,
         status: status,
-        value: value,
         weight: weight,
         hint: hint,
         isPastAvailable: isPastAvailable,
@@ -581,7 +573,6 @@ class GSField extends StatefulWidget {
     bool? required,
     bool? showTitle,
     GSFieldStatusEnum? status,
-    String? value,
     int? weight,
     RegExp? validateReg,
     int? maxLength,
@@ -606,7 +597,6 @@ class GSField extends StatefulWidget {
         showTitle: showTitle ?? true,
         required: required,
         status: status,
-        value: value,
         weight: weight,
         hint: hint,
         isPastAvailable: isPastAvailable,
@@ -629,7 +619,6 @@ class GSField extends StatefulWidget {
     bool? showTitle,
     bool? required,
     GSFieldStatusEnum? status,
-    String? value,
     int? weight,
     RegExp? validateReg,
     int? maxLength,
@@ -648,7 +637,6 @@ class GSField extends StatefulWidget {
       postfixWidget: postfixWidget,
       required: required,
       status: status,
-      value: value,
       weight: weight,
       hint: hint,
       initialTime: initialTime,
@@ -667,7 +655,7 @@ class GSField extends StatefulWidget {
     bool? required,
     bool? showTitle,
     GSFieldStatusEnum? status,
-    String? value,
+    String? defaultValue,
     int? weight,
     RegExp? validateRegEx,
     int? maxLength,
@@ -684,7 +672,7 @@ class GSField extends StatefulWidget {
       postfixWidget: postfixWidget,
       required: required,
       status: status,
-      value: value,
+      value: defaultValue,
       weight: weight,
       maxLength: maxLength,
       hint: hint,
@@ -740,7 +728,7 @@ class GSField extends StatefulWidget {
       bool? required,
       bool? showTitle,
       GSFieldStatusEnum? status,
-      String? value,
+      String? defaultValue,
       int? weight,
       RegExp? validateRegEx,
       int? minLine,
@@ -758,7 +746,7 @@ class GSField extends StatefulWidget {
       required: required,
       status: status,
       showTitle: showTitle ?? true,
-      value: value,
+      value: defaultValue,
       weight: weight,
       hint: hint,
     );
@@ -773,7 +761,6 @@ class GSField extends StatefulWidget {
 class _GSFieldState extends State<GSField> {
   @override
   void didUpdateWidget(covariant GSField oldWidget) {
-    widget.model = oldWidget.model;
     _fillChild();
     super.didUpdateWidget(oldWidget);
   }
@@ -789,14 +776,14 @@ class _GSFieldState extends State<GSField> {
     widget.formStyle = widget.formStyle ?? GSFormStyle();
     widget.onUpdate = () {
       if (mounted) {
-        if (widget.model.status != GSFieldStatusEnum.disabled) {
+        if (widget.model?.status != GSFieldStatusEnum.disabled) {
           setState(() {});
         }
       }
     };
 
     return AbsorbPointer(
-      absorbing: widget.model.status == GSFieldStatusEnum.disabled,
+      absorbing: widget.model?.status == GSFieldStatusEnum.disabled,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -804,15 +791,15 @@ class _GSFieldState extends State<GSField> {
             child: Column(
               children: [
                 Visibility(
-                  visible: widget.model.showTitle!,
+                  visible: widget.model?.showTitle ?? false,
                   child: Column(
                     children: [
                       Row(
                         children: [
-                          Text(widget.model.title ?? "", style: widget.formStyle!.titleTextStyle),
+                          Text(widget.model?.title ?? "", style: widget.formStyle!.titleTextStyle),
                           const SizedBox(width: 4.0),
                           Opacity(
-                            opacity: widget.model.required ?? false ? 1 : 0,
+                            opacity: widget.model?.required ?? false ? 1 : 0,
                             child: Text(
                               widget.formStyle!.requiredText,
                               style: const TextStyle(color: GSFormColors.red, fontSize: 10),
@@ -825,16 +812,16 @@ class _GSFieldState extends State<GSField> {
                   ),
                 ),
                 Container(
-                  decoration: GSFormUtils.getFieldDecoration(widget.formStyle!, widget.model.status),
+                  decoration: GSFormUtils.getFieldDecoration(widget.formStyle!, widget.model?.status),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Visibility(
-                        visible: widget.model.prefixWidget == null ? false : true,
+                        visible: widget.model?.prefixWidget == null ? false : true,
                         child: Row(
                           children: [
                             const SizedBox(width: 8.0),
-                            widget.model.prefixWidget ?? const SizedBox(width: 0),
+                            widget.model?.prefixWidget ?? const SizedBox(width: 0),
                             const SizedBox(width: 8.0),
                             Container(
                               height: 30.0,
@@ -846,11 +833,11 @@ class _GSFieldState extends State<GSField> {
                       ),
                       Expanded(child: widget.child!),
                       Visibility(
-                        visible: widget.model.postfixWidget == null ? false : true,
+                        visible: widget.model?.postfixWidget == null ? false : true,
                         child: Row(
                           children: [
                             const SizedBox(width: 10.0),
-                            widget.model.postfixWidget ?? const SizedBox(width: 0),
+                            widget.model?.postfixWidget ?? const SizedBox(width: 0),
                             const SizedBox(width: 10.0),
                           ],
                         ),
@@ -860,8 +847,8 @@ class _GSFieldState extends State<GSField> {
                 ),
                 const SizedBox(height: 4.0),
                 Opacity(
-                  opacity: (widget.model.status == GSFieldStatusEnum.error && widget.model.errorMessage != null) ||
-                          widget.model.helpMessage != null
+                  opacity: (widget.model?.status == GSFieldStatusEnum.error && widget.model?.errorMessage != null) ||
+                          widget.model?.helpMessage != null
                       ? 1
                       : 0,
                   child: Row(
@@ -870,17 +857,17 @@ class _GSFieldState extends State<GSField> {
                         width: 8.0,
                         height: 8.0,
                         child: SvgPicture.asset(
-                          widget.model.status == GSFieldStatusEnum.error
+                          widget.model?.status == GSFieldStatusEnum.error
                               ? 'packages/gsform/assets/ic_alret.svg'
                               : 'packages/gsform/assets/ic_info.svg',
                         ),
                       ),
                       const SizedBox(width: 1.0),
                       Text(
-                        widget.model.status == GSFieldStatusEnum.error
-                            ? widget.model.errorMessage ?? ''
-                            : widget.model.helpMessage ?? '',
-                        style: widget.model.status == GSFieldStatusEnum.error
+                        widget.model?.status == GSFieldStatusEnum.error
+                            ? widget.model?.errorMessage ?? ''
+                            : widget.model?.helpMessage ?? '',
+                        style: widget.model?.status == GSFieldStatusEnum.error
                             ? widget.formStyle!.errorTextStyle
                             : widget.formStyle!.helpTextStyle,
                       ),
@@ -897,7 +884,7 @@ class _GSFieldState extends State<GSField> {
   }
 
   _fillChild() {
-    switch (widget.model.type) {
+    switch (widget.model?.type) {
       case GSFieldTypeEnum.text:
         widget.child = GSTextField(widget.model as GSTextModel, widget.formStyle!);
         break;
