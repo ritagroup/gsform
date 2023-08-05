@@ -113,4 +113,7 @@
 ## 0.3.1
 * Improve some fields 
 
+## 0.3.2
+* Fix default value bugs 
+
 

@@ -51,10 +51,11 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
 
   @override
   void didUpdateWidget(covariant GSPasswordField oldWidget) {
+    widget.controller = oldWidget.controller;
+
     if (widget.model.defaultValue != null) {
       widget.controller?.text = widget.model.defaultValue;
     }
-    widget.controller = oldWidget.controller;
 
     super.didUpdateWidget(oldWidget);
   }

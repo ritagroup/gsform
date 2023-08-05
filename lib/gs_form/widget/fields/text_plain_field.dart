@@ -45,10 +45,10 @@ class _GSTextPlainFieldState extends State<GSTextPlainField> {
 
   @override
   void didUpdateWidget(covariant GSTextPlainField oldWidget) {
+    widget.controller = oldWidget.controller;
     if (widget.model.defaultValue != null) {
       widget.controller?.text = widget.model.defaultValue;
     }
-    widget.controller = oldWidget.controller;
 
     super.didUpdateWidget(oldWidget);
   }

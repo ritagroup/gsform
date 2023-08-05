@@ -47,10 +47,11 @@ class _GSNumberFieldState extends State<GSNumberField> {
 
   @override
   void didUpdateWidget(covariant GSNumberField oldWidget) {
+    widget.controller = oldWidget.controller;
+
     if (widget.model.defaultValue != null) {
       widget.controller?.text = widget.model.defaultValue;
     }
-    widget.controller = oldWidget.controller;
 
     super.didUpdateWidget(oldWidget);
   }

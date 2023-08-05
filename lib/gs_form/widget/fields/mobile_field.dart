@@ -46,11 +46,12 @@ class _GSMobileFieldState extends State<GSMobileField> {
 
   @override
   void didUpdateWidget(covariant GSMobileField oldWidget) {
+    widget.controller = oldWidget.controller;
+
     if (widget.model.defaultValue != null) {
       widget.controller?.text = widget.model.defaultValue;
     }
 
-    widget.controller = oldWidget.controller;
 
     super.didUpdateWidget(oldWidget);
   }
