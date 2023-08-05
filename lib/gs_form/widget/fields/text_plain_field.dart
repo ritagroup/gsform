@@ -3,17 +3,16 @@ import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/fields_model/text_plain_model.dart';
 
+// ignore: must_be_immutable
 class GSTextPlainField extends StatefulWidget implements GSFieldCallBack {
   final GSTextPlainModel model;
   final GSFormStyle formStyle;
-  TextEditingController? controller ;
-
+  TextEditingController? controller;
 
   GSTextPlainField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
   State<GSTextPlainField> createState() => _GSTextPlainFieldState();
-
 
   @override
   getValue() {
@@ -35,7 +34,6 @@ class GSTextPlainField extends StatefulWidget implements GSFieldCallBack {
 }
 
 class _GSTextPlainFieldState extends State<GSTextPlainField> {
-
   @override
   void initState() {
     widget.controller ??= TextEditingController();
@@ -47,18 +45,16 @@ class _GSTextPlainFieldState extends State<GSTextPlainField> {
 
   @override
   void didUpdateWidget(covariant GSTextPlainField oldWidget) {
-
     if (widget.model.defaultValue != null) {
       widget.controller?.text = widget.model.defaultValue;
     }
-    widget.controller  =  oldWidget.controller;
+    widget.controller = oldWidget.controller;
 
     super.didUpdateWidget(oldWidget);
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
       child: TextField(
@@ -88,5 +84,4 @@ class _GSTextPlainFieldState extends State<GSTextPlainField> {
       ),
     );
   }
-
 }

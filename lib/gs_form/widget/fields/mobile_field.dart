@@ -3,11 +3,11 @@ import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/fields_model/mobile_model.dart';
 
+// ignore: must_be_immutable
 class GSMobileField extends StatefulWidget implements GSFieldCallBack {
   final GSMobileModel model;
   final GSFormStyle formStyle;
-  TextEditingController? controller ;
-
+  TextEditingController? controller;
 
   GSMobileField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
@@ -34,7 +34,6 @@ class GSMobileField extends StatefulWidget implements GSFieldCallBack {
 }
 
 class _GSMobileFieldState extends State<GSMobileField> {
-
   @override
   void initState() {
     widget.controller ??= TextEditingController();
@@ -47,19 +46,17 @@ class _GSMobileFieldState extends State<GSMobileField> {
 
   @override
   void didUpdateWidget(covariant GSMobileField oldWidget) {
-
     if (widget.model.defaultValue != null) {
       widget.controller?.text = widget.model.defaultValue;
     }
 
-    widget.controller  =  oldWidget.controller;
+    widget.controller = oldWidget.controller;
 
     super.didUpdateWidget(oldWidget);
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
@@ -79,12 +76,10 @@ class _GSMobileFieldState extends State<GSMobileField> {
           enabledBorder: InputBorder.none,
           counterText: '',
           errorBorder: InputBorder.none,
-          disabledBorder: InputBorder.none,     
+          disabledBorder: InputBorder.none,
           hintStyle: widget.formStyle.fieldHintStyle,
         ),
       ),
     );
   }
-
-
 }

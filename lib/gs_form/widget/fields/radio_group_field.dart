@@ -18,7 +18,6 @@ class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
   List<RadioDataModel> filteredItems = [];
   String keyword = "";
 
-
   @override
   State<GSRadioGroupField> createState() => _GSRadioGroupFieldState();
 
@@ -40,7 +39,6 @@ class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
 class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
   ScrollController controller = ScrollController();
 
-
   @override
   void initState() {
     widget.filteredItems = widget.model.items;
@@ -55,12 +53,11 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
 
   @override
   void didUpdateWidget(covariant GSRadioGroupField oldWidget) {
-    widget.textController = oldWidget.textController ;
-    widget.filteredItems = oldWidget.filteredItems ;
-    widget.returnedData = oldWidget.returnedData ;
+    widget.textController = oldWidget.textController;
+    widget.filteredItems = oldWidget.filteredItems;
+    widget.returnedData = oldWidget.returnedData;
     super.didUpdateWidget(oldWidget);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -99,11 +96,10 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
                             border: InputBorder.none),
                         onChanged: (text) {
                           widget.keyword = text;
-                          widget.filteredItems = widget.model.items.where((i) => i.title.contains(widget.keyword) == true).toList();
+                          widget.filteredItems =
+                              widget.model.items.where((i) => i.title.contains(widget.keyword) == true).toList();
 
-                          setState(() {
-
-                          });
+                          setState(() {});
                         },
                       ),
                     ),

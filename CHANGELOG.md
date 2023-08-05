@@ -97,7 +97,7 @@
 
 ## 0.2.7
 * Create document
-
+            
 ## 0.2.8
 * Fix bug 
 * Update dependencies
@@ -109,4 +109,8 @@
 ## 0.3.0
 * Bug fixing
 * Improve some fields 
+
+## 0.3.1
+* Improve some fields 
+
 

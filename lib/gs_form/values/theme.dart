@@ -19,6 +19,5 @@ class GSFormTheme {
     headlineMedium: TextStyle(color: GSFormColors.hintTextDarkColor, fontWeight: FontWeight.w400, fontSize: 7.0),
     headlineSmall: TextStyle(color: GSFormColors.red, fontWeight: FontWeight.w400, fontSize: 7.0),
     bodyMedium: TextStyle(color: GSFormColors.hintTextDarkColor, fontWeight: FontWeight.w400, fontSize: 11.0),
-
   );
 }

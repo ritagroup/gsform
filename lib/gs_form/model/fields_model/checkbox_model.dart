@@ -6,7 +6,7 @@ import 'field_model.dart';
 
 class GSCheckBoxModel extends GSFieldModel {
   List<CheckDataModel> items;
-  String? hint;
+  String? hint; 
   Widget? selectedIcon;
   Widget? unSelectedIcon;
   bool? scrollable;
@@ -22,34 +22,33 @@ class GSCheckBoxModel extends GSFieldModel {
 
   final ValueChanged<CheckDataModel> callBack;
 
-  GSCheckBoxModel(
-      {type,
-      tag,
-      title,
-      errorMessage,
-      helpMessage,
-      required,
-      status,
-      value,
-      weight,
-      showTitle,
-      required this.items,
-      required this.callBack,
-      this.requiredCheckListEnum,
-      this.selectedIcon,
-      this.unSelectedIcon,
-      this.hint,
-      this.scrollable,
-      this.height,
-      this.scrollDirection,
-      this.scrollBarColor,
-      this.showScrollBar,
-      required this.searchable,
-      this.searchHint,
-      this.searchIcon,
-      this.searchBoxDecoration,
-      })
-      : super(
+  GSCheckBoxModel({
+    type,
+    tag,
+    title,
+    errorMessage,
+    helpMessage,
+    required,
+    status,
+    value,
+    weight,
+    showTitle,
+    required this.items,
+    required this.callBack,
+    this.requiredCheckListEnum,
+    this.selectedIcon,
+    this.unSelectedIcon,
+    this.hint,
+    this.scrollable,
+    this.height,
+    this.scrollDirection,
+    this.scrollBarColor,
+    this.showScrollBar,
+    required this.searchable,
+    this.searchHint,
+    this.searchIcon,
+    this.searchBoxDecoration,
+  }) : super(
           type: type,
           tag: tag,
           title: title,

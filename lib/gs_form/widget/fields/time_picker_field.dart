@@ -63,7 +63,7 @@ class _GSTimePickerFieldState extends State<GSTimePickerField> {
 
   @override
   void didUpdateWidget(covariant GSTimePickerField oldWidget) {
-    if (widget.model.initialTime != null && oldWidget.selectedTime==null) {
+    if (widget.model.initialTime != null && oldWidget.selectedTime == null) {
       widget.selectedTime = widget.model.initialTime;
     } else {
       widget.selectedTime = oldWidget.selectedTime;

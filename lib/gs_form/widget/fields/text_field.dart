@@ -3,10 +3,11 @@ import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/model/fields_model/text_filed_model.dart';
 
+// ignore: must_be_immutable
 class GSTextField extends StatefulWidget implements GSFieldCallBack {
   final GSTextModel model;
   final GSFormStyle formStyle;
-  TextEditingController? controller ;
+  TextEditingController? controller;
 
   GSTextField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
@@ -33,8 +34,6 @@ class GSTextField extends StatefulWidget implements GSFieldCallBack {
 }
 
 class _GSTextFieldState extends State<GSTextField> {
-
-
   @override
   void initState() {
     widget.controller ??= TextEditingController();
@@ -46,11 +45,10 @@ class _GSTextFieldState extends State<GSTextField> {
 
   @override
   void didUpdateWidget(covariant GSTextField oldWidget) {
-
     if (widget.model.defaultValue != null) {
       widget.controller?.text = widget.model.defaultValue;
     }
-    widget.controller  =  oldWidget.controller;
+    widget.controller = oldWidget.controller;
 
     super.didUpdateWidget(oldWidget);
   }
@@ -81,6 +79,4 @@ class _GSTextFieldState extends State<GSTextField> {
       ),
     );
   }
-
-
 }

@@ -5,6 +5,7 @@ import 'package:gsform/gs_form/core/field_callback.dart';
 import '../../core/form_style.dart';
 import '../../model/fields_model/email_model.dart';
 
+// ignore: must_be_immutable
 class GSEmailField extends StatefulWidget implements GSFieldCallBack {
   final GSEmailModel model;
   final GSFormStyle formStyle;

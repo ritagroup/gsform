@@ -40,7 +40,7 @@ class GSSpinnerField extends StatefulWidget implements GSFieldCallBack {
 class _GSSpinnerFieldState extends State<GSSpinnerField> {
   @override
   void initState() {
-    if(widget.model.items.isEmpty){
+    if (widget.model.items.isEmpty) {
       widget.model.items.add(SpinnerDataModel(name: '', id: -10));
     }
     for (var element in widget.model.items) {
@@ -61,10 +61,10 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
 
   @override
   void didUpdateWidget(covariant GSSpinnerField oldWidget) {
-    if(widget.model.items.isEmpty){
+    if (widget.model.items.isEmpty) {
       widget.model.items.add(SpinnerDataModel(name: '', id: -10));
     }
-    if(oldWidget.returnedData!= null ) {
+    if (oldWidget.returnedData != null) {
       for (var element in widget.model.items) {
         if (element.id == oldWidget.returnedData!.id) {
           widget.returnedData = element;

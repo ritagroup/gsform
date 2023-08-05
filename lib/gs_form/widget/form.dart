@@ -67,7 +67,7 @@ class GSForm extends StatelessWidget {
     for (var section in sections) {
       for (var filed in section.fields) {
         if (filed is GSField) {
-          data[filed.model?.tag??''] = (filed.child as GSFieldCallBack).getValue();
+          data[filed.model?.tag ?? ''] = (filed.child as GSFieldCallBack).getValue();
         }
       }
     }
