@@ -21,6 +21,8 @@ class GSEmailModel extends GSFieldModel {
       maxLength,
       weight,
       showTitle,
+      enableReadOnly,
+      onTap,
       this.hint})
       : super(
           type: type,
@@ -37,5 +39,7 @@ class GSEmailModel extends GSFieldModel {
           weight: weight,
           focusNode: FocusNode(),
           showTitle: showTitle,
+          enableReadOnly: enableReadOnly,
+          onTap: onTap,
         );
 }

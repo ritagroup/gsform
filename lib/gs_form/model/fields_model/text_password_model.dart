@@ -20,6 +20,8 @@ class GSPasswordModel extends GSFieldModel {
       validateReg,
       weight,
       showTitle,
+      enableReadOnly,
+      onTap,
       this.maxLength,
       this.hint})
       : super(
@@ -37,5 +39,7 @@ class GSPasswordModel extends GSFieldModel {
           weight: weight,
           focusNode: FocusNode(),
           showTitle: showTitle,
+          enableReadOnly: enableReadOnly,
+          onTap: onTap,
         );
 }

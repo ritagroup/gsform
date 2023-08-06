@@ -49,9 +49,9 @@ class _GSNumberFieldState extends State<GSNumberField> {
   void didUpdateWidget(covariant GSNumberField oldWidget) {
     widget.controller = oldWidget.controller;
 
-    if (widget.model.defaultValue != null) {
-      widget.controller?.text = widget.model.defaultValue;
-    }
+    // if (widget.model.defaultValue != null) {
+    //   widget.controller?.text = widget.model.defaultValue;
+    // }
 
     super.didUpdateWidget(oldWidget);
   }
@@ -61,6 +61,7 @@ class _GSNumberFieldState extends State<GSNumberField> {
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
+        readOnly: widget.model.enableReadOnly??false,
         textAlignVertical: TextAlignVertical.center,
         controller: widget.controller,
         maxLength: widget.model.maxLength,

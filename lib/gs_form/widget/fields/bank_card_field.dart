@@ -54,9 +54,9 @@ class _GSBankCardFieldState extends State<GSBankCardField> {
   void didUpdateWidget(covariant GSBankCardField oldWidget) {
     widget.controller = oldWidget.controller;
 
-    if (widget.model.defaultValue != null) {
-      widget.controller?.text = widget.model.defaultValue;
-    }
+    // if (widget.model.defaultValue != null) {
+    //   widget.controller?.text = widget.model.defaultValue;
+    // }
 
     super.didUpdateWidget(oldWidget);
   }
@@ -65,6 +65,7 @@ class _GSBankCardFieldState extends State<GSBankCardField> {
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
+        readOnly: widget.model.enableReadOnly??false,
         inputFormatters: [CardNumberFormatter()],
         textAlign: TextAlign.center,
         textDirection: TextDirection.ltr,

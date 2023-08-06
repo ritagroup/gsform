@@ -12,8 +12,6 @@ class GSPriceField extends StatefulWidget implements GSFieldCallBack {
   GSFormStyle formStyle;
   TextEditingController? controller;
 
-
-
   GSPriceField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
@@ -41,12 +39,15 @@ class GSPriceField extends StatefulWidget implements GSFieldCallBack {
 }
 
 class _GSPriceFieldState extends State<GSPriceField> {
-
-
   @override
   void initState() {
     widget.controller ??= TextEditingController();
     if (widget.model.defaultValue != null) {
+      widget.model.defaultValue = widget._formatNumber(widget.model.defaultValue.replaceAll(',', ''));
+      widget.controller?.value = TextEditingValue(
+        text: widget.model.defaultValue,
+        selection: TextSelection.collapsed(offset: widget.model.defaultValue.length),
+      );
       widget.controller?.text = widget.model.defaultValue;
     }
     super.initState();
@@ -55,9 +56,9 @@ class _GSPriceFieldState extends State<GSPriceField> {
   @override
   void didUpdateWidget(covariant GSPriceField oldWidget) {
     widget.controller = oldWidget.controller;
-    if (widget.model.defaultValue != null) {
-      widget.controller?.text = widget.model.defaultValue;
-    }
+    // if (widget.model.defaultValue != null) {
+    //   widget.controller?.text = widget.model.defaultValue;
+    // }
     super.didUpdateWidget(oldWidget);
   }
 
@@ -66,11 +67,11 @@ class _GSPriceFieldState extends State<GSPriceField> {
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
+        readOnly: widget.model.enableReadOnly ?? false,
         controller: widget.controller,
         maxLength: widget.model.maxLength,
         keyboardType: TextInputType.number,
         textAlign: TextAlign.left,
-        textAlignVertical: TextAlignVertical.center,
         focusNode: widget.model.focusNode,
         style: widget.formStyle.fieldTextStyle,
         textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
@@ -96,6 +97,4 @@ class _GSPriceFieldState extends State<GSPriceField> {
       ),
     );
   }
-
-
 }

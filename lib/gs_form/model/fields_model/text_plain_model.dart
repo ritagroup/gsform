@@ -21,10 +21,12 @@ class GSTextPlainModel extends GSFieldModel {
       status,
       defaultValue,
       validateRegEx,
-      this.maxLength,
+      enableReadOnly,
       weight,
       showTitle,
+      onTap,
       this.minLine,
+      this.maxLength,
       this.maxLine,
       this.hint,
       this.showCounter})
@@ -43,5 +45,7 @@ class GSTextPlainModel extends GSFieldModel {
           weight: weight,
           focusNode: FocusNode(),
           showTitle: showTitle,
+          enableReadOnly: enableReadOnly,
+          onTap: onTap,
         );
 }

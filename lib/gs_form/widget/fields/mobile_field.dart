@@ -48,9 +48,9 @@ class _GSMobileFieldState extends State<GSMobileField> {
   void didUpdateWidget(covariant GSMobileField oldWidget) {
     widget.controller = oldWidget.controller;
 
-    if (widget.model.defaultValue != null) {
-      widget.controller?.text = widget.model.defaultValue;
-    }
+    // if (widget.model.defaultValue != null) {
+    //   widget.controller?.text = widget.model.defaultValue;
+    // }
 
 
     super.didUpdateWidget(oldWidget);
@@ -61,6 +61,7 @@ class _GSMobileFieldState extends State<GSMobileField> {
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
+        readOnly: widget.model.enableReadOnly??false,
         textAlign: TextAlign.left,
         controller: widget.controller,
         maxLength: widget.model.maxLength ?? 11,

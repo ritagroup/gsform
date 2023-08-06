@@ -114,6 +114,10 @@
 * Improve some fields 
 
 ## 0.3.2
-* Fix default value bugs 
+* Fix default value bugs
+
+## 0.3.3
+* Fix bugs
+* Add readOnly future in Text fields
 
 

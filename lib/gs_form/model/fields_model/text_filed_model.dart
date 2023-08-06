@@ -21,6 +21,8 @@ class GSTextModel extends GSFieldModel {
       validateRegEx,
       weight,
       showTitle,
+      enableReadOnly,
+      onTap,
       this.maxLength,
       this.hint})
       : super(
@@ -38,5 +40,7 @@ class GSTextModel extends GSFieldModel {
           weight: weight,
           focusNode: FocusNode(),
           showTitle: showTitle,
+          enableReadOnly: enableReadOnly,
+          onTap: onTap,
         );
 }

@@ -53,9 +53,9 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
   void didUpdateWidget(covariant GSPasswordField oldWidget) {
     widget.controller = oldWidget.controller;
 
-    if (widget.model.defaultValue != null) {
-      widget.controller?.text = widget.model.defaultValue;
-    }
+    // if (widget.model.defaultValue != null) {
+    //   widget.controller?.text = widget.model.defaultValue;
+    // }
 
     super.didUpdateWidget(oldWidget);
   }
@@ -65,6 +65,7 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
     return Padding(
       padding: const EdgeInsetsDirectional.only(start: 10.0),
       child: TextField(
+        readOnly: widget.model.enableReadOnly??false,
         textAlignVertical: TextAlignVertical.center,
         keyboardType: TextInputType.visiblePassword,
         obscureText: widget.obscured,

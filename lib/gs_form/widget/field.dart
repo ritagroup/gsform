@@ -75,6 +75,7 @@ class GSField extends StatefulWidget {
     String? hint,
     Widget? iconWidget,
     Color? iconColor,
+    bool? enableReadOnly,
   }) : super(key: key) {
     model = GSQRScannerModel(
       type: GSFieldTypeEnum.qrScanner,
@@ -88,6 +89,7 @@ class GSField extends StatefulWidget {
       weight: weight,
       hint: hint,
       iconWidget: iconWidget,
+      enableReadOnly: enableReadOnly,
     );
   }
 
@@ -331,25 +333,26 @@ class GSField extends StatefulWidget {
         requiredCheckListEnum: requiredCheckListEnum);
   }
 
-  GSField.text(
-      {Key? key,
-      required String tag,
-      String? title,
-      String? errorMessage,
-      String? helpMessage,
-      Widget? prefixWidget,
-      Widget? postfixWidget,
-      bool? required,
-      bool? showTitle,
-      GSFieldStatusEnum? status,
-      String? defaultValue,
-      int? weight,
-      RegExp? validateRegEx,
-      int? maxLength,
-      int? minLine,
-      int? maxLine,
-      String? hint})
-      : super(key: key) {
+  GSField.text({
+    Key? key,
+    required String tag,
+    String? title,
+    String? errorMessage,
+    String? helpMessage,
+    Widget? prefixWidget,
+    Widget? postfixWidget,
+    bool? required,
+    bool? showTitle,
+    GSFieldStatusEnum? status,
+    String? defaultValue,
+    int? weight,
+    RegExp? validateRegEx,
+    int? maxLength,
+    int? minLine,
+    int? maxLine,
+    String? hint,
+    bool? readOnly,
+  }) : super(key: key) {
     model = GSTextModel(
       type: GSFieldTypeEnum.text,
       tag: tag,
@@ -365,28 +368,30 @@ class GSField extends StatefulWidget {
       weight: weight,
       maxLength: maxLength,
       hint: hint,
+      enableReadOnly: readOnly,
     );
   }
 
-  GSField.password(
-      {Key? key,
-      required String tag,
-      String? title,
-      String? errorMessage,
-      String? helpMessage,
-      Widget? prefixWidget,
-      bool? required,
-      bool? showTitle,
-      GSFieldStatusEnum? status,
-      String? defaultValue,
-      int? weight,
-      RegExp? validateReg,
-      int? maxLength,
-      int? minLine,
-      int? maxLine,
-      bool? isEnable,
-      String? hint})
-      : super(key: key) {
+  GSField.password({
+    Key? key,
+    required String tag,
+    String? title,
+    String? errorMessage,
+    String? helpMessage,
+    Widget? prefixWidget,
+    bool? required,
+    bool? showTitle,
+    GSFieldStatusEnum? status,
+    String? defaultValue,
+    int? weight,
+    RegExp? validateReg,
+    int? maxLength,
+    int? minLine,
+    int? maxLine,
+    bool? isEnable,
+    String? hint,
+    bool? readOnly,
+  }) : super(key: key) {
     model = GSPasswordModel(
       type: GSFieldTypeEnum.password,
       showTitle: showTitle ?? true,
@@ -401,47 +406,51 @@ class GSField extends StatefulWidget {
       weight: weight,
       hint: hint,
       maxLength: maxLength,
+      enableReadOnly: readOnly,
     );
   }
 
-  GSField.textPlain(
-      {Key? key,
-      required String tag,
-      String? title,
-      String? errorMessage,
-      String? helpMessage,
-      Widget? prefixWidget,
-      Widget? postfixWidget,
-      bool? required,
-      bool? showTitle,
-      GSFieldStatusEnum? status,
-      String? defaultValue,
-      int? weight,
-      RegExp? validateRegEx,
-      int? maxLength,
-      int? minLine,
-      int? maxLine,
-      String? hint,
-      bool? showCounter})
-      : super(key: key) {
+  GSField.textPlain({
+    Key? key,
+    required String tag,
+    String? title,
+    String? errorMessage,
+    String? helpMessage,
+    Widget? prefixWidget,
+    Widget? postfixWidget,
+    bool? required,
+    bool? showTitle,
+    GSFieldStatusEnum? status,
+    String? defaultValue,
+    int? weight,
+    RegExp? validateRegEx,
+    int? maxLength,
+    int? minLine,
+    int? maxLine,
+    String? hint,
+    bool? showCounter,
+    bool? readOnly,
+  }) : super(key: key) {
     model = GSTextPlainModel(
-        type: GSFieldTypeEnum.textPlain,
-        tag: tag,
-        title: title,
-        showTitle: showTitle ?? true,
-        errorMessage: errorMessage,
-        helpMessage: helpMessage,
-        prefixWidget: prefixWidget,
-        postfixWidget: postfixWidget,
-        required: required,
-        status: status,
-        defaultValue: defaultValue,
-        weight: weight,
-        hint: hint,
-        maxLine: maxLine,
-        minLine: minLine,
-        maxLength: maxLength,
-        showCounter: showCounter);
+      type: GSFieldTypeEnum.textPlain,
+      tag: tag,
+      title: title,
+      showTitle: showTitle ?? true,
+      errorMessage: errorMessage,
+      helpMessage: helpMessage,
+      prefixWidget: prefixWidget,
+      postfixWidget: postfixWidget,
+      required: required,
+      status: status,
+      defaultValue: defaultValue,
+      weight: weight,
+      hint: hint,
+      maxLine: maxLine,
+      minLine: minLine,
+      maxLength: maxLength,
+      showCounter: showCounter,
+      enableReadOnly: readOnly,
+    );
   }
 
   GSField.mobile({
@@ -460,6 +469,7 @@ class GSField extends StatefulWidget {
     RegExp? validateRegEx,
     int? maxLength,
     String? hint,
+    bool? readOnly,
   }) : super(key: key) {
     model = GSMobileModel(
       type: GSFieldTypeEnum.mobile,
@@ -476,6 +486,7 @@ class GSField extends StatefulWidget {
       weight: weight,
       maxLength: maxLength,
       hint: hint,
+      enableReadOnly: readOnly,
     );
   }
 
@@ -496,6 +507,7 @@ class GSField extends StatefulWidget {
     bool? showTitle,
     bool? showCounter,
     String? hint,
+    bool? readOnly,
   }) : super(key: key) {
     model = GSNumberModel(
       type: GSFieldTypeEnum.number,
@@ -513,6 +525,7 @@ class GSField extends StatefulWidget {
       maxLength: maxLength,
       hint: hint,
       showCounter: showCounter,
+      enableReadOnly: readOnly,
     );
   }
 
@@ -660,6 +673,7 @@ class GSField extends StatefulWidget {
     RegExp? validateRegEx,
     int? maxLength,
     String? hint,
+    bool? readOnly,
   }) : super(key: key) {
     model = GSEmailModel(
       type: GSFieldTypeEnum.email,
@@ -676,6 +690,7 @@ class GSField extends StatefulWidget {
       weight: weight,
       maxLength: maxLength,
       hint: hint,
+      enableReadOnly: readOnly,
     );
   }
 
@@ -695,6 +710,7 @@ class GSField extends StatefulWidget {
     RegExp? validateRegEx,
     int? maxLength,
     String? hint,
+    bool? readOnly,
   }) : super(key: key) {
     model = GSPriceModel(
       type: GSFieldTypeEnum.price,
@@ -714,6 +730,7 @@ class GSField extends StatefulWidget {
       weight: weight,
       maxLength: maxLength,
       hint: hint,
+      enableReadOnly: readOnly,
     );
   }
 
@@ -831,7 +848,9 @@ class _GSFieldState extends State<GSField> {
                           ],
                         ),
                       ),
-                      Expanded(child: widget.child!),
+                      Expanded(
+                        child: widget.child!,
+                      ),
                       Visibility(
                         visible: widget.model?.postfixWidget == null ? false : true,
                         child: Row(

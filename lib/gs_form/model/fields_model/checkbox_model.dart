@@ -33,6 +33,7 @@ class GSCheckBoxModel extends GSFieldModel {
     value,
     weight,
     showTitle,
+    enableReadOnly,
     required this.items,
     required this.callBack,
     this.requiredCheckListEnum,
@@ -59,5 +60,6 @@ class GSCheckBoxModel extends GSFieldModel {
           defaultValue: value,
           weight: weight,
           showTitle: showTitle,
+          enableReadOnly: enableReadOnly,
         );
 }

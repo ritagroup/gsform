@@ -18,6 +18,7 @@ class GSBankCardModel extends GSFieldModel {
       validateRegEx,
       weight,
       showTitle,
+      enableReadOnly,
       this.hint})
       : super(
           type: type,
@@ -33,6 +34,7 @@ class GSBankCardModel extends GSFieldModel {
           defaultValue: value,
           validateRegEx: validateRegEx,
           weight: weight,
+          enableReadOnly: enableReadOnly,
           focusNode: FocusNode(),
         );
 }

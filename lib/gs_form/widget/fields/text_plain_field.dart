@@ -46,9 +46,9 @@ class _GSTextPlainFieldState extends State<GSTextPlainField> {
   @override
   void didUpdateWidget(covariant GSTextPlainField oldWidget) {
     widget.controller = oldWidget.controller;
-    if (widget.model.defaultValue != null) {
-      widget.controller?.text = widget.model.defaultValue;
-    }
+    // if (widget.model.defaultValue != null) {
+    //   widget.controller?.text = widget.model.defaultValue;
+    // }
 
     super.didUpdateWidget(oldWidget);
   }
@@ -58,6 +58,7 @@ class _GSTextPlainFieldState extends State<GSTextPlainField> {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0, left: 8.0, bottom: 8.0),
       child: TextField(
+        readOnly: widget.model.enableReadOnly??false,
         controller: widget.controller,
         minLines: widget.model.minLine,
         enableSuggestions: false,

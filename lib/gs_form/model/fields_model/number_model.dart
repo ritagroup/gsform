@@ -21,6 +21,8 @@ class GSNumberModel extends GSFieldModel {
       weight,
       focusNode,
       showTitle,
+      enableReadOnly,
+      onTap,
       this.showCounter,
       this.maxLength,
       this.hint})
@@ -39,5 +41,7 @@ class GSNumberModel extends GSFieldModel {
           weight: weight,
           focusNode: FocusNode(),
           showTitle: showTitle,
+          enableReadOnly: enableReadOnly,
+          onTap: onTap,
         );
 }
