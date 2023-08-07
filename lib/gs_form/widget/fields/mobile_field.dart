@@ -46,15 +46,15 @@ class _GSMobileFieldState extends State<GSMobileField> {
 
   @override
   void didUpdateWidget(covariant GSMobileField oldWidget) {
-    if(oldWidget.controller?.text!= null && oldWidget.controller!.text.isNotEmpty ) {
+    super.didUpdateWidget(oldWidget);
+    if(oldWidget.model.defaultValue == widget.model.defaultValue){
       widget.controller = oldWidget.controller;
+    }else {
+      widget.controller??= TextEditingController() ;
+      widget.controller = widget.model.defaultValue;
     }
 
-    widget.controller??= TextEditingController() ;
-    widget.controller?.text = widget.model.defaultValue;
 
-
-    super.didUpdateWidget(oldWidget);
   }
 
   @override
