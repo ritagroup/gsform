@@ -45,12 +45,11 @@ class _GSTextFieldState extends State<GSTextField> {
 
   @override
   void didUpdateWidget(covariant GSTextField oldWidget) {
-    widget.controller = oldWidget.controller;
-
-    // if (widget.model.defaultValue != null) {
-    //   widget.controller?.text = widget.model.defaultValue;
-    // }
-
+    if (widget.model.defaultValue != null) {
+      widget.controller?.text = widget.model.defaultValue;
+    }else {
+      widget.controller = oldWidget.controller;
+    }
     super.didUpdateWidget(oldWidget);
   }
 
