@@ -60,8 +60,7 @@ class _GSPriceFieldState extends State<GSPriceField> {
       widget.controller = oldWidget.controller;
     }else {
       widget.controller??= TextEditingController() ;
-      widget.controller = widget.model.defaultValue;
-    }
+      widget.controller!.text = widget.model.defaultValue;    }
 
 
   }

@@ -52,8 +52,7 @@ class _GSNumberFieldState extends State<GSNumberField> {
       widget.controller = oldWidget.controller;
     }else {
       widget.controller??= TextEditingController() ;
-      widget.controller = widget.model.defaultValue;
-    }
+      widget.controller!.text = widget.model.defaultValue;    }
 
 
   }

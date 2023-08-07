@@ -56,8 +56,7 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
       widget.controller = oldWidget.controller;
     }else {
       widget.controller??= TextEditingController() ;
-      widget.controller = widget.model.defaultValue;
-    }
+      widget.controller!.text = widget.model.defaultValue;    }
 
 
   }

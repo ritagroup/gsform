@@ -51,8 +51,7 @@ class _GSMobileFieldState extends State<GSMobileField> {
       widget.controller = oldWidget.controller;
     }else {
       widget.controller??= TextEditingController() ;
-      widget.controller = widget.model.defaultValue;
-    }
+      widget.controller!.text = widget.model.defaultValue;    }
 
 
   }

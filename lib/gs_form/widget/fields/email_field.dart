@@ -55,8 +55,7 @@ class _GSEmailFieldState extends State<GSEmailField> {
       widget.controller = oldWidget.controller;
     }else {
       widget.controller??= TextEditingController() ;
-      widget.controller = widget.model.defaultValue;
-    }
+      widget.controller!.text = widget.model.defaultValue;    }
 
 
   }
