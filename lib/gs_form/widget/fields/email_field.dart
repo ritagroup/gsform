@@ -50,11 +50,12 @@ class _GSEmailFieldState extends State<GSEmailField> {
 
   @override
   void didUpdateWidget(covariant GSEmailField oldWidget) {
-    widget.controller = oldWidget.controller;
+    if(oldWidget.controller?.text!= null && oldWidget.controller!.text.isNotEmpty ) {
+      widget.controller = oldWidget.controller;
+    }
 
-    // if (widget.model.defaultValue != null) {
-    //   widget.controller?.text = widget.model.defaultValue;
-    // }
+    widget.controller??= TextEditingController() ;
+    widget.controller?.text = widget.model.defaultValue;
 
     super.didUpdateWidget(oldWidget);
   }

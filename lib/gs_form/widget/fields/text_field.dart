@@ -50,7 +50,6 @@ class _GSTextFieldState extends State<GSTextField> {
     if(oldWidget.controller?.text!= null && oldWidget.controller!.text.isNotEmpty ) {
       widget.controller = oldWidget.controller;
     }
-
     widget.controller??= TextEditingController() ;
     widget.controller?.text = widget.model.defaultValue;
   }
