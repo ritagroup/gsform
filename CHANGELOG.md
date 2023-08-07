@@ -120,4 +120,8 @@
 * Fix bugs
 * Add readOnly future in Text fields
 
+## 0.3.4
+* Fix bugs
+
+
 
