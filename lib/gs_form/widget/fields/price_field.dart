@@ -55,10 +55,9 @@ class _GSPriceFieldState extends State<GSPriceField> {
 
   @override
   void didUpdateWidget(covariant GSPriceField oldWidget) {
-    if (widget.model.defaultValue != null) {
-      widget.controller ??= TextEditingController();
-      widget.controller?.text = widget.model.defaultValue;
-    }else {
+    widget.controller?.text = widget.model.defaultValue;
+
+    if(oldWidget.controller!.text.isNotEmpty) {
       widget.controller = oldWidget.controller;
     }
     super.didUpdateWidget(oldWidget);
