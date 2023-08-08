@@ -129,9 +129,9 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
                           title: 'Gender',
                           onChange: (model) {
                             id = model!.id ;
-                            // setState(() {
-                            //
-                            // });
+                            setState(() {
+
+                            });
                           },
                           items: [
                             SpinnerDataModel(
