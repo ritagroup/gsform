@@ -31,7 +31,7 @@ class GSBankCardModel extends GSFieldModel {
           required: required,
           status: status,
           showTitle: showTitle,
-          defaultValue: value,
+value: value,
           validateRegEx: validateRegEx,
           weight: weight,
           enableReadOnly: enableReadOnly,

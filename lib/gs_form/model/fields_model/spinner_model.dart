@@ -36,7 +36,7 @@ class GSSpinnerModel extends GSFieldModel {
           postfixWidget: postfixWidget,
           required: required,
           status: status,
-          defaultValue: value,
+          value: value,
           validateRegEx: validateRegEx,
           weight: weight,
           showTitle: showTitle,

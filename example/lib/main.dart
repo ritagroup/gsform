@@ -129,9 +129,9 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
                           title: 'Gender',
                           onChange: (model) {
                             id = model!.id ;
-                            setState(() {
-
-                            });
+                            // setState(() {
+                            //
+                            // });
                           },
                           items: [
                             SpinnerDataModel(
@@ -225,7 +225,7 @@ class MultiSectionForm extends StatelessWidget {
                 child: form = GSForm.multiSection(context, sections: [
                   GSSection(sectionTitle: 'User information', fields: [
                     GSField.text(
-                      defaultValue: '2سعید دسترس',
+                      value: '2سعید دسترس',
                       tag: 'name',
                       title: 'Name',
                       minLine: 1,
@@ -268,7 +268,7 @@ class MultiSectionForm extends StatelessWidget {
                       errorMessage: 'please enter a name',
                     ),
                     GSField.text(
-                      defaultValue: 'سعید دسترس3',
+                      value: 'سعید دسترس3',
                       tag: 'lastName',
                       title: 'Last name',
                       minLine: 1,
@@ -281,6 +281,10 @@ class MultiSectionForm extends StatelessWidget {
                       required: false,
                       weight: 6,
                       title: 'Gender',
+                      value: SpinnerDataModel(
+                        name: 'woman',
+                        id: 2,
+                      ),
                       onChange: (model) {},
                       items: [
                         SpinnerDataModel(

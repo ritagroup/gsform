@@ -38,8 +38,8 @@ class _GSMobileFieldState extends State<GSMobileField> {
   void initState() {
     widget.controller ??= TextEditingController();
 
-    if (widget.model.defaultValue != null) {
-      widget.controller?.text = widget.model.defaultValue;
+    if (widget.model.value != null) {
+      widget.controller?.text = widget.model.value;
     }
     super.initState();
   }
@@ -47,11 +47,11 @@ class _GSMobileFieldState extends State<GSMobileField> {
   @override
   void didUpdateWidget(covariant GSMobileField oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if(oldWidget.model.defaultValue == widget.model.defaultValue){
+    if(oldWidget.model.value == widget.model.value){
       widget.controller = oldWidget.controller;
     }else {
       widget.controller??= TextEditingController() ;
-      widget.controller!.text = widget.model.defaultValue;    }
+      widget.controller!.text = widget.model.value;    }
 
 
   }

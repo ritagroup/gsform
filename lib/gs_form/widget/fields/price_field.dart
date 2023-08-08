@@ -42,13 +42,13 @@ class _GSPriceFieldState extends State<GSPriceField> {
   @override
   void initState() {
     widget.controller ??= TextEditingController();
-    if (widget.model.defaultValue != null) {
-      widget.model.defaultValue = widget._formatNumber(widget.model.defaultValue.replaceAll(',', ''));
+    if (widget.model.value != null) {
+      widget.model.value = widget._formatNumber(widget.model.value.replaceAll(',', ''));
       widget.controller?.value = TextEditingValue(
-        text: widget.model.defaultValue,
-        selection: TextSelection.collapsed(offset: widget.model.defaultValue.length),
+        text: widget.model.value,
+        selection: TextSelection.collapsed(offset: widget.model.value.length),
       );
-      widget.controller?.text = widget.model.defaultValue;
+      widget.controller?.text = widget.model.value;
     }
     super.initState();
   }
@@ -56,11 +56,11 @@ class _GSPriceFieldState extends State<GSPriceField> {
   @override
   void didUpdateWidget(covariant GSPriceField oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if(oldWidget.model.defaultValue == widget.model.defaultValue){
+    if(oldWidget.model.value == widget.model.value){
       widget.controller = oldWidget.controller;
     }else {
       widget.controller??= TextEditingController() ;
-      widget.controller!.text = widget.model.defaultValue;    }
+      widget.controller!.text = widget.model.value;    }
 
 
   }

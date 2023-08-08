@@ -42,8 +42,8 @@ class _GSEmailFieldState extends State<GSEmailField> {
   @override
   void initState() {
     widget.controller ??= TextEditingController();
-    if (widget.model.defaultValue != null) {
-      widget.controller?.text = widget.model.defaultValue;
+    if (widget.model.value != null) {
+      widget.controller?.text = widget.model.value;
     }
     super.initState();
   }
@@ -51,19 +51,19 @@ class _GSEmailFieldState extends State<GSEmailField> {
   @override
   void didUpdateWidget(covariant GSEmailField oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if(oldWidget.model.defaultValue == widget.model.defaultValue){
+    if(oldWidget.model.value == widget.model.value){
       widget.controller = oldWidget.controller;
     }else {
       widget.controller??= TextEditingController() ;
-      widget.controller!.text = widget.model.defaultValue;    }
+      widget.controller!.text = widget.model.value;    }
 
 
   }
 
   @override
   Widget build(BuildContext context) {
-    if (widget.model.defaultValue != null) {
-      controller?.text = widget.model.defaultValue;
+    if (widget.model.value != null) {
+      controller?.text = widget.model.value;
     }
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),

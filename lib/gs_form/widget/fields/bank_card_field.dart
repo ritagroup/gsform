@@ -44,19 +44,19 @@ class _GSBankCardFieldState extends State<GSBankCardField> {
   @override
   void initState() {
     widget.controller ??= TextEditingController();
-    if (widget.model.defaultValue != null) {
-      widget.controller?.text = widget.model.defaultValue;
+    if (widget.model.value != null) {
+      widget.controller?.text = widget.model.value;
     }
     super.initState();
   }
 
   @override
   void didUpdateWidget(covariant GSBankCardField oldWidget) {
-    if(oldWidget.model.defaultValue == widget.model.defaultValue){
+    if(oldWidget.model.value == widget.model.value){
       widget.controller = oldWidget.controller;
     }else {
       widget.controller??= TextEditingController() ;
-      widget.controller!.text = widget.model.defaultValue;    }
+      widget.controller!.text = widget.model.value;    }
 
 
 

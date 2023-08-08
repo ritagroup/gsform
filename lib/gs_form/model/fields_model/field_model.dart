@@ -18,7 +18,7 @@ abstract class GSFieldModel {
   int? weight;
   FocusNode? focusNode;
   FocusNode? nextFocusNode;
-  dynamic defaultValue;
+  dynamic value;
   bool? enableReadOnly;
   VoidCallback? onTap ;
 
@@ -32,7 +32,7 @@ abstract class GSFieldModel {
     this.prefixWidget,
     this.postfixWidget,
     this.required,
-    this.defaultValue,
+    this.value,
     this.validateRegEx,
     this.weight,
     this.focusNode,

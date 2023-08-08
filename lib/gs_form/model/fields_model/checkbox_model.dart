@@ -57,7 +57,7 @@ class GSCheckBoxModel extends GSFieldModel {
           helpMessage: helpMessage,
           required: required,
           status: status,
-          defaultValue: value,
+value: value,
           weight: weight,
           showTitle: showTitle,
           enableReadOnly: enableReadOnly,

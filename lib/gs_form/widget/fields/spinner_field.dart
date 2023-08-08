@@ -64,8 +64,6 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
 
   @override
   void didUpdateWidget(covariant GSSpinnerField oldWidget) {
-
-    if (oldWidget.returnedData != null) {
       for (var element in widget.model.items) {
         if (element.id == oldWidget.returnedData!.id) {
           element.isSelected = true ;
@@ -74,9 +72,6 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
         }
       }
       widget.returnedData = widget.model.items.firstWhere((element) => element.isSelected??false) ;
-    }else {
-      widget.returnedData = oldWidget.returnedData;
-    }
     super.didUpdateWidget(oldWidget);
   }
 

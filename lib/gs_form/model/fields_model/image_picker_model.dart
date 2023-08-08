@@ -24,7 +24,7 @@ class GSImagePickerModel extends GSFieldModel {
     status,
     weight,
     showTitle,
-    defaultValue,
+    value,
     required this.iconWidget,
     this.cameraPopupIcon,
     this.galleryPopupIcon,
@@ -45,7 +45,7 @@ class GSImagePickerModel extends GSFieldModel {
             status: status,
             weight: weight,
             showTitle: showTitle,
-            defaultValue: defaultValue);
+            value: value);
 }
 
 enum GSImageSource { camera, gallery, both }

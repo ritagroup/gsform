@@ -40,8 +40,8 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
   @override
   void initState() {
     super.initState();
-    if (widget.model.defaultValue != null) {
-      widget._croppedFilePath = widget.model.defaultValue;
+    if (widget.model.value != null) {
+      widget._croppedFilePath = widget.model.value;
     } else {
       widget._croppedFilePath = null;
     }
@@ -49,8 +49,8 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
 
   @override
   void didUpdateWidget(covariant GSImagePickerField oldWidget) {
-    if (widget.model.defaultValue != null) {
-      widget._croppedFilePath = widget.model.defaultValue;
+    if (widget.model.value != null) {
+      widget._croppedFilePath = widget.model.value;
     } else {
       widget._croppedFilePath = oldWidget._croppedFilePath;
     }
