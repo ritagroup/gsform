@@ -40,21 +40,23 @@ class GSSpinnerField extends StatefulWidget implements GSFieldCallBack {
 class _GSSpinnerFieldState extends State<GSSpinnerField> {
   @override
   void initState() {
-    for (var element in widget.model.items) {
-      if (element.isSelected ?? false) {
-        widget.returnedData = element;
+    if(widget.model.items.isNotEmpty) {
+      for (var element in widget.model.items) {
+        if (element.isSelected ?? false) {
+          widget.returnedData = element;
+        }
       }
-    }
 
-    if(widget.returnedData==null){
-      widget.returnedData = widget.model.items[0] ;
-    }
+      if (widget.returnedData == null) {
+        widget.returnedData = widget.model.items[0];
+      }
 
-    if (widget.model.hint != null && widget.model.hint!.isNotEmpty && widget.hintIndex != widget.model.items[0].id) {
-      widget.model.items.insert(
-        0,
-        SpinnerDataModel(name: widget.model.hint!, id: widget.hintIndex, data: null, isSelected: false),
-      );
+      if (widget.model.hint != null && widget.model.hint!.isNotEmpty && widget.hintIndex != widget.model.items[0].id) {
+        widget.model.items.insert(
+          0,
+          SpinnerDataModel(name: widget.model.hint!, id: widget.hintIndex, data: null, isSelected: false),
+        );
+      }
     }
 
     super.initState();
