@@ -67,7 +67,7 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
     widget.returnedData = null;
     for(var element in widget.model.items){
       if( element.isSelected ?? false){
-        widget.returnedData == element ;
+        widget.returnedData = element ;
         return ;
       }
     }
