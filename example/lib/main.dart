@@ -95,6 +95,7 @@ class SingleSectionForm extends StatefulWidget {
 
 class _SingleSectionFormState extends State<SingleSectionForm> {
   late GSForm form;
+  int id =  0 ;
 
   @override
   void initState() {
@@ -121,15 +122,57 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
                       style: GSFormStyle(titleStyle: const TextStyle(color: Colors.black87, fontSize: 16.0)),
                       context,
                       fields: [
-                        GSField.price(
-                          tag: 'price',
-                          title: 'Price',
-                          weight: 12,
-                          defaultValue: '2000000',
-                          required: true,
-                          readOnly: true,
-                          prefixWidget: const Text('Min'),
+                        GSField.spinner(
+                          tag: 'customer_type',
+                          required: false,
+                          weight: 6,
+                          title: 'Gender',
+                          onChange: (model) {
+                            id = model!.id ;
+                            setState(() {
+
+                            });
+                          },
+                          items: [
+                            SpinnerDataModel(
+                              name: 'm1',
+                              id: 0,
+                            ),
+                            SpinnerDataModel(
+                              name: 'm2',
+                              id: 1,
+                            ),
+                            SpinnerDataModel(
+                              name: 'm3',
+                              id: 2,
+                            ),
+                          ],
                         ),
+
+                        // GSField.spinner(
+                        //   tag: 'customer_type',
+                        //   required: false,
+                        //   weight: 6,
+                        //   title: 'Gender',
+                        //   onChange: (model) {},
+                        //   items: [
+                        //     SpinnerDataModel(
+                        //       name: '3',
+                        //       id: 0,
+                        //       isSelected: id==0
+                        //     ),
+                        //     SpinnerDataModel(
+                        //       name: '4',
+                        //       id: 1,
+                        //         isSelected: id==1,
+                        //     ),
+                        //     SpinnerDataModel(
+                        //       name: '8',
+                        //       id: 2,
+                        //       isSelected: id==2
+                        //     ),
+                        //   ],
+                        // ),
                       ]),
                 ),
               ),
@@ -243,6 +286,10 @@ class MultiSectionForm extends StatelessWidget {
                         SpinnerDataModel(
                           name: 'man',
                           id: 1,
+                        ),
+                        SpinnerDataModel(
+                          name: 'woman',
+                          id: 2,
                         ),
                         SpinnerDataModel(
                           name: 'woman',
