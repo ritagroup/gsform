@@ -263,7 +263,7 @@ class ImagePickedView extends StatelessWidget {
                             children: [
                               const SizedBox(width: 8),
                               Text(
-                                'حذف',
+                                'Delete',
                                 maxLines: 1,
                                 style: formStyle.titleTextStyle.copyWith(color: Colors.white),
                               ),

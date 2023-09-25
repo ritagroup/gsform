@@ -126,8 +126,8 @@ class SingleSectionForm extends StatelessWidget {
                         maxLength: 5,
                         showCounter: false,
                         required: true,
-                        prefixWidget: Text('دقیقه'),
-                        postfixWidget: Text('ثانیه'),
+                        prefixWidget: Text('Minute'),
+                        postfixWidget: Text('Second'),
                       ),
                       GSField.imagePicker(
                         tag: 'image',
