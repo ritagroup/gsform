@@ -109,7 +109,6 @@ class GSSection extends StatelessWidget {
                 }),
           ),
         ),
-        const SizedBox(height: 14),
       ],
     );
   }
