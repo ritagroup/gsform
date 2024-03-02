@@ -118,66 +118,63 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child : Container(
-                    color: Colors.red,
-                    child: form = GSForm.singleSection(
-                        style: GSFormStyle(titleStyle: const TextStyle(color: Colors.black87, fontSize: 16.0)),
-                        context,
-                        fields: [
-                          GSField.spinner(
-                            helpMessage: 'dhbsadlfkjhfblkjh',
-                            tag: 'customer_type',
-                            required: false,
-                            weight: 12,
-                            showTitle: false,
-                            onChange: (model) {
-                              id = model!.id ;
-                              setState(() {
+                  child : form = GSForm.singleSection(
+                      style: GSFormStyle(titleStyle: const TextStyle(color: Colors.black87, fontSize: 16.0)),
+                      context,
+                      fields: [
+                        GSField.spinner(
+                          helpMessage: 'dhbsadlfkjhfblkjh',
+                          tag: 'customer_type',
+                          required: false,
+                          weight: 12,
+                          showTitle: false,
+                          onChange: (model) {
+                            id = model!.id ;
+                            setState(() {
 
-                              });
-                            },
-                            items: [
-                              SpinnerDataModel(
-                                name: 'm1',
-                                id: 0,
-                              ),
-                              SpinnerDataModel(
-                                name: 'm2',
-                                id: 1,
-                              ),
-                              SpinnerDataModel(
-                                name: 'm3',
-                                id: 2,
-                              ),
-                            ],
-                          ),
+                            });
+                          },
+                          items: [
+                            SpinnerDataModel(
+                              name: 'm1',
+                              id: 0,
+                            ),
+                            SpinnerDataModel(
+                              name: 'm2',
+                              id: 1,
+                            ),
+                            SpinnerDataModel(
+                              name: 'm3',
+                              id: 2,
+                            ),
+                          ],
+                        ),
 
-                          // GSField.spinner(
-                          //   tag: 'customer_type',
-                          //   required: false,
-                          //   weight: 6,
-                          //   title: 'Gender',
-                          //   onChange: (model) {},
-                          //   items: [
-                          //     SpinnerDataModel(
-                          //       name: '3',
-                          //       id: 0,
-                          //       isSelected: id==0
-                          //     ),
-                          //     SpinnerDataModel(
-                          //       name: '4',
-                          //       id: 1,
-                          //         isSelected: id==1,
-                          //     ),
-                          //     SpinnerDataModel(
-                          //       name: '8',
-                          //       id: 2,
-                          //       isSelected: id==2
-                          //     ),
-                          //   ],
-                          // ),
-                        ]),
-                  ),
+                        // GSField.spinner(
+                        //   tag: 'customer_type',
+                        //   required: false,
+                        //   weight: 6,
+                        //   title: 'Gender',
+                        //   onChange: (model) {},
+                        //   items: [
+                        //     SpinnerDataModel(
+                        //       name: '3',
+                        //       id: 0,
+                        //       isSelected: id==0
+                        //     ),
+                        //     SpinnerDataModel(
+                        //       name: '4',
+                        //       id: 1,
+                        //         isSelected: id==1,
+                        //     ),
+                        //     SpinnerDataModel(
+                        //       name: '8',
+                        //       id: 2,
+                        //       isSelected: id==2
+                        //     ),
+                        //   ],
+                        // ),
+                      ]),
                 ),
               ),
             ),
