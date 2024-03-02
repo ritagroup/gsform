@@ -123,5 +123,7 @@
 ## 0.3.4
 * Fix bugs
 
+## 0.3.5
+* Upgrade some dependencies
 
 
