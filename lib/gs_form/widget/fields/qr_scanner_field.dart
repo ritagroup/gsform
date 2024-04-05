@@ -11,8 +11,8 @@ class GSQRScannerField extends StatefulWidget implements GSFieldCallBack {
   final GSQRScannerModel model;
   final GSFormStyle formStyle;
 
-  GSQRScannerField(this.model, this.formStyle, {Key? key}) : super(key: key);
   String? _scannedValue;
+  GSQRScannerField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
   State<GSQRScannerField> createState() => _GSQRScannerFieldState();
@@ -34,18 +34,6 @@ class GSQRScannerField extends StatefulWidget implements GSFieldCallBack {
 
 class _GSQRScannerFieldState extends State<GSQRScannerField> {
   @override
-  void initState() {
-    super.initState();
-    widget._scannedValue = null;
-  }
-
-  @override
-  void didUpdateWidget(covariant GSQRScannerField oldWidget) {
-    widget._scannedValue = null;
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -60,7 +48,7 @@ class _GSQRScannerFieldState extends State<GSQRScannerField> {
                 context,
                 QrScannerScreen(
                   callback: (value) {
-                    widget._scannedValue = value.code;
+                    widget._scannedValue = value.raw ?? '';
                     setState(() {});
                   },
                 ),
@@ -111,6 +99,18 @@ class _GSQRScannerFieldState extends State<GSQRScannerField> {
             )),
       ),
     );
+  }
+
+  @override
+  void didUpdateWidget(covariant GSQRScannerField oldWidget) {
+    widget._scannedValue = null;
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    widget._scannedValue = null;
   }
 
   _route(BuildContext context, Widget screen) {

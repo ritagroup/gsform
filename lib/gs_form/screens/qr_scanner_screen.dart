@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 
 class QrScannerScreen extends StatelessWidget {
-  QrScannerScreen({required this.callback, Key? key}) : super(key: key);
-
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-  final ValueSetter<Barcode> callback;
+
+  final ValueSetter<BarcodeCapture> callback;
+  QrScannerScreen({required this.callback, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var scanArea =
-        (MediaQuery.of(context).size.width < 400 || MediaQuery.of(context).size.height < 400) ? 300.0 : 450.0;
+    var scanArea = (MediaQuery.of(context).size.width < 400 ||
+            MediaQuery.of(context).size.height < 400)
+        ? 300.0
+        : 450.0;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -33,38 +35,99 @@ class QrScannerScreen extends StatelessWidget {
         elevation: 0.0,
         centerTitle: true,
       ),
-      body: QRView(
+      body: MobileScanner(
         key: qrKey,
-        onQRViewCreated: (con) {
-          _onQRViewCreated(context, con);
+        onDetect: (barcode) {
+          callback.call(barcode);
+          Navigator.pop(context);
         },
-        overlay: QrScannerOverlayShape(
-          borderColor: Colors.red,
-          borderRadius: 10,
-          borderLength: 30,
-          borderWidth: 10,
-          cutOutSize: scanArea,
+        overlay: ScannerOverlay(
+          scanWindow: Rect.fromCenter(
+            center: Offset(MediaQuery.of(context).size.width / 2,
+                MediaQuery.of(context).size.height / 2),
+            width: scanArea,
+            height: scanArea,
+          ),
         ),
-        onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
       ),
     );
   }
+}
 
-  void _onQRViewCreated(BuildContext context, QRViewController controller) {
-    controller.resumeCamera();
-    controller.scannedDataStream.listen(
-      (scanData) {
-        callback.call(scanData);
-        Navigator.pop(context);
-      },
+// followed: https://github.com/juliansteenbakker/mobile_scanner/blob/master/example/lib/mobile_scanner_overlay.dart
+class ScannerOverlay extends StatelessWidget {
+  final Rect scanWindow;
+  final double borderRadius;
+
+  const ScannerOverlay({
+    required this.scanWindow,
+    this.borderRadius = 12.0,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      painter: _ScannerOverlayPainter(
+          scanWindow: scanWindow, borderRadius: borderRadius),
     );
   }
+}
 
-  void _onPermissionSet(BuildContext context, QRViewController ctrl, bool p) {
-    if (!p) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('no Permission')),
+class _ScannerOverlayPainter extends CustomPainter {
+  final Rect scanWindow;
+  final double borderRadius;
+
+  _ScannerOverlayPainter({
+    required this.scanWindow,
+    required this.borderRadius,
+  });
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final backgroundPath = Path()..addRect(Offset.zero & size);
+
+    final cutoutPath = Path()
+      ..addRRect(
+        RRect.fromRectAndCorners(
+          scanWindow,
+          topLeft: Radius.circular(borderRadius),
+          topRight: Radius.circular(borderRadius),
+          bottomLeft: Radius.circular(borderRadius),
+          bottomRight: Radius.circular(borderRadius),
+        ),
       );
-    }
+
+    final backgroundPaint = Paint()
+      ..color = Colors.black.withOpacity(0.5)
+      ..style = PaintingStyle.fill
+      ..blendMode = BlendMode.dstOut;
+
+    final backgroundWithCutout = Path.combine(
+      PathOperation.difference,
+      backgroundPath,
+      cutoutPath,
+    );
+
+    final borderPaint = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 4.0;
+
+    final borderRect = RRect.fromRectAndCorners(
+      scanWindow,
+      topLeft: Radius.circular(borderRadius),
+      topRight: Radius.circular(borderRadius),
+      bottomLeft: Radius.circular(borderRadius),
+      bottomRight: Radius.circular(borderRadius),
+    );
+
+    canvas.drawPath(backgroundWithCutout, backgroundPaint);
+    canvas.drawRRect(borderRect, borderPaint);
+  }
+
+  @override
+  bool shouldRepaint(_ScannerOverlayPainter oldDelegate) {
+    return scanWindow != oldDelegate.scanWindow ||
+        borderRadius != oldDelegate.borderRadius;
   }
 }
