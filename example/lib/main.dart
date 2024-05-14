@@ -95,7 +95,7 @@ class SingleSectionForm extends StatefulWidget {
 
 class _SingleSectionFormState extends State<SingleSectionForm> {
   late GSForm form;
-  int id =  0 ;
+  int id = 0;
 
   @override
   void initState() {
@@ -118,21 +118,27 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child : form = GSForm.singleSection(
+                  child: form = GSForm.singleSection(
                       style: GSFormStyle(titleStyle: const TextStyle(color: Colors.black87, fontSize: 16.0)),
                       context,
                       fields: [
+                        GSField.email(
+                          tag: 'email',
+                          title: 'login',
+                          weight: 12,
+                          required: true,
+                          maxLength: 100,
+                          errorMessage: 'erro',
+                          value: 'dastras.saeed@gmail.com',
+                        ),
                         GSField.spinner(
-                          helpMessage: 'dhbsadlfkjhfblkjh',
                           tag: 'customer_type',
                           required: false,
                           weight: 12,
                           showTitle: false,
                           onChange: (model) {
-                            id = model!.id ;
-                            setState(() {
-
-                            });
+                            id = model!.id;
+                            setState(() {});
                           },
                           items: [
                             SpinnerDataModel(
@@ -149,31 +155,22 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
                             ),
                           ],
                         ),
-
-                        // GSField.spinner(
-                        //   tag: 'customer_type',
-                        //   required: false,
-                        //   weight: 6,
-                        //   title: 'Gender',
-                        //   onChange: (model) {},
-                        //   items: [
-                        //     SpinnerDataModel(
-                        //       name: '3',
-                        //       id: 0,
-                        //       isSelected: id==0
-                        //     ),
-                        //     SpinnerDataModel(
-                        //       name: '4',
-                        //       id: 1,
-                        //         isSelected: id==1,
-                        //     ),
-                        //     SpinnerDataModel(
-                        //       name: '8',
-                        //       id: 2,
-                        //       isSelected: id==2
-                        //     ),
-                        //   ],
-                        // ),
+                        GSField.spinner(
+                          tag: 'customer_type',
+                          required: false,
+                          weight: 6,
+                          title: 'Gender',
+                          onChange: (model) {},
+                          items: [
+                            SpinnerDataModel(name: '3', id: 0, isSelected: id == 0),
+                            SpinnerDataModel(
+                              name: '4',
+                              id: 1,
+                              isSelected: id == 1,
+                            ),
+                            SpinnerDataModel(name: '8', id: 2, isSelected: id == 2),
+                          ],
+                        ),
                       ]),
                 ),
               ),
@@ -226,7 +223,14 @@ class MultiSectionForm extends StatelessWidget {
                 child: form = GSForm.multiSection(context, sections: [
                   GSSection(sectionTitle: 'User information', fields: [
                     GSField.text(
-                      value: '2سعید دسترس',
+                      value: 'Some text',
+                      tag: 'name',
+                      title: 'Name',
+                      minLine: 1,
+                      maxLine: 1,
+                    ),
+                    GSField.text(
+                      value: 'Some text',
                       tag: 'name',
                       title: 'Name',
                       minLine: 1,

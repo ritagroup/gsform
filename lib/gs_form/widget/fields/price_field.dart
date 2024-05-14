@@ -56,21 +56,17 @@ class _GSPriceFieldState extends State<GSPriceField> {
   @override
   void didUpdateWidget(covariant GSPriceField oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if(oldWidget.model.value == widget.model.value){
+    if (oldWidget.model.value == widget.model.value) {
       widget.controller = oldWidget.controller;
-    }else {
-      widget.controller??= TextEditingController() ;
+    } else {
+      widget.controller ??= TextEditingController();
       widget.model.value = widget._formatNumber(widget.model.value.replaceAll(',', ''));
       widget.controller?.value = TextEditingValue(
         text: widget.model.value,
         selection: TextSelection.collapsed(offset: widget.model.value.length),
       );
       widget.controller?.text = widget.model.value;
-
-
     }
-
-
   }
 
   @override

@@ -40,7 +40,7 @@ class GSSpinnerField extends StatefulWidget implements GSFieldCallBack {
 class _GSSpinnerFieldState extends State<GSSpinnerField> {
   @override
   void initState() {
-    if(widget.model.items.isNotEmpty) {
+    if (widget.model.items.isNotEmpty) {
       for (var element in widget.model.items) {
         if (element.isSelected ?? false) {
           widget.returnedData = element;
@@ -65,10 +65,10 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
   @override
   void didUpdateWidget(covariant GSSpinnerField oldWidget) {
     widget.returnedData = null;
-    for(var element in widget.model.items){
-      if( element.isSelected ?? false){
-        widget.returnedData = element ;
-        return ;
+    for (var element in widget.model.items) {
+      if (element.isSelected ?? false) {
+        widget.returnedData = element;
+        return;
       }
     }
     if (oldWidget.returnedData != null) {
@@ -76,7 +76,7 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
         if (widget.returnedData == null) {
           if (element.id == oldWidget.returnedData!.id) {
             element.isSelected = true;
-            widget.returnedData = element ;
+            widget.returnedData = element;
           } else {
             element.isSelected = false;
           }
@@ -92,40 +92,39 @@ class _GSSpinnerFieldState extends State<GSSpinnerField> {
       children: [
         Expanded(
           child: DropdownButton<SpinnerDataModel>(
-            underline: const SizedBox(),
-            iconSize: 0,
-            icon: const Padding(
-              padding: EdgeInsets.only(left: 10.0, right: 10.0),
-              child: Icon(
-                Icons.keyboard_arrow_down,
-                size: 20,
+              underline: const SizedBox(),
+              iconSize: 0,
+              icon: const Padding(
+                padding: EdgeInsets.only(left: 10.0, right: 10.0),
+                child: Icon(
+                  Icons.keyboard_arrow_down,
+                  size: 20,
+                ),
               ),
-            ),
-            isExpanded: true,
-            value: widget.returnedData,
-            items: widget.model.items
-                .map((e) => DropdownMenuItem(
-                value: e,
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.only(start: 8.0),
-                  child: Text(
-                    e.name,
-                    style: e.id == widget.hintIndex
-                        ? widget.formStyle.fieldHintStyle
-                        : widget.formStyle.fieldTextStyle,
-                  ),
-                )))
-                .toList(),
-            onChanged: (value) {
-              if (value?.id != widget.hintIndex) {
-                widget.model.items.firstWhere((element) => element.id == value!.id).isSelected = true;
-                value?.isSelected = true ;
-                widget.returnedData = value;
-                widget.model.onChange?.call(value);
+              isExpanded: true,
+              value: widget.returnedData,
+              items: widget.model.items
+                  .map((e) => DropdownMenuItem(
+                      value: e,
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.only(start: 8.0),
+                        child: Text(
+                          e.name,
+                          style: e.id == widget.hintIndex
+                              ? widget.formStyle.fieldHintStyle
+                              : widget.formStyle.fieldTextStyle,
+                        ),
+                      )))
+                  .toList(),
+              onChanged: (value) {
+                if (value?.id != widget.hintIndex) {
+                  widget.model.items.firstWhere((element) => element.id == value!.id).isSelected = true;
+                  value?.isSelected = true;
+                  widget.returnedData = value;
+                  widget.model.onChange?.call(value);
                   setState(() => {});
                 }
-              }
-          ),
+              }),
         ),
       ],
     );

@@ -46,15 +46,12 @@ class _GSTextFieldState extends State<GSTextField> {
   @override
   void didUpdateWidget(covariant GSTextField oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if(oldWidget.model.value == widget.model.value){
+    if (oldWidget.model.value == widget.model.value) {
       widget.controller = oldWidget.controller;
-    }else {
-      widget.controller??= TextEditingController() ;
+    } else {
+      widget.controller ??= TextEditingController();
       widget.controller!.text = widget.model.value;
     }
-
-
-
   }
 
   @override
@@ -62,7 +59,7 @@ class _GSTextFieldState extends State<GSTextField> {
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
-        readOnly: widget.model.enableReadOnly??false,
+        readOnly: widget.model.enableReadOnly ?? false,
         controller: widget.controller,
         maxLength: widget.model.maxLength,
         style: widget.formStyle.fieldTextStyle,

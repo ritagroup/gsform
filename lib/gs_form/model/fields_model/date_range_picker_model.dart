@@ -47,7 +47,7 @@ class GSDateRangePickerModel extends GSFieldModel {
             postfixWidget: postfixWidget,
             required: required,
             status: status,
-value: value,
+            value: value,
             validateRegEx: validateReg,
             weight: weight,
             showTitle: showTitle);

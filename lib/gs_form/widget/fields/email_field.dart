@@ -9,7 +9,7 @@ import '../../model/fields_model/email_model.dart';
 class GSEmailField extends StatefulWidget implements GSFieldCallBack {
   final GSEmailModel model;
   final GSFormStyle formStyle;
-  TextEditingController? controller;
+  TextEditingController? controller = TextEditingController();
 
   GSEmailField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
@@ -37,8 +37,6 @@ class GSEmailField extends StatefulWidget implements GSFieldCallBack {
 }
 
 class _GSEmailFieldState extends State<GSEmailField> {
-  final TextEditingController? controller = TextEditingController();
-
   @override
   void initState() {
     widget.controller ??= TextEditingController();
@@ -51,25 +49,24 @@ class _GSEmailFieldState extends State<GSEmailField> {
   @override
   void didUpdateWidget(covariant GSEmailField oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if(oldWidget.model.value == widget.model.value){
+    if (oldWidget.model.value == widget.model.value) {
       widget.controller = oldWidget.controller;
-    }else {
-      widget.controller??= TextEditingController() ;
-      widget.controller!.text = widget.model.value;    }
-
-
+    } else {
+      widget.controller ??= TextEditingController();
+      widget.controller!.text = widget.model.value;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     if (widget.model.value != null) {
-      controller?.text = widget.model.value;
+      widget.controller?.text = widget.model.value;
     }
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
-        readOnly: widget.model.enableReadOnly??false,
-        controller: controller,
+        readOnly: widget.model.enableReadOnly ?? false,
+        controller: widget.controller,
         maxLength: widget.model.maxLength,
         style: widget.formStyle.fieldTextStyle,
         keyboardType: TextInputType.emailAddress,

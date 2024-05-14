@@ -11,7 +11,6 @@ class GSBankCardField extends StatefulWidget implements GSFieldCallBack {
   final GSFormStyle formStyle;
   TextEditingController? controller;
 
-
   GSBankCardField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
@@ -28,10 +27,7 @@ class GSBankCardField extends StatefulWidget implements GSFieldCallBack {
       if (!(model.required ?? false)) {
         return true;
       } else {
-        return controller!
-            .text
-            .replaceAll(' ', '')
-            .length == 16;
+        return controller!.text.replaceAll(' ', '').length == 16;
       }
     } else {
       return model.validateRegEx!.hasMatch(controller!.text);
@@ -40,7 +36,6 @@ class GSBankCardField extends StatefulWidget implements GSFieldCallBack {
 }
 
 class _GSBankCardFieldState extends State<GSBankCardField> {
-
   @override
   void initState() {
     widget.controller ??= TextEditingController();
@@ -52,22 +47,22 @@ class _GSBankCardFieldState extends State<GSBankCardField> {
 
   @override
   void didUpdateWidget(covariant GSBankCardField oldWidget) {
-    if(oldWidget.model.value == widget.model.value){
+    if (oldWidget.model.value == widget.model.value) {
       widget.controller = oldWidget.controller;
-    }else {
-      widget.controller??= TextEditingController() ;
-      widget.controller!.text = widget.model.value;    }
-
-
+    } else {
+      widget.controller ??= TextEditingController();
+      widget.controller!.text = widget.model.value;
+    }
 
     super.didUpdateWidget(oldWidget);
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 10.0, left: 10.0),
       child: TextField(
-        readOnly: widget.model.enableReadOnly??false,
+        readOnly: widget.model.enableReadOnly ?? false,
         inputFormatters: [CardNumberFormatter()],
         textAlign: TextAlign.center,
         textDirection: TextDirection.ltr,
@@ -92,6 +87,4 @@ class _GSBankCardFieldState extends State<GSBankCardField> {
       ),
     );
   }
-
-
 }
