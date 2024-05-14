@@ -52,13 +52,12 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
   @override
   void didUpdateWidget(covariant GSPasswordField oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if(oldWidget.model.value == widget.model.value){
+    if (oldWidget.model.value == widget.model.value) {
       widget.controller = oldWidget.controller;
-    }else {
-      widget.controller??= TextEditingController() ;
-      widget.controller!.text = widget.model.value;    }
-
-
+    } else {
+      widget.controller ??= TextEditingController();
+      widget.controller!.text = widget.model.value;
+    }
   }
 
   @override
@@ -66,7 +65,7 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
     return Padding(
       padding: const EdgeInsetsDirectional.only(start: 10.0),
       child: TextField(
-        readOnly: widget.model.enableReadOnly??false,
+        readOnly: widget.model.enableReadOnly ?? false,
         textAlignVertical: TextAlignVertical.center,
         keyboardType: TextInputType.visiblePassword,
         obscureText: widget.obscured,

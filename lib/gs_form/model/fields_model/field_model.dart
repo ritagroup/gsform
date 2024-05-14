@@ -20,7 +20,7 @@ abstract class GSFieldModel {
   FocusNode? nextFocusNode;
   dynamic value;
   bool? enableReadOnly;
-  VoidCallback? onTap ;
+  VoidCallback? onTap;
 
   GSFieldModel({
     this.type,
@@ -37,14 +37,9 @@ abstract class GSFieldModel {
     this.weight,
     this.focusNode,
     this.nextFocusNode,
-    this.onTap ,
+    this.onTap,
     GSFieldStatusEnum? status,
     bool? enableReadOnly,
-  })
-      : status = status ?? GSFieldStatusEnum.normal,
+  })  : status = status ?? GSFieldStatusEnum.normal,
         enableReadOnly = enableReadOnly ?? false;
-
-
-
-
 }
