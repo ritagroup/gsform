@@ -165,5 +165,5 @@
 * Fix some bug
 * Fix validation of email field 
 
-
-
+## 0.3.7
+* Update intl to 0.19.0
