@@ -48,7 +48,7 @@ class _GSQRScannerFieldState extends State<GSQRScannerField> {
                 context,
                 QrScannerScreen(
                   callback: (value) {
-                    widget._scannedValue = value.raw ?? '';
+                    widget._scannedValue = (value.raw ?? '') as String?;
                     setState(() {});
                   },
                 ),

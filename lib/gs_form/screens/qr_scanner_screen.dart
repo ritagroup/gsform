@@ -10,10 +10,6 @@ class QrScannerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var scanArea = (MediaQuery.of(context).size.width < 400 ||
-            MediaQuery.of(context).size.height < 400)
-        ? 300.0
-        : 450.0;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -41,14 +37,6 @@ class QrScannerScreen extends StatelessWidget {
           callback.call(barcode);
           Navigator.pop(context);
         },
-        overlay: ScannerOverlay(
-          scanWindow: Rect.fromCenter(
-            center: Offset(MediaQuery.of(context).size.width / 2,
-                MediaQuery.of(context).size.height / 2),
-            width: scanArea,
-            height: scanArea,
-          ),
-        ),
       ),
     );
   }
