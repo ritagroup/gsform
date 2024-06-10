@@ -904,7 +904,10 @@ class _GSFieldState extends State<GSField> {
         ),
       );
     }else {
-      return widget.child??Container();
+      return Padding(
+        padding: const EdgeInsets.only(top:16.0),
+        child: widget.child??Container(),
+      );
     }
   }
 
