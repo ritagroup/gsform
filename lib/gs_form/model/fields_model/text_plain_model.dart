@@ -8,29 +8,31 @@ class GSTextPlainModel extends GSFieldModel {
   int? minLine;
   String? hint;
   bool? showCounter;
+  ValueChanged<String>? onChanged;
 
-  GSTextPlainModel(
-      {type,
-      tag,
-      title,
-      errorMessage,
-      helpMessage,
-      prefixWidget,
-      postfixWidget,
-      required,
-      status,
-      value,
-      validateRegEx,
-      enableReadOnly,
-      weight,
-      showTitle,
-      onTap,
-      this.minLine,
-      this.maxLength,
-      this.maxLine,
-      this.hint,
-      this.showCounter})
-      : super(
+  GSTextPlainModel({
+    type,
+    tag,
+    title,
+    errorMessage,
+    helpMessage,
+    prefixWidget,
+    postfixWidget,
+    required,
+    status,
+    value,
+    validateRegEx,
+    enableReadOnly,
+    weight,
+    showTitle,
+    onTap,
+    this.minLine,
+    this.maxLength,
+    this.maxLine,
+    this.hint,
+    this.showCounter,
+    this.onChanged,
+  }) : super(
           type: type,
           tag: tag,
           title: title,

@@ -67,6 +67,7 @@ class _GSTextFieldState extends State<GSTextField> {
       onSubmitted: (_) {
         FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
       },
+      onChanged: widget.model.onChanged,
 
       decoration: InputDecoration(
         hintText: widget.model.hint,

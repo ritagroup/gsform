@@ -3,28 +3,29 @@ import 'package:gsform/gs_form/model/fields_model/field_model.dart';
 
 class GSEmailModel extends GSFieldModel {
   int? maxLength;
-
+  ValueChanged<String>? onChanged;
   String? hint;
 
-  GSEmailModel(
-      {type,
-      tag,
-      title,
-      errorMessage,
-      helpMessage,
-      prefixWidget,
-      postfixWidget,
-      required,
-      status,
-      value,
-      validateRegEx,
-      maxLength,
-      weight,
-      showTitle,
-      enableReadOnly,
-      onTap,
-      this.hint})
-      : super(
+  GSEmailModel({
+    type,
+    tag,
+    title,
+    errorMessage,
+    helpMessage,
+    prefixWidget,
+    postfixWidget,
+    required,
+    status,
+    value,
+    validateRegEx,
+    maxLength,
+    weight,
+    showTitle,
+    enableReadOnly,
+    onTap,
+    this.hint,
+    this.onChanged,
+  }) : super(
           type: type,
           tag: tag,
           title: title,

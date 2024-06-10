@@ -73,6 +73,7 @@ class _GSTextPlainFieldState extends State<GSTextPlainField> {
         onSubmitted: (_) {
           FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
         },
+        onChanged: widget.model.onChanged,
         decoration: InputDecoration(
           counter: widget.model.showCounter ?? false ? null : const Offstage(),
           hintText: widget.model.hint,

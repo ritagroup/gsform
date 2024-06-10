@@ -5,6 +5,7 @@ import 'field_model.dart';
 class GSPasswordModel extends GSFieldModel {
   int? maxLength;
   String? hint;
+  ValueChanged<String>? onChanged ;
 
   GSPasswordModel(
       {type,
@@ -23,7 +24,8 @@ class GSPasswordModel extends GSFieldModel {
       enableReadOnly,
       onTap,
       this.maxLength,
-      this.hint})
+      this.hint,
+      this.onChanged})
       : super(
           type: type,
           tag: tag,

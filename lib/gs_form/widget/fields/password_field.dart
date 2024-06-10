@@ -75,6 +75,7 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
       onSubmitted: (_) {
         FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
       },
+      onChanged: widget.model.onChanged,
       decoration: InputDecoration(
         hintText: widget.model.hint,
         errorText: (!widget.isValid()) ? widget.model.errorMessage : null,

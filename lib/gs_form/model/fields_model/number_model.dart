@@ -5,28 +5,30 @@ class GSNumberModel extends GSFieldModel {
   int? maxLength;
   String? hint;
   bool? showCounter;
+  ValueChanged<String>? onChanged;
 
-  GSNumberModel(
-      {type,
-      tag,
-      title,
-      errorMessage,
-      helpMessage,
-      prefixWidget,
-      postfixWidget,
-      required,
-      status,
-      value,
-      validateRegEx,
-      weight,
-      focusNode,
-      showTitle,
-      enableReadOnly,
-      onTap,
-      this.showCounter,
-      this.maxLength,
-      this.hint})
-      : super(
+  GSNumberModel({
+    type,
+    tag,
+    title,
+    errorMessage,
+    helpMessage,
+    prefixWidget,
+    postfixWidget,
+    required,
+    status,
+    value,
+    validateRegEx,
+    weight,
+    focusNode,
+    showTitle,
+    enableReadOnly,
+    onTap,
+    this.showCounter,
+    this.maxLength,
+    this.hint,
+    this.onChanged,
+  }) : super(
           type: type,
           tag: tag,
           title: title,

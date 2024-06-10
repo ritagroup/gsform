@@ -304,7 +304,8 @@ class GSField extends StatefulWidget {
     BoxDecoration? searchBoxDecoration,
   }) : super(key: key) {
     bool isRequired = false;
-    if (requiredCheckListEnum != null && requiredCheckListEnum != RequiredCheckListEnum.none) {
+    if (requiredCheckListEnum != null &&
+        requiredCheckListEnum != RequiredCheckListEnum.none) {
       isRequired = true;
     }
     model = GSCheckBoxModel(
@@ -343,38 +344,40 @@ class GSField extends StatefulWidget {
     Widget? prefixWidget,
     Widget? postfixWidget,
     bool? required,
-      bool? showTitle,
-      GSFieldStatusEnum? status,
-      String? value,
-      int? weight,
-      RegExp? validateRegEx,
-      int? maxLength,
-      int? minLine,
-      int? maxLine,
-      String? hint,
-      bool? readOnly,
-      FocusNode? focusNode,
-      FocusNode? nextFocusNode}) : super(key: key) {
+    bool? showTitle,
+    GSFieldStatusEnum? status,
+    String? value,
+    int? weight,
+    RegExp? validateRegEx,
+    int? maxLength,
+    int? minLine,
+    int? maxLine,
+    String? hint,
+    bool? readOnly,
+    FocusNode? focusNode,
+    FocusNode? nextFocusNode,
+    ValueChanged<String>? onChanged,
+  }) : super(key: key) {
     model = GSTextModel(
-      type: GSFieldTypeEnum.text,
-      tag: tag,
-      focusNode: focusNode,
-      nextFocusNode: nextFocusNode,
-      showTitle: false,
-      title: title,
-      errorMessage: errorMessage,
-      helpMessage: helpMessage,
-      prefixWidget: prefixWidget,
-      postfixWidget: postfixWidget,
-      required: required,
-      status: status,
-      value: value,
-      weight: weight,
-      maxLength: maxLength,
-      hint: hint,
-      enableReadOnly: readOnly,
-      validateRegEx: validateRegEx
-    );
+        onChanged: onChanged,
+        type: GSFieldTypeEnum.text,
+        tag: tag,
+        focusNode: focusNode,
+        nextFocusNode: nextFocusNode,
+        showTitle: false,
+        title: title,
+        errorMessage: errorMessage,
+        helpMessage: helpMessage,
+        prefixWidget: prefixWidget,
+        postfixWidget: postfixWidget,
+        required: required,
+        status: status,
+        value: value,
+        weight: weight,
+        maxLength: maxLength,
+        hint: hint,
+        enableReadOnly: readOnly,
+        validateRegEx: validateRegEx);
   }
 
   GSField.password({
@@ -396,9 +399,11 @@ class GSField extends StatefulWidget {
     bool? isEnable,
     String? hint,
     bool? readOnly,
+    ValueChanged<String>? onChanged,
   }) : super(key: key) {
     model = GSPasswordModel(
       type: GSFieldTypeEnum.password,
+      onChanged: onChanged,
       showTitle: showTitle ?? true,
       tag: tag,
       title: title,
@@ -435,9 +440,11 @@ class GSField extends StatefulWidget {
     String? hint,
     bool? showCounter,
     bool? readOnly,
+    ValueChanged<String>? onChanged
   }) : super(key: key) {
     model = GSTextPlainModel(
       type: GSFieldTypeEnum.textPlain,
+      onChanged: onChanged,
       tag: tag,
       title: title,
       showTitle: showTitle ?? true,
@@ -475,9 +482,11 @@ class GSField extends StatefulWidget {
     int? maxLength,
     String? hint,
     bool? readOnly,
+    ValueChanged<String>? onChanged,
   }) : super(key: key) {
     model = GSMobileModel(
       type: GSFieldTypeEnum.mobile,
+      onChanged: onChanged,
       tag: tag,
       title: title,
       errorMessage: errorMessage,
@@ -513,9 +522,11 @@ class GSField extends StatefulWidget {
     bool? showCounter,
     String? hint,
     bool? readOnly,
+    ValueChanged<String>? onChanged
   }) : super(key: key) {
     model = GSNumberModel(
       type: GSFieldTypeEnum.number,
+      onChanged: onChanged,
       showTitle: showTitle ?? true,
       tag: tag,
       title: title,
@@ -679,9 +690,11 @@ class GSField extends StatefulWidget {
     int? maxLength,
     String? hint,
     bool? readOnly,
+    ValueChanged<String>? onChanged,
   }) : super(key: key) {
     model = GSEmailModel(
       type: GSFieldTypeEnum.email,
+      onChanged: onChanged,
       tag: tag,
       title: title,
       showTitle: showTitle ?? true,
@@ -804,7 +817,7 @@ class _GSFieldState extends State<GSField> {
       }
     };
 
-    if(widget.model?.showTitle??false) {
+    if (widget.model?.showTitle ?? false) {
       return AbsorbPointer(
         absorbing: widget.model?.status == GSFieldStatusEnum.disabled,
         child: Row(
@@ -819,13 +832,15 @@ class _GSFieldState extends State<GSField> {
                       children: [
                         Row(
                           children: [
-                            Text(widget.model?.title ?? "", style: widget.formStyle!.titleTextStyle),
+                            Text(widget.model?.title ?? "",
+                                style: widget.formStyle!.titleTextStyle),
                             const SizedBox(width: 4.0),
                             Opacity(
                               opacity: widget.model?.required ?? false ? 1 : 0,
                               child: Text(
                                 widget.formStyle!.requiredText,
-                                style: const TextStyle(color: GSFormColors.red, fontSize: 10),
+                                style: const TextStyle(
+                                    color: GSFormColors.red, fontSize: 10),
                               ),
                             ),
                           ],
@@ -838,11 +853,13 @@ class _GSFieldState extends State<GSField> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Visibility(
-                        visible: widget.model?.prefixWidget == null ? false : true,
+                        visible:
+                            widget.model?.prefixWidget == null ? false : true,
                         child: Row(
                           children: [
                             const SizedBox(width: 8.0),
-                            widget.model?.prefixWidget ?? const SizedBox(width: 0),
+                            widget.model?.prefixWidget ??
+                                const SizedBox(width: 0),
                             const SizedBox(width: 8.0),
                             Container(
                               height: 30.0,
@@ -856,11 +873,13 @@ class _GSFieldState extends State<GSField> {
                         child: widget.child!,
                       ),
                       Visibility(
-                        visible: widget.model?.postfixWidget == null ? false : true,
+                        visible:
+                            widget.model?.postfixWidget == null ? false : true,
                         child: Row(
                           children: [
                             const SizedBox(width: 10.0),
-                            widget.model?.postfixWidget ?? const SizedBox(width: 0),
+                            widget.model?.postfixWidget ??
+                                const SizedBox(width: 0),
                             const SizedBox(width: 10.0),
                           ],
                         ),
@@ -869,8 +888,9 @@ class _GSFieldState extends State<GSField> {
                   ),
                   const SizedBox(height: 4.0),
                   Opacity(
-                    opacity: (widget.model?.status == GSFieldStatusEnum.error && widget.model?.errorMessage != null) ||
-                        widget.model?.helpMessage != null
+                    opacity: (widget.model?.status == GSFieldStatusEnum.error &&
+                                widget.model?.errorMessage != null) ||
+                            widget.model?.helpMessage != null
                         ? 1
                         : 0,
                     child: Row(
@@ -903,10 +923,10 @@ class _GSFieldState extends State<GSField> {
           ],
         ),
       );
-    }else {
+    } else {
       return Padding(
-        padding: const EdgeInsets.only(top:16.0),
-        child: widget.child??Container(),
+        padding: const EdgeInsets.only(top: 16.0),
+        child: widget.child ?? Container(),
       );
     }
   }
@@ -914,55 +934,72 @@ class _GSFieldState extends State<GSField> {
   _fillChild() {
     switch (widget.model?.type) {
       case GSFieldTypeEnum.text:
-        widget.child = GSTextField(widget.model as GSTextModel, widget.formStyle!);
+        widget.child =
+            GSTextField(widget.model as GSTextModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.number:
-        widget.child = GSNumberField(widget.model as GSNumberModel, widget.formStyle!);
+        widget.child =
+            GSNumberField(widget.model as GSNumberModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.textPlain:
-        widget.child = GSTextPlainField(widget.model as GSTextPlainModel, widget.formStyle!);
+        widget.child = GSTextPlainField(
+            widget.model as GSTextPlainModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.mobile:
-        widget.child = GSMobileField(widget.model as GSMobileModel, widget.formStyle!);
+        widget.child =
+            GSMobileField(widget.model as GSMobileModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.password:
-        widget.child = GSPasswordField(widget.model as GSPasswordModel, widget.formStyle!);
+        widget.child =
+            GSPasswordField(widget.model as GSPasswordModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.date:
-        widget.child = GSDatePickerField(widget.model as GSDatePickerModel, widget.formStyle!);
+        widget.child = GSDatePickerField(
+            widget.model as GSDatePickerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.dateRage:
-        widget.child = GSDateRangePickerField(widget.model as GSDateRangePickerModel, widget.formStyle!);
+        widget.child = GSDateRangePickerField(
+            widget.model as GSDateRangePickerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.time:
-        widget.child = GSTimePickerField(widget.model as GSTimePickerModel, widget.formStyle!);
+        widget.child = GSTimePickerField(
+            widget.model as GSTimePickerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.email:
-        widget.child = GSEmailField(widget.model as GSEmailModel, widget.formStyle!);
+        widget.child =
+            GSEmailField(widget.model as GSEmailModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.price:
-        widget.child = GSPriceField(widget.model as GSPriceModel, widget.formStyle!);
+        widget.child =
+            GSPriceField(widget.model as GSPriceModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.bankCard:
-        widget.child = GSBankCardField(widget.model as GSBankCardModel, widget.formStyle!);
+        widget.child =
+            GSBankCardField(widget.model as GSBankCardModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.spinner:
-        widget.child = GSSpinnerField(widget.model as GSSpinnerModel, widget.formStyle!);
+        widget.child =
+            GSSpinnerField(widget.model as GSSpinnerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.radioGroup:
-        widget.child = GSRadioGroupField(widget.model as GSRadioModel, widget.formStyle!);
+        widget.child =
+            GSRadioGroupField(widget.model as GSRadioModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.checkList:
-        widget.child = GSCheckListField(widget.model as GSCheckBoxModel, widget.formStyle!);
+        widget.child = GSCheckListField(
+            widget.model as GSCheckBoxModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.imagePicker:
-        widget.child = GSImagePickerField(widget.model as GSImagePickerModel, widget.formStyle!);
+        widget.child = GSImagePickerField(
+            widget.model as GSImagePickerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.qrScanner:
-        widget.child = GSQRScannerField(widget.model as GSQRScannerModel, widget.formStyle!);
+        widget.child = GSQRScannerField(
+            widget.model as GSQRScannerModel, widget.formStyle!);
         break;
       case GSFieldTypeEnum.multiImagePicker:
-        widget.child = GSMultiImagePickerField(widget.model as GSMultiImagePickerModel, widget.formStyle!);
+        widget.child = GSMultiImagePickerField(
+            widget.model as GSMultiImagePickerModel, widget.formStyle!);
         break;
 
       default:

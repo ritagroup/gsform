@@ -5,26 +5,28 @@ import 'field_model.dart';
 class GSMobileModel extends GSFieldModel {
   int? maxLength;
   String? hint;
+  ValueChanged<String>? onChanged;
 
-  GSMobileModel(
-      {type,
-      tag,
-      title,
-      errorMessage,
-      helpMessage,
-      prefixWidget,
-      postfixWidget,
-      required,
-      status,
-      value,
-      validateReg,
-      weight,
-      showTitle,
-      enableReadOnly,
-      onTap,
-      this.maxLength,
-      this.hint})
-      : super(
+  GSMobileModel({
+    type,
+    tag,
+    title,
+    errorMessage,
+    helpMessage,
+    prefixWidget,
+    postfixWidget,
+    required,
+    status,
+    value,
+    validateReg,
+    weight,
+    showTitle,
+    enableReadOnly,
+    onTap,
+    this.maxLength,
+    this.hint,
+    this.onChanged,
+  }) : super(
           type: type,
           tag: tag,
           title: title,

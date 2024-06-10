@@ -96,6 +96,9 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
                           maxLength: 100,
                           hint: 'text',
                           errorMessage: 'error',
+                          onChanged:  (value){
+                            print('123456789');
+                            },
                         ),
                         GSField.email(
                           tag: 'email',

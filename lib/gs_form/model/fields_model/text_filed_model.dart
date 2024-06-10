@@ -1,32 +1,35 @@
+import 'package:flutter/cupertino.dart';
 
 import 'field_model.dart';
 
 class GSTextModel extends GSFieldModel {
   int? maxLength;
+  ValueChanged<String>? onChanged;
 
   String? hint;
 
-  GSTextModel(
-      {type,
-      tag,
-      title,
-      errorMessage,
-      helpMessage,
-      prefixWidget,
-      postfixWidget,
-      required,
-      status,
-      value,
-      validateRegEx,
-      weight,
-      showTitle,
-      enableReadOnly,
-      onTap,
-      focusNode,
-      nextFocusNode,
-      this.maxLength,
-      this.hint})
-      : super(
+  GSTextModel({
+    type,
+    tag,
+    title,
+    errorMessage,
+    helpMessage,
+    prefixWidget,
+    postfixWidget,
+    required,
+    status,
+    value,
+    validateRegEx,
+    weight,
+    showTitle,
+    enableReadOnly,
+    onTap,
+    focusNode,
+    nextFocusNode,
+    this.maxLength,
+    this.hint,
+    this.onChanged,
+  }) : super(
           type: type,
           tag: tag,
           title: title,
