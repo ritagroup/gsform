@@ -58,29 +58,42 @@ class _GSNumberFieldState extends State<GSNumberField> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 10.0, left: 10.0),
-      child: TextField(
-        readOnly: widget.model.enableReadOnly ?? false,
-        textAlignVertical: TextAlignVertical.center,
-        controller: widget.controller,
-        maxLength: widget.model.maxLength,
-        style: widget.formStyle.fieldTextStyle,
-        keyboardType: TextInputType.phone,
-        focusNode: widget.model.focusNode,
-        textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
-        onSubmitted: (_) {
-          FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
-        },
-        decoration: InputDecoration(
-          counter: (widget.model.showCounter ?? false) ? null : const Offstage(),
-          hintText: widget.model.hint,
-          counterStyle: widget.formStyle.fieldHintStyle,
-          focusedBorder: InputBorder.none,
-          enabledBorder: InputBorder.none,
-          errorBorder: InputBorder.none,
-          disabledBorder: InputBorder.none,
-          hintStyle: widget.formStyle.fieldHintStyle,
+    return TextField(
+      readOnly: widget.model.enableReadOnly ?? false,
+      controller: widget.controller,
+      maxLength: widget.model.maxLength,
+      style: widget.formStyle.fieldTextStyle,
+      keyboardType: TextInputType.number,
+      focusNode: widget.model.focusNode,
+      textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
+      onSubmitted: (_) {
+        FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
+      },
+
+      decoration:InputDecoration(
+        hintText: widget.model.hint,
+        errorText: (!widget.isValid())?widget.model.errorMessage:null,
+        helperText: widget.model.helpMessage,
+        labelText: widget.model.title,
+        counterText: '',
+        suffixIcon: widget.model.postfixWidget,
+        prefixIcon: widget.model.prefixWidget,
+        hintStyle: widget.formStyle.fieldHintStyle,
+        focusedBorder:OutlineInputBorder(
+          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              20.0,
+            ),
+          ),
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              20.0,
+            ),
+          ),
         ),
       ),
     );

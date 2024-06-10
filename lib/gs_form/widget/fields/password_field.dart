@@ -62,37 +62,50 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsetsDirectional.only(start: 10.0),
-      child: TextField(
-        readOnly: widget.model.enableReadOnly ?? false,
-        textAlignVertical: TextAlignVertical.center,
-        keyboardType: TextInputType.visiblePassword,
-        obscureText: widget.obscured,
-        focusNode: widget.model.focusNode,
-        style: widget.formStyle.fieldTextStyle,
-        controller: widget.controller,
-        obscuringCharacter: '●',
-        textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
-        onSubmitted: (_) {
-          FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
-        },
-        decoration: InputDecoration(
-          hintText: widget.model.hint,
-          counterText: '',
-          focusedBorder: InputBorder.none,
-          enabledBorder: InputBorder.none,
-          errorBorder: InputBorder.none,
-          disabledBorder: InputBorder.none,
-          suffixIcon: GestureDetector(
-            onTap: () {
-              _update();
-            },
-            child: Icon(
-              widget.obscured ? Icons.visibility_rounded : Icons.visibility_off_rounded,
+    return TextField(
+      readOnly: widget.model.enableReadOnly ?? false,
+      textAlignVertical: TextAlignVertical.center,
+      keyboardType: TextInputType.visiblePassword,
+      obscureText: widget.obscured,
+      focusNode: widget.model.focusNode,
+      style: widget.formStyle.fieldTextStyle,
+      controller: widget.controller,
+      obscuringCharacter: '●',
+      textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
+      onSubmitted: (_) {
+        FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
+      },
+      decoration: InputDecoration(
+        hintText: widget.model.hint,
+        errorText: (!widget.isValid()) ? widget.model.errorMessage : null,
+        helperText: widget.model.helpMessage,
+        labelText: widget.model.title,
+        counterText: '',
+        prefixIcon: widget.model.prefixWidget,
+        hintStyle: widget.formStyle.fieldHintStyle,
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor, width: 1),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              20.0,
             ),
           ),
-          hintStyle: widget.formStyle.fieldHintStyle,
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor, width: 1),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              20.0,
+            ),
+          ),
+        ),
+        suffixIcon: GestureDetector(
+          onTap: () {
+            _update();
+          },
+          child: Icon(
+            widget.obscured ? Icons.visibility_rounded : Icons.visibility_off_rounded,
+          ),
         ),
       ),
     );

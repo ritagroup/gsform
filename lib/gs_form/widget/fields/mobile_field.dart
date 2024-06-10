@@ -57,28 +57,42 @@ class _GSMobileFieldState extends State<GSMobileField> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 10.0, left: 10.0),
-      child: TextField(
-        readOnly: widget.model.enableReadOnly ?? false,
-        textAlign: TextAlign.left,
-        controller: widget.controller,
-        maxLength: widget.model.maxLength ?? 11,
-        style: widget.formStyle.fieldTextStyle,
-        keyboardType: TextInputType.phone,
-        focusNode: widget.model.focusNode,
-        textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
-        onSubmitted: (_) {
-          FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
-        },
-        decoration: InputDecoration(
-          hintText: widget.model.hint,
-          focusedBorder: InputBorder.none,
-          enabledBorder: InputBorder.none,
-          counterText: '',
-          errorBorder: InputBorder.none,
-          disabledBorder: InputBorder.none,
-          hintStyle: widget.formStyle.fieldHintStyle,
+    return TextField(
+      readOnly: widget.model.enableReadOnly ?? false,
+      controller: widget.controller,
+      maxLength: widget.model.maxLength,
+      style: widget.formStyle.fieldTextStyle,
+      keyboardType: TextInputType.phone,
+      focusNode: widget.model.focusNode,
+      textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
+      onSubmitted: (_) {
+        FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
+      },
+
+      decoration: InputDecoration(
+        hintText: widget.model.hint,
+        errorText: (!widget.isValid())?widget.model.errorMessage:null,
+        helperText: widget.model.helpMessage,
+        labelText: widget.model.title,
+        counterText: '',
+        suffixIcon: widget.model.postfixWidget,
+        prefixIcon: widget.model.prefixWidget,
+        hintStyle: widget.formStyle.fieldHintStyle,
+        focusedBorder:OutlineInputBorder(
+          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              20.0,
+            ),
+          ),
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              20.0,
+            ),
+          ),
         ),
       ),
     );
