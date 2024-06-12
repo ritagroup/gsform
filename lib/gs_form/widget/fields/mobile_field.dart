@@ -71,7 +71,7 @@ class _GSMobileFieldState extends State<GSMobileField> {
       onChanged: widget.model.onChanged,
       decoration: InputDecoration(
         hintText: widget.model.hint,
-        errorText: (!widget.isValid())?widget.model.errorMessage:null,
+        errorText: (!widget.isValid()) && (widget.controller?.text??'').length>0 ? widget.model.errorMessage:null,
         helperText: widget.model.helpMessage,
         labelText: widget.model.title,
         counterText: '',
