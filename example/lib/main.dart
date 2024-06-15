@@ -78,9 +78,10 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
                   padding: const EdgeInsets.all(20.0),
                   child: form = GSForm.singleSection(
                       style: GSFormStyle(
+                        fieldRadius: 22,
                         sectionCardElevation: 0,
                         backgroundSectionColor: Colors.white,
-                        fieldBorderColor: Colors.grey,
+                        fieldBorderColor: Colors.red,
                         backgroundFieldColor: Colors.white,
                         titleStyle: const TextStyle(
                           color: Colors.black87,
@@ -89,6 +90,18 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
                       ),
                       context,
                       fields: [
+                        GSField.datePicker(
+                          calendarType: GSCalendarType.gregorian,
+                          tag: 'birthday_data',
+                          weight: 12,
+                          required: false,
+                          showTitle: true,
+                          displayDateType: GSDateFormatType.mediumText,
+                          hint: 'Select your Birthday',
+                          initialDate: GSDate(day: 10, month: 5, year: 2023),
+                          errorMessage: 'please enter a name',
+
+                        ),
                         GSField.text(
                           tag: 'email',
                           title: 'text',
