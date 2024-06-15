@@ -79,10 +79,10 @@ class _GSTextFieldState extends State<GSTextField> {
         prefixIcon: widget.model.prefixWidget,
         hintStyle: widget.formStyle.fieldHintStyle,
         disabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+          borderSide: BorderSide(color: widget.formStyle.backgroundFieldColorDisable ,width: 1),
           borderRadius: BorderRadius.all(
             Radius.circular(
-              20.0,
+              widget.formStyle.fieldRadius,
             ),
           ),
         ),
@@ -90,7 +90,7 @@ class _GSTextFieldState extends State<GSTextField> {
             borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
             borderRadius: BorderRadius.all(
               Radius.circular(
-                20.0,
+                widget.formStyle.fieldRadius,
               ),
             ),
         ),
@@ -98,7 +98,7 @@ class _GSTextFieldState extends State<GSTextField> {
           borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
           borderRadius: BorderRadius.all(
             Radius.circular(
-              20.0,
+              widget.formStyle.fieldRadius,
             ),
           ),
         ),
@@ -106,7 +106,7 @@ class _GSTextFieldState extends State<GSTextField> {
           borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1 ),
           borderRadius: BorderRadius.all(
             Radius.circular(
-              20.0,
+              widget.formStyle.fieldRadius,
             ),
           ),
         ),

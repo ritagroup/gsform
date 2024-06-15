@@ -84,22 +84,39 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
         counterText: '',
         prefixIcon: widget.model.prefixWidget,
         hintStyle: widget.formStyle.fieldHintStyle,
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor, width: 1),
+        disabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: widget.formStyle.backgroundFieldColorDisable ,width: 1),
           borderRadius: BorderRadius.all(
             Radius.circular(
-              20.0,
+              widget.formStyle.fieldRadius,
+            ),
+          ),
+        ),
+        enabledBorder:  OutlineInputBorder(
+          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              widget.formStyle.fieldRadius,
+            ),
+          ),
+        ),
+        focusedBorder:OutlineInputBorder(
+          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              widget.formStyle.fieldRadius,
             ),
           ),
         ),
         border: OutlineInputBorder(
-          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor, width: 1),
+          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1 ),
           borderRadius: BorderRadius.all(
             Radius.circular(
-              20.0,
+              widget.formStyle.fieldRadius,
             ),
           ),
         ),
+
         suffixIcon: GestureDetector(
           onTap: () {
             _update();
