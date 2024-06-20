@@ -78,6 +78,9 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
   @override
   void initState() {
     widget.controller ??= TextEditingController();
+    widget.controller?.addListener(() {
+      widget.model.callBack?.call(widget.controller?.text??'');
+    });
     _initialDates();
     super.initState();
   }

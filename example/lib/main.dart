@@ -100,6 +100,9 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
                           hint: 'Select your Birthday',
                           initialDate: GSDate(day: 10, month: 5, year: 2023),
                           errorMessage: 'please enter a name',
+                          callBack: (value) {
+                            print('TAG_________________________________________$value') ;
+                          },
 
                         ),
                         GSField.text(
