@@ -566,7 +566,7 @@ class GSField extends StatefulWidget {
     GSDate? initialDate,
     GSDate? availableFrom,
     GSDate? availableTo,
-    ValueChanged<String>? callBack ;
+    ValueChanged<String>? callBack ,
   }) : super(key: key) {
     model = GSDatePickerModel(
         type: GSFieldTypeEnum.date,
