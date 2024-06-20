@@ -140,7 +140,7 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
                   prefixIcon: widget.model.prefixWidget,
                   hintStyle: widget.formStyle.fieldHintStyle,
                   disabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: widget.formStyle.backgroundFieldColorDisable ,width: 1),
+                    borderSide: BorderSide(color: widget.formStyle.backgroundFieldColor,width: 1),
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         widget.formStyle.fieldRadius,
