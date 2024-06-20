@@ -108,78 +108,75 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
   Widget build(BuildContext context) {
     widget.context = context;
     return GestureDetector(
-      child: Padding(
-        padding: const EdgeInsets.only(right: 10.0, left: 10.0, top: 18, bottom: 18),
-        child: Row(
-          children: [
-            Expanded(
-              child: Align(
-                alignment: widget.model.dateFormatType == GSDateFormatType.numeric
-                    ? Alignment.centerLeft
-                    : GSFormUtils.isDirectionRTL(context)
-                        ? Alignment.centerRight
-                        : Alignment.centerLeft,
-                child:TextField(
-                  readOnly: true,
-                  enabled: false,
-                  controller: widget.controller,
-                  style: widget.formStyle.fieldTextStyle,
-                  keyboardType: TextInputType.text,
-                  focusNode: widget.model.focusNode,
-                  textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
-                  onSubmitted: (_) {
-                    FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
-                  },
-                  onChanged: widget.model.callBack,
+      child: Row(
+        children: [
+          Expanded(
+            child: Align(
+              alignment: widget.model.dateFormatType == GSDateFormatType.numeric
+                  ? Alignment.centerLeft
+                  : GSFormUtils.isDirectionRTL(context)
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
+              child:TextField(
+                readOnly: true,
+                enabled: false,
+                controller: widget.controller,
+                style: widget.formStyle.fieldTextStyle,
+                keyboardType: TextInputType.text,
+                focusNode: widget.model.focusNode,
+                textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
+                onSubmitted: (_) {
+                  FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
+                },
+                onChanged: widget.model.callBack,
 
-                  decoration: InputDecoration(
-                    hintText: widget.model.hint,
-                    errorText: (!widget.isValid()) && (widget.controller?.text??'').length>0 ? widget.model.errorMessage:null,
-                    helperText: widget.model.helpMessage,
-                    labelText: widget.model.title,
-                    counterText: '',
-                    suffixIcon: widget.model.postfixWidget,
-                    prefixIcon: widget.model.prefixWidget,
-                    hintStyle: widget.formStyle.fieldHintStyle,
-                    disabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: widget.formStyle.backgroundFieldColorDisable ,width: 1),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(
-                          widget.formStyle.fieldRadius,
-                        ),
+                decoration: InputDecoration(
+                  hintText: widget.model.hint,
+                  errorText: (!widget.isValid()) && (widget.controller?.text??'').length>0 ? widget.model.errorMessage:null,
+                  helperText: widget.model.helpMessage,
+                  labelText: widget.model.title,
+                  counterText: '',
+                  suffixIcon: widget.model.postfixWidget,
+                  prefixIcon: widget.model.prefixWidget,
+                  hintStyle: widget.formStyle.fieldHintStyle,
+                  disabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: widget.formStyle.backgroundFieldColorDisable ,width: 1),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        widget.formStyle.fieldRadius,
                       ),
                     ),
-                    enabledBorder:  OutlineInputBorder(
-                      borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(
-                          widget.formStyle.fieldRadius,
-                        ),
-                      ),
-                    ),
-                    focusedBorder:OutlineInputBorder(
-                      borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(
-                          widget.formStyle.fieldRadius,
-                        ),
-                      ),
-                    ),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1 ),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(
-                          widget.formStyle.fieldRadius,
-                        ),
-                      ),
-                    ),
-
                   ),
-                )
-              ),
+                  enabledBorder:  OutlineInputBorder(
+                    borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        widget.formStyle.fieldRadius,
+                      ),
+                    ),
+                  ),
+                  focusedBorder:OutlineInputBorder(
+                    borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        widget.formStyle.fieldRadius,
+                      ),
+                    ),
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1 ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        widget.formStyle.fieldRadius,
+                      ),
+                    ),
+                  ),
+
+                ),
+              )
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       onTap: () {
         if (widget.model.calendarType == GSCalendarType.jalali) {
