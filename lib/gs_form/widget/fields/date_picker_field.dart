@@ -29,6 +29,9 @@ class GSDatePickerField extends StatefulWidget implements GSFieldCallBack {
 
   bool isDateSelected = false;
 
+  TextEditingController? controller;
+
+
   GSDatePickerField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   @override
@@ -74,12 +77,17 @@ class GSDatePickerField extends StatefulWidget implements GSFieldCallBack {
 class _GSDatePickerFieldState extends State<GSDatePickerField> {
   @override
   void initState() {
+    widget.controller ??= TextEditingController();
+    widget.controller?.addListener(() {
+      widget.model.callBack?.call(widget.controller?.text??'');
+    });
     _initialDates();
     super.initState();
   }
 
   @override
   void didUpdateWidget(covariant GSDatePickerField oldWidget) {
+    widget.controller = oldWidget.controller;
     if (widget.model.calendarType == GSCalendarType.jalali) {
       if (oldWidget.selectedJalaliDate != null) {
         widget.model.initialDate = GSDate(
@@ -102,27 +110,76 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
   @override
   Widget build(BuildContext context) {
     widget.context = context;
-    return InkWell(
-      child: Padding(
-        padding: const EdgeInsets.only(right: 10.0, left: 10.0, top: 18, bottom: 18),
-        child: Row(
-          children: [
-            Expanded(
-              child: Align(
-                alignment: widget.model.dateFormatType == GSDateFormatType.numeric
-                    ? Alignment.centerLeft
-                    : GSFormUtils.isDirectionRTL(context)
-                        ? Alignment.centerRight
-                        : Alignment.centerLeft,
-                child: Text(
-                  widget.selectedDateText.isEmpty ? widget.model.hint ?? '' : widget.selectedDateText,
-                  style: widget.isDateSelected ? widget.formStyle.fieldTextStyle : widget.formStyle.fieldHintStyle,
-                  maxLines: 1,
+    return GestureDetector(
+      child: Row(
+        children: [
+          Expanded(
+            child: Align(
+              alignment: widget.model.dateFormatType == GSDateFormatType.numeric
+                  ? Alignment.centerLeft
+                  : GSFormUtils.isDirectionRTL(context)
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
+              child:TextField(
+                readOnly: true,
+                enabled: false,
+                controller: widget.controller,
+                style: widget.formStyle.fieldTextStyle,
+                keyboardType: TextInputType.text,
+                focusNode: widget.model.focusNode,
+                textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
+                onSubmitted: (_) {
+                  FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
+                },
+                onChanged: widget.model.callBack,
+
+                decoration: InputDecoration(
+                  hintText: widget.model.hint,
+                  errorText: (!widget.isValid()) && (widget.controller?.text??'').length>0 ? widget.model.errorMessage:null,
+                  helperText: widget.model.helpMessage,
+                  labelText: widget.model.title,
+                  counterText: '',
+                  suffixIcon: widget.model.postfixWidget,
+                  prefixIcon: widget.model.prefixWidget,
+                  hintStyle: widget.formStyle.fieldHintStyle,
+                  disabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: widget.formStyle.fieldBorderColor,width: 1),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        widget.formStyle.fieldRadius,
+                      ),
+                    ),
+                  ),
+                  enabledBorder:  OutlineInputBorder(
+                    borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        widget.formStyle.fieldRadius,
+                      ),
+                    ),
+                  ),
+                  focusedBorder:OutlineInputBorder(
+                    borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        widget.formStyle.fieldRadius,
+                      ),
+                    ),
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1 ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        widget.formStyle.fieldRadius,
+                      ),
+                    ),
+                  ),
+
                 ),
-              ),
+              )
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       onTap: () {
         if (widget.model.calendarType == GSCalendarType.jalali) {
@@ -133,6 +190,13 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
       },
     );
   }
+
+  // Text(
+  // widget.selectedDateText.isEmpty ? widget.model.hint ?? '' : widget.selectedDateText,
+  // style: widget.isDateSelected ? widget.formStyle.fieldTextStyle : widget.formStyle.fieldHintStyle,
+  // maxLines: 1,
+  //
+  // ),
 
   _initialDates() {
     if (widget.model.calendarType == GSCalendarType.jalali) {
@@ -272,6 +336,8 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
     } else {
       widget.selectedDateText = widget.selectedJalaliDate!.formatCompactDate();
     }
+    widget.controller?.text = widget.selectedDateText.isEmpty ? widget.model.hint ?? '' : widget.selectedDateText ;
+
   }
 
   _displayGregorianDate() {
@@ -296,5 +362,7 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
     } else {
       widget.selectedDateText = DateFormat.yMd().format(widget.selectedGregorianDate!);
     }
+    widget.controller?.text = widget.selectedDateText.isEmpty ? widget.model.hint ?? '' : widget.selectedDateText ;
+
   }
 }

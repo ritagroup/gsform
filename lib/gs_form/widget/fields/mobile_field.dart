@@ -71,29 +71,46 @@ class _GSMobileFieldState extends State<GSMobileField> {
       onChanged: widget.model.onChanged,
       decoration: InputDecoration(
         hintText: widget.model.hint,
-        errorText: (!widget.isValid())?widget.model.errorMessage:null,
+        errorText: (!widget.isValid()) && (widget.controller?.text??'').length>0 ? widget.model.errorMessage:null,
         helperText: widget.model.helpMessage,
         labelText: widget.model.title,
         counterText: '',
         suffixIcon: widget.model.postfixWidget,
         prefixIcon: widget.model.prefixWidget,
         hintStyle: widget.formStyle.fieldHintStyle,
+        disabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: widget.formStyle.backgroundFieldColorDisable ,width: 1),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              widget.formStyle.fieldRadius,
+            ),
+          ),
+        ),
+        enabledBorder:  OutlineInputBorder(
+          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+          borderRadius: BorderRadius.all(
+            Radius.circular(
+              widget.formStyle.fieldRadius,
+            ),
+          ),
+        ),
         focusedBorder:OutlineInputBorder(
           borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
           borderRadius: BorderRadius.all(
             Radius.circular(
-              20.0,
+              widget.formStyle.fieldRadius,
             ),
           ),
         ),
         border: OutlineInputBorder(
-          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+          borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1 ),
           borderRadius: BorderRadius.all(
             Radius.circular(
-              20.0,
+              widget.formStyle.fieldRadius,
             ),
           ),
         ),
+
       ),
     );
   }

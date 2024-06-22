@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:gsform/gs_form/model/fields_model/field_model.dart';
 
 import '../data_model/date_data_model.dart';
@@ -10,6 +11,7 @@ class GSDatePickerModel extends GSFieldModel {
   GSDate? availableFrom;
   GSDate? availableTo;
   GSCalendarType calendarType;
+  ValueChanged<String>? callBack;
 
   GSDatePickerModel({
     type,
@@ -31,6 +33,7 @@ class GSDatePickerModel extends GSFieldModel {
     this.availableTo,
     this.initialDate,
     required this.calendarType,
+    this.callBack,
   }) : super(
             type: type,
             tag: tag,

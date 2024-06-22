@@ -566,10 +566,12 @@ class GSField extends StatefulWidget {
     GSDate? initialDate,
     GSDate? availableFrom,
     GSDate? availableTo,
+    ValueChanged<String>? callBack ,
   }) : super(key: key) {
     model = GSDatePickerModel(
         type: GSFieldTypeEnum.date,
         tag: tag,
+        callBack: callBack,
         title: title,
         errorMessage: errorMessage,
         helpMessage: helpMessage,
@@ -818,7 +820,7 @@ class _GSFieldState extends State<GSField> {
     };
 
     if (widget.model?.showTitle ?? false) {
-      return AbsorbPointer(
+      return  AbsorbPointer(
         absorbing: widget.model?.status == GSFieldStatusEnum.disabled,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -832,15 +834,13 @@ class _GSFieldState extends State<GSField> {
                       children: [
                         Row(
                           children: [
-                            Text(widget.model?.title ?? "",
-                                style: widget.formStyle!.titleTextStyle),
+                            Text(widget.model?.title ?? "", style: widget.formStyle!.titleTextStyle),
                             const SizedBox(width: 4.0),
                             Opacity(
                               opacity: widget.model?.required ?? false ? 1 : 0,
                               child: Text(
                                 widget.formStyle!.requiredText,
-                                style: const TextStyle(
-                                    color: GSFormColors.red, fontSize: 10),
+                                style: const TextStyle(color: GSFormColors.red, fontSize: 10),
                               ),
                             ),
                           ],
@@ -849,48 +849,46 @@ class _GSFieldState extends State<GSField> {
                       ],
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Visibility(
-                        visible:
-                            widget.model?.prefixWidget == null ? false : true,
-                        child: Row(
-                          children: [
-                            const SizedBox(width: 8.0),
-                            widget.model?.prefixWidget ??
-                                const SizedBox(width: 0),
-                            const SizedBox(width: 8.0),
-                            Container(
-                              height: 30.0,
-                              color: GSFormColors.dividerColor,
-                              width: 1.0,
-                            ),
-                          ],
+                  Container(
+                    decoration: GSFormUtils.getFieldDecoration(widget.formStyle!, widget.model?.status),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Visibility(
+                          visible: widget.model?.prefixWidget == null ? false : true,
+                          child: Row(
+                            children: [
+                              const SizedBox(width: 8.0),
+                              widget.model?.prefixWidget ?? const SizedBox(width: 0),
+                              const SizedBox(width: 8.0),
+                              Container(
+                                height: 30.0,
+                                color: GSFormColors.dividerColor,
+                                width: 1.0,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      Expanded(
-                        child: widget.child!,
-                      ),
-                      Visibility(
-                        visible:
-                            widget.model?.postfixWidget == null ? false : true,
-                        child: Row(
-                          children: [
-                            const SizedBox(width: 10.0),
-                            widget.model?.postfixWidget ??
-                                const SizedBox(width: 0),
-                            const SizedBox(width: 10.0),
-                          ],
+                        Expanded(
+                          child: widget.child!,
                         ),
-                      ),
-                    ],
+                        Visibility(
+                          visible: widget.model?.postfixWidget == null ? false : true,
+                          child: Row(
+                            children: [
+                              const SizedBox(width: 10.0),
+                              widget.model?.postfixWidget ?? const SizedBox(width: 0),
+                              const SizedBox(width: 10.0),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 4.0),
                   Opacity(
-                    opacity: (widget.model?.status == GSFieldStatusEnum.error &&
-                                widget.model?.errorMessage != null) ||
-                            widget.model?.helpMessage != null
+                    opacity: (widget.model?.status == GSFieldStatusEnum.error && widget.model?.errorMessage != null) ||
+                        widget.model?.helpMessage != null
                         ? 1
                         : 0,
                     child: Row(

@@ -75,16 +75,51 @@ class _GSTextPlainFieldState extends State<GSTextPlainField> {
         },
         onChanged: widget.model.onChanged,
         decoration: InputDecoration(
-          counter: widget.model.showCounter ?? false ? null : const Offstage(),
           hintText: widget.model.hint,
-          focusedBorder: InputBorder.none,
-          enabledBorder: InputBorder.none,
-          counterStyle: widget.formStyle.fieldHintStyle,
-          errorBorder: InputBorder.none,
-          disabledBorder: InputBorder.none,
+          errorText: (!widget.isValid()) && (widget.controller?.text??'').length>0 ? widget.model.errorMessage:null,
+          helperText: widget.model.helpMessage,
+          labelText: widget.model.title,
+          counter: widget.model.showCounter ?? false ? null : const Offstage(),
+          suffixIcon: widget.model.postfixWidget,
+          prefixIcon: widget.model.prefixWidget,
           hintStyle: widget.formStyle.fieldHintStyle,
+          disabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: widget.formStyle.backgroundFieldColorDisable ,width: 1),
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                widget.formStyle.fieldRadius,
+              ),
+            ),
+          ),
+          enabledBorder:  OutlineInputBorder(
+            borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                widget.formStyle.fieldRadius,
+              ),
+            ),
+          ),
+          focusedBorder:OutlineInputBorder(
+            borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1),
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                widget.formStyle.fieldRadius,
+              ),
+            ),
+          ),
+          border: OutlineInputBorder(
+            borderSide: BorderSide(color: widget.formStyle.fieldBorderColor ,width: 1 ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                widget.formStyle.fieldRadius,
+              ),
+            ),
+          ),
+
         ),
+
       ),
+
     );
   }
 }
