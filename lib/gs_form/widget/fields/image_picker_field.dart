@@ -130,7 +130,15 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
     final croppedFile = await ImageCropper().cropImage(
       sourcePath: image.path,
       compressFormat: ImageCompressFormat.jpg,
-      compressQuality: 100,
+      aspectRatio:CropAspectRatio(ratioX: 100 , ratioY: 100) ,
+      compressQuality: 60,
+      maxHeight: 200,
+      maxWidth: 200,
+      aspectRatioPresets:[
+        CropAspectRatioPreset.original,
+        CropAspectRatioPreset.square,
+         // IMPORTANT: iOS supports only one custom aspect ratio in preset list
+      ] ,
       uiSettings: [
         AndroidUiSettings(
             toolbarTitle: 'Crop photo',
@@ -138,6 +146,7 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
             toolbarWidgetColor: Colors.black,
             initAspectRatio: CropAspectRatioPreset.square,
             lockAspectRatio: false ,
+
         ),
 
         IOSUiSettings(
@@ -204,8 +213,8 @@ class ImagePickedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: model.width,
-      height: model.height,
+      width: 150,
+      height: 150,
       child: ClipRRect(
         borderRadius: BorderRadius.all(
           Radius.circular(

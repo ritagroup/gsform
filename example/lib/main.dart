@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/enums/field_status.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
@@ -76,66 +77,46 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
-                  child: form = GSForm.singleSection(
-                      style: GSFormStyle(
-                        fieldRadius: 22,
-                        sectionCardElevation: 0,
-                        backgroundSectionColor: Colors.white,
-                        fieldBorderColor: Colors.red,
-                        backgroundFieldColor: Colors.white,
-                        titleStyle: const TextStyle(
-                          color: Colors.black87,
-                          fontSize: 16.0,
-                        ),
-                      ),
-                      context,
-                      fields: [
-                        GSField.datePicker(
-                          calendarType: GSCalendarType.gregorian,
-                          tag: 'birthday_data',
-                          weight: 12,
-                          required: false,
-                          showTitle: false,
-                          displayDateType: GSDateFormatType.mediumText,
-                          hint: 'Select your Birthday',
-                          initialDate: GSDate(day: 10, month: 5, year: 2023),
-                          errorMessage: 'please enter a name',
-                          callBack: (value) {
-                            print('TAG_________________________________________$value') ;
-                          },
-
-                        ),
-                        GSField.text(
-                          tag: 'email',
-                          title: 'text',
-                          required: false,
-                          maxLength: 100,
-                          hint: 'text',
-                          errorMessage: 'error',
-                          onChanged: (value) {
-                            print('123456789');
-                          },
-                        ),
-                        GSField.email(
-                          tag: 'email',
-                          title: 'email',
-                          weight: 12,
-                          required: true,
-                          showTitle: false,
-                          maxLength: 100,
-                          hint: 'dastras.saeed@gmail.com',
-                          validateRegEx: RegExp(r'^.{5,10}$'),
-                          errorMessage: 'error',
-                        ),
-                        GSField.imagePicker(
-                          tag: 'tag',
-                          title: 'photo',
-                          iconWidget: Icon(
-                            Icons.add,
+                  child:   SizedBox(
+                    height: 200,
+                    width: 200,
+                    child:form = GSForm.singleSection(
+                        style: GSFormStyle(
+                          fieldRadius: 22,
+                          sectionCardElevation: 0,
+                          backgroundSectionColor: Colors.white,
+                          fieldBorderColor: Colors.red,
+                          backgroundFieldColor: Colors.white,
+                          titleStyle: const TextStyle(
+                            color: Colors.black87,
+                            fontSize: 16.0,
                           ),
-
-                        )
-                      ]),
+                        ),
+                        context,
+                        fields: [
+                          GSField.imagePicker(
+                            tag: 'profile_pic',
+                            title: "profile",
+                            cameraPopupIcon: 'assets/ic_camera.svg',
+                            galleryPopupIcon: 'assets/ic_upload.svg',
+                            cameraPopupTitle: 'take',
+                            galleryPopupTitle:'upload',
+                            showCropper: true,
+                            iconWidget: Column(
+                              children: [
+                                SvgPicture.asset('assets/icons/ic_profile_photo.svg'),
+                                SizedBox(height: 16.0),
+                                Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'add Pic',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ]),
+                  ),
                 ),
               ),
             ),
