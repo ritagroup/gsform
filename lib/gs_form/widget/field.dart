@@ -113,10 +113,15 @@ class GSField extends StatefulWidget {
     GSImageSource? imageSource,
     Color? iconColor,
     bool? showCropper,
+    double? width,
+    double? height ,
+
     double? maximumSizePerImageInBytes,
     VoidCallback? onErrorSizeItem,
   }) : super(key: key) {
     model = GSImagePickerModel(
+      width: width,
+      height: height,
       type: GSFieldTypeEnum.imagePicker,
       tag: tag,
       showCropper: showCropper ?? true,
