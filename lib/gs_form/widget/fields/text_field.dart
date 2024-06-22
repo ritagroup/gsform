@@ -57,6 +57,7 @@ class _GSTextFieldState extends State<GSTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+
       readOnly: widget.model.enableReadOnly ?? false,
       controller: widget.controller,
       maxLength: widget.model.maxLength,

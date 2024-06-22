@@ -96,9 +96,9 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
                           maxLength: 100,
                           hint: 'text',
                           errorMessage: 'error',
-                          onChanged:  (value){
+                          onChanged: (value) {
                             print('123456789');
-                            },
+                          },
                         ),
                         GSField.email(
                           tag: 'email',
@@ -108,30 +108,16 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
                           showTitle: false,
                           maxLength: 100,
                           hint: 'dastras.saeed@gmail.com',
-                          validateRegEx:RegExp(r'^.{5,10}$') ,
+                          validateRegEx: RegExp(r'^.{5,10}$'),
                           errorMessage: 'error',
                         ),
-                        GSField.password(
-                          tag: 'email',
-                          title: 'password',
-                          showTitle: false,
-                          weight: 12,
-                          required: true,
-                          maxLength: 100,
-                          hint: '123456',
-                          errorMessage: 'error',
-                        ),
+                        GSField.imagePicker(
+                          tag: 'tag',
+                          iconWidget: Icon(
+                            Icons.add,
+                          ),
 
-                        GSField.mobile(
-                          tag: 'email',
-                          title: 'login',
-                          weight: 12,
-                          required: true,
-                          showTitle: false,
-                          maxLength: 100,
-                          value: 'dastras.saeed@gmail.com',
-                          errorMessage: 'error',
-                        ),
+                        )
                       ]),
                 ),
               ),

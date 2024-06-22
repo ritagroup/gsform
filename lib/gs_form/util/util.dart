@@ -61,6 +61,7 @@ class GSFormUtils {
     String? cameraName = 'Camera',
     String? cameraAssets,
     String? galleryAssets,
+    GSFormStyle? formStyle,
   }) {
     showModalBottomSheet(
       backgroundColor: Colors.transparent,
@@ -69,83 +70,107 @@ class GSFormUtils {
       builder: (BuildContext bc) {
         return Container(
           alignment: Alignment.bottomCenter,
+          decoration: BoxDecoration(border: Border.all(width: 1.5)),
           child: Wrap(
             children: [
-              SizedBox(
-                height: 130.0,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(16.0),
-                      topRight: Radius.circular(16.0),
-                    ),
+              Container(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(16.0),
+                    topRight: Radius.circular(16.0),
                   ),
-                  child: Row(
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 36.0, bottom: 36, left: 16, right: 16),
+                  child: Column(
                     children: [
-                      Expanded(
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pop(context);
-                            pickImage(ImageSource.camera).then((imageFile) {
-                              if (imageFile != null) {
-                                callback(imageFile);
-                              }
-                            });
-                          },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              cameraAssets == null
-                                  ? const Icon(
-                                      Icons.camera,
-                                      size: 40.0,
-                                      color: Colors.blue,
-                                    )
-                                  : SvgPicture.asset(
-                                      cameraAssets,
-                                      width: 40.0,
-                                      height: 40.0,
-                                    ),
-                              const SizedBox(height: 10.0),
-                              Text(
-                                cameraName ?? 'Camera',
-                                style: GSFormStyle().titleTextStyle,
-                              )
-                            ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                          pickImage(ImageSource.camera).then((imageFile) {
+                            if (imageFile != null) {
+                              callback(imageFile);
+                            }
+                          });
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: formStyle?.fieldBorderColor ?? Colors.black26,
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.all(Radius.circular(formStyle?.fieldRadius ?? 16)),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(6.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                cameraAssets == null
+                                    ? const Icon(
+                                        Icons.camera,
+                                        size: 24.0,
+                                        color: Colors.blue,
+                                      )
+                                    : SvgPicture.asset(
+                                        cameraAssets,
+                                        width: 24.0,
+                                        height: 24.0,
+                                      ),
+                                const SizedBox(width: 6.0),
+                                Text(
+                                  cameraName ?? 'Camera',
+                                  style: GSFormStyle().titleTextStyle,
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Expanded(
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pop(context);
-                            pickImage(ImageSource.gallery).then((imageFile) {
-                              if (imageFile != null) {
-                                callback(imageFile);
-                              }
-                            });
-                          },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              galleryAssets == null
-                                  ? const Icon(
-                                      Icons.photo_library,
-                                      size: 40.0,
-                                      color: Colors.blue,
-                                    )
-                                  : SvgPicture.asset(
-                                      galleryAssets,
-                                      width: 40.0,
-                                      height: 40.0,
-                                    ),
-                              const SizedBox(height: 10.0),
-                              Text(
-                                galleryName ?? 'Gallery',
-                                style: GSFormStyle().titleTextStyle,
-                              )
-                            ],
+                      SizedBox(
+                        height: 8,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                          pickImage(ImageSource.gallery).then((imageFile) {
+                            if (imageFile != null) {
+                              callback(imageFile);
+                            }
+                          });
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: formStyle?.fieldBorderColor ?? Colors.black26,
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.all(Radius.circular(formStyle?.fieldRadius ?? 16)),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(6.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                galleryAssets == null
+                                    ? const Icon(
+                                        Icons.photo_library,
+                                        size: 24.0,
+                                        color: Colors.blue,
+                                      )
+                                    : SvgPicture.asset(
+                                        galleryAssets,
+                                        width: 24.0,
+                                        height: 24.0,
+                                      ),
+                                const SizedBox(width: 6.0),
+                                Text(
+                                  galleryName ?? 'Gallery',
+                                  style: GSFormStyle().titleTextStyle,
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
