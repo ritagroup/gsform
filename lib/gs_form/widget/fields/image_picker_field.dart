@@ -133,13 +133,18 @@ class _GSImagePickerFieldState extends State<GSImagePickerField> {
       compressQuality: 100,
       uiSettings: [
         AndroidUiSettings(
-            toolbarTitle: 'ویرایش تصویر',
+            toolbarTitle: 'Crop photo',
             toolbarColor: GSFormColors.white,
             toolbarWidgetColor: Colors.black,
-            initAspectRatio: CropAspectRatioPreset.original,
-            lockAspectRatio: false),
+            initAspectRatio: CropAspectRatioPreset.square,
+            lockAspectRatio: false ,
+        ),
+
         IOSUiSettings(
           title: 'Cropper',
+          aspectRatioLockEnabled: false ,
+
+
         ),
       ],
     );
