@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'field_model.dart';
 
 class GSImagePickerModel extends GSFieldModel {
+  double? width;
+
+  double? height;
   String? hint;
   Widget iconWidget;
   String? cameraPopupTitle;
@@ -26,6 +29,8 @@ class GSImagePickerModel extends GSFieldModel {
     showTitle,
     value,
     required this.iconWidget,
+    this.width,
+    this.height,
     this.cameraPopupIcon,
     this.galleryPopupIcon,
     this.showCropper,

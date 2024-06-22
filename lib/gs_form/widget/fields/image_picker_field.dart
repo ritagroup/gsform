@@ -166,41 +166,15 @@ class NormalView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
+    return Container(
+      height: model.height,
+      width: model.width,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           model.iconWidget,
           const SizedBox(height: 6.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Visibility(
-                visible: model.required ?? false,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 4, left: 4),
-                  child: Text(
-                    formStyle.requiredText,
-                    style: const TextStyle(
-                      color: GSFormColors.red,
-                      fontSize: 10,
-                    ),
-                  ),
-                ),
-              ),
-              Text(
-                model.title ?? '',
-                style: formStyle.titleTextStyle,
-              ),
-            ],
-          ),
-          const SizedBox(height: 6.0),
-          Text(
-            model.hint ?? '',
-            style: formStyle.fieldHintStyle,
-          ),
         ],
       ),
     );
@@ -225,72 +199,18 @@ class ImagePickedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 140,
-      child: Stack(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.file(File(croppedFilePath), fit: BoxFit.contain),
-            ],
+      width: model.width,
+      height: model.height,
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(
+          Radius.circular(
+            50,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                height: 32.0,
-                decoration: const BoxDecoration(
-                  color: Colors.black54,
-                  borderRadius: SmoothBorderRadius.only(
-                    bottomLeft: SmoothRadius(
-                      cornerRadius: 11.0,
-                      cornerSmoothing: 1,
-                    ),
-                    bottomRight: SmoothRadius(
-                      cornerRadius: 11.0,
-                      cornerSmoothing: 1,
-                    ),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 8.0, left: 8.0),
-                  child: Row(
-                    children: [
-                      Text(
-                        model.title!,
-                        style: formStyle.titleTextStyle.copyWith(color: Colors.white),
-                      ),
-                      const Spacer(),
-                      SizedBox(
-                        height: 20.0,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                          ),
-                          onPressed: () {
-                            onDeleteImage.call();
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const SizedBox(width: 8),
-                              Text(
-                                'حذف',
-                                maxLines: 1,
-                                style: formStyle.titleTextStyle.copyWith(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          )
-        ],
+        ),
+        child: Image.file(
+          File(croppedFilePath),
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

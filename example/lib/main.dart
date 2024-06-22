@@ -129,6 +129,7 @@ class _SingleSectionFormState extends State<SingleSectionForm> {
                         ),
                         GSField.imagePicker(
                           tag: 'tag',
+                          title: 'photo',
                           iconWidget: Icon(
                             Icons.add,
                           ),
