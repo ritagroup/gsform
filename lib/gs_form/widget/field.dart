@@ -422,6 +422,7 @@ class GSField extends StatefulWidget {
       hint: hint,
       maxLength: maxLength,
       enableReadOnly: readOnly,
+      validateReg: validateReg
     );
   }
 
