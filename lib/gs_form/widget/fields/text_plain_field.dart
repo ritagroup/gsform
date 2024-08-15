@@ -9,7 +9,6 @@ class GSTextPlainField extends StatefulWidget implements GSFieldCallBack {
   final GSFormStyle formStyle;
   Function(String)? onChanged;
 
-  
   TextEditingController? controller;
 
   GSTextPlainField(this.model, this.formStyle, this.onChanged, {Key? key}) : super(key: key);
@@ -77,8 +76,8 @@ class _GSTextPlainFieldState extends State<GSTextPlainField> {
           FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
         },
         onChanged: (value) {
-          onChanged?.call(value);
-        }
+          widget.onChanged?.call(value);
+        },
         decoration: InputDecoration(
           counter: widget.model.showCounter ?? false ? null : const Offstage(),
           hintText: widget.model.hint,
