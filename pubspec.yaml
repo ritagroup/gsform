@@ -1,30 +1,30 @@
 name: gsform
 description: GSForm helps to creating forms in Flutter by removing the boilerplate needed to build a form, validate fields, react to changes and collect final user input.
-version: 0.2.1
+version: 0.3.7
 homepage: https://github.com/golrangsystem/gsform.git
 
 
 
 environment:
-  sdk: ">=2.17.5 <3.0.0"
-  flutter: ">=1.17.0 <=3.0.5"
+  sdk: '>=2.17.5 <4.0.0'
+  flutter: '>=2.17.5'
 
 dependencies:
   flutter:
     sdk: flutter
   figma_squircle: ^0.5.3
-  persian_datetime_picker: ^2.5.0
-  intl: ^0.18.1
+  persian_datetime_picker: ^2.6.0
+  intl: ^0.19.0
   qr_code_scanner: ^1.0.1
-  image_cropper: ^3.0.3
-  image_picker: ^0.8.7+4
-  flutter_svg: ^1.1.6
-  path_provider: ^2.0.14
+  image_cropper: ^5.0.1
+  image_picker: ^0.8.9
+  flutter_svg: ^2.0.5
+  path_provider: ^2.0.15
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+#  flutter_lints: ^2.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -37,6 +37,261 @@ flutter:
     - packages/gsform/assets/ic_alret.svg
     - packages/gsform/assets/ic_info.svg
     - packages/gsform/assets/ic_trash.svg
+    - doc/api/gs_form_enums_filed_type/GSFieldTypeEnum/
+    - doc/api/gs_form_widget_fields_date_picker_field/GSDatePickerField/
+    - doc/api/gs_form_widget_fields_multi_image_picker_field/GSMultiImagePickerField/
+    - doc/api/gs_form_widget_fields_multi_image_picker_field/ImageBox/
+    - doc/api/gsform/GSForm/
+    - doc/api/gs_form_widget_fields_multi_image_picker_field/SelectItem/
+    - doc/api/gs_form_widget_fields_qr_scanner_field/GSQRScannerField/
+    - doc/api/gs_form_model_fields_model_time_picker_model/GSTimePickerModel/
+    - doc/api/gs_form_model_fields_model_checkbox_model/
+    - doc/api/gs_form_model_fields_model_date_picker_model/
+    - doc/api/gs_form_model_fields_model_spinner_model/
+    - doc/api/gs_form_widget_fields_price_field/GSPriceField/
+    - doc/api/gs_form_model_fields_model_image_picker_model/
+    - doc/
+    - doc/api/
+    - doc/api/gs_form_model_fields_model_time_picker_model/TimePickerType/
+    - doc/api/gs_form_model_fields_model_radio_model/
+    - doc/api/gs_form_enums_filed_type/
+    - doc/api/gs_form_widget_fields_multi_image_picker_field/
+    - doc/api/gs_form_widget_fields_spinner_field/
+    - doc/api/gs_form_widget_fields_email_field/
+    - doc/api/gs_form_model_data_model_radio_data_model/
+    - doc/api/gs_form_model_fields_model_price_model/GSPriceModel/
+    - doc/api/gs_form_model_fields_model_text_plain_model/
+    - doc/api/gs_form_widget_fields_image_picker_field/
+    - doc/api/gs_form_model_fields_model_qr_scanner_model/
+    - doc/api/gs_form_widget_fields_password_field/
+    - doc/api/gs_form_util_util/
+    - doc/api/gs_form_widget_fields_time_picker_field/
+    - doc/api/gs_form_widget_form/
+    - doc/api/gs_form_values_colors/
+    - doc/api/gs_form_model_data_model_check_data_model/
+    - doc/api/gs_form_widget_fields_number_field/GSNumberField/
+    - doc/api/gs_form_widget_fields_date_picker_field/
+    - doc/api/gs_form_model_fields_model_time_picker_model/
+    - doc/api/gs_form_core_constant/GSConstant/
+    - doc/api/gs_form_model_fields_model_price_model/
+    - doc/api/static-assets/
+    - doc/api/gs_form_widget_fields_text_plain_field/
+    - doc/api/gs_form_model_fields_model_bank_card_filed_model/GSBankCardModel/
+    - doc/api/gs_form_model_fields_model_text_password_model/
+    - doc/api/gs_form_widget_fields_mobile_field/
+    - doc/api/gs_form_screens_qr_scanner_screen/
+    - doc/api/gs_form_widget_fields_spinner_field/GSSpinnerField/
+    - doc/api/gs_form_core_form_style/
+    - doc/api/gs_form_core_field_callback/
+    - doc/api/gs_form_values_theme/
+    - doc/api/gs_form_model_fields_model_bank_card_filed_model/
+    - doc/api/gs_form_core_constant/
+    - doc/api/gs_form_model_fields_model_mobile_model/
+    - doc/api/gs_form_model_fields_model_mobile_model/GSMobileModel/
+    - doc/api/gs_form_enums_field_status/
+    - doc/api/gs_form_model_fields_model_field_model/
+    - doc/api/gs_form_model_fields_model_number_model/
+    - doc/api/gs_form_widget_fields_bank_card_field/
+    - doc/api/gs_form_model_fields_model_date_range_picker_model/
+    - doc/api/gs_form_screens_qr_scanner_screen/QrScannerScreen/
+    - doc/api/gs_form_model_fields_model_multi_image_picker_model/
+    - doc/api/gs_form_widget_fields_text_field/
+    - doc/api/gs_form_widget_fields_number_field/
+    - doc/api/gs_form_widget_fields_date_range_picker_field/
+    - doc/api/gs_form_model_data_model_time_data_model/
+    - doc/api/gs_form_widget_field/
+    - doc/api/gs_form_model_data_model_spinner_data_model/
+    - doc/api/gs_form_widget_fields_check_list_field/
+    - doc/api/gs_form_widget_fields_date_range_picker_field/GSDateRangePickerField/
+    - doc/api/gs_form_widget_fields_qr_scanner_field/
+    - doc/api/gs_form_widget_fields_price_field/
+    - doc/api/gs_form_enums_required_check_list_enum/
+    - doc/api/gsform/
+    - doc/api/gs_form_widget_fields_radio_group_field/
+    - doc/api/gs_form_model_data_model_date_data_model/
+    - doc/api/gs_form_widget_section/
+    - doc/api/gs_form_values_dimens/
+    - doc/api/gs_form_model_fields_model_email_model/
+    - doc/api/gs_form_widget_form/GSForm/
+    - doc/api/gs_form_core_form_style/GSFormStyle/
+    - doc/api/gs_form_model_fields_model_text_filed_model/
+    - doc/api/gs_form_model_fields_model_radio_model/GSRadioModel/
+    - doc/api/gs_form_model_data_model_time_data_model/TimeDataModel/
+    - doc/api/gs_form_values_colors/GSFormColors/
+    - doc/api/gs_form_core_field_callback/GSFieldCallBack/
+    - doc/api/gs_form_model_fields_model_checkbox_model/GSCheckBoxModel/
+    - doc/api/gs_form_widget_fields_bank_card_field/GSBankCardField/
+    - doc/api/gs_form_values_theme/GSFormTheme/
+    - doc/api/gs_form_widget_field/GSField/
+    - doc/api/gs_form_model_data_model_check_data_model/CheckDataModel/
+    - doc/api/gs_form_model_fields_model_date_picker_model/GSDatePickerModel/
+    - doc/api/gs_form_model_fields_model_qr_scanner_model/GSQRScannerModel/
+    - doc/api/gs_form_model_fields_model_spinner_model/GSSpinnerModel/
+    - doc/api/gs_form_widget_fields_password_field/GSPasswordField/
+    - doc/api/gs_form_model_fields_model_date_range_picker_model/GSDateRangePickerModel/
+    - doc/api/gs_form_model_fields_model_image_picker_model/GSImagePickerModel/
+    - doc/api/gs_form_model_fields_model_image_picker_model/GSImageSource/
+    - doc/api/gs_form_widget_section/GSSection/
+    - doc/api/gs_form_model_fields_model_multi_image_picker_model/GSMultiImagePickerModel/
+    - doc/api/gs_form_util_util/GSFormUtils/
+    - doc/api/gs_form_util_util/CardNumberFormatter/
+    - doc/api/gs_form_widget_fields_email_field/GSEmailField/
+    - doc/api/gs_form_model_fields_model_email_model/GSEmailModel/
+    - doc/api/gs_form_widget_fields_text_field/GSTextField/
+    - doc/api/gs_form_values_dimens/GSFormDimens/
+    - doc/api/gs_form_model_fields_model_text_filed_model/GSTextModel/
+    - doc/api/gs_form_widget_fields_time_picker_field/GSTimePickerField/
+    - doc/api/gs_form_enums_required_check_list_enum/RequiredCheckListEnum/
+    - doc/api/gs_form_enums_field_status/GSFieldStatusEnum/
+    - doc/api/gs_form_model_fields_model_text_plain_model/GSTextPlainModel/
+    - doc/api/gs_form_model_data_model_radio_data_model/RadioDataModel/
+    - doc/api/gs_form_widget_fields_radio_group_field/GSRadioGroupField/
+    - doc/api/gs_form_widget_fields_image_picker_field/GSImagePickerField/
+    - doc/api/gsform/Calculator/
+    - doc/api/gs_form_model_fields_model_field_model/GSFieldModel/
+    - doc/api/gs_form_widget_fields_image_picker_field/NormalView/
+    - doc/api/gs_form_widget_fields_text_plain_field/GSTextPlainField/
+    - doc/api/gs_form_widget_fields_radio_group_field/RadioItem/
+    - doc/api/gs_form_widget_fields_image_picker_field/ImagePickedView/
+    - doc/api/gs_form_model_fields_model_number_model/GSNumberModel/
+    - doc/api/gs_form_model_fields_model_text_password_model/GSPasswordModel/
+    - doc/api/gs_form_model_data_model_spinner_data_model/SpinnerDataModel/
+    - doc/api/gs_form_widget_fields_check_list_field/CheckBoxItem/
+    - doc/api/gs_form_widget_fields_check_list_field/GSCheckListField/
+    - doc/api/gs_form_widget_fields_mobile_field/GSMobileField/
+    - doc/api/gs_form_model_data_model_date_data_model/DateDataRangeModel/
+    - doc/api/gs_form_model_data_model_date_data_model/GSCalendarType/
+    - doc/api/gs_form_model_data_model_date_data_model/DateDataModel/
+    - doc/api/gs_form_model_data_model_date_data_model/GSDate/
+    - doc/api/gs_form_model_data_model_date_data_model/GSDateFormatType/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #
 # For details regarding assets in packages, see

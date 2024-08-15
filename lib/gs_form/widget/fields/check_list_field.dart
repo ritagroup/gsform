@@ -11,11 +11,15 @@ import '../../core/field_callback.dart';
 class GSCheckListField extends StatefulWidget implements GSFieldCallBack {
   final GSCheckBoxModel model;
   final GSFormStyle? formStyle;
+  ScrollController controller = ScrollController();
+  TextEditingController textController = TextEditingController();
+  List<CheckDataModel> filteredItems = [];
+
+  String keyword = "";
 
   GSCheckListField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   List<CheckDataModel> valueObject = [];
-  List<int> selectedItems = [];
 
   @override
   State<GSCheckListField> createState() => _GSCheckListFieldState();
@@ -40,30 +44,22 @@ class GSCheckListField extends StatefulWidget implements GSFieldCallBack {
 }
 
 class _GSCheckListFieldState extends State<GSCheckListField> {
-  ScrollController controller = ScrollController();
-  TextEditingController textController = TextEditingController();
-
   @override
   void initState() {
+    widget.filteredItems = widget.model.items;
     super.initState();
   }
 
-  String keyword = "";
+  @override
+  void didUpdateWidget(covariant GSCheckListField oldWidget) {
+    widget.filteredItems = oldWidget.filteredItems;
+    widget.valueObject = oldWidget.valueObject;
+    widget.textController = oldWidget.textController;
+    super.didUpdateWidget(oldWidget);
+  }
 
   @override
   Widget build(BuildContext context) {
-    int i = 0;
-    widget.valueObject = [];
-    for (var element in widget.model.items) {
-      if (element.isSelected) {
-        widget.selectedItems.add(i);
-        widget.valueObject.add(element);
-      }
-      i++;
-    }
-
-    List<CheckDataModel> filteredItems = widget.model.items.where((i) => i.title.contains(keyword) == true).toList();
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +80,7 @@ class _GSCheckListFieldState extends State<GSCheckListField> {
                   children: [
                     Expanded(
                       child: TextField(
-                        controller: textController,
+                        controller: widget.textController,
                         decoration: InputDecoration(
                           contentPadding: const EdgeInsets.only(top: 8),
                           hintText: widget.model.searchHint,
@@ -93,15 +89,19 @@ class _GSCheckListFieldState extends State<GSCheckListField> {
                         ),
                         onChanged: (text) {
                           setState(() {
-                            keyword = text;
+                            widget.keyword = text;
+                            widget.filteredItems =
+                                widget.model.items.where((i) => i.title.contains(widget.keyword) == true).toList();
                           });
                         },
                       ),
                     ),
                     InkWell(
                       onTap: () {
-                        keyword = '';
-                        textController.text = '';
+                        widget.keyword = '';
+                        widget.textController.text = '';
+                        widget.filteredItems = widget.model.items;
+
                         setState(() {});
                       },
                       child: const Padding(
@@ -125,13 +125,13 @@ class _GSCheckListFieldState extends State<GSCheckListField> {
             trackRadius: const Radius.circular(6),
             radius: const Radius.circular(6),
             interactive: true,
-            controller: controller,
+            controller: widget.controller,
             trackVisibility: true,
             thumbVisibility: true,
             thickness: widget.model.showScrollBar ?? false ? 6 : 0,
             child: ListView.builder(
-              controller: controller,
-              itemCount: filteredItems.length,
+              controller: widget.controller,
+              itemCount: widget.filteredItems.length,
               shrinkWrap: widget.model.scrollable == null ? false : !widget.model.scrollable!,
               physics: !widget.model.scrollable! ? const NeverScrollableScrollPhysics() : const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
@@ -139,16 +139,22 @@ class _GSCheckListFieldState extends State<GSCheckListField> {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      filteredItems[index].isSelected = !filteredItems[index].isSelected;
-                      widget.model.callBack(filteredItems[index]);
+                      CheckDataModel item = widget.filteredItems[index];
+                      item.isSelected = !item.isSelected;
+                      if (item.isSelected) {
+                        widget.valueObject.add(item);
+                      } else {
+                        widget.valueObject.removeWhere((element) => element.data == item.data);
+                      }
+                      widget.model.callBack(item);
                       setState(() {});
                     },
                     customBorder: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6.0),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 4.0, right: 4),
-                      child: CheckBoxItem(filteredItems[index], widget.model, widget.formStyle!),
+                      padding: const EdgeInsets.only(left: 4.0, right: 4.0),
+                      child: CheckBoxItem(widget.filteredItems[index], widget.model, widget.formStyle!),
                     ),
                   ),
                 );

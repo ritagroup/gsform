@@ -22,6 +22,8 @@ class GSPriceModel extends GSFieldModel {
       maxLength,
       weight,
       showTitle,
+      enableReadOnly,
+      onTap,
       this.hint})
       : super(
           type: type,
@@ -33,10 +35,12 @@ class GSPriceModel extends GSFieldModel {
           postfixWidget: postfixWidget,
           required: required,
           status: status,
-          defaultValue: value,
+          value: value,
           validateRegEx: validateRegEx,
           weight: weight,
           focusNode: FocusNode(),
           showTitle: showTitle,
+          enableReadOnly: enableReadOnly,
+          onTap: onTap,
         );
 }

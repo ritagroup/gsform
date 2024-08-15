@@ -18,39 +18,38 @@ class GSCheckBoxModel extends GSFieldModel {
   Icon? searchIcon;
   BoxDecoration? searchBoxDecoration;
   Color? scrollBarColor;
-  List<int>? selectedItems;
   RequiredCheckListEnum? requiredCheckListEnum;
 
   final ValueChanged<CheckDataModel> callBack;
 
-  GSCheckBoxModel(
-      {type,
-      tag,
-      title,
-      errorMessage,
-      helpMessage,
-      required,
-      status,
-      value,
-      weight,
-      showTitle,
-      required this.items,
-      required this.callBack,
-      this.requiredCheckListEnum,
-      this.selectedIcon,
-      this.unSelectedIcon,
-      this.hint,
-      this.scrollable,
-      this.height,
-      this.scrollDirection,
-      this.scrollBarColor,
-      this.showScrollBar,
-      required this.searchable,
-      this.searchHint,
-      this.searchIcon,
-      this.searchBoxDecoration,
-      this.selectedItems})
-      : super(
+  GSCheckBoxModel({
+    type,
+    tag,
+    title,
+    errorMessage,
+    helpMessage,
+    required,
+    status,
+    value,
+    weight,
+    showTitle,
+    enableReadOnly,
+    required this.items,
+    required this.callBack,
+    this.requiredCheckListEnum,
+    this.selectedIcon,
+    this.unSelectedIcon,
+    this.hint,
+    this.scrollable,
+    this.height,
+    this.scrollDirection,
+    this.scrollBarColor,
+    this.showScrollBar,
+    required this.searchable,
+    this.searchHint,
+    this.searchIcon,
+    this.searchBoxDecoration,
+  }) : super(
           type: type,
           tag: tag,
           title: title,
@@ -58,8 +57,9 @@ class GSCheckBoxModel extends GSFieldModel {
           helpMessage: helpMessage,
           required: required,
           status: status,
-          defaultValue: value,
+          value: value,
           weight: weight,
           showTitle: showTitle,
+          enableReadOnly: enableReadOnly,
         );
 }

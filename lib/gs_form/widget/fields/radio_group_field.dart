@@ -10,10 +10,13 @@ import '../../core/field_callback.dart';
 class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
   final GSRadioModel model;
   final GSFormStyle? formStyle;
+  TextEditingController textController = TextEditingController();
 
   GSRadioGroupField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
   RadioDataModel? returnedData;
+  List<RadioDataModel> filteredItems = [];
+  String keyword = "";
 
   @override
   State<GSRadioGroupField> createState() => _GSRadioGroupFieldState();
@@ -35,25 +38,36 @@ class GSRadioGroupField extends StatefulWidget implements GSFieldCallBack {
 
 class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
   ScrollController controller = ScrollController();
-  TextEditingController textController = TextEditingController();
 
   @override
   void initState() {
-    super.initState();
-  }
-
-  String keyword = "";
-
-  @override
-  Widget build(BuildContext context) {
-    List<RadioDataModel> filteredItems = widget.model.items.where((i) => i.title.contains(keyword) == true).toList();
-
+    widget.filteredItems = widget.model.items;
     for (var element in widget.model.items) {
       if (element.isSelected) {
         widget.returnedData = element;
       }
     }
 
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant GSRadioGroupField oldWidget) {
+    widget.textController = oldWidget.textController;
+    widget.filteredItems = oldWidget.filteredItems;
+    widget.returnedData = oldWidget.returnedData;
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    widget.filteredItems = widget.model.items.where((i) => i.title.contains(widget.keyword) == true).toList();
+
+    for (var element in widget.model.items) {
+      if (element.isSelected) {
+        widget.returnedData = element;
+      }
+    }
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,23 +88,27 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
                   children: [
                     Expanded(
                       child: TextField(
-                        controller: textController,
+                        controller: widget.textController,
                         decoration: InputDecoration(
                             contentPadding: const EdgeInsets.only(top: 8),
                             hintText: widget.model.searchHint,
                             prefixIcon: widget.model.searchIcon ?? const Icon(Icons.search),
                             border: InputBorder.none),
                         onChanged: (text) {
-                          setState(() {
-                            keyword = text;
-                          });
+                          widget.keyword = text;
+                          widget.filteredItems =
+                              widget.model.items.where((i) => i.title.contains(widget.keyword) == true).toList();
+
+                          setState(() {});
                         },
                       ),
                     ),
                     InkWell(
                       onTap: () {
-                        keyword = '';
-                        textController.text = '';
+                        widget.keyword = '';
+                        widget.textController.text = '';
+                        widget.filteredItems = widget.model.items;
+
                         setState(() {});
                       },
                       child: const Padding(
@@ -121,7 +139,7 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
             child: ListView.builder(
               scrollDirection: widget.model.scrollDirection ?? Axis.vertical,
               controller: controller,
-              itemCount: filteredItems.length,
+              itemCount: widget.filteredItems.length,
               shrinkWrap: widget.model.scrollable == null ? false : !widget.model.scrollable!,
               physics: !widget.model.scrollable! ? const NeverScrollableScrollPhysics() : const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
@@ -129,12 +147,12 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      for (var element in filteredItems) {
+                      for (var element in widget.filteredItems) {
                         element.isSelected = false;
                       }
-                      filteredItems[index].isSelected = true;
-                      widget.model.callBack(filteredItems[index]);
-                      widget.returnedData = filteredItems[index];
+                      widget.filteredItems[index].isSelected = true;
+                      widget.model.callBack(widget.filteredItems[index]);
+                      widget.returnedData = widget.filteredItems[index];
                       setState(() => {});
                     },
                     customBorder: RoundedRectangleBorder(
@@ -142,7 +160,7 @@ class _GSRadioGroupFieldState extends State<GSRadioGroupField> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 4.0, right: 4),
-                      child: RadioItem(filteredItems[index], widget.model, widget.formStyle!),
+                      child: RadioItem(widget.filteredItems[index], widget.model, widget.formStyle!),
                     ),
                   ),
                 );

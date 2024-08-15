@@ -78,6 +78,27 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
   }
 
   @override
+  void didUpdateWidget(covariant GSDatePickerField oldWidget) {
+    if (widget.model.calendarType == GSCalendarType.jalali) {
+      if (oldWidget.selectedJalaliDate != null) {
+        widget.model.initialDate = GSDate(
+            year: oldWidget.selectedJalaliDate!.year,
+            month: oldWidget.selectedJalaliDate!.month,
+            day: oldWidget.selectedJalaliDate!.day);
+      }
+    } else {
+      if (oldWidget.selectedGregorianDate != null) {
+        widget.model.initialDate = GSDate(
+            year: oldWidget.selectedGregorianDate!.year,
+            month: oldWidget.selectedGregorianDate!.month,
+            day: oldWidget.selectedGregorianDate!.day);
+      }
+    }
+    _initialDates();
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     widget.context = context;
     return InkWell(

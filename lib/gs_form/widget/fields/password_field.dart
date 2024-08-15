@@ -12,7 +12,7 @@ class GSPasswordField extends StatefulWidget implements GSFieldCallBack {
   void Function(void Function())? state;
   bool obscured = true;
 
-  TextEditingController? controller = TextEditingController();
+  TextEditingController? controller;
 
   GSPasswordField(this.model, this.formStyle, {Key? key}) : super(key: key);
 
@@ -40,13 +40,32 @@ class GSPasswordField extends StatefulWidget implements GSFieldCallBack {
 
 class _GSPasswordFieldState extends State<GSPasswordField> {
   @override
-  Widget build(BuildContext context) {
-    if (widget.model.defaultValue != null) {
-      widget.controller?.text = widget.model.defaultValue;
+  void initState() {
+    widget.controller ??= TextEditingController();
+
+    if (widget.model.value != null) {
+      widget.controller?.text = widget.model.value;
     }
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant GSPasswordField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.model.value == widget.model.value) {
+      widget.controller = oldWidget.controller;
+    } else {
+      widget.controller ??= TextEditingController();
+      widget.controller!.text = widget.model.value;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.only(start: 10.0),
       child: TextField(
+        readOnly: widget.model.enableReadOnly ?? false,
         textAlignVertical: TextAlignVertical.center,
         keyboardType: TextInputType.visiblePassword,
         obscureText: widget.obscured,
@@ -81,7 +100,7 @@ class _GSPasswordFieldState extends State<GSPasswordField> {
 
   _update() {
     if (mounted) {
-      setState(() => {widget.obscured = !widget.obscured});
+      setState(() => widget.obscured = !widget.obscured);
     }
   }
 

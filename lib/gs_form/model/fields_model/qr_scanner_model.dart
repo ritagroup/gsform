@@ -15,6 +15,7 @@ class GSQRScannerModel extends GSFieldModel {
     status,
     weight,
     showTitle,
+    enableReadOnly,
     this.hint,
     this.iconWidget,
   }) : super(
@@ -27,5 +28,6 @@ class GSQRScannerModel extends GSFieldModel {
           status: status,
           weight: weight,
           showTitle: showTitle,
+          enableReadOnly: enableReadOnly,
         );
 }

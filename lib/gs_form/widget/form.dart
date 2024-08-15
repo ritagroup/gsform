@@ -53,7 +53,7 @@ class GSForm extends StatelessWidget {
       for (var field in section.fields) {
         if (field is GSField) {
           bool fieldValidation = (field.child as GSFieldCallBack).isValid();
-          field.model.status = fieldValidation ? GSFieldStatusEnum.success : GSFieldStatusEnum.error;
+          field.model?.status = fieldValidation ? GSFieldStatusEnum.success : GSFieldStatusEnum.error;
           isValid = isValid && fieldValidation;
           field.update();
         }
@@ -67,7 +67,7 @@ class GSForm extends StatelessWidget {
     for (var section in sections) {
       for (var filed in section.fields) {
         if (filed is GSField) {
-          data[filed.model.tag] = (filed.child as GSFieldCallBack).getValue();
+          data[filed.model?.tag ?? ''] = (filed.child as GSFieldCallBack).getValue();
         }
       }
     }

@@ -13,14 +13,14 @@ abstract class GSFieldModel {
   Widget? postfixWidget;
   bool? required;
   bool? showTitle;
-
   GSFieldStatusEnum status;
-
-  dynamic defaultValue;
   RegExp? validateRegEx;
   int? weight;
   FocusNode? focusNode;
   FocusNode? nextFocusNode;
+  dynamic value;
+  bool? enableReadOnly;
+  VoidCallback? onTap;
 
   GSFieldModel({
     this.type,
@@ -32,11 +32,14 @@ abstract class GSFieldModel {
     this.prefixWidget,
     this.postfixWidget,
     this.required,
-    this.defaultValue,
+    this.value,
     this.validateRegEx,
     this.weight,
     this.focusNode,
     this.nextFocusNode,
+    this.onTap,
     GSFieldStatusEnum? status,
-  }) : status = status ?? GSFieldStatusEnum.normal;
+    bool? enableReadOnly,
+  })  : status = status ?? GSFieldStatusEnum.normal,
+        enableReadOnly = enableReadOnly ?? false;
 }

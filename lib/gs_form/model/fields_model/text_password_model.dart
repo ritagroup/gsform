@@ -20,6 +20,8 @@ class GSPasswordModel extends GSFieldModel {
       validateReg,
       weight,
       showTitle,
+      enableReadOnly,
+      onTap,
       this.maxLength,
       this.hint})
       : super(
@@ -32,10 +34,12 @@ class GSPasswordModel extends GSFieldModel {
           postfixWidget: postfixWidget,
           required: required,
           status: status,
-          defaultValue: value,
+          value: value,
           validateRegEx: validateReg,
           weight: weight,
           focusNode: FocusNode(),
           showTitle: showTitle,
+          enableReadOnly: enableReadOnly,
+          onTap: onTap,
         );
 }

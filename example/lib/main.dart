@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:gsform/gs_form/core/form_style.dart';
 import 'package:gsform/gs_form/enums/field_status.dart';
-import 'package:gsform/gs_form/enums/required_check_list_enum.dart';
-import 'package:gsform/gs_form/model/data_model/check_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/date_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/radio_data_model.dart';
 import 'package:gsform/gs_form/model/data_model/spinner_data_model.dart';
-import 'package:gsform/gs_form/model/fields_model/image_picker_model.dart';
 import 'package:gsform/gs_form/widget/field.dart';
 import 'package:gsform/gs_form/widget/form.dart';
 import 'package:gsform/gs_form/widget/section.dart';
-import 'package:lottie/lottie.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,12 +23,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       locale: const Locale('en', 'US'),
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        // uses `flutter_localizations`
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
       supportedLocales: const [Locale('en', 'US'), Locale('fa', 'IR')],
       theme: ThemeData(
         brightness: Brightness.light,
@@ -78,7 +67,9 @@ class MainTestPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pushAndRemoveUntil<dynamic>(
-                        context, MaterialPageRoute<dynamic>(builder: (BuildContext context) => SingleSectionForm()), (route) => true);
+                        context,
+                        MaterialPageRoute<dynamic>(builder: (BuildContext context) => SingleSectionForm()),
+                        (route) => true);
                   },
                   child: const Text('Single Section form'),
                 ),
@@ -92,10 +83,26 @@ class MainTestPage extends StatelessWidget {
 }
 
 // ignore: must_be_immutable
-class SingleSectionForm extends StatelessWidget {
+class SingleSectionForm extends StatefulWidget {
   SingleSectionForm({Key? key}) : super(key: key);
+  String? value;
 
+  late GSFieldStatusEnum status;
+
+  @override
+  State<SingleSectionForm> createState() => _SingleSectionFormState();
+}
+
+class _SingleSectionFormState extends State<SingleSectionForm> {
   late GSForm form;
+  int id = 0;
+
+  @override
+  void initState() {
+    widget.value = 'dfhbdkfhbdasffffteryuiei577y ';
+    widget.status = GSFieldStatusEnum.normal;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -112,242 +119,59 @@ class SingleSectionForm extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: form = GSForm.singleSection(
-                    style: GSFormStyle(titleStyle: const TextStyle(color: Colors.green, fontSize: 16.0)),
-                    context,
-                    fields: [
-                      GSField.imagePicker(
-                        tag: 'image_upload',
-                        iconWidget: const Icon(Icons.camera_alt_outlined),
-                      ),
-                      GSField.number(
-                        tag: 'explain',
-                        title: 'Description',
-                        weight: 12,
-                        maxLength: 5,
-                        showCounter: false,
-                        required: true,
-                        prefixWidget: Text('Minute'),
-                        postfixWidget: Text('Second'),
-                      ),
-                      GSField.imagePicker(
-                        tag: 'image',
-                        iconWidget: const Icon(
-                          Icons.image,
+                      style: GSFormStyle(titleStyle: const TextStyle(color: Colors.black87, fontSize: 16.0)),
+                      context,
+                      fields: [
+                        GSField.email(
+                          tag: 'email',
+                          title: 'login',
+                          weight: 12,
+                          required: true,
+                          maxLength: 100,
+                          errorMessage: 'erro',
+                          value: 'dastras.saeed@gmail.com',
                         ),
-                        title: 'image',
-                        imageSource: GSImageSource.both,
-                      ),
-                      GSField.time(
-                        tag: 'time',
-                        title: 'Select time',
-                        weight: 12,
-                        required: true,
-                        postfixWidget: const Icon(
-                          Icons.calendar_month,
-                          color: Color(0xff676767),
+                        GSField.spinner(
+                          tag: 'customer_type',
+                          required: false,
+                          weight: 12,
+                          showTitle: false,
+                          onChange: (model) {
+                            id = model!.id;
+                            setState(() {});
+                          },
+                          items: [
+                            SpinnerDataModel(
+                              name: 'm1',
+                              id: 0,
+                            ),
+                            SpinnerDataModel(
+                              name: 'm2',
+                              id: 1,
+                            ),
+                            SpinnerDataModel(
+                              name: 'm3',
+                              id: 2,
+                            ),
+                          ],
                         ),
-                        onChanged: (value) {
-                          print('TIME IS: $value');
-                        },
-                      ),
-                      GSField.text(
-                        status: GSFieldStatusEnum.disabled,
-                        tag: 'name',
-                        title: 'First Name',
-                        minLine: 1,
-                        maxLine: 1,
-                        weight: 6,
-                        hint: 'jhon',
-                        value: 'سعید دسترس1',
-                        required: false,
-                        errorMessage: 'please enter a name',
-                      ),
-                      GSField.text(
-                        value: 'سعید دسترس',
-                        tag: 'lastName',
-                        title: 'Last name',
-                        minLine: 1,
-                        maxLine: 1,
-                        weight: 6,
-                        required: true,
-                      ),
-                      GSField.password(
-                        tag: 'password',
-                        title: 'Password',
-                        helpMessage: 'contain letter and number',
-                        errorMessage: 'error',
-                        weight: 12,
-                        required: true,
-                      ),
-                      GSField.datePicker(
-                        tag: 'licenceExpireDate',
-                        title: 'Birth Date',
-                        weight: 12,
-                        required: true,
-                        postfixWidget: const Icon(
-                          Icons.calendar_month,
-                          color: Color(0xff676767),
+                        GSField.spinner(
+                          tag: 'customer_type',
+                          required: false,
+                          weight: 6,
+                          title: 'Gender',
+                          onChange: (model) {},
+                          items: [
+                            SpinnerDataModel(name: '3', id: 0, isSelected: id == 0),
+                            SpinnerDataModel(
+                              name: '4',
+                              id: 1,
+                              isSelected: id == 1,
+                            ),
+                            SpinnerDataModel(name: '8', id: 2, isSelected: id == 2),
+                          ],
                         ),
-                        displayDateType: GSDateFormatType.numeric,
-                        calendarType: GSCalendarType.gregorian,
-                      ),
-                      GSField.spinner(
-                        tag: 'customer_type',
-                        required: false,
-                        weight: 12,
-                        title: 'Gender',
-                        items: [
-                          SpinnerDataModel(
-                            name: 'man',
-                            id: 1,
-                          ),
-                          SpinnerDataModel(
-                            name: 'woman',
-                            id: 2,
-                            isSelected: true,
-                          ),
-                        ],
-                      ),
-                      GSField.mobile(
-                        tag: 'mobile',
-                        title: 'Phone number',
-                        maxLength: 11,
-                        helpMessage: '9357814747',
-                        weight: 12,
-                        required: false,
-                        hint: 'مسیاصعا',
-                        errorMessage: 'some error',
-                      ),
-                      GSField.email(
-                        tag: 'email',
-                        title: 'Email',
-                        errorMessage: 'error',
-                        helpMessage: 'someemail@gmail.com',
-                        postfixWidget: const Icon(Icons.email, color: Color(0xff676767)),
-                        weight: 12,
-                        required: false,
-                      ),
-                      GSField.checkList(
-                        hint: 'CheckBox List',
-                        tag: 'check',
-                        showScrollBar: true,
-                        scrollBarColor: Colors.red,
-                        height: 200,
-                        scrollable: true,
-                        requiredCheckListEnum: RequiredCheckListEnum.none,
-                        weight: 12,
-                        title: 'Size number',
-                        searchable: true,
-                        searchHint: 'Search...',
-                        searchIcon: const Icon(Icons.search),
-                        searchBoxDecoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.blue,
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        items: [
-                          CheckDataModel(title: 'checkbox  ', isSelected: true),
-                          CheckDataModel(title: 'ipsum', isSelected: false),
-                          CheckDataModel(title: 'item', isSelected: true),
-                          CheckDataModel(title: 'size', isSelected: false),
-                          CheckDataModel(title: 'size 1', isSelected: false),
-                          CheckDataModel(title: 'size 2', isSelected: false),
-                          CheckDataModel(title: 'sample 1', isSelected: false),
-                          CheckDataModel(title: 'Sample 2', isSelected: false),
-                          CheckDataModel(title: 'Radio', isSelected: false),
-                          CheckDataModel(title: 'Tv', isSelected: false),
-                          CheckDataModel(title: 'data 1', isSelected: false),
-                          CheckDataModel(title: 'data 2', isSelected: false),
-                        ],
-                        callBack: (data) {},
-                      ),
-                      GSField.radioGroup(
-                        hint: 'Radio Group',
-                        tag: 'radio',
-                        showScrollBar: true,
-                        scrollBarColor: Colors.red,
-                        height: 200,
-                        scrollable: true,
-                        required: true,
-                        weight: 12,
-                        title: 'Size number',
-                        searchable: true,
-                        searchHint: 'Search...',
-                        searchIcon: const Icon(Icons.search),
-                        searchBoxDecoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.blue,
-                            width: 1,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        items: [
-                          RadioDataModel(title: 'lorem', isSelected: true),
-                          RadioDataModel(title: 'ipsum', isSelected: false),
-                        ],
-                        callBack: (data) {},
-                      ),
-                      GSField.textPlain(
-                        tag: 'explain',
-                        title: 'Description',
-                        weight: 12,
-                        maxLength: 150,
-                        required: true,
-                        onChanged: (value) {
-                          print("value is $value");
-                        },
-                      ),
-                      GSField.imagePicker(
-                        tag: 'a',
-                        title: 'انتخاب تصویر',
-                        hint: 'فایل خود را انتخاب کنید',
-                        iconWidget: Lottie.asset(
-                          'assets/cam.json',
-                          width: 70,
-                          height: 70,
-                        ),
-                        maximumSizePerImageInBytes: 100,
-                        onErrorSizeItem: () {
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text("maximum size exception"),
-                          ));
-                        },
-                      ),
-                      GSField.multiImagePicker(
-                        tag: 'multi',
-                        required: true,
-                        title: 'انتخاب تصویر',
-                        hint: 'فایل خود را انتخاب کنید',
-                        iconWidget: const Icon(Icons.add),
-                        maximumImageCount: 5,
-                        showCropper: false,
-                        defaultImagePathValues: const ['/data/user/0/com.golrang.salesplus2/app_flutter/testImage.png'],
-                        maximumSizePerImageInKB: 80,
-                        onErrorSizeItem: () {
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text("maximum size exception"),
-                          ));
-                        },
-                      ),
-                      GSField.textPlain(
-                        tag: 'explain',
-                        title: 'Description',
-                        weight: 12,
-                        maxLine: 2,
-                        required: true,
-                      ),
-                      GSField.textPlain(
-                        showCounter: true,
-                        tag: 'explain',
-                        title: 'Description',
-                        weight: 12,
-                        maxLine: 5,
-                        required: true,
-                      ),
-                    ],
-                  ),
+                      ]),
                 ),
               ),
             ),
@@ -361,8 +185,9 @@ class SingleSectionForm extends StatelessWidget {
                       onPressed: () {
                         bool isValid = form.isValid();
                         Map<String, dynamic> map = form.onSubmit();
-                        debugPrint(isValid.toString());
                         debugPrint(map.toString());
+                        debugPrint(isValid.toString());
+                        setState(() {});
                       },
                       child: const Text('Submit'),
                     ),
@@ -398,14 +223,18 @@ class MultiSectionForm extends StatelessWidget {
                 child: form = GSForm.multiSection(context, sections: [
                   GSSection(sectionTitle: 'User information', fields: [
                     GSField.text(
-                      value: '2سعید دسترس',
+                      value: 'Some text',
                       tag: 'name',
                       title: 'Name',
                       minLine: 1,
                       maxLine: 1,
-                      onChanged: (value) {
-                        print("value is $value");
-                      },
+                    ),
+                    GSField.text(
+                      value: 'Some text',
+                      tag: 'name',
+                      title: 'Name',
+                      minLine: 1,
+                      maxLine: 1,
                     ),
                     GSField.radioGroup(
                       hint: 'Radio Group',
@@ -440,10 +269,8 @@ class MultiSectionForm extends StatelessWidget {
                       title: 'DatePicker',
                       weight: 12,
                       required: false,
+                      initialDate: GSDate(day: 10, month: 5, year: 2023),
                       errorMessage: 'please enter a name',
-                      onChanged: (value) {
-                        print('DATE IS: $value');
-                      },
                     ),
                     GSField.text(
                       value: 'سعید دسترس3',
@@ -459,11 +286,19 @@ class MultiSectionForm extends StatelessWidget {
                       required: false,
                       weight: 6,
                       title: 'Gender',
+                      value: SpinnerDataModel(
+                        name: 'woman',
+                        id: 2,
+                      ),
                       onChange: (model) {},
                       items: [
                         SpinnerDataModel(
                           name: 'man',
                           id: 1,
+                        ),
+                        SpinnerDataModel(
+                          name: 'woman',
+                          id: 2,
                         ),
                         SpinnerDataModel(
                           name: 'woman',

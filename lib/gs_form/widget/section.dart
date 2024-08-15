@@ -29,14 +29,14 @@ class GSSection extends StatelessWidget {
           GSField field = fields[i] as GSField;
           childrenAtRow.add(
             Expanded(
-              flex: field.model.weight ?? 12,
+              flex: field.model?.weight ?? 12,
               child: field,
             ),
           );
 
-          weightSum += field.model.weight ?? 12;
+          weightSum += field.model?.weight ?? 12;
           if (i < fields.length - 1 && fields[i + 1] is GSField && fields[i + 1] is! GSTextPlainField) {
-            field.model.nextFocusNode = (fields[i + 1] as GSField).model.focusNode;
+            field.model?.nextFocusNode = (fields[i + 1] as GSField).model?.focusNode;
           }
           field.formStyle = style!;
           i++;
@@ -107,7 +107,6 @@ class GSSection extends StatelessWidget {
                 }),
           ),
         ),
-        const SizedBox(height: 14),
       ],
     );
   }

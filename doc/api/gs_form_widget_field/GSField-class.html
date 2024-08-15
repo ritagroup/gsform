@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the GSField class from the field library, for the Dart programming language.">
+  <title>GSField class - field library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">gsform</a></li>
+    <li><a href="../gs_form_widget_field/gs_form_widget_field-library.html">field</a></li>
+    <li class="self-crumb">GSField class</li>
+  </ol>
+  <div class="self-name">GSField</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        brightness_4
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        brightness_5
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-class">GSField</span> class 
+ 
+</h1></div>
+
+    
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>Inheritance</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></li>
+        <li><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></li>
+        <li><a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a></li>
+      <li>GSField</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+
+    <dl class="constructor-summary-list">
+        <dt id="GSField.bankCard" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.bankCard.html">GSField.bankCard</a></span><span class="signature">(<span class="parameter" id="bankCard-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="bankCard-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="bankCard-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="bankCard-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="bankCard-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="bankCard-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="bankCard-param-postfixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">postfixWidget</span>, </span><span class="parameter" id="bankCard-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="bankCard-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="bankCard-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="bankCard-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="bankCard-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="bankCard-param-validateRegEx"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateRegEx</span>, </span><span class="parameter" id="bankCard-param-minLine"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">minLine</span>, </span><span class="parameter" id="bankCard-param-maxLine"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLine</span>, </span><span class="parameter" id="bankCard-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.checkList" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.checkList.html">GSField.checkList</a></span><span class="signature">(<span class="parameter" id="checkList-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="checkList-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="checkList-param-searchable"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">searchable</span>, </span><span class="parameter" id="checkList-param-items"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../gs_form_model_data_model_check_data_model/CheckDataModel-class.html">CheckDataModel</a></span>&gt;</span></span> <span class="parameter-name">items</span>, </span><span class="parameter" id="checkList-param-callBack"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../gs_form_model_data_model_check_data_model/CheckDataModel-class.html">CheckDataModel</a></span>&gt;</span></span> <span class="parameter-name">callBack</span>, </span><span class="parameter" id="checkList-param-requiredCheckListEnum"><span class="type-annotation"><a href="../gs_form_enums_required_check_list_enum/RequiredCheckListEnum.html">RequiredCheckListEnum</a>?</span> <span class="parameter-name">requiredCheckListEnum</span>, </span><span class="parameter" id="checkList-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="checkList-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="checkList-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="checkList-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="checkList-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="checkList-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="checkList-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="checkList-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="checkList-param-validateRegEx"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateRegEx</span>, </span><span class="parameter" id="checkList-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>, </span><span class="parameter" id="checkList-param-scrollDirection"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Axis.html">Axis</a>?</span> <span class="parameter-name">scrollDirection</span>, </span><span class="parameter" id="checkList-param-selectedIcon"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">selectedIcon</span>, </span><span class="parameter" id="checkList-param-unSelectedIcon"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">unSelectedIcon</span>, </span><span class="parameter" id="checkList-param-scrollable"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">scrollable</span>, </span><span class="parameter" id="checkList-param-height"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">height</span>, </span><span class="parameter" id="checkList-param-showScrollBar"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showScrollBar</span>, </span><span class="parameter" id="checkList-param-scrollBarColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">scrollBarColor</span>, </span><span class="parameter" id="checkList-param-searchHint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">searchHint</span>, </span><span class="parameter" id="checkList-param-searchIcon"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Icon-class.html">Icon</a>?</span> <span class="parameter-name">searchIcon</span>, </span><span class="parameter" id="checkList-param-searchBoxDecoration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/BoxDecoration-class.html">BoxDecoration</a>?</span> <span class="parameter-name">searchBoxDecoration</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.datePicker" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.datePicker.html">GSField.datePicker</a></span><span class="signature">(<span class="parameter" id="datePicker-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="datePicker-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="datePicker-param-calendarType"><span>required</span> <span class="type-annotation"><a href="../gs_form_model_data_model_date_data_model/GSCalendarType.html">GSCalendarType</a></span> <span class="parameter-name">calendarType</span>, </span><span class="parameter" id="datePicker-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="datePicker-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="datePicker-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="datePicker-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="datePicker-param-postfixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">postfixWidget</span>, </span><span class="parameter" id="datePicker-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="datePicker-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="datePicker-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="datePicker-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="datePicker-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="datePicker-param-validateReg"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateReg</span>, </span><span class="parameter" id="datePicker-param-maxLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLength</span>, </span><span class="parameter" id="datePicker-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>, </span><span class="parameter" id="datePicker-param-displayDateType"><span class="type-annotation"><a href="../gs_form_model_data_model_date_data_model/GSDateFormatType.html">GSDateFormatType</a>?</span> <span class="parameter-name">displayDateType</span>, </span><span class="parameter" id="datePicker-param-isPastAvailable"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">isPastAvailable</span>, </span><span class="parameter" id="datePicker-param-initialDate"><span class="type-annotation"><a href="../gs_form_model_data_model_date_data_model/GSDate-class.html">GSDate</a>?</span> <span class="parameter-name">initialDate</span>, </span><span class="parameter" id="datePicker-param-availableFrom"><span class="type-annotation"><a href="../gs_form_model_data_model_date_data_model/GSDate-class.html">GSDate</a>?</span> <span class="parameter-name">availableFrom</span>, </span><span class="parameter" id="datePicker-param-availableTo"><span class="type-annotation"><a href="../gs_form_model_data_model_date_data_model/GSDate-class.html">GSDate</a>?</span> <span class="parameter-name">availableTo</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.dateRangePicker" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.dateRangePicker.html">GSField.dateRangePicker</a></span><span class="signature">(<span class="parameter" id="dateRangePicker-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="dateRangePicker-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="dateRangePicker-param-calendarType"><span>required</span> <span class="type-annotation"><a href="../gs_form_model_data_model_date_data_model/GSCalendarType.html">GSCalendarType</a></span> <span class="parameter-name">calendarType</span>, </span><span class="parameter" id="dateRangePicker-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="dateRangePicker-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="dateRangePicker-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="dateRangePicker-param-from"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">from</span>, </span><span class="parameter" id="dateRangePicker-param-to"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">to</span>, </span><span class="parameter" id="dateRangePicker-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="dateRangePicker-param-postfixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">postfixWidget</span>, </span><span class="parameter" id="dateRangePicker-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="dateRangePicker-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="dateRangePicker-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="dateRangePicker-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="dateRangePicker-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="dateRangePicker-param-validateReg"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateReg</span>, </span><span class="parameter" id="dateRangePicker-param-maxLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLength</span>, </span><span class="parameter" id="dateRangePicker-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>, </span><span class="parameter" id="dateRangePicker-param-displayDateType"><span class="type-annotation"><a href="../gs_form_model_data_model_date_data_model/GSDateFormatType.html">GSDateFormatType</a>?</span> <span class="parameter-name">displayDateType</span>, </span><span class="parameter" id="dateRangePicker-param-isPastAvailable"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">isPastAvailable</span>, </span><span class="parameter" id="dateRangePicker-param-initialStartDate"><span class="type-annotation"><a href="../gs_form_model_data_model_date_data_model/GSDate-class.html">GSDate</a>?</span> <span class="parameter-name">initialStartDate</span>, </span><span class="parameter" id="dateRangePicker-param-initialEndDate"><span class="type-annotation"><a href="../gs_form_model_data_model_date_data_model/GSDate-class.html">GSDate</a>?</span> <span class="parameter-name">initialEndDate</span>, </span><span class="parameter" id="dateRangePicker-param-availableFrom"><span class="type-annotation"><a href="../gs_form_model_data_model_date_data_model/GSDate-class.html">GSDate</a>?</span> <span class="parameter-name">availableFrom</span>, </span><span class="parameter" id="dateRangePicker-param-availableTo"><span class="type-annotation"><a href="../gs_form_model_data_model_date_data_model/GSDate-class.html">GSDate</a>?</span> <span class="parameter-name">availableTo</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.email" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.email.html">GSField.email</a></span><span class="signature">(<span class="parameter" id="email-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="email-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="email-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="email-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="email-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="email-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="email-param-postfixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">postfixWidget</span>, </span><span class="parameter" id="email-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="email-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="email-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="email-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="email-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="email-param-validateRegEx"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateRegEx</span>, </span><span class="parameter" id="email-param-maxLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLength</span>, </span><span class="parameter" id="email-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.imagePicker" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.imagePicker.html">GSField.imagePicker</a></span><span class="signature">(<span class="parameter" id="imagePicker-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="imagePicker-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="imagePicker-param-iconWidget"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">iconWidget</span>, </span><span class="parameter" id="imagePicker-param-defaultImagePathValue"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">defaultImagePathValue</span>, </span><span class="parameter" id="imagePicker-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="imagePicker-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="imagePicker-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="imagePicker-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="imagePicker-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="imagePicker-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="imagePicker-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="imagePicker-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>, </span><span class="parameter" id="imagePicker-param-cameraPopupTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">cameraPopupTitle</span>, </span><span class="parameter" id="imagePicker-param-galleryPopupTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">galleryPopupTitle</span>, </span><span class="parameter" id="imagePicker-param-cameraPopupIcon"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">cameraPopupIcon</span>, </span><span class="parameter" id="imagePicker-param-galleryPopupIcon"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">galleryPopupIcon</span>, </span><span class="parameter" id="imagePicker-param-imageSource"><span class="type-annotation"><a href="../gs_form_model_fields_model_image_picker_model/GSImageSource.html">GSImageSource</a>?</span> <span class="parameter-name">imageSource</span>, </span><span class="parameter" id="imagePicker-param-iconColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">iconColor</span>, </span><span class="parameter" id="imagePicker-param-showCropper"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showCropper</span>, </span><span class="parameter" id="imagePicker-param-maximumSizePerImageInBytes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">maximumSizePerImageInBytes</span>, </span><span class="parameter" id="imagePicker-param-onErrorSizeItem"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onErrorSizeItem</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.mobile" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.mobile.html">GSField.mobile</a></span><span class="signature">(<span class="parameter" id="mobile-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="mobile-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="mobile-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="mobile-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="mobile-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="mobile-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="mobile-param-postfixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">postfixWidget</span>, </span><span class="parameter" id="mobile-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="mobile-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="mobile-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="mobile-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="mobile-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="mobile-param-validateRegEx"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateRegEx</span>, </span><span class="parameter" id="mobile-param-maxLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLength</span>, </span><span class="parameter" id="mobile-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.multiImagePicker" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.multiImagePicker.html">GSField.multiImagePicker</a></span><span class="signature">(<span class="parameter" id="multiImagePicker-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="multiImagePicker-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="multiImagePicker-param-iconWidget"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">iconWidget</span>, </span><span class="parameter" id="multiImagePicker-param-defaultImagePathValues"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">defaultImagePathValues</span>, </span><span class="parameter" id="multiImagePicker-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="multiImagePicker-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="multiImagePicker-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="multiImagePicker-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="multiImagePicker-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="multiImagePicker-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="multiImagePicker-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="multiImagePicker-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>, </span><span class="parameter" id="multiImagePicker-param-cameraPopupTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">cameraPopupTitle</span>, </span><span class="parameter" id="multiImagePicker-param-galleryPopupTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">galleryPopupTitle</span>, </span><span class="parameter" id="multiImagePicker-param-cameraPopupIcon"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">cameraPopupIcon</span>, </span><span class="parameter" id="multiImagePicker-param-galleryPopupIcon"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">galleryPopupIcon</span>, </span><span class="parameter" id="multiImagePicker-param-imageSource"><span class="type-annotation"><a href="../gs_form_model_fields_model_image_picker_model/GSImageSource.html">GSImageSource</a>?</span> <span class="parameter-name">imageSource</span>, </span><span class="parameter" id="multiImagePicker-param-iconColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">iconColor</span>, </span><span class="parameter" id="multiImagePicker-param-showCropper"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showCropper</span>, </span><span class="parameter" id="multiImagePicker-param-maximumSizePerImageInKB"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">maximumSizePerImageInKB</span>, </span><span class="parameter" id="multiImagePicker-param-maximumImageCount"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">maximumImageCount</span>, </span><span class="parameter" id="multiImagePicker-param-onErrorSizeItem"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">onErrorSizeItem</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.number" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.number.html">GSField.number</a></span><span class="signature">(<span class="parameter" id="number-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="number-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="number-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="number-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="number-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="number-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="number-param-postfixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">postfixWidget</span>, </span><span class="parameter" id="number-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="number-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="number-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="number-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="number-param-validateRegEx"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateRegEx</span>, </span><span class="parameter" id="number-param-maxLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLength</span>, </span><span class="parameter" id="number-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="number-param-showCounter"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showCounter</span>, </span><span class="parameter" id="number-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.password" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.password.html">GSField.password</a></span><span class="signature">(<span class="parameter" id="password-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="password-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="password-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="password-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="password-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="password-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="password-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="password-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="password-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="password-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="password-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="password-param-validateReg"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateReg</span>, </span><span class="parameter" id="password-param-maxLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLength</span>, </span><span class="parameter" id="password-param-minLine"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">minLine</span>, </span><span class="parameter" id="password-param-maxLine"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLine</span>, </span><span class="parameter" id="password-param-isEnable"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">isEnable</span>, </span><span class="parameter" id="password-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.price" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.price.html">GSField.price</a></span><span class="signature">(<span class="parameter" id="price-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="price-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="price-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="price-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="price-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="price-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="price-param-currencyName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">currencyName</span>, </span><span class="parameter" id="price-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="price-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="price-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="price-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="price-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="price-param-validateRegEx"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateRegEx</span>, </span><span class="parameter" id="price-param-maxLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLength</span>, </span><span class="parameter" id="price-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.qrScanner" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.qrScanner.html">GSField.qrScanner</a></span><span class="signature">(<span class="parameter" id="qrScanner-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="qrScanner-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="qrScanner-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="qrScanner-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="qrScanner-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="qrScanner-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="qrScanner-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="qrScanner-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="qrScanner-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="qrScanner-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>, </span><span class="parameter" id="qrScanner-param-iconWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">iconWidget</span>, </span><span class="parameter" id="qrScanner-param-iconColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">iconColor</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.radioGroup" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.radioGroup.html">GSField.radioGroup</a></span><span class="signature">(<span class="parameter" id="radioGroup-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="radioGroup-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="radioGroup-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="radioGroup-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="radioGroup-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="radioGroup-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="radioGroup-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="radioGroup-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="radioGroup-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="radioGroup-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="radioGroup-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="radioGroup-param-validateRegEx"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateRegEx</span>, </span><span class="parameter" id="radioGroup-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>, </span><span class="parameter" id="radioGroup-param-scrollDirection"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/Axis.html">Axis</a>?</span> <span class="parameter-name">scrollDirection</span>, </span><span class="parameter" id="radioGroup-param-selectedIcon"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">selectedIcon</span>, </span><span class="parameter" id="radioGroup-param-unSelectedIcon"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">unSelectedIcon</span>, </span><span class="parameter" id="radioGroup-param-scrollable"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">scrollable</span>, </span><span class="parameter" id="radioGroup-param-height"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">height</span>, </span><span class="parameter" id="radioGroup-param-showScrollBar"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showScrollBar</span>, </span><span class="parameter" id="radioGroup-param-scrollBarColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">scrollBarColor</span>, </span><span class="parameter" id="radioGroup-param-searchable"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">searchable</span>, </span><span class="parameter" id="radioGroup-param-searchHint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">searchHint</span>, </span><span class="parameter" id="radioGroup-param-searchIcon"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Icon-class.html">Icon</a>?</span> <span class="parameter-name">searchIcon</span>, </span><span class="parameter" id="radioGroup-param-searchBoxDecoration"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/BoxDecoration-class.html">BoxDecoration</a>?</span> <span class="parameter-name">searchBoxDecoration</span>, </span><span class="parameter" id="radioGroup-param-items"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../gs_form_model_data_model_radio_data_model/RadioDataModel-class.html">RadioDataModel</a></span>&gt;</span></span> <span class="parameter-name">items</span>, </span><span class="parameter" id="radioGroup-param-callBack"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../gs_form_model_data_model_radio_data_model/RadioDataModel-class.html">RadioDataModel</a></span>&gt;</span></span> <span class="parameter-name">callBack</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.spinner" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.spinner.html">GSField.spinner</a></span><span class="signature">(<span class="parameter" id="spinner-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="spinner-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="spinner-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="spinner-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="spinner-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="spinner-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="spinner-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="spinner-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="spinner-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="spinner-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="spinner-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="spinner-param-validateRegEx"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateRegEx</span>, </span><span class="parameter" id="spinner-param-onChange"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/ValueChanged.html">ValueChanged</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../gs_form_model_data_model_spinner_data_model/SpinnerDataModel-class.html">SpinnerDataModel</a>?</span>&gt;</span>?</span> <span class="parameter-name">onChange</span>, </span><span class="parameter" id="spinner-param-items"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../gs_form_model_data_model_spinner_data_model/SpinnerDataModel-class.html">SpinnerDataModel</a></span>&gt;</span></span> <span class="parameter-name">items</span>, </span><span class="parameter" id="spinner-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.text" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.text.html">GSField.text</a></span><span class="signature">(<span class="parameter" id="text-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="text-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="text-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="text-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="text-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="text-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="text-param-postfixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">postfixWidget</span>, </span><span class="parameter" id="text-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="text-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="text-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="text-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="text-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="text-param-validateRegEx"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateRegEx</span>, </span><span class="parameter" id="text-param-maxLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLength</span>, </span><span class="parameter" id="text-param-minLine"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">minLine</span>, </span><span class="parameter" id="text-param-maxLine"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLine</span>, </span><span class="parameter" id="text-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.textPlain" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.textPlain.html">GSField.textPlain</a></span><span class="signature">(<span class="parameter" id="textPlain-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="textPlain-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="textPlain-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="textPlain-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="textPlain-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="textPlain-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="textPlain-param-postfixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">postfixWidget</span>, </span><span class="parameter" id="textPlain-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="textPlain-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="textPlain-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="textPlain-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="textPlain-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="textPlain-param-validateRegEx"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateRegEx</span>, </span><span class="parameter" id="textPlain-param-maxLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLength</span>, </span><span class="parameter" id="textPlain-param-minLine"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">minLine</span>, </span><span class="parameter" id="textPlain-param-maxLine"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLine</span>, </span><span class="parameter" id="textPlain-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>, </span><span class="parameter" id="textPlain-param-showCounter"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showCounter</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="GSField.time" class="callable">
+          <span class="name"><a href="../gs_form_widget_field/GSField/GSField.time.html">GSField.time</a></span><span class="signature">(<span class="parameter" id="time-param-key">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="time-param-tag"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="time-param-title"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">title</span>, </span><span class="parameter" id="time-param-errorMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">errorMessage</span>, </span><span class="parameter" id="time-param-helpMessage"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">helpMessage</span>, </span><span class="parameter" id="time-param-prefixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">prefixWidget</span>, </span><span class="parameter" id="time-param-postfixWidget"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">postfixWidget</span>, </span><span class="parameter" id="time-param-showTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">showTitle</span>, </span><span class="parameter" id="time-param-required"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">required</span>, </span><span class="parameter" id="time-param-status"><span class="type-annotation"><a href="../gs_form_enums_field_status/GSFieldStatusEnum.html">GSFieldStatusEnum</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="time-param-value"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">value</span>, </span><span class="parameter" id="time-param-weight"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">weight</span>, </span><span class="parameter" id="time-param-validateReg"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/RegExp-class.html">RegExp</a>?</span> <span class="parameter-name">validateReg</span>, </span><span class="parameter" id="time-param-maxLength"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLength</span>, </span><span class="parameter" id="time-param-hint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">hint</span>, </span><span class="parameter" id="time-param-initialTime"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/TimeOfDay-class.html">TimeOfDay</a>?</span> <span class="parameter-name">initialTime</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+    </dl>
+  </section>
+
+    <section class="summary offset-anchor" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="child" class="property">
+  <span class="name"><a href="../gs_form_widget_field/GSField/child.html">child</a></span>
+  <span class="signature">&#8596; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">read / write</span></div>
+
+</dd>
+
+        <dt id="formStyle" class="property">
+  <span class="name"><a href="../gs_form_widget_field/GSField/formStyle.html">formStyle</a></span>
+  <span class="signature">&#8596; <a href="../gs_form_core_form_style/GSFormStyle-class.html">GSFormStyle</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">read / write</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> 
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">read-only</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> 
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="model" class="property">
+  <span class="name"><a href="../gs_form_widget_field/GSField/model.html">model</a></span>
+  <span class="signature">&#8596; <a href="../gs_form_model_fields_model_field_model/GSFieldModel-class.html">GSFieldModel</a></span> 
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">read / write</span></div>
+
+</dd>
+
+        <dt id="onUpdate" class="property">
+  <span class="name"><a href="../gs_form_widget_field/GSField/onUpdate.html">onUpdate</a></span>
+  <span class="signature">&#8596; <a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> 
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">read / write</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span> 
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">read-only</span><span class="feature">inherited</span></div>
+
+</dd>
+
+      </dl>
+    </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/StatefulElement-class.html">StatefulElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Creates a <a href="https://api.flutter.dev/flutter/widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="createState" class="callable">
+  <span class="name"><a href="../gs_form_widget_field/GSField/createState.html">createState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../gs_form_widget_field/GSField-class.html">GSField</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates the mutable state for this widget at a given location in the tree.
+  <div class="features"><span class="feature">override</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <code>DiagnosticsNode</code> objects describing this node's
+children.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr><span class="parameter" id="toDiagnosticsNode-param-name">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr><span class="parameter" id="toString-param-minLevel">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr><span class="parameter" id="toStringDeep-param-prefixLineOne">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr><span class="parameter" id="toStringShallow-param-joiner">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="update" class="callable">
+  <span class="name"><a href="../gs_form_widget_field/GSField/update.html">update</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">gsform</a></li>
+  <li><a href="../gs_form_widget_field/gs_form_widget_field-library.html">field</a></li>
+  <li class="self-crumb">GSField class</li>
+</ol>
+
+
+    <h5>field library</h5>
+    <ol>
+      <li class="section-title"><a href="../gs_form_widget_field/gs_form_widget_field-library.html#classes">Classes</a></li>
+        <li><a href="../gs_form_widget_field/GSField-class.html">GSField</a></li>
+
+
+
+
+
+
+
+
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <ol>
+
+        <li class="section-title"><a href="../gs_form_widget_field/GSField-class.html#constructors">Constructors</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.bankCard.html">bankCard</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.checkList.html">checkList</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.datePicker.html">datePicker</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.dateRangePicker.html">dateRangePicker</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.email.html">email</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.imagePicker.html">imagePicker</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.mobile.html">mobile</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.multiImagePicker.html">multiImagePicker</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.number.html">number</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.password.html">password</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.price.html">price</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.qrScanner.html">qrScanner</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.radioGroup.html">radioGroup</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.spinner.html">spinner</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.text.html">text</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.textPlain.html">textPlain</a></li>
+          <li><a href="../gs_form_widget_field/GSField/GSField.time.html">time</a></li>
+
+
+        <li class="section-title">
+          <a href="../gs_form_widget_field/GSField-class.html#instance-properties">Properties</a>
+        </li>
+          <li><a href="../gs_form_widget_field/GSField/child.html">child</a></li>
+          <li><a href="../gs_form_widget_field/GSField/formStyle.html">formStyle</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
+          <li><a href="../gs_form_widget_field/GSField/model.html">model</a></li>
+          <li><a href="../gs_form_widget_field/GSField/onUpdate.html">onUpdate</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+        <li class="section-title"><a href="../gs_form_widget_field/GSField-class.html#instance-methods">Methods</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatefulWidget/createElement.html">createElement</a></li>
+          <li><a href="../gs_form_widget_field/GSField/createState.html">createState</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></li>
+          <li><a href="../gs_form_widget_field/GSField/update.html">update</a></li>
+
+        <li class="section-title inherited"><a href="../gs_form_widget_field/GSField-class.html#operators">Operators</a></li>
+          <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    gsform
+      0.2.6
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

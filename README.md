@@ -2,7 +2,7 @@
 </br>
 </br>
 </br>
-
+</br>
 <p align="center">
 <img src="https://github.com/golrangsystem/gsform/blob/main/screenshot/gsform_logo.png?raw=true" width="300" height="100">
 
@@ -75,7 +75,7 @@ This will add a line like this to your package's pubspec.yaml (and run an implic
 
 ```
 dependencies:
-  gsform: ^0.1.7
+  gsform: ^0.3.6
 ```
 
 Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn

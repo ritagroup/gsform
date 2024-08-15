@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 import 'field_model.dart';
 
@@ -21,6 +20,10 @@ class GSTextModel extends GSFieldModel {
       validateRegEx,
       weight,
       showTitle,
+      enableReadOnly,
+      onTap,
+      focusNode,
+      nextFocusNode,
       this.maxLength,
       this.hint})
       : super(
@@ -33,10 +36,13 @@ class GSTextModel extends GSFieldModel {
           postfixWidget: postfixWidget,
           required: required,
           status: status,
-          defaultValue: value,
+          value: value,
           validateRegEx: validateRegEx,
           weight: weight,
-          focusNode: FocusNode(),
+          focusNode: focusNode,
+          nextFocusNode: nextFocusNode,
           showTitle: showTitle,
+          enableReadOnly: enableReadOnly,
+          onTap: onTap,
         );
 }
