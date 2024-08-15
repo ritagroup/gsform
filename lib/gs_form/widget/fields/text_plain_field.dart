@@ -7,6 +7,8 @@ import 'package:gsform/gs_form/model/fields_model/text_plain_model.dart';
 class GSTextPlainField extends StatefulWidget implements GSFieldCallBack {
   final GSTextPlainModel model;
   final GSFormStyle formStyle;
+  Function(String)? onChanged;
+
   
   TextEditingController? controller;
 
@@ -74,6 +76,9 @@ class _GSTextPlainFieldState extends State<GSTextPlainField> {
         onSubmitted: (_) {
           FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
         },
+        onChanged: (value) {
+          onChanged?.call(value);
+        }
         decoration: InputDecoration(
           counter: widget.model.showCounter ?? false ? null : const Offstage(),
           hintText: widget.model.hint,

@@ -339,15 +339,15 @@ class GSField extends StatefulWidget {
         requiredCheckListEnum: requiredCheckListEnum);
   }
 
-  GSField.text({
-    Key? key,
-    required String tag,
-    String? title,
-    String? errorMessage,
-    String? helpMessage,
-    Widget? prefixWidget,
-    Widget? postfixWidget,
-    bool? required,
+  GSField.text(
+      {Key? key,
+      required String tag,
+      String? title,
+      String? errorMessage,
+      String? helpMessage,
+      Widget? prefixWidget,
+      Widget? postfixWidget,
+      bool? required,
       bool? showTitle,
       GSFieldStatusEnum? status,
       String? value,
@@ -359,7 +359,8 @@ class GSField extends StatefulWidget {
       String? hint,
       bool? readOnly,
       FocusNode? focusNode,
-      FocusNode? nextFocusNode}) : super(key: key) {
+      FocusNode? nextFocusNode})
+      : super(key: key) {
     model = GSTextModel(
       type: GSFieldTypeEnum.text,
       tag: tag,
@@ -878,29 +879,20 @@ class _GSFieldState extends State<GSField> {
                 ),
                 const SizedBox(height: 4.0),
                 Opacity(
-                      opacity: (widget.model?.status == GSFieldStatusEnum.error && widget.model?.errorMessage != null) ||
-                          widget.model?.helpMessage != null
-                      ? 1
-                      : 0,
+                  opacity: (widget.model?.status == GSFieldStatusEnum.error && widget.model?.errorMessage != null) || widget.model?.helpMessage != null ? 1 : 0,
                   child: Row(
                     children: [
                       SizedBox(
                         width: 8.0,
                         height: 8.0,
                         child: SvgPicture.asset(
-                          widget.model?.status == GSFieldStatusEnum.error
-                              ? 'packages/gsform/assets/ic_alret.svg'
-                              : 'packages/gsform/assets/ic_info.svg',
+                          widget.model?.status == GSFieldStatusEnum.error ? 'packages/gsform/assets/ic_alret.svg' : 'packages/gsform/assets/ic_info.svg',
                         ),
                       ),
                       const SizedBox(width: 1.0),
                       Text(
-                        widget.model?.status == GSFieldStatusEnum.error
-                            ? widget.model?.errorMessage ?? ''
-                            : widget.model?.helpMessage ?? '',
-                        style: widget.model?.status == GSFieldStatusEnum.error
-                            ? widget.formStyle!.errorTextStyle
-                            : widget.formStyle!.helpTextStyle,
+                        widget.model?.status == GSFieldStatusEnum.error ? widget.model?.errorMessage ?? '' : widget.model?.helpMessage ?? '',
+                        style: widget.model?.status == GSFieldStatusEnum.error ? widget.formStyle!.errorTextStyle : widget.formStyle!.helpTextStyle,
                       ),
                     ],
                   ),
