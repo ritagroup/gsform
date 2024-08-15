@@ -358,6 +358,7 @@ class GSField extends StatefulWidget {
       int? maxLine,
       String? hint,
       bool? readOnly,
+      Function(String?)? onChanged,
       FocusNode? focusNode,
       FocusNode? nextFocusNode})
       : super(key: key) {
@@ -441,6 +442,7 @@ class GSField extends StatefulWidget {
     String? hint,
     bool? showCounter,
     bool? readOnly,
+    Function(String?)? onChanged,
   }) : super(key: key) {
     model = GSTextPlainModel(
       type: GSFieldTypeEnum.textPlain,
@@ -462,6 +464,7 @@ class GSField extends StatefulWidget {
       showCounter: showCounter,
       enableReadOnly: readOnly,
     );
+    onChange = onChanged;
   }
 
   GSField.mobile({
@@ -561,6 +564,7 @@ class GSField extends StatefulWidget {
     GSDate? initialDate,
     GSDate? availableFrom,
     GSDate? availableTo,
+    Function(DateTime?)? onChanged,
   }) : super(key: key) {
     model = GSDatePickerModel(
         type: GSFieldTypeEnum.date,
@@ -649,6 +653,7 @@ class GSField extends StatefulWidget {
     int? maxLength,
     String? hint,
     TimeOfDay? initialTime,
+    Function(TimeOfDay?)? onChanged,
     // TimePickerType ? timePickerType ,
   }) : super(key: key) {
     model = GSTimePickerModel(
