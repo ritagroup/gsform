@@ -103,10 +103,10 @@ class _GSTimePickerFieldState extends State<GSTimePickerField> {
   }
 
   _openPersianTimePicker() async {
-    var picked = await showPersianTimePicker(
+    var picked = await showTimePicker(
       context: widget.context,
       initialTime: widget.selectedTime ?? TimeOfDay.now(),
-      initialEntryMode: PTimePickerEntryMode.dial,
+      initialEntryMode: TimePickerEntryMode.dial,
       useRootNavigator: false,
     );
     if (picked != null) {

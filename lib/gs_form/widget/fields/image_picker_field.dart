@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:figma_squircle/figma_squircle.dart';
+import 'package:figma_squircle_updated/figma_squircle.dart';
 import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:gsform/gs_form/core/form_style.dart';

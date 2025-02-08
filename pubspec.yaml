@@ -12,8 +12,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  figma_squircle: ^0.5.3
-  persian_datetime_picker: ^2.6.0
+  figma_squircle_updated: ^1.0.1
+  persian_datetime_picker: ^3.1.0
   intl: ^0.19.0
   qr_code_scanner: ^1.0.1
   image_cropper: ^5.0.1

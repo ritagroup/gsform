@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:figma_squircle/figma_squircle.dart';
+import 'package:figma_squircle_updated/figma_squircle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
