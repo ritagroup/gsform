@@ -56,15 +56,15 @@ class _GSQRScannerFieldState extends State<GSQRScannerField> {
               borderRadius: BorderRadius.circular(10.0),
             ),
             onTap: () {
-              _route(
-                context,
-                QrScannerScreen(
-                  callback: (value) {
-                    widget._scannedValue = value.code;
-                    setState(() {});
-                  },
-                ),
-              );
+              // _route(
+              //   context,
+              //   QrScannerScreen(
+              //     callback: (value) {
+              //       widget._scannedValue = value.code;
+              //       setState(() {});
+              //     },
+              //   ),
+              // );
             },
             child: Padding(
               padding: const EdgeInsets.all(12.0),
