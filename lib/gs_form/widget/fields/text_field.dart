@@ -65,6 +65,7 @@ class _GSTextFieldState extends State<GSTextField> {
         style: widget.formStyle.fieldTextStyle,
         keyboardType: TextInputType.text,
         focusNode: widget.model.focusNode,
+        onChanged: widget.model.onChanged,
         textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
         onSubmitted: (_) {
           FocusScope.of(context).requestFocus(widget.model.nextFocusNode);

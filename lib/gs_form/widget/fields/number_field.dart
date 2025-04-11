@@ -69,6 +69,7 @@ class _GSNumberFieldState extends State<GSNumberField> {
         keyboardType: TextInputType.phone,
         focusNode: widget.model.focusNode,
         textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
+        onChanged: widget.model.onChanged,
         onSubmitted: (_) {
           FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
         },

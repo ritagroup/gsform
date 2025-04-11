@@ -5,6 +5,7 @@ import 'field_model.dart';
 class GSMobileModel extends GSFieldModel {
   int? maxLength;
   String? hint;
+  ValueChanged<String>? onChanged ;
 
   GSMobileModel(
       {type,
@@ -23,6 +24,7 @@ class GSMobileModel extends GSFieldModel {
       enableReadOnly,
       onTap,
       this.maxLength,
+  this.onChanged ,
       this.hint})
       : super(
           type: type,
@@ -41,5 +43,8 @@ class GSMobileModel extends GSFieldModel {
           showTitle: showTitle,
           enableReadOnly: enableReadOnly,
           onTap: onTap,
+
+
+
         );
 }

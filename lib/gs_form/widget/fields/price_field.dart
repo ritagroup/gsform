@@ -1,5 +1,7 @@
 // ignore_for_file: must_be_immutable
 
+import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
+
 import 'package:flutter/material.dart';
 import 'package:gsform/gs_form/core/field_callback.dart';
 import 'package:intl/intl.dart';
@@ -77,6 +79,7 @@ class _GSPriceFieldState extends State<GSPriceField> {
         readOnly: widget.model.enableReadOnly ?? false,
         controller: widget.controller,
         maxLength: widget.model.maxLength,
+
         keyboardType: TextInputType.number,
         textAlign: TextAlign.left,
         focusNode: widget.model.focusNode,
@@ -91,6 +94,8 @@ class _GSPriceFieldState extends State<GSPriceField> {
             text: string,
             selection: TextSelection.collapsed(offset: string.length),
           );
+          widget.model.onChanged?.call(string) ;
+
         },
         decoration: InputDecoration(
           hintText: widget.model.hint,

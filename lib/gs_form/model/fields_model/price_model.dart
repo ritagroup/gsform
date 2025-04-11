@@ -4,7 +4,7 @@ import 'field_model.dart';
 
 class GSPriceModel extends GSFieldModel {
   int? maxLength;
-
+  ValueChanged<String>? onChanged;
   String? hint;
 
   GSPriceModel(
@@ -24,6 +24,7 @@ class GSPriceModel extends GSFieldModel {
       showTitle,
       enableReadOnly,
       onTap,
+      this.onChanged,
       this.hint})
       : super(
           type: type,

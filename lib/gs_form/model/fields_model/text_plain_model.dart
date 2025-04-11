@@ -8,6 +8,7 @@ class GSTextPlainModel extends GSFieldModel {
   int? minLine;
   String? hint;
   bool? showCounter;
+  ValueChanged<String>? onChanged;
 
   GSTextPlainModel(
       {type,
@@ -25,6 +26,7 @@ class GSTextPlainModel extends GSFieldModel {
       weight,
       showTitle,
       onTap,
+  this.onChanged ,
       this.minLine,
       this.maxLength,
       this.maxLine,

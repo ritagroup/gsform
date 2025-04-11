@@ -5,6 +5,7 @@ class GSNumberModel extends GSFieldModel {
   int? maxLength;
   String? hint;
   bool? showCounter;
+  ValueChanged<String>? onChanged;
 
   GSNumberModel(
       {type,
@@ -23,6 +24,7 @@ class GSNumberModel extends GSFieldModel {
       showTitle,
       enableReadOnly,
       onTap,
+      this.onChanged,
       this.showCounter,
       this.maxLength,
       this.hint})

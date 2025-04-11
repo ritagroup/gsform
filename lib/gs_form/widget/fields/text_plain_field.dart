@@ -69,6 +69,8 @@ class _GSTextPlainFieldState extends State<GSTextPlainField> {
         focusNode: widget.model.focusNode,
         maxLength: widget.model.maxLength,
         style: widget.formStyle.fieldTextStyle,
+        onChanged: widget.model.onChanged,
+
         textInputAction: TextInputAction.newline,
         onSubmitted: (_) {
           FocusScope.of(context).requestFocus(widget.model.nextFocusNode);

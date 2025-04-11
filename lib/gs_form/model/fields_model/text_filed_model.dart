@@ -1,10 +1,13 @@
 
+import 'package:flutter/material.dart';
+
 import 'field_model.dart';
 
 class GSTextModel extends GSFieldModel {
   int? maxLength;
 
   String? hint;
+  ValueChanged<String>? onChanged;
 
   GSTextModel(
       {type,
@@ -24,6 +27,7 @@ class GSTextModel extends GSFieldModel {
       onTap,
       focusNode,
       nextFocusNode,
+  this.onChanged ,
       this.maxLength,
       this.hint})
       : super(
