@@ -354,10 +354,12 @@ class GSField extends StatefulWidget {
       String? hint,
       bool? readOnly,
       FocusNode? focusNode,
+    ValueChanged<String>? onchange ,
       FocusNode? nextFocusNode}) : super(key: key) {
     model = GSTextModel(
       type: GSFieldTypeEnum.text,
       tag: tag,
+      onChanged: onchange,
       focusNode: focusNode,
       nextFocusNode: nextFocusNode,
       showTitle: showTitle ?? true,
@@ -395,11 +397,13 @@ class GSField extends StatefulWidget {
     bool? isEnable,
     String? hint,
     bool? readOnly,
+    ValueChanged<String>? onchange ,
   }) : super(key: key) {
     model = GSPasswordModel(
       type: GSFieldTypeEnum.password,
       showTitle: showTitle ?? true,
       tag: tag,
+      onChanged: onchange,
       title: title,
       errorMessage: errorMessage,
       helpMessage: helpMessage,
@@ -434,11 +438,13 @@ class GSField extends StatefulWidget {
     String? hint,
     bool? showCounter,
     bool? readOnly,
+    ValueChanged<String>? onchange ,
   }) : super(key: key) {
     model = GSTextPlainModel(
       type: GSFieldTypeEnum.textPlain,
       tag: tag,
       title: title,
+      onChanged: onchange,
       showTitle: showTitle ?? true,
       errorMessage: errorMessage,
       helpMessage: helpMessage,
@@ -474,11 +480,13 @@ class GSField extends StatefulWidget {
     int? maxLength,
     String? hint,
     bool? readOnly,
+    ValueChanged<String>? onchange ,
   }) : super(key: key) {
     model = GSMobileModel(
       type: GSFieldTypeEnum.mobile,
       tag: tag,
       title: title,
+      onChanged: onchange,
       errorMessage: errorMessage,
       helpMessage: helpMessage,
       prefixWidget: prefixWidget,
@@ -508,6 +516,7 @@ class GSField extends StatefulWidget {
     int? weight,
     RegExp? validateRegEx,
     int? maxLength,
+    ValueChanged<String>? onchange ,
     bool? showTitle,
     bool? showCounter,
     String? hint,
@@ -518,6 +527,7 @@ class GSField extends StatefulWidget {
       showTitle: showTitle ?? true,
       tag: tag,
       title: title,
+      onChanged: onchange,
       errorMessage: errorMessage,
       helpMessage: helpMessage,
       prefixWidget: prefixWidget,
@@ -678,6 +688,7 @@ class GSField extends StatefulWidget {
     int? maxLength,
     String? hint,
     bool? readOnly,
+
   }) : super(key: key) {
     model = GSEmailModel(
       type: GSFieldTypeEnum.email,
@@ -702,6 +713,7 @@ class GSField extends StatefulWidget {
     Key? key,
     required String tag,
     String? title,
+    ValueChanged<String>? onchange ,
     String? errorMessage,
     String? helpMessage,
     Widget? prefixWidget,
@@ -718,6 +730,7 @@ class GSField extends StatefulWidget {
   }) : super(key: key) {
     model = GSPriceModel(
       type: GSFieldTypeEnum.price,
+      onChanged: onchange,
       tag: tag,
       title: title,
       showTitle: showTitle ?? true,
