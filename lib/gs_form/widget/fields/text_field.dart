@@ -36,6 +36,7 @@ class GSTextField extends StatefulWidget implements GSFieldCallBack {
 class _GSTextFieldState extends State<GSTextField> {
   @override
   void initState() {
+    widget.controller = null ;
     widget.controller ??= TextEditingController();
     if (widget.model.value != null) {
       widget.controller?.text = widget.model.value;
@@ -46,7 +47,7 @@ class _GSTextFieldState extends State<GSTextField> {
   @override
   void didUpdateWidget(covariant GSTextField oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.model.value == widget.model.value) {
+    if (oldWidget.model.value == widget.model.value ) {
       widget.controller = oldWidget.controller;
     } else {
       widget.controller ??= TextEditingController();
@@ -64,12 +65,12 @@ class _GSTextFieldState extends State<GSTextField> {
         maxLength: widget.model.maxLength,
         style: widget.formStyle.fieldTextStyle,
         keyboardType: TextInputType.text,
-        focusNode: widget.model.focusNode,
+        // focusNode: widget.model.focusNode,
         onChanged: widget.model.onChanged,
-        textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
-        onSubmitted: (_) {
-          FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
-        },
+        // textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
+        // onSubmitted: (_) {
+        //   FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
+        // },
         decoration: InputDecoration(
           hintText: widget.model.hint,
           counterText: '',

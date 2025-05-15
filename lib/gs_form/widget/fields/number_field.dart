@@ -47,13 +47,15 @@ class _GSNumberFieldState extends State<GSNumberField> {
 
   @override
   void didUpdateWidget(covariant GSNumberField oldWidget) {
-    super.didUpdateWidget(oldWidget);
+
+    widget.controller = null;
     if (oldWidget.model.value == widget.model.value) {
       widget.controller = oldWidget.controller;
     } else {
       widget.controller ??= TextEditingController();
       widget.controller!.text = widget.model.value;
     }
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -67,12 +69,12 @@ class _GSNumberFieldState extends State<GSNumberField> {
         maxLength: widget.model.maxLength,
         style: widget.formStyle.fieldTextStyle,
         keyboardType: TextInputType.phone,
-        focusNode: widget.model.focusNode,
-        textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
+        // focusNode: widget.model.focusNode,
+        // textInputAction: widget.model.nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
         onChanged: widget.model.onChanged,
-        onSubmitted: (_) {
-          FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
-        },
+        // onSubmitted: (_) {
+        //   FocusScope.of(context).requestFocus(widget.model.nextFocusNode);
+        // },
         decoration: InputDecoration(
           counter: (widget.model.showCounter ?? false) ? null : const Offstage(),
           hintText: widget.model.hint,
