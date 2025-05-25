@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
 export "FLUTTER_ROOT=C:\Projects\flutterSdk\flutter"
-export "FLUTTER_APPLICATION_PATH=C:\Projects\pubdev\gsform"
+export "FLUTTER_APPLICATION_PATH=D:\Develpment\Project\pubdev\gsform"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=0.3.7"
