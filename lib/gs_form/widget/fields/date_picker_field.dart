@@ -214,6 +214,9 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
       initialDate: widget.jalaliInitialDate,
       firstDate: widget.jalaliAvailableFrom,
       lastDate: widget.jalaliAvailableTo,
+      initialEntryMode:
+      PersianDatePickerEntryMode.calendar,
+      initialDatePickerMode: PersianDatePickerMode.day,
     );
     if (picked != null) {
       widget.selectedJalaliDate = picked;

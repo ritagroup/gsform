@@ -139,6 +139,8 @@ class _GSDateRangePickerFieldState extends State<GSDateRangePickerField> {
         start: widget.jalaliInitialStartDate,
         end: widget.jalaliInitialEndDate,
       ),
+      initialEntryMode:
+      PersianDatePickerEntryMode.calendar,
       firstDate: widget.jalaliAvailableFrom,
       lastDate: widget.jalaliAvailableTo,
       initialDate: widget.jalaliInitialStartDate,
