@@ -217,6 +217,8 @@ class _GSDatePickerFieldState extends State<GSDatePickerField> {
       initialEntryMode:
       PersianDatePickerEntryMode.calendar,
       initialDatePickerMode: PersianDatePickerMode.day,
+      locale: const Locale("fa", "IR"),
+
     );
     if (picked != null) {
       widget.selectedJalaliDate = picked;
